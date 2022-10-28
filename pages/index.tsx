@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getSortedPostsData } from "../lib/posts";
+import { getSortedPostsData, PostData } from "../lib/posts";
 import Link from "next/link";
 
 export async function getStaticProps() {
@@ -11,9 +11,8 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allPostsData }: any) {
+export default function Home({ allPostsData }: props) {
   const [isDarkMode, setIsDarkMode] = useState<boolean>();
-  console.log(allPostsData);
 
   useEffect(() => {
     setIsDarkMode(document.documentElement.classList.contains("dark"));
@@ -40,3 +39,7 @@ export default function Home({ allPostsData }: any) {
     </>
   );
 }
+
+type props = {
+  allPostsData: PostData[];
+};

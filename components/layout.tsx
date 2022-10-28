@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from "next/head";
+import Header from "./header";
 import { ReactNode } from "react";
 
 export default function Layout({ children }: props) {
@@ -11,9 +12,10 @@ export default function Layout({ children }: props) {
           content="Personal website of Chris Jarling, full stack developer from Germany."
         />
       </Head>
+      <Header />
       {children}
     </>
-  )
+  );
 }
 
 type props = {
