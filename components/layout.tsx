@@ -13,7 +13,7 @@ export default function Layout({ children }: props) {
         />
       </Head>
       <Header />
-      <div className="mt-36 max-w-screen-md mx-auto">
+      <div className="mt-48 max-w-screen-md mx-auto">
         {children}
       </div>
     </>

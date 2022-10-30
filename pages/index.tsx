@@ -3,6 +3,7 @@ import memoji from '../public/memoji.png'
 import { getSortedPostsData, PostData } from "../lib/posts";
 import Link from "next/link";
 import MailButton from "../components/mail-button";
+import Divider from "../components/divider";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -26,6 +27,7 @@ export default function Home({ allPostsData }: props) {
           <Image src={memoji} alt="Me, as a memoji" height="220" />
         </div>
       </div>
+      <Divider />
       <div className="mt-96">Here be home</div>
       <h2>All posts</h2>
       <ul>
