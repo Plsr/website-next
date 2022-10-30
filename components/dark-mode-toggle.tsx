@@ -17,7 +17,7 @@ export default function DarkModeToggle() {
   };
 
   return (
-    <button onClick={handleDarkModeToggleClick} className="p-3 rounded dark:hover:text-teal-400 hover:bg-teal-200 dark:hover:bg-slate-700">
+    <button onClick={handleDarkModeToggleClick} className="p-3 rounded dark:hover:text-teal-400 hover:bg-blue-100 hover:text-teal-500 dark:hover:bg-slate-700">
       { isDarkMode ? <SunIcon className={classNames} /> : <MoonIcon className={classNames} />}
     </button>
   )

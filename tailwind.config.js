@@ -10,10 +10,16 @@ module.exports = {
   theme: {
     colors: {
       black: '#171c29',
-      white: '#e1e7f5',
+      white: '#e1ebf2',
       slate: colors.slate,
       teal: colors.teal,
-      violet: colors.violet
+      violet: colors.violet,
+      blue: colors.blue,
+      yellow: colors.yellow,
+    },
+    fontFamily: {
+      'headline': ['Nunito', 'sans-serif'],
+      'body': ['Fira Sans', 'sans-serif']
     },
     extend: {},
   },
