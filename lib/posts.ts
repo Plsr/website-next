@@ -13,25 +13,38 @@ export type PostData = {
   id: string;
   title: string;
   date: string;
+  excerpt?: string;
   contentHtml: string;
 };
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
-export function getSortedPostsData() {
+export async function getSortedPostsData() {
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, "");
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+  const allPostsData = await Promise.all(
+    fileNames.map(async (fileName) => {
+      const id = fileName.replace(/\.md$/, "");
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
 
-    const matterResult = matter(fileContents);
+      const matterResult = matter(fileContents);
+      let excerpt: string | undefined = matterResult.data.excerpt;
+      console.log(excerpt);
 
-    return {
-      id,
-      ...(matterResult.data as MatterPostData),
-    };
-  });
+      if (!excerpt) {
+        const processedContent = await remark()
+          .use(html)
+          .process(matterResult.content);
+        excerpt = processedContent.toString().substring(0, 300) + "...";
+      }
+
+      return {
+        id,
+        excerpt,
+        ...(matterResult.data as MatterPostData),
+      };
+    })
+  );
 
   return allPostsData.sort(({ date: a }, { date: b }) => {
     if (a < b) {
