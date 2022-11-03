@@ -6,6 +6,7 @@ import MailButton from "../components/mail-button";
 import Divider from "../components/divider";
 import { NewspaperIcon } from "@heroicons/react/24/outline";
 import RecentArticle from "../components/recent-article";
+import HomepageHeadline from "../components/homepage-headline";
 
 export async function getStaticProps() {
   const allPostsData = await getSortedPostsData();
@@ -35,10 +36,10 @@ export default function Home({ allPostsData }: props) {
         </div>
       </div>
       <Divider />
-      <h3 className="-mr-2 inline-flex items-center font-headline text-xl text-violet-500 dark:text-yellow-100">
+      <HomepageHeadline>
         <NewspaperIcon className="w-6 h-6 mr-2" />
         Latest posts
-      </h3>
+      </HomepageHeadline>
       <ul className="mt-4">
         {allPostsData.slice(2).map((postData) => (
           <li key={postData.id} className="mb-12">
@@ -51,6 +52,7 @@ export default function Home({ allPostsData }: props) {
           </li>
         ))}
       </ul>
+      <Divider />
       <div className="mt-96">Here be home</div>
       <h2>All posts</h2>
       <ul>
