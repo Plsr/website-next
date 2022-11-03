@@ -1,20 +1,20 @@
-import Image from "next/image";
-import memoji from "../public/memoji.png";
-import { getSortedPostsData, PostData } from "../lib/posts";
-import Link from "next/link";
-import MailButton from "../components/mail-button";
-import Divider from "../components/divider";
-import { NewspaperIcon } from "@heroicons/react/24/outline";
-import RecentArticle from "../components/recent-article";
-import HomepageHeadline from "../components/homepage-headline";
+import Image from 'next/image'
+import memoji from '../public/memoji.png'
+import { getSortedPostsData, PostData } from '../lib/posts'
+import Link from 'next/link'
+import MailButton from '../components/mail-button'
+import Divider from '../components/divider'
+import { NewspaperIcon } from '@heroicons/react/24/outline'
+import RecentArticle from '../components/recent-article'
+import HomepageHeadline from '../components/homepage-headline'
 
 export async function getStaticProps() {
-  const allPostsData = await getSortedPostsData();
+  const allPostsData = await getSortedPostsData()
   return {
     props: {
       allPostsData,
     },
-  };
+  }
 }
 
 export default function Home({ allPostsData }: props) {
@@ -27,7 +27,7 @@ export default function Home({ allPostsData }: props) {
           </h2>
           <p className="text-xl leading-10 mb-6">
             I am a FullStack Developer and Designer who knows his way around
-            ReactJS, Ruby on Rails, JavaScript, HTML, CSS and UI Design.{" "}
+            ReactJS, Ruby on Rails, JavaScript, HTML, CSS and UI Design.{' '}
           </p>
           <MailButton />
         </div>
@@ -63,9 +63,9 @@ export default function Home({ allPostsData }: props) {
         ))}
       </ul>
     </>
-  );
+  )
 }
 
 type props = {
-  allPostsData: PostData[];
-};
+  allPostsData: PostData[]
+}

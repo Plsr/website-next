@@ -1,18 +1,18 @@
-import Link from "next/link";
-import formatDistance from "date-fns/formatDistance";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import useHover from "../lib/hooks/useHover";
-import { useRouter } from "next/router";
+import Link from 'next/link'
+import formatDistance from 'date-fns/formatDistance'
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
+import useHover from '../lib/hooks/useHover'
+import { useRouter } from 'next/router'
 
 export default function RecentArticle({ date, id, title, excerpt }: props) {
-  const postDate = Date.parse(date);
-  const ago = formatDistance(postDate, new Date());
-  const [hoverRef, isHovered] = useHover<HTMLDivElement>();
-  const router = useRouter();
+  const postDate = Date.parse(date)
+  const ago = formatDistance(postDate, new Date())
+  const [hoverRef, isHovered] = useHover<HTMLDivElement>()
+  const router = useRouter()
 
   const onPostClick = () => {
-    router.push(`/posts/${id}`);
-  };
+    router.push(`/posts/${id}`)
+  }
 
   return (
     <div
@@ -37,23 +37,23 @@ export default function RecentArticle({ date, id, title, excerpt }: props) {
           <span>Read more</span>
           <ArrowRightIcon
             className={`transition duration-300 w-4 h-4 ml-2 ${
-              isHovered ? "opacity-1" : "opacity-0"
+              isHovered ? 'opacity-1' : 'opacity-0'
             }`}
           />
         </div>
         <div
           className={`transition duration-300 w-full h-0.5 rounded ${
-            isHovered ? "opacity-1" : "opacity-0"
+            isHovered ? 'opacity-1' : 'opacity-0'
           } bg-gradient-to-r from-fuchsia-500 to-violet-500`}
         />
       </div>
     </div>
-  );
+  )
 }
 
 type props = {
-  date: string;
-  id: string;
-  title: string;
-  excerpt?: string;
-};
+  date: string
+  id: string
+  title: string
+  excerpt?: string
+}

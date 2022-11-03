@@ -1,6 +1,6 @@
-import Head from "next/head";
-import Header from "./header";
-import { ReactNode } from "react";
+import Head from 'next/head'
+import Header from './header'
+import { ReactNode } from 'react'
 
 export default function Layout({ children }: props) {
   return (
@@ -13,13 +13,11 @@ export default function Layout({ children }: props) {
         />
       </Head>
       <Header />
-      <div className="mt-48 max-w-screen-md mx-auto">
-        {children}
-      </div>
+      <div className="mt-48 max-w-screen-md mx-auto">{children}</div>
     </>
-  );
+  )
 }
 
 type props = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
