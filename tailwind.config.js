@@ -19,6 +19,7 @@ module.exports = {
       yellow: colors.yellow,
       fuchsia: colors.fuchsia,
       orange: colors.orange,
+      red: colors.red,
     },
     fontFamily: {
       headline: ['Nunito', 'sans-serif'],

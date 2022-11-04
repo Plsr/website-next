@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react'
-import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
+import { useState, useEffect } from "react";
+import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 
-const classNames = 'h-4 w-4'
+const classNames = "h-4 w-4";
 
 export default function DarkModeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>()
+  const [isDarkMode, setIsDarkMode] = useState<boolean>();
 
   useEffect(() => {
-    setIsDarkMode(document.documentElement.classList.contains('dark'))
-  }, [])
+    setIsDarkMode(document.documentElement.classList.contains("dark"));
+  }, []);
 
   const handleDarkModeToggleClick = () => {
-    document.documentElement.classList.toggle('dark')
-    localStorage.theme = isDarkMode ? 'light' : 'dark'
-    setIsDarkMode(!isDarkMode)
-  }
+    document.documentElement.classList.toggle("dark");
+    localStorage.theme = isDarkMode ? "light" : "dark";
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
     <button
@@ -27,5 +27,5 @@ export default function DarkModeToggle() {
         <MoonIcon className={classNames} />
       )}
     </button>
-  )
+  );
 }
