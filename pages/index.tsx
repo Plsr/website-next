@@ -1,41 +1,42 @@
-import Image from "next/image";
-import memoji from "../public/memoji.png";
-import { getSortedPostsData, PostData } from "../lib/posts";
-import Link from "next/link";
-import MailButton from "../components/mail-button";
-import Divider from "../components/divider";
+import Image from 'next/image'
+import memoji from '../public/memoji.png'
+import { getSortedPostsData, PostData } from '../lib/posts'
+import Link from 'next/link'
+import MailButton from '../components/mail-button'
+import Divider from '../components/divider'
 import {
   NewspaperIcon,
   BriefcaseIcon,
   BookmarkIcon,
   ClockIcon,
   ComputerDesktopIcon,
-} from "@heroicons/react/24/outline";
-import RecentArticle from "../components/recent-article";
-import HomepageHeadline from "../components/homepage-headline";
-import Project from "../components/project";
-import Layout from "../components/layout";
+} from '@heroicons/react/24/outline'
+import RecentArticle from '../components/recent-article'
+import HomepageHeadline from '../components/homepage-headline'
+import Project from '../components/project'
+import Layout from '../components/layout'
 
 export async function getStaticProps() {
-  const allPostsData = await getSortedPostsData();
+  const allPostsData = await getSortedPostsData()
   return {
     props: {
       allPostsData,
     },
-  };
+  }
 }
 
 export default function Home({ allPostsData }: props) {
   return (
-    <Layout>
+    <>
       <div className="flex justify-center items-center">
         <div className="mr-12">
-          <h2 className="text-4xl text-violet-500 dark:text-violet-400 mb-2 font-headline font-bold">
+          <h2 className="text-4xl text-amber-500 dark:text-yellow-200 mb-2 font-headline font-bold">
             Hi, I&apos;m Chris Jarling
           </h2>
           <p className="text-xl leading-10 mb-6">
-            I am a FullStack Developer and Designer who knows his way around
-            ReactJS, Ruby on Rails, JavaScript, HTML, CSS and UI Design.
+            I am a FullStack Developer who loves writing React, based in
+            Cologne, Germany. <br />I currently work on shaping the future of
+            phone plans at gigs 😍
           </p>
           <MailButton />
         </div>
@@ -85,19 +86,10 @@ export default function Home({ allPostsData }: props) {
           icon={<ComputerDesktopIcon />}
         />
       </div>
-      <div className="mt-96">Here be home</div>
-      <h2>All posts</h2>
-      <ul>
-        {allPostsData.map((postData) => (
-          <li key={postData.id}>
-            <Link href={`/posts/${postData.id}`}>{postData.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </Layout>
-  );
+    </>
+  )
 }
 
 type props = {
-  allPostsData: PostData[];
-};
+  allPostsData: PostData[]
+}

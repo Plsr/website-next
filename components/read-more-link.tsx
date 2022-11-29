@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
 
 export default function ReadMoreLink({
   isHovered,
@@ -12,22 +12,22 @@ export default function ReadMoreLink({
         {withArrow && (
           <ArrowRightIcon
             className={`transition duration-300 w-4 h-4 ml-2 ${
-              isHovered ? "opacity-1" : "opacity-0"
+              isHovered ? 'opacity-1' : 'opacity-0'
             }`}
           />
         )}
       </div>
       <div
         className={`transition duration-300 w-full h-0.5 rounded ${
-          isHovered ? "opacity-1" : "opacity-0"
-        } bg-gradient-to-r from-fuchsia-500 to-violet-500`}
+          isHovered ? 'opacity-1' : 'opacity-0'
+        } bg-gradient-to-r from-orange-300 to-fuchsia-400`}
       />
     </div>
-  );
+  )
 }
 
 type props = {
-  isHovered: boolean;
-  withArrow?: boolean;
-  text: string;
-};
+  isHovered: boolean
+  withArrow?: boolean
+  text: string
+}

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "./header";
+import Footer from "./footer";
 import { ReactNode } from "react";
 
 export default function Layout({ children }: props) {
@@ -13,9 +14,10 @@ export default function Layout({ children }: props) {
         />
       </Head>
       <Header />
-      <div className="mt-48 max-w-screen-md mx-auto  text-black dark:text-white font-body">
+      <main className="mt-48 max-w-screen-md mx-auto  text-black dark:text-white font-body mb-24">
         {children}
-      </div>
+      </main>
+      <Footer />
     </>
   );
 }
