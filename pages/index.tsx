@@ -61,31 +61,6 @@ export default function Home({ allPostsData }: props) {
           </li>
         ))}
       </ul>
-      <Divider />
-      <HomepageHeadline>
-        <BriefcaseIcon className="w-6 h-6 mr-2" />
-        Current Projects
-      </HomepageHeadline>
-      <div className="grid grid-cols-3 gap-6 mt-8">
-        <Project
-          title="reportty"
-          content="Stuff I am wrking on right now"
-          link="/projects/reportty"
-          icon={<ClockIcon />}
-        />
-        <Project
-          title="cilatl"
-          content="Stuff I am wrking on right now"
-          link="/projects/cliatl"
-          icon={<BookmarkIcon />}
-        />
-        <Project
-          title="ohes"
-          content="Stuff I am wrking on right now"
-          link="/projects/ohes"
-          icon={<ComputerDesktopIcon />}
-        />
-      </div>
     </>
   )
 }
