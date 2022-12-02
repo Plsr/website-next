@@ -1,7 +1,7 @@
-import Head from "next/head";
-import Header from "./header";
-import Footer from "./footer";
-import { ReactNode } from "react";
+import Head from 'next/head'
+import Header from './header'
+import Footer from './footer'
+import { ReactNode } from 'react'
 
 export default function Layout({ children }: props) {
   return (
@@ -19,9 +19,9 @@ export default function Layout({ children }: props) {
       </main>
       <Footer />
     </>
-  );
+  )
 }
 
 type props = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
