@@ -1,6 +1,6 @@
 import { FooterRow } from './footer-row'
 
-const copyrightString = `© ${new Date().getFullYear()} Christian Jarling`
+const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 
 export default function Footer() {
   return (

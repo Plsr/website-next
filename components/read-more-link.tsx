@@ -6,7 +6,7 @@ export default function ReadMoreLink({
   withArrow = false,
 }: props) {
   return (
-    <div className="mt-3 inline-block text-slate-700 dark:text-slate-300">
+    <div className="mt-3 inline-block text-slate-300">
       <div className="flex items-center">
         <span>{text}</span>
         {withArrow && (

@@ -10,13 +10,12 @@ import {
 } from '@heroicons/react/24/outline'
 
 import MainNavLink from './main-nav-link'
-import DarkModeToggle from './dark-mode-toggle'
 
 export default function Header() {
   return (
-    <div className="fixed z-10 top-0 left-2/4 -translate-x-2/4 mt-4 mx-auto bg-blue-100/[.8] dark:bg-slate-800/[.8] shadow-md w-full max-w-screen-md backdrop-blur p-4 border rounded border-slate-300 dark:border-slate-700 dark:text-white">
+    <div className="fixed z-10 top-0 left-2/4 -translate-x-2/4 mt-4 mx-auto bg-slate-800/[.8] shadow-md w-full max-w-screen-md backdrop-blur p-4 border rounded border-slate-700 text-white">
       <nav className="flex justify-around items-center">
-        <h1 className="inline">
+        <h1 className="inline hover:scale-125 transition">
           <Link href="/">
             <Image
               src={logo}
@@ -49,7 +48,6 @@ export default function Header() {
             Now
           </div>
         </MainNavLink>
-        <DarkModeToggle />
       </nav>
     </div>
   )

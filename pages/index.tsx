@@ -4,17 +4,9 @@ import { getSortedPostsData, PostData } from '../lib/posts'
 import Link from 'next/link'
 import MailButton from '../components/mail-button'
 import Divider from '../components/divider'
-import {
-  NewspaperIcon,
-  BriefcaseIcon,
-  BookmarkIcon,
-  ClockIcon,
-  ComputerDesktopIcon,
-} from '@heroicons/react/24/outline'
+import { NewspaperIcon } from '@heroicons/react/24/outline'
 import RecentArticle from '../components/recent-article'
 import HomepageHeadline from '../components/homepage-headline'
-import Project from '../components/project'
-import Layout from '../components/layout'
 
 export async function getStaticProps() {
   const allPostsData = await getSortedPostsData()
@@ -30,7 +22,7 @@ export default function Home({ allPostsData }: props) {
     <>
       <div className="flex justify-center items-center">
         <div className="mr-12">
-          <h2 className="text-4xl text-amber-500 dark:text-yellow-200 mb-2 font-headline font-bold">
+          <h2 className="text-4xl text-yellow-200 mb-2 font-headline font-bold">
             Hi, I&apos;m Chris Jarling
           </h2>
           <p className="text-xl leading-10 mb-6">
