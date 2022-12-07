@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react'
 export default function Header() {
   // TODO: Move into a provider if needed elswhere
   const [isSmallScreen, setIsSmallScreen] = useState(true)
-  const [isExpanded, setIsExpanded] = useState(true)
+  const [isExpanded, setIsExpanded] = useState(false)
   const isSmallScreenQuery = useMediaQuery({ maxWidth: 600 })
 
   useEffect(() => {

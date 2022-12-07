@@ -12,10 +12,15 @@ export default function Footer() {
               title="About"
               listItems={[
                 <FooterRow.Item key="me" href="/about" text="Me" />,
-                <FooterRow.Item key="site" href="/colophon" text="This site" />,
+                <FooterRow.Item
+                  key="site"
+                  href="/colophon"
+                  text="This site"
+                  hidden
+                />,
                 <FooterRow.Item key="now" href="/now" text="Now" />,
-                <FooterRow.Item key="uses" href="/uses" text="Uses" />,
-                <FooterRow.Item key="cv" href="/cv" text="CV" />,
+                <FooterRow.Item key="uses" href="/uses" text="Uses" hidden />,
+                <FooterRow.Item key="cv" href="/cv" text="CV" hidden />,
               ]}
             />
             <FooterRow
@@ -27,9 +32,15 @@ export default function Footer() {
                   key="bookmarks"
                   href="/bookmarks"
                   text="Bookmarks"
+                  hidden
                 />,
-                <FooterRow.Item key="books" href="/books" text="Books" />,
-                <FooterRow.Item key="til" href="/til" text="TIL" />,
+                <FooterRow.Item
+                  key="books"
+                  href="/books"
+                  text="Books"
+                  hidden
+                />,
+                <FooterRow.Item key="til" href="/til" text="TIL" hidden />,
               ]}
             />
             <FooterRow

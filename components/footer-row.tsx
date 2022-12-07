@@ -26,9 +26,19 @@ export function FooterRow({ listItems, title }: FooterRowProps) {
 type FooterRowItemProps = {
   href: string
   text: string
+  hidden?: boolean
 }
 
-function FooterRowItem({ href, text, ...rest }: FooterRowItemProps) {
+function FooterRowItem({
+  href,
+  text,
+  hidden = false,
+  ...rest
+}: FooterRowItemProps) {
+  if (hidden) {
+    return null
+  }
+
   return (
     <div {...rest}>
       <Link
