@@ -7,7 +7,7 @@ export default function Footer() {
     <>
       <div className="px-4 md:px-0 bg-slate-800 py-12 border-t-slate-700 border-t">
         <div className="max-w-screen-md mx-auto text-slate-300">
-          <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row justify-between">
             <FooterRow
               title="About"
               listItems={[
