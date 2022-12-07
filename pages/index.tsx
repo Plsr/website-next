@@ -20,7 +20,7 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }: props) {
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="flex md:flex-row flex-col-reverse justify-center items-center">
         <div className="mr-12">
           <h2 className="text-4xl text-yellow-200 mb-2 font-headline font-bold">
             Hi, I&apos;m Chris Jarling
@@ -32,7 +32,7 @@ export default function Home({ allPostsData }: props) {
           </p>
           <MailButton />
         </div>
-        <div className="inline-block shrink-0">
+        <div className="mb-8 md:mb-0 inline-block shrink-0">
           <Image src={memoji} alt="Me, as a memoji" height="220" />
         </div>
       </div>
