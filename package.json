@@ -11,10 +11,12 @@
   "dependencies": {
     "@heroicons/react": "^2.0.12",
     "date-fns": "^2.29.3",
+    "framer-motion": "^7.6.19",
     "gray-matter": "^4.0.3",
     "next": "13.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-responsive": "^9.0.2",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1"
   },

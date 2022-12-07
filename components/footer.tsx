@@ -5,17 +5,22 @@ const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 export default function Footer() {
   return (
     <>
-      <div className="bg-slate-800 py-12 border-t-slate-700 border-t">
+      <div className="px-4 md:px-0 bg-slate-800 py-12 border-t-slate-700 border-t">
         <div className="max-w-screen-md mx-auto text-slate-300">
-          <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row justify-between">
             <FooterRow
               title="About"
               listItems={[
                 <FooterRow.Item key="me" href="/about" text="Me" />,
-                <FooterRow.Item key="site" href="/colophon" text="This site" />,
+                <FooterRow.Item
+                  key="site"
+                  href="/colophon"
+                  text="This site"
+                  hidden
+                />,
                 <FooterRow.Item key="now" href="/now" text="Now" />,
-                <FooterRow.Item key="uses" href="/uses" text="Uses" />,
-                <FooterRow.Item key="cv" href="/cv" text="CV" />,
+                <FooterRow.Item key="uses" href="/uses" text="Uses" hidden />,
+                <FooterRow.Item key="cv" href="/cv" text="CV" hidden />,
               ]}
             />
             <FooterRow
@@ -27,9 +32,15 @@ export default function Footer() {
                   key="bookmarks"
                   href="/bookmarks"
                   text="Bookmarks"
+                  hidden
                 />,
-                <FooterRow.Item key="books" href="/books" text="Books" />,
-                <FooterRow.Item key="til" href="/til" text="TIL" />,
+                <FooterRow.Item
+                  key="books"
+                  href="/books"
+                  text="Books"
+                  hidden
+                />,
+                <FooterRow.Item key="til" href="/til" text="TIL" hidden />,
               ]}
             />
             <FooterRow

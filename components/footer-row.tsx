@@ -8,7 +8,7 @@ type FooterRowProps = {
 
 export function FooterRow({ listItems, title }: FooterRowProps) {
   return (
-    <div>
+    <div className="mb-4 md:mb-0">
       <h4 className="font-headline font-bold text-lg mb-2 text-yellow-100">
         {title}
       </h4>
@@ -26,9 +26,19 @@ export function FooterRow({ listItems, title }: FooterRowProps) {
 type FooterRowItemProps = {
   href: string
   text: string
+  hidden?: boolean
 }
 
-function FooterRowItem({ href, text, ...rest }: FooterRowItemProps) {
+function FooterRowItem({
+  href,
+  text,
+  hidden = false,
+  ...rest
+}: FooterRowItemProps) {
+  if (hidden) {
+    return null
+  }
+
   return (
     <div {...rest}>
       <Link
