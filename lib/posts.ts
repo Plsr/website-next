@@ -6,6 +6,7 @@ import remarkParse from 'remark-parse'
 import { unified } from 'unified'
 import rehypeStringify from 'rehype-stringify'
 import rehypePrism from 'rehype-prism-plus'
+import format from 'date-fns/format'
 
 type MatterPostData = {
   title: string
@@ -23,7 +24,10 @@ export type PostData = {
 const postsDirectory = path.join(process.cwd(), 'posts')
 
 export async function getSortedPostsData() {
-  const fileNames = fs.readdirSync(postsDirectory)
+  const fileNames = fs
+    .readdirSync(postsDirectory)
+    .filter((fileName) => fileName.match(/\.md$/))
+
   const allPostsData = await Promise.all(
     fileNames.map(async (fileName) => {
       const id = fileName.replace(/\.md$/, '')
@@ -41,7 +45,7 @@ export async function getSortedPostsData() {
       return {
         id,
         excerpt,
-        ...(matterResult.data as MatterPostData),
+        ...(formattedFrontMatter(matterResult.data) as MatterPostData),
       }
     })
   )
@@ -81,7 +85,22 @@ export async function getPostData(id: string): Promise<PostData> {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as MatterPostData),
+    ...(formattedFrontMatter(matterResult.data) as MatterPostData),
+  }
+}
+
+type MatterResultData = {
+  [key: string]: any
+}
+
+function formattedFrontMatter(matterResultData: MatterResultData) {
+  const formattedDate = matterResultData.date
+    ? format(new Date(matterResultData.date), 'do MMMM, yyyy')
+    : matterResultData.date
+
+  return {
+    ...matterResultData,
+    date: formattedDate,
   }
 }
 

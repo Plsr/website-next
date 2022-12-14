@@ -42,7 +42,7 @@ export default function Home({ allPostsData }: props) {
         Latest posts
       </HomepageHeadline>
       <ul>
-        {allPostsData.slice(2).map((postData) => (
+        {allPostsData.slice(0, 3).map((postData) => (
           <li key={postData.id} className="mb-12">
             <RecentArticle
               id={postData.id}

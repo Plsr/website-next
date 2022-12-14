@@ -22,12 +22,11 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 export default function Post({ postData }: props) {
-  const formattedDate = format(new Date(postData.date), 'do MMMM, yyyy')
   return (
     <div className="text-slate-300">
       <div className="mb-12">
         <h1 className="font-headline text-3xl md:text-4xl">{postData.title}</h1>
-        <small className="text-slate-500">{formattedDate}</small>
+        <small className="text-slate-500">{postData.date}</small>
       </div>
       <div
         className={styles.article}
