@@ -1,0 +1,54 @@
+.article {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.article p {
+  margin-bottom: 1rem;
+}
+
+.article blockquote {
+  padding-left: 2rem;
+  border-left: 2px solid rgb(253 230 138);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.article h2 {
+  font-size: 1.5rem;
+}
+
+.article h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+.article a {
+  color: rgb(251 191 36);
+  text-decoration: underline;
+}
+
+.article ul ol {
+  margin-left: 1rem;
+}
+
+.article ul > li {
+  list-style-type: disc;
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
+.article pre {
+  border-radius: 8px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.article code:not(pre code) {
+  background-color: rgb(30 41 59);
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}

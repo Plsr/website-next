@@ -1,8 +1,11 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
+import remarkRehype from 'remark-rehype'
+import remarkParse from 'remark-parse'
+import { unified } from 'unified'
+import rehypeStringify from 'rehype-stringify'
+import rehypePrism from 'rehype-prism-plus'
 
 type MatterPostData = {
   title: string
@@ -29,13 +32,10 @@ export async function getSortedPostsData() {
 
       const matterResult = matter(fileContents)
       let excerpt: string | undefined = matterResult.data.excerpt
-      console.log(excerpt)
 
       if (!excerpt) {
-        const processedContent = await remark()
-          .use(html)
-          .process(matterResult.content)
-        excerpt = processedContent.toString().substring(0, 300) + '...'
+        const processedContent = await processFile(matterResult.content)
+        excerpt = processedContent.value.toString().substring(0, 300) + '...'
       }
 
       return {
@@ -74,14 +74,22 @@ export async function getPostData(id: string): Promise<PostData> {
 
   const matterResult = matter(fileContents)
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content)
-  const contentHtml = processedContent.toString()
+  const file = await processFile(matterResult.content)
+
+  const contentHtml = file.value.toString()
 
   return {
     id,
     contentHtml,
     ...(matterResult.data as MatterPostData),
   }
+}
+
+async function processFile(content: string) {
+  return await unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypePrism)
+    .use(rehypeStringify)
+    .process(content)
 }
