@@ -24,7 +24,7 @@ module.exports = {
     },
     fontFamily: {
       headline: ['Nunito', 'sans-serif'],
-      body: ['Fira Sans', 'sans-serif'],
+      body: ['PT Sans', 'sans-serif'],
     },
     extend: {},
   },

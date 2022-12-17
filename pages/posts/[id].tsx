@@ -26,7 +26,7 @@ export default function Post({ postData }: props) {
     <div className="text-slate-300">
       <div className="mb-12">
         <h1 className="font-headline text-3xl md:text-4xl">{postData.title}</h1>
-        <small className="text-slate-500">{postData.date}</small>
+        <small className="text-slate-500">{postData.formattedDate}</small>
       </div>
       <div
         className={styles.article}

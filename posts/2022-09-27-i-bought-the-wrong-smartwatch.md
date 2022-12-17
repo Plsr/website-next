@@ -6,13 +6,7 @@ date: '2022-09-27T22:48:04.345Z'
 
 I bought a Fitbit Charge 5 a few months ago. I think it was a mistake.
 
-On paper, it ticks a `lot of boxes` that are important for me. I want a device that I don’t have to worry about while wearing it. A device that I can wear while exercising and in the shower and at all other places. I want it to track certain things. Most important to me are my heart rate, my steps and my sleep. And I don’t want to worry about how much battery is left all the time.
-
-```js
-const a = [1, 2, 3]
-const even = a.filter((x) => x % 2 === 0)
-console.log(even)
-```
+On paper, it ticks a lot of boxes that are important for me. I want a device that I don’t have to worry about while wearing it. A device that I can wear while exercising and in the shower and at all other places. I want it to track certain things. Most important to me are my heart rate, my steps and my sleep. And I don’t want to worry about how much battery is left all the time.
 
 The battery thing was the main point I chose trackers/smartwatches by in the last few years. That’s why I owned a Fossil HR Collider before the Charge 5. Because it had an e-ink display I had to charge it about once a month.  
 Battery life is great on the Charge 5 as well.

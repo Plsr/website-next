@@ -1,8 +1,9 @@
 ---
 layout: post
 title: On children and behavior
-date: "2022-08-31T22:57:22.843Z"
+date: '2022-08-31T22:57:22.843Z'
 ---
+
 I thought about the behavior of children today. Especially the kinds of behaviors in children we might not like. I think it might be all our fault.
 
 I want to say a few things before I go on, because I’m afraid that this might sound wrong if I don’t. It is my strong opinion that it is not a child’s job to be how a parent wants them to be. They do not owe parents a thing for bringing them into this world. I think parents owe their children for bringing them into this world and one of these things it to allow them to be how and who they want to be.
@@ -24,8 +25,7 @@ Child does not want to eat when food is on the table but is hungry half an hour 
 
 I know that this is  
 a) hard  
-b) a naive theory  
-
+b) a naive theory
 
 But maybe give it a try. Here are [Over and Carpenter](https://www.eva.mpg.de/documents/Wiley-Blackwell/Over_Social_ChildDevPerspec_2013_1752632.pdf) again:
 

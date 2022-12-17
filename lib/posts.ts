@@ -11,12 +11,11 @@ import format from 'date-fns/format'
 type MatterPostData = {
   title: string
   date: string
+  formattedDate: string
 }
 
-export type PostData = {
+export type PostData = MatterPostData & {
   id: string
-  title: string
-  date: string
   excerpt?: string
   contentHtml: string
 }
@@ -100,7 +99,7 @@ function formattedFrontMatter(matterResultData: MatterResultData) {
 
   return {
     ...matterResultData,
-    date: formattedDate,
+    formattedDate,
   }
 }
 

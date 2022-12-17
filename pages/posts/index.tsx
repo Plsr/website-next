@@ -22,7 +22,9 @@ export default function PostsIndex({ posts }: PostsIndexProps) {
           <li key={post.id}>
             <Link href={`/posts/${post.id}`}>
               <div className="flex flex-col mb-8 ">
-                <span className="text-sm text-slate-500">{post.date}</span>
+                <span className="text-sm text-slate-500">
+                  {post.formattedDate}
+                </span>
                 <span className="text-xl font-headline">{post.title}</span>
               </div>
             </Link>
