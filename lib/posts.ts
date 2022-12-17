@@ -88,6 +88,22 @@ export async function getPostData(id: string): Promise<PostData> {
   }
 }
 
+export async function getPaginatedPosts(page: number, perPage = 10) {
+  const allPosts = await getSortedPostsData()
+  const totalPages = allPosts.length / perPage
+
+  const start = page > totalPages ? totalPages * perPage : page * perPage
+  const end = start + perPage
+  const posts = allPosts.slice(start, end)
+
+  return {
+    currentPage: page,
+    totalPostsCount: allPosts.length,
+    totalPages: totalPages,
+    posts,
+  }
+}
+
 type MatterResultData = {
   [key: string]: any
 }
