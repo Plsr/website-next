@@ -48,6 +48,12 @@
   margin-left: 1rem;
 }
 
+.article ol > li {
+  list-style-type: number;
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
 .article pre {
   border-radius: 8px;
   margin-top: 2rem;

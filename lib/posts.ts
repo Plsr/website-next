@@ -12,6 +12,7 @@ type MatterPostData = {
   title: string
   date: string
   formattedDate: string
+  tags?: string
 }
 
 export type PostData = MatterPostData & {
