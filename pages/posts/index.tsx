@@ -4,6 +4,7 @@ import { Button } from '../../components/button'
 import Divider from '../../components/divider'
 import { Pagination } from '../../components/pagination'
 import { PostData, getPaginatedPosts } from '../../lib/posts'
+import { StyledArticleContent } from '../../components/styled-article-content'
 
 export async function getServerSideProps(context: NextPageContext) {
   const page = Number(context.query.page) || 0
@@ -30,7 +31,6 @@ export default function PostsIndex({
 }: PostsIndexProps) {
   return (
     <>
-      <h2 className="text-3xl font-headline font-bold mb-8">Posts</h2>
       <PostsList posts={posts} />
       <Divider />
       <Pagination
@@ -50,15 +50,16 @@ const PostsList = ({ posts }: PostsListProps) => {
   return (
     <ul>
       {posts.map((post) => (
-        <li key={post.id}>
+        <li key={post.id} className="mb-48">
           <Link href={`/posts/${post.id}`}>
             <div className="flex flex-col mb-8 ">
+              <span className="text-3xl font-headline">{post.title}</span>
               <span className="text-sm text-slate-500">
                 {post.formattedDate}
               </span>
-              <span className="text-xl font-headline">{post.title}</span>
             </div>
           </Link>
+          <StyledArticleContent contentHtml={post.contentHtml} />
         </li>
       ))}
     </ul>

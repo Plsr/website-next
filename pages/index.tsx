@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import memoji from '../public/memoji.png'
 import { getSortedPostsData, PostData } from '../lib/posts'
-import Link from 'next/link'
 import MailButton from '../components/mail-button'
 import Divider from '../components/divider'
 import { NewspaperIcon } from '@heroicons/react/24/outline'

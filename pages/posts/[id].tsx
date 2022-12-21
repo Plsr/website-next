@@ -1,7 +1,6 @@
 import { getAllPostIds, getPostData, PostData } from '../../lib/posts'
 import { GetStaticPropsContext } from 'next'
-import styles from './[id].module.css'
-import format from 'date-fns/format'
+import { StyledArticleContent } from '../../components/styled-article-content'
 
 export async function getStaticPaths() {
   const paths = getAllPostIds()
@@ -28,10 +27,7 @@ export default function Post({ postData }: props) {
         <h1 className="font-headline text-3xl md:text-4xl">{postData.title}</h1>
         <small className="text-slate-500">{postData.formattedDate}</small>
       </div>
-      <div
-        className={styles.article}
-        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-      />
+      <StyledArticleContent contentHtml={postData.contentHtml} />
     </div>
   )
 }

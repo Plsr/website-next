@@ -34,7 +34,11 @@ export async function getSortedPostsData() {
       const fileContents = fs.readFileSync(fullPath, 'utf8')
 
       const matterResult = matter(fileContents)
+
       let excerpt: string | undefined = matterResult.data.excerpt
+      const file = await processFile(matterResult.content)
+
+      const contentHtml = file.value.toString()
 
       if (!excerpt) {
         const processedContent = await processFile(matterResult.content)
@@ -44,6 +48,7 @@ export async function getSortedPostsData() {
       return {
         id,
         excerpt,
+        contentHtml,
         ...(formattedFrontMatter(matterResult.data) as MatterPostData),
       }
     })
