@@ -8,7 +8,7 @@ import RecentArticle from '../components/recent-article'
 import HomepageHeadline from '../components/homepage-headline'
 
 export async function getStaticProps() {
-  const allPostsData = await getSortedPostsData()
+  const allPostsData = await getSortedPostsData({})
   return {
     props: {
       allPostsData,

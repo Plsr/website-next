@@ -9,7 +9,7 @@ import { TagsList } from '../../components/tags-list'
 
 export async function getServerSideProps(context: NextPageContext) {
   const page = Number(context.query.page) || 0
-  const data = await getPaginatedPosts(page)
+  const data = await getPaginatedPosts({ page })
 
   return {
     props: {
@@ -60,7 +60,9 @@ const PostsList = ({ posts }: PostsListProps) => {
             </div>
           </Link>
           <StyledArticleContent contentHtml={post.contentHtml} />
-          {post.tags && <TagsList tags={post.tags?.split(' ')} />}
+          {post.tags && (
+            <TagsList className="mt-12" tags={post.tags?.split(' ')} />
+          )}
           <Divider />
         </li>
       ))}
