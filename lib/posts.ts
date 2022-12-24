@@ -12,6 +12,7 @@ type MatterPostData = {
   title: string
   date: string
   formattedDate: string
+  tags?: string
 }
 
 export type PostData = MatterPostData & {
@@ -22,7 +23,11 @@ export type PostData = MatterPostData & {
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export async function getSortedPostsData() {
+export async function getSortedPostsData({
+  filterByTag = undefined,
+}: {
+  filterByTag?: string
+}) {
   const fileNames = fs
     .readdirSync(postsDirectory)
     .filter((fileName) => fileName.match(/\.md$/))
@@ -34,7 +39,11 @@ export async function getSortedPostsData() {
       const fileContents = fs.readFileSync(fullPath, 'utf8')
 
       const matterResult = matter(fileContents)
+
       let excerpt: string | undefined = matterResult.data.excerpt
+      const file = await processFile(matterResult.content)
+
+      const contentHtml = file.value.toString()
 
       if (!excerpt) {
         const processedContent = await processFile(matterResult.content)
@@ -44,12 +53,13 @@ export async function getSortedPostsData() {
       return {
         id,
         excerpt,
+        contentHtml,
         ...(formattedFrontMatter(matterResult.data) as MatterPostData),
       }
     })
   )
 
-  return allPostsData.sort(({ date: a }, { date: b }) => {
+  const sortedPostsData = allPostsData.sort(({ date: a }, { date: b }) => {
     if (a < b) {
       return 1
     } else if (a > b) {
@@ -58,6 +68,17 @@ export async function getSortedPostsData() {
       return 0
     }
   })
+
+  if (filterByTag) {
+    return sortedPostsData.filter((postData) => {
+      if (!postData.tags) return false
+
+      const tagsList = postData.tags.split(' ')
+      return tagsList.includes(filterByTag)
+    })
+  }
+
+  return sortedPostsData
 }
 
 export function getAllPostIds() {
@@ -87,9 +108,17 @@ export async function getPostData(id: string): Promise<PostData> {
     ...(formattedFrontMatter(matterResult.data) as MatterPostData),
   }
 }
-
-export async function getPaginatedPosts(page: number, perPage = 10) {
-  const allPosts = await getSortedPostsData()
+type GetPaginatedPostsParams = {
+  page: number
+  perPage?: number
+  filterByTag?: string
+}
+export async function getPaginatedPosts({
+  page,
+  perPage = 10,
+  filterByTag = undefined,
+}: GetPaginatedPostsParams) {
+  const allPosts = await getSortedPostsData({ filterByTag })
   const totalPages = allPosts.length / perPage
 
   const start = page > totalPages ? totalPages * perPage : page * perPage

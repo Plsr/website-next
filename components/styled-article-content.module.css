@@ -1,6 +1,7 @@
 .article {
   font-size: 1.1rem;
   line-height: 1.8;
+  letter-spacing: 0.03rem;
 }
 
 .article p {
@@ -44,6 +45,12 @@
 
 .article ul > li {
   list-style-type: disc;
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
+.article ol > li {
+  list-style-type: number;
   padding-left: 1rem;
   margin-left: 1rem;
 }

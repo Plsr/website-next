@@ -1,10 +1,9 @@
-import Link from 'next/link'
 import formatDistance from 'date-fns/formatDistance'
-import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import useHover from '../lib/hooks/useHover'
 import { useRouter } from 'next/router'
 import ReadMoreLink from './read-more-link'
 import styles from '../pages/posts/[id].module.css'
+import { StyledArticleContent } from './styled-article-content'
 
 export default function RecentArticle({ date, id, title, excerpt }: props) {
   const postDate = Date.parse(date)
@@ -27,13 +26,10 @@ export default function RecentArticle({ date, id, title, excerpt }: props) {
         {title}
       </h4>
       {excerpt && (
-        <>
-          <div
-            className={styles.article}
-            style={{ color: 'rgb(148 163 184)' }}
-            dangerouslySetInnerHTML={{ __html: excerpt }}
-          />
-        </>
+        <StyledArticleContent
+          style={{ color: 'rgb(148 163 184)' }}
+          contentHtml={excerpt}
+        />
       )}
       <ReadMoreLink text="Read more" isHovered={isHovered} withArrow />
     </div>

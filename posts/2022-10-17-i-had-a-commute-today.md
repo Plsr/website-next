@@ -3,9 +3,7 @@ layout: post
 title: I had a commute today
 date: '2022-10-17T22:16:15.584Z'
 excerpt: Commutes suck. I got reminded why today.
-tags:
-  - work
-  - life
+tags: work life
 ---
 
 I decided to go to the office today, which meant I had a commute. I hated every minute of it. It takes me about 50 minutes from door to door with public transport. I’ll consider this a lengthy commute.
