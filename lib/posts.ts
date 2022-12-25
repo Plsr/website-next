@@ -7,6 +7,7 @@ import { unified } from 'unified'
 import rehypeStringify from 'rehype-stringify'
 import rehypePrism from 'rehype-prism-plus'
 import format from 'date-fns/format'
+import { cache } from 'react'
 
 type MatterPostData = {
   title: string
@@ -23,11 +24,26 @@ export type PostData = MatterPostData & {
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export async function getSortedPostsData({
+export async function getSortedAndFilteredPostsData({
   filterByTag = undefined,
 }: {
   filterByTag?: string
 }) {
+  const sortedPostsData = await getAllSortedPosts()
+
+  if (filterByTag) {
+    return sortedPostsData.filter((postData) => {
+      if (!postData.tags) return false
+
+      const tagsList = postData.tags.split(' ')
+      return tagsList.includes(filterByTag)
+    })
+  }
+
+  return sortedPostsData
+}
+
+const getAllSortedPosts = async () => {
   const fileNames = fs
     .readdirSync(postsDirectory)
     .filter((fileName) => fileName.match(/\.md$/))
@@ -69,15 +85,6 @@ export async function getSortedPostsData({
     }
   })
 
-  if (filterByTag) {
-    return sortedPostsData.filter((postData) => {
-      if (!postData.tags) return false
-
-      const tagsList = postData.tags.split(' ')
-      return tagsList.includes(filterByTag)
-    })
-  }
-
   return sortedPostsData
 }
 
@@ -118,7 +125,7 @@ export async function getPaginatedPosts({
   perPage = 10,
   filterByTag = undefined,
 }: GetPaginatedPostsParams) {
-  const allPosts = await getSortedPostsData({ filterByTag })
+  const allPosts = await getSortedAndFilteredPostsData({ filterByTag })
   const totalPages = allPosts.length / perPage
 
   const start = page > totalPages ? totalPages * perPage : page * perPage

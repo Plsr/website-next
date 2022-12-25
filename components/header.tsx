@@ -50,7 +50,7 @@ export default function Header() {
           )}
           {!isSmallScreen && (
             <>
-              <MainNavLink href="/posts">
+              <MainNavLink href="/posts" as="posts/all/1">
                 <div className="flex items-center">
                   <NewspaperIcon className="h-4 w-4 mr-2" />
                   Posts
