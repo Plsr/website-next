@@ -2,9 +2,11 @@ import { GetStaticPropsContext, NextPageContext } from 'next'
 import { Pagination } from '../../../components/pagination'
 import { PostData, getPaginatedPosts } from '../../../lib/posts'
 import { PostsList } from '../../../components/posts-list'
+import Head from 'next/head'
+import ErrorPage from 'next/error'
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const page = Number(params?.page) || 0
+  const page = Number(params?.page) || 1
 
   const data = await getPaginatedPosts({ page })
 
@@ -18,8 +20,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 
 export async function getStaticPaths() {
   // TODO: Maybe extract to function that only gets the total number of pages
-  const { totalPages } = await getPaginatedPosts({ page: 0 })
-  console.log(totalPages)
+  const { totalPages } = await getPaginatedPosts({ page: 1 })
 
   return {
     // Opt-in to on-demand generation for non-existent pages
@@ -44,9 +45,15 @@ export default function PostsIndex({
   currentPage,
   totalPages,
 }: PostsIndexProps) {
-  // TODO: Ugly quickfix for testing
   if (!posts) {
-    return null
+    return (
+      <>
+        <Head>
+          <meta name="robots" content="noindex" />
+        </Head>
+        <ErrorPage statusCode={404} />
+      </>
+    )
   }
 
   return (

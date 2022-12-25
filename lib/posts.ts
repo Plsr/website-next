@@ -128,7 +128,14 @@ export async function getPaginatedPosts({
   const allPosts = await getSortedAndFilteredPostsData({ filterByTag })
   const totalPages = allPosts.length / perPage
 
-  const start = page > totalPages ? totalPages * perPage : page * perPage
+  // We want to hanlde the calculation on a zero-based pages array,
+  // we're not barbarians.
+  const normalizedPage = page - 1
+
+  const start =
+    normalizedPage > totalPages
+      ? totalPages * perPage
+      : normalizedPage * perPage
   const end = start + perPage
   const posts = allPosts.slice(start, end)
 
