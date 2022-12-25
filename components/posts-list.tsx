@@ -13,7 +13,7 @@ export const PostsList = ({ posts }: PostsListProps) => {
     <ul>
       {posts.map((post) => (
         <li key={post.id} className="mb-24">
-          <Link href={`/posts/${post.id}`}>
+          <Link href={`/post/${post.id}`}>
             <div className="flex flex-col mb-8 ">
               <span className="mb-2 text-sm text-slate-500">
                 {post.formattedDate}

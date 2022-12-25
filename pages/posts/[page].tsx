@@ -1,16 +1,14 @@
 import { GetStaticPropsContext, NextPageContext } from 'next'
-import { Pagination } from '../../../components/pagination'
-import { PostData, getPaginatedPosts } from '../../../lib/posts'
-import { PostsList } from '../../../components/posts-list'
+import { Pagination } from '../../components/pagination'
+import { PostData, getPaginatedPosts } from '../../lib/posts'
+import { PostsList } from '../../components/posts-list'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const page = Number(params?.page) || 1
-
   const data = await getPaginatedPosts({ page })
 
-  console.log(data.totalPages)
   return {
     props: {
       ...data,

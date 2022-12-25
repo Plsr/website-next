@@ -12,7 +12,7 @@ export default function RecentArticle({ date, id, title, excerpt }: props) {
   const router = useRouter()
 
   const onPostClick = () => {
-    router.push(`/posts/${id}`)
+    router.push(`/post/${id}`)
   }
 
   return (

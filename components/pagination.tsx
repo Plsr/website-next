@@ -13,17 +13,17 @@ export const Pagination = ({
   recordName,
 }: PaginationProps) => {
   const hasNextPage = currentPage < totalPages
-  const hasPreviousPages = currentPage >= 1
+  const hasPreviousPages = currentPage > 1
 
   return (
     <div className="flex justify-between">
       {hasNextPage && (
-        <Link href={`/posts?page=${currentPage + 1}`}>
+        <Link href={`/posts/${currentPage + 1}`}>
           <Button>Older {recordName}</Button>
         </Link>
       )}
       {hasPreviousPages && (
-        <Link href={`/posts?page=${currentPage - 1}`}>
+        <Link href={`/posts/${currentPage - 1}`}>
           <Button>Newer {recordName}</Button>
         </Link>
       )}
