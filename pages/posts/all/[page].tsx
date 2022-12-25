@@ -7,6 +7,8 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   const page = Number(params?.page) || 0
 
   const data = await getPaginatedPosts({ page })
+
+  console.log(data.totalPages)
   return {
     props: {
       ...data,
@@ -42,6 +44,11 @@ export default function PostsIndex({
   currentPage,
   totalPages,
 }: PostsIndexProps) {
+  // TODO: Ugly quickfix for testing
+  if (!posts) {
+    return null
+  }
+
   return (
     <>
       <PostsList posts={posts} />
