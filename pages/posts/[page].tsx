@@ -56,6 +56,9 @@ export default function PostsIndex({
 
   return (
     <>
+      <Head>
+        <title>Posts - Page {currentPage} - Chris Jarling</title>
+      </Head>
       <PostsList posts={posts} />
       <Pagination
         currentPage={currentPage}
