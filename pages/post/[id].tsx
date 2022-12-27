@@ -29,10 +29,10 @@ export default function Post({ postData }: props) {
       </Head>
       <div className="text-slate-300">
         <div className="mb-12">
-          <h1 className="font-headline text-3xl md:text-4xl">
-            {postData.title}
-          </h1>
-          <small className="text-slate-500">{postData.formattedDate}</small>
+          <small className="text-slate-500 text-sm">
+            {postData.formattedDate}
+          </small>
+          <h1 className="font-headline text-3xl mt-2">{postData.title}</h1>
         </div>
         <StyledArticleContent contentHtml={postData.contentHtml} />
       </div>
