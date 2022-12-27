@@ -14,6 +14,10 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap"
           rel="stylesheet"
         />
+        <meta
+          property="og:image"
+          content="https://website-next-alpha.vercel.app/og.jpg"
+        />
       </Head>
       <body className="bg-black font-body">
         <Main />
