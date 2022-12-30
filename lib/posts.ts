@@ -43,7 +43,7 @@ export async function getSortedAndFilteredPostsData({
   return sortedPostsData
 }
 
-const getAllSortedPosts = async () => {
+const getAllPosts = async () => {
   const fileNames = fs
     .readdirSync(postsDirectory)
     .filter((fileName) => fileName.match(/\.md$/))
@@ -75,6 +75,12 @@ const getAllSortedPosts = async () => {
     })
   )
 
+  return allPostsData
+}
+
+const getAllSortedPosts = async () => {
+  const allPostsData = await getAllPosts()
+
   const sortedPostsData = allPostsData.sort(({ date: a }, { date: b }) => {
     if (a < b) {
       return 1
@@ -97,6 +103,19 @@ export function getAllPostIds() {
       },
     }
   })
+}
+
+export const getAllTags = async () => {
+  const allPosts = await getAllPosts()
+  const allTags: string[] = []
+
+  allPosts.forEach((post) => {
+    const tags = post?.tags?.split(' ')
+    // console.log(tags)
+    tags && tags.length > 0 && allTags.push(...tags)
+  })
+
+  return allTags
 }
 
 export async function getPostData(id: string): Promise<PostData> {

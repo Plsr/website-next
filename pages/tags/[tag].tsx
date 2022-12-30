@@ -1,40 +1,45 @@
-import { GetServerSidePropsContext } from 'next'
-import { Pagination } from '../../components/pagination'
-import { PostData, getPaginatedPosts } from '../../lib/posts'
+import { GetStaticPropsContext } from 'next'
+import {
+  PostData,
+  getAllTags,
+  getSortedAndFilteredPostsData,
+} from '../../lib/posts'
 import { PostsList } from '../../components/posts-list'
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const page = Number(context.query.page) || 0
-  const tag = context.params!.tag as string
-  const data = await getPaginatedPosts({ page, filterByTag: tag })
+export async function getStaticPaths() {
+  const tags = await getAllTags()
+  const paths = tags.map((tag) => ({
+    params: { tag },
+  }))
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export async function getStaticProps({ params }: GetStaticPropsContext) {
+  const posts = await getSortedAndFilteredPostsData({
+    filterByTag: params?.tag as string,
+  })
 
   return {
     props: {
-      ...data,
+      tag: params?.tag,
+      posts,
     },
   }
 }
 
 type PostsIndexProps = {
   posts: PostData[]
-  currentPage: number
-  totalPages: number
-  totalPostsCount: number
+  tag: string
 }
 
-export default function PostsIndex({
-  posts,
-  currentPage,
-  totalPages,
-}: PostsIndexProps) {
+export default function PostsIndex({ posts, tag }: PostsIndexProps) {
   return (
     <>
-      <PostsList posts={posts} />
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        recordName="posts"
-      />
+      <h2 className="text-2xl font-headline mb-24">All Posts tagged #{tag} </h2>
+      <PostsList posts={posts} expanded={false} />
     </>
   )
 }
