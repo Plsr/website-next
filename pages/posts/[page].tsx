@@ -1,13 +1,13 @@
 import { GetStaticPropsContext, NextPageContext } from 'next'
 import { Pagination } from '../../components/pagination'
-import { PostData, getPaginatedPosts } from '../../lib/posts'
 import { PostsList } from '../../components/posts-list'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
+import { BlogPost, getPaginatedEntries } from '../../lib/entries'
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const page = Number(params?.page) || 1
-  const data = await getPaginatedPosts({ page })
+  const data = await getPaginatedEntries({ page, entryType: 'posts' })
 
   return {
     props: {
@@ -17,8 +17,10 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-  // TODO: Maybe extract to function that only gets the total number of pages
-  const { totalPages } = await getPaginatedPosts({ page: 1 })
+  const { totalPages } = await getPaginatedEntries({
+    page: 1,
+    entryType: 'posts',
+  })
 
   return {
     // Opt-in to on-demand generation for non-existent pages
@@ -32,7 +34,7 @@ export async function getStaticPaths() {
 }
 
 type PostsIndexProps = {
-  posts: PostData[]
+  posts: BlogPost[]
   currentPage: number
   totalPages: number
   totalPostsCount: number

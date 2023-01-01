@@ -56,7 +56,7 @@ export default function Header() {
                   Posts
                 </div>
               </MainNavLink>
-              <MainNavLink href="/notes">
+              <MainNavLink href="/notes/1">
                 <div className="flex items-center">
                   <BookOpenIcon className="h-4 w-4 mr-2" />
                   Notes

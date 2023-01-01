@@ -1,18 +1,18 @@
-import { getAllPostIds, getPostData, PostData } from '../../lib/posts'
 import { GetStaticPropsContext } from 'next'
 import { StyledArticleContent } from '../../components/styled-article-content'
 import Head from 'next/head'
+import { BlogPost, getAllEntryIds, getEntryData } from '../../lib/entries'
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds()
+  const postIds = getAllEntryIds('posts')
   return {
-    paths,
+    paths: postIds.map((id) => ({ params: { id } })),
     fallback: false,
   }
 }
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const postData = await getPostData(params!.id as string)
+  const postData = await getEntryData(params!.id as string, 'posts')
 
   return {
     props: {
@@ -25,7 +25,7 @@ export default function Post({ postData }: props) {
   return (
     <>
       <Head>
-        <title>{postData.title} - Chris Jarlin</title>
+        <title>{postData.title} - Chris Jarling</title>
       </Head>
       <div className="text-slate-300">
         <div className="mb-12">
@@ -41,5 +41,5 @@ export default function Post({ postData }: props) {
 }
 
 type props = {
-  postData: PostData
+  postData: BlogPost
 }
