@@ -43,6 +43,27 @@ type GetPaginatedEntriesParams<T extends EntryType> = {
   perPage?: number
 }
 
+export const getSortedAndFilteredEntries = async <T extends EntryType>({
+  filterByTag = undefined,
+  entryType,
+}: {
+  filterByTag?: string
+  entryType: T
+}): Promise<EntryPostTypesMap[T][]> => {
+  const sortedEntriesData = await getAllSortedEntries(entryType)
+
+  if (filterByTag) {
+    return sortedEntriesData.filter((entryData) => {
+      if (!entryData.tags) return false
+
+      const tagsList = entryData.tags.split(' ')
+      return tagsList.includes(filterByTag)
+    })
+  }
+
+  return sortedEntriesData
+}
+
 export const getPaginatedEntries = async <T extends EntryType>({
   page,
   perPage = 10,

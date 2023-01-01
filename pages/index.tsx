@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import memoji from '../public/memoji.png'
-import { getSortedAndFilteredPostsData, PostData } from '../lib/posts'
+import { getSortedAndFilteredEntries, BlogPost } from '../lib/entries'
 import MailButton from '../components/mail-button'
 import Divider from '../components/divider'
 import { NewspaperIcon } from '@heroicons/react/24/outline'
@@ -8,7 +8,7 @@ import RecentArticle from '../components/recent-article'
 import HomepageHeadline from '../components/homepage-headline'
 
 export async function getStaticProps() {
-  const allPostsData = await getSortedAndFilteredPostsData({})
+  const allPostsData = await getSortedAndFilteredEntries({ entryType: 'posts' })
   return {
     props: {
       allPostsData,
@@ -57,5 +57,5 @@ export default function Home({ allPostsData }: props) {
 }
 
 type props = {
-  allPostsData: PostData[]
+  allPostsData: BlogPost[]
 }

@@ -1,13 +1,13 @@
 import { GetStaticPropsContext } from 'next'
 import {
-  PostData,
+  BlogPost,
   getAllTags,
-  getSortedAndFilteredPostsData,
-} from '../../lib/posts'
+  getSortedAndFilteredEntries,
+} from '../../lib/entries'
 import { PostsList } from '../../components/posts-list'
 
 export async function getStaticPaths() {
-  const tags = await getAllTags()
+  const tags = await getAllTags('posts')
   const paths = tags.map((tag) => ({
     params: { tag },
   }))
@@ -18,8 +18,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const posts = await getSortedAndFilteredPostsData({
+  const posts = await getSortedAndFilteredEntries({
     filterByTag: params?.tag as string,
+    entryType: 'posts',
   })
 
   return {
@@ -31,7 +32,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 type PostsIndexProps = {
-  posts: PostData[]
+  posts: BlogPost[]
   tag: string
 }
 
