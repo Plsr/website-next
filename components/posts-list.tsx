@@ -1,12 +1,12 @@
 import Link from 'next/link'
-import { PostData } from '../lib/posts'
+import { BlogPost } from '../lib/entries'
 import Divider from './divider'
 import { StyledArticleContent } from './styled-article-content'
 import { TagsList } from './tags-list'
 import clsx from 'clsx'
 
 type PostsListProps = {
-  posts: PostData[]
+  posts: BlogPost[]
   expanded?: boolean
 }
 
