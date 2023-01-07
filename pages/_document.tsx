@@ -11,7 +11,7 @@ export default function Document() {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Hind:wght@400;600&family=Josefin+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
           rel="stylesheet"
         />
         <meta
@@ -19,7 +19,7 @@ export default function Document() {
           content="https://website-next-alpha.vercel.app/og.jpg"
         />
       </Head>
-      <body className="bg-black font-body">
+      <body className="font-body">
         <Main />
         <NextScript />
       </body>

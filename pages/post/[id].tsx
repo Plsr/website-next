@@ -2,6 +2,8 @@ import { GetStaticPropsContext } from 'next'
 import { StyledArticleContent } from '../../components/styled-article-content'
 import Head from 'next/head'
 import { BlogPost, getAllEntryIds, getEntryData } from '../../lib/entries'
+import { BlogPostHeadline } from '../../components/blog-post-headline'
+import { PostMetadata } from '../../components/post-metadata'
 
 export async function getStaticPaths() {
   const postIds = getAllEntryIds('posts')
@@ -28,11 +30,11 @@ export default function Post({ postData }: props) {
         <title>{postData.title} - Chris Jarling</title>
       </Head>
       <div className="text-slate-300">
-        <div className="mb-12">
-          <small className="text-slate-500 text-sm">
-            {postData.formattedDate}
-          </small>
-          <h1 className="font-headline text-3xl mt-2">{postData.title}</h1>
+        <div className="mb-8">
+          <div className="mb-2">
+            <PostMetadata>{postData.formattedDate}</PostMetadata>
+          </div>
+          <BlogPostHeadline title={postData.title} />
         </div>
         <StyledArticleContent contentHtml={postData.contentHtml} />
       </div>

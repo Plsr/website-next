@@ -9,7 +9,7 @@ type FooterRowProps = {
 export function FooterRow({ listItems, title }: FooterRowProps) {
   return (
     <div className="mb-4 md:mb-0">
-      <h4 className="font-headline font-bold text-lg mb-2 text-yellow-100">
+      <h4 className="font-headline font-bold text-lg mb-2 text-slate-800">
         {title}
       </h4>
       <div>
@@ -43,7 +43,7 @@ function FooterRowItem({
     <div {...rest}>
       <Link
         href={href}
-        className="underline-offset-4 hover:underline hover:decoration-dotted"
+        className="underline-offset-4 hover:underline hover:decoration-dotted text-slate-600"
       >
         <p>{text}</p>
       </Link>

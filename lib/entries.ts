@@ -163,7 +163,6 @@ const getAllEntries = async <T extends EntryType>(
       const fileContents = fs.readFileSync(fullPath, 'utf8')
 
       const matterResult = matter(fileContents)
-      console.log(matterResult)
       const file = await processFile(matterResult.content)
 
       let excerpt: string | undefined = matterResult.data.excerpt

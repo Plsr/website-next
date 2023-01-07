@@ -9,7 +9,9 @@ export const TagsList = ({ tags, ...rest }: TagsListProps) => {
     <div {...rest}>
       {tags.map((tag) => (
         <Link key={tag} href={`/tags/${tag}`}>
-          <span className="mr-4 px-4 py-2 bg-slate-800 rounded-xl">#{tag}</span>
+          <span className="mr-4 font font-bold hover:border-b-2 hover:border-blue-500">
+            #{tag}
+          </span>
         </Link>
       ))}
     </div>

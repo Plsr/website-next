@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import ReadMoreLink from './read-more-link'
 import styles from '../pages/posts/[id].module.css'
 import { StyledArticleContent } from './styled-article-content'
+import clsx from 'clsx'
 
 export default function RecentArticle({ date, id, title, excerpt }: props) {
   const postDate = Date.parse(date)
@@ -19,19 +20,23 @@ export default function RecentArticle({ date, id, title, excerpt }: props) {
     <div
       ref={hoverRef}
       onClick={onPostClick}
-      className="pt-5 pb-6 px-4 cursor-pointer rounded-lg transition-all duration-500 shadow-lg bg-slate-800"
+      className="transition duration-300 cursor-pointer hover:bg-slate-100 -ml-4 p-4 rounded-xl"
     >
-      <small className="text-slate-500">{ago} ago</small>
-      <h4 className="transition text-2xl mb-3 font-headline text-slate-200">
+      <small className="text-slate-400 mb-2 block">{ago} ago</small>
+      <h4
+        className={clsx(
+          'cursor-pointer transition duration-300 text-2xl font-semibold font-headline text-slate-900',
+          isHovered && 'text-blue-500'
+        )}
+      >
         {title}
       </h4>
       {excerpt && (
         <StyledArticleContent
-          style={{ color: 'rgb(148 163 184)' }}
+          style={{ color: 'rgb(100 116 139)' }}
           contentHtml={excerpt}
         />
       )}
-      <ReadMoreLink text="Read more" isHovered={isHovered} withArrow />
     </div>
   )
 }
