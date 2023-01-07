@@ -9,14 +9,16 @@ import HomepageHeadline from '../components/homepage-headline'
 
 export async function getStaticProps() {
   const allPostsData = await getSortedAndFilteredEntries({ entryType: 'posts' })
+  const recentPosts = allPostsData.slice(0, 3)
+
   return {
     props: {
-      allPostsData,
+      recentBlogPosts: recentPosts,
     },
   }
 }
 
-export default function Home({ allPostsData }: props) {
+export default function Home({ recentBlogPosts }: props) {
   return (
     <>
       <div className="flex md:flex-row flex-col-reverse justify-center items-center">
@@ -38,7 +40,7 @@ export default function Home({ allPostsData }: props) {
       <Divider />
       <HomepageHeadline>Latest posts</HomepageHeadline>
       <ul>
-        {allPostsData.slice(0, 3).map((postData) => (
+        {recentBlogPosts.map((postData) => (
           <li key={postData.id} className="mb-12">
             <RecentArticle
               id={postData.id}
@@ -54,5 +56,5 @@ export default function Home({ allPostsData }: props) {
 }
 
 type props = {
-  allPostsData: BlogPost[]
+  recentBlogPosts: BlogPost[]
 }
