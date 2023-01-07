@@ -26,8 +26,8 @@ export default function Footer() {
             <FooterRow
               title="Content"
               listItems={[
-                <FooterRow.Item key="blog" href="/posts" text="Blog" />,
-                <FooterRow.Item key="notes" href="/notes" text="Notes" />,
+                <FooterRow.Item key="blog" href="/posts/1" text="Blog" />,
+                <FooterRow.Item key="notes" href="/notes/1" text="Notes" />,
                 <FooterRow.Item
                   key="bookmarks"
                   href="/bookmarks"
