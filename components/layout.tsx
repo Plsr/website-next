@@ -14,7 +14,7 @@ export default function Layout({ children }: props) {
         />
       </Head>
       <Header />
-      <main className="px-4 md:px-0 mt-24 md:mt-48 max-w-screen-md mx-auto text-white font-body mb-24 w-full">
+      <main className="px-8 md:px-0 mt-24 md:mt-36 max-w-screen-md mx-auto text-slate-900 font-body mb-24 w-full">
         {children}
       </main>
       <Footer />

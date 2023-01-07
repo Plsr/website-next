@@ -6,7 +6,7 @@ export default function MainNavLink({ href, as, children }: props) {
     <Link
       href={href}
       as={as}
-      className="px-4 transition-colors ease-in-out duration-300 py-2 rounded hover:text-yellow-200 hover:bg-slate-700"
+      className="text-slate-800 py-2 px-4 rounded-xl font-medium  font-headline hover:text-blue-500 hover:bg-blue-50 transition ease-in-out duration-200"
     >
       {children}
     </Link>

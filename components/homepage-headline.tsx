@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 export default function HomepageHeadline({ children }: props) {
   return (
-    <h3 className="-mr-2 mb-4 inline-flex items-center font-headline text-xl text-yellow-100">
+    <h3 className="-mr-2 mb-6 inline-flex items-center text-xl text-slate-800 font-semibold">
       {children}
     </h3>
   )

@@ -8,7 +8,9 @@ import {
   BookOpenIcon,
   Bars3Icon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
+  HomeIcon,
+  PencilIcon,
+} from '@heroicons/react/24/solid'
 import { useMediaQuery } from 'react-responsive'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -30,86 +32,15 @@ export default function Header() {
   }
 
   return (
-    <div className="fixed z-10 top-0 left-2/4 -translate-x-2/4 mt-4 mx-auto bg-slate-800/[.8] shadow-md w-11/12 md:w-full max-w-screen-md backdrop-blur p-4 border rounded border-slate-700 text-white">
+    <div className="mt-8 mx-auto w-full max-w-screen-md bg-white  text-slate-900">
       <nav>
         <div className="flex md:justify-around justify-between items-center">
-          <h1 className="inline hover:scale-125 transition">
-            <Link href="/">
-              <Image
-                src={logo}
-                height="30"
-                alt="Logo of the website, a c and an j"
-              />
-            </Link>
-          </h1>
-          {isSmallScreen && (
-            <MenuButton
-              onClick={handleMenuButtonClick}
-              isExpanded={isExpanded}
-            />
-          )}
-          {!isSmallScreen && (
-            <>
-              <MainNavLink href="/posts/1">
-                <div className="flex items-center">
-                  <NewspaperIcon className="h-4 w-4 mr-2" />
-                  Posts
-                </div>
-              </MainNavLink>
-              <MainNavLink href="/notes/1">
-                <div className="flex items-center">
-                  <BookOpenIcon className="h-4 w-4 mr-2" />
-                  Notes
-                </div>
-              </MainNavLink>
-              <MainNavLink href="/about">
-                <div className="flex items-center">
-                  <UserCircleIcon className="h-4 w-4 mr-2" />
-                  About
-                </div>
-              </MainNavLink>
-              <MainNavLink href="/now">
-                <div className="flex items-center">
-                  <BeakerIcon className="h-4 w-4 mr-2" />
-                  Now
-                </div>
-              </MainNavLink>
-            </>
-          )}
+          <MainNavLink href="/">Home</MainNavLink>
+          <MainNavLink href="/posts/1">Posts</MainNavLink>
+          <MainNavLink href="/notes/1">Notes</MainNavLink>
+          <MainNavLink href="/about">About</MainNavLink>
+          <MainNavLink href="/now">Now</MainNavLink>
         </div>
-        <AnimatePresence>
-          {isSmallScreen && isExpanded && (
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-            >
-              <MainNavLink href="/posts">
-                <div className="flex items-center justify-center">
-                  <NewspaperIcon className="h-4 w-4 mr-2" />
-                  Posts
-                </div>
-              </MainNavLink>
-              <MainNavLink href="/notes">
-                <div className="flex items-center justify-center">
-                  <BookOpenIcon className="h-4 w-4 mr-2" />
-                  Notes
-                </div>
-              </MainNavLink>
-              <MainNavLink href="/about">
-                <div className="flex items-center justify-center">
-                  <UserCircleIcon className="h-4 w-4 mr-2" />
-                  About
-                </div>
-              </MainNavLink>
-              <MainNavLink href="/now">
-                <div className="flex items-center justify-center">
-                  <BeakerIcon className="h-4 w-4 mr-2" />
-                  Now
-                </div>
-              </MainNavLink>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </nav>
     </div>
   )

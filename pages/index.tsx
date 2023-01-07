@@ -3,7 +3,7 @@ import memoji from '../public/memoji.png'
 import { getSortedAndFilteredEntries, BlogPost } from '../lib/entries'
 import MailButton from '../components/mail-button'
 import Divider from '../components/divider'
-import { NewspaperIcon } from '@heroicons/react/24/outline'
+import { NewspaperIcon } from '@heroicons/react/24/solid'
 import RecentArticle from '../components/recent-article'
 import HomepageHeadline from '../components/homepage-headline'
 
@@ -21,10 +21,10 @@ export default function Home({ allPostsData }: props) {
     <>
       <div className="flex md:flex-row flex-col-reverse justify-center items-center">
         <div className="mr-12">
-          <h2 className="text-4xl text-yellow-200 mb-2 font-headline font-bold">
+          <h2 className="text-4xl text-slate-800 mb-4 font-headline font-bold">
             Hi, I&apos;m Chris Jarling
           </h2>
-          <p className="text-xl leading-10 mb-6">
+          <p className="text-xl text-slate-500 leading-8 mb-6">
             I am a FullStack Developer who loves writing React, based in
             Cologne, Germany. <br />I currently work on shaping the future of
             phone plans at gigs 😍
@@ -36,10 +36,7 @@ export default function Home({ allPostsData }: props) {
         </div>
       </div>
       <Divider />
-      <HomepageHeadline>
-        <NewspaperIcon className="w-6 h-6 mr-2" />
-        Latest posts
-      </HomepageHeadline>
+      <HomepageHeadline>Latest posts</HomepageHeadline>
       <ul>
         {allPostsData.slice(0, 3).map((postData) => (
           <li key={postData.id} className="mb-12">

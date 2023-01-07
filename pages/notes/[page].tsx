@@ -2,6 +2,7 @@ import { GetStaticPropsContext } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { Pagination } from '../../components/pagination'
+import { PostMetadata } from '../../components/post-metadata'
 import { StyledArticleContent } from '../../components/styled-article-content'
 import { getPaginatedEntries, NotePost } from '../../lib/entries'
 
@@ -52,15 +53,24 @@ export default function NotesIndex({
       <ul>
         <div className="mb-24">
           <h2 className="font-headline text-3xl mb-2">Notes</h2>
-          <p className="text-xl">Short updates about pretty much everything</p>
+          <p className="text-xl text-slate-400">
+            Short updates about pretty much everything
+          </p>
         </div>
         {posts.map((note) => (
           <li key={note.id} className="mb-24">
             <StyledArticleContent contentHtml={note.contentHtml} />
-            <small>{note.formattedDate}</small> -{' '}
-            <small>
-              <Link href={`/note/${note.id}`}>Permalink</Link>
-            </small>
+            <PostMetadata>
+              <span>{note.formattedDate}</span> -{' '}
+              <span>
+                <Link
+                  href={`/note/${note.id}`}
+                  className="hover:border-b-2 hover:border-blue-500"
+                >
+                  Permalink
+                </Link>
+              </span>
+            </PostMetadata>
           </li>
         ))}
       </ul>

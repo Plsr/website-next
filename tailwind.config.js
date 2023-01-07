@@ -11,7 +11,8 @@ module.exports = {
   theme: {
     colors: {
       black: '#171c29',
-      white: '#e1ebf2',
+      white: colors.white,
+      emerald: colors.emerald,
       slate: colors.slate,
       teal: colors.teal,
       violet: colors.violet,
@@ -21,10 +22,11 @@ module.exports = {
       fuchsia: colors.fuchsia,
       orange: colors.orange,
       red: colors.red,
+      transparent: colors.transparent,
     },
     fontFamily: {
-      headline: ['Nunito', 'sans-serif'],
-      body: ['PT Sans', 'sans-serif'],
+      headline: ['Josefin Sans', 'sans-serif'],
+      body: ['Hind', 'sans-serif'],
     },
     extend: {},
   },

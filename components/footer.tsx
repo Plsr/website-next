@@ -5,7 +5,7 @@ const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 export default function Footer() {
   return (
     <div className="mt-auto">
-      <div className="px-4 md:px-0 bg-slate-800 py-12 border-t-slate-700 border-t">
+      <div className="px-4 md:px-0 bg-slate-200 py-12">
         <div className="max-w-screen-md mx-auto text-slate-300">
           <div className="flex flex-col md:flex-row justify-between">
             <FooterRow
@@ -60,7 +60,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-gradient-to-r from-orange-400 to-fuchsia-400 h-1" />
     </div>
   )
 }

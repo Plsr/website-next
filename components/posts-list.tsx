@@ -4,6 +4,8 @@ import Divider from './divider'
 import { StyledArticleContent } from './styled-article-content'
 import { TagsList } from './tags-list'
 import clsx from 'clsx'
+import { BlogPostHeadline } from './blog-post-headline'
+import { PostMetadata } from './post-metadata'
 
 type PostsListProps = {
   posts: BlogPost[]
@@ -22,22 +24,14 @@ export const PostsList = ({ posts, expanded = true }: PostsListProps) => {
             <div
               className={clsx(
                 'flex flex-col',
-                expanded && 'mb-12',
+                expanded && 'mb-8',
                 !expanded && 'mb-4'
               )}
             >
-              <span className="text-sm text-slate-500 mb-2">
-                {post.formattedDate}
-              </span>
-              <span
-                className={clsx(
-                  ' font-headline',
-                  expanded && 'text-3xl',
-                  !expanded && 'text-xl'
-                )}
-              >
-                {post.title}
-              </span>
+              <div className="mb-2">
+                <PostMetadata>{post.formattedDate}</PostMetadata>
+              </div>
+              <BlogPostHeadline title={post.title} large={expanded} />
             </div>
           </Link>
           {expanded && (

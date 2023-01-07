@@ -1,16 +1,17 @@
 .article {
   font-size: 1.1rem;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.03rem;
+  color: #37474f;
 }
 
 .article p {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .article blockquote {
   padding-left: 2rem;
-  border-left: 2px solid rgb(253 230 138);
+  border-left: 2px solid #bbdefb;
   font-style: italic;
   opacity: 0.8;
 }
@@ -19,8 +20,8 @@
 .article h3 {
   font-weight: bold;
   margin-bottom: 0.5rem;
-  margin-top: 2rem;
-  font-family: 'Nunito', sans-serif;
+  margin-top: 3rem;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .article h2 {
@@ -32,7 +33,7 @@
 }
 
 .article a {
-  color: rgb(251 191 36);
+  color: #1e88e5;
   text-decoration: underline;
 }
 
@@ -40,19 +41,21 @@
 .article ol {
   margin-left: 1rem;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.article li {
+  padding-left: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .article ul > li {
   list-style-type: disc;
-  padding-left: 1rem;
-  margin-left: 1rem;
 }
 
 .article ol > li {
   list-style-type: number;
-  padding-left: 1rem;
-  margin-left: 1rem;
 }
 
 .article pre {
@@ -61,9 +64,15 @@
   margin-bottom: 2rem;
 }
 
+.article pre > code {
+  font-size: 1rem;
+}
+
 .article code:not(pre code) {
-  background-color: rgb(30 41 59);
-  padding: 0.3rem 0.5rem;
+  background-color: #cfd8dc;
+  padding: 0.2rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  white-space: normal;
+  word-break: break-word;
 }
