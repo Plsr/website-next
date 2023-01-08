@@ -9,9 +9,9 @@ export default function Footer() {
         <div className="max-w-screen-md mx-auto text-slate-300">
           <div className="flex flex-col md:flex-row justify-between">
             <FooterRow
-              title="About"
+              title="Pages"
               listItems={[
-                <FooterRow.Item key="me" href="/about" text="Me" />,
+                <FooterRow.Item key="me" href="/about" text="About" />,
                 <FooterRow.Item
                   key="site"
                   href="/colophon"
@@ -24,7 +24,7 @@ export default function Footer() {
               ]}
             />
             <FooterRow
-              title="Content"
+              title="Collections"
               listItems={[
                 <FooterRow.Item key="blog" href="/posts/1" text="Blog" />,
                 <FooterRow.Item key="notes" href="/notes/1" text="Notes" />,
