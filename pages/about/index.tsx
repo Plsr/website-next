@@ -26,15 +26,15 @@ const AboutPage: NextPage = () => {
       />
       <Headline level={2}>Me</Headline>
       <Paragraph>
-        My name is Chris Jarling. I'm {yearsOld} years old, am a husband and
-        father and currently live in Cologne, Germany.
+        My name is Chris Jarling. I&apos;m {yearsOld} years old, am a husband
+        and father and currently live in Cologne, Germany.
         <br />I currently work for a neat starup called{' '}
-        <Paragraph.Link href="https://gigs.com">Gigs</Paragraph.Link> (we're
-        hiring) as a Frontend Engineer.
+        <Paragraph.Link href="https://gigs.com">Gigs</Paragraph.Link>{' '}
+        (we&apos;re hiring) as a Frontend Engineer.
       </Paragraph>
       <Paragraph>
-        When I'm not working or spending time with my family, I usually work on
-        a side project, write for this site or take photos.
+        When I&apos;m not working or spending time with my family, I usually
+        work on a side project, write for this site or take photos.
       </Paragraph>
 
       <Headline level={2}>This site</Headline>
