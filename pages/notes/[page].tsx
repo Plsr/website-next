@@ -1,6 +1,7 @@
 import { GetStaticPropsContext } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { Pagination } from '../../components/pagination'
 import { PostMetadata } from '../../components/post-metadata'
 import { StyledArticleContent } from '../../components/styled-article-content'
@@ -51,10 +52,14 @@ export default function NotesIndex({
       </Head>
       <ul>
         <div className="mb-24">
-          <h2 className="font-headline text-3xl mb-2">Notes</h2>
-          <p className="text-xl text-slate-400">
-            Short updates about pretty much everything
-          </p>
+          <PageTitleWithSubline
+            title="Notes"
+            subline={
+              <PageTitleWithSubline.Subline>
+                Short updates about pretty much everything
+              </PageTitleWithSubline.Subline>
+            }
+          />
         </div>
         {posts.map((note) => (
           <li key={note.id} className="mb-24">
