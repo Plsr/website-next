@@ -1,5 +1,7 @@
 import { NextPage } from 'next'
+import { Headline } from '../../components/headline'
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
+import { Paragraph } from '../../components/paragraph'
 
 export const ImprintPage: NextPage = () => {
   return (
@@ -8,29 +10,30 @@ export const ImprintPage: NextPage = () => {
         title="Imprint"
         subline={
           <PageTitleWithSubline.Subline>
-            This is information the German law requires me to provide. If you
-            want to sue me: please don&apos;t.
+            This is information the German law requires me to provide. In case
+            you want to sue me: please don&apos;t.
           </PageTitleWithSubline.Subline>
         }
       />
 
-      <h2 className="font-headline text-xl">
-        Angaben gem&auml;&szlig; &sect; 5 TMG
-      </h2>
-      <p className="text-slate-700 mb-4">
+      <Headline level={2}>Angaben gem&auml;&szlig; &sect; 5 TMG</Headline>
+      <Paragraph>
         Christian Jarling
         <br />
         Fellm&uuml;hlenweg 1A
         <br />
         51069 K&ouml;ln
-      </p>
+      </Paragraph>
 
-      <h2 className="font-headline text-xl">Kontakt</h2>
-      <p className="mb-8">E-Mail: pleasdontsueme@chrisjarling.com</p>
+      <Headline level={2}>Kontakt</Headline>
+      <Paragraph>E-Mail: pleasdontsueme at chrisjarling.com</Paragraph>
 
-      <p>
-        Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a>
-      </p>
+      <Paragraph>
+        Quelle:{' '}
+        <Paragraph.Link href="https://www.e-recht24.de">
+          https://www.e-recht24.de
+        </Paragraph.Link>
+      </Paragraph>
     </div>
   )
 }
