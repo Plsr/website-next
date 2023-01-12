@@ -36,5 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 # rss feeds
-public/atom.xml
-public/rss.json
+public/*atom.xml
+public/*rss.json

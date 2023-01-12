@@ -18,13 +18,25 @@ export default function Document() {
           rel="alternate"
           type="application/rss+xml"
           href="/atom.xml"
-          title="RSS Feed"
+          title="Posts (RSS Feed)"
         />
         <link
           rel="alternate"
           type="application/json"
           href="/rss.json"
-          title="JSON Feed"
+          title="Posts (JSON Feed)"
+        />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          href="/atom.xml"
+          title="Notes (RSS Feed)"
+        />
+        <link
+          rel="alternate"
+          type="application/json"
+          href="/rss.json"
+          title="Notes (JSON Feed)"
         />
         <meta
           property="og:image"

@@ -1,21 +1,28 @@
 import { Feed } from 'feed'
-import { getAllSortedEntries } from './entries'
+import { EntryType, getAllSortedEntries } from './entries'
 import fs from 'fs'
 import { getYear } from 'date-fns'
 
-export const generateFeed = async () => {
+export const generateFeeds = async () => {
+  await generateFeed('posts')
+  await generateFeed('notes')
+}
+
+export const generateFeed = async (entryType: EntryType) => {
   const siteUrl =
     process.env.NODE_ENV === 'development'
       ? 'localhost:3000'
       : 'https://chrisjarling.com'
-  const allPosts = await getAllSortedEntries('posts')
+  const allPosts = await getAllSortedEntries(entryType)
 
   const currentYear = getYear(new Date())
   const updatedAt = new Date(allPosts[0].date)
 
   const feed = new Feed({
-    title: 'Chris Jarling - Posts',
-    description: 'All posts from chrisjarling.com',
+    title: `Chris Jarling - ${
+      entryType.charAt(0).toUpperCase() + entryType.slice(1)
+    }`,
+    description: `All ${entryType} from chrisjarling.com`,
     id: `${siteUrl}`,
     link: `${siteUrl}`,
     language: 'en', // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
@@ -37,10 +44,10 @@ export const generateFeed = async () => {
 
   allPosts.forEach((post) => {
     feed.addItem({
-      title: post.title,
+      title: post.title?.toString() || `Note from ${post.date}`,
       id: post.id,
-      link: 'https://chrisjarling.com/posts/' + post.id,
-      description: post.excerpt,
+      link: 'https://chrisjarling.com/' + entryType + '/' + post.id,
+      description: post.contentHtml,
       content: post.contentHtml,
       author: [
         {
@@ -53,6 +60,6 @@ export const generateFeed = async () => {
     })
   })
 
-  fs.writeFileSync('./public/rss.json', feed.rss2())
-  fs.writeFileSync('./public/atom.xml', feed.atom1())
+  fs.writeFileSync(`./public/${entryType}-rss.json`, feed.rss2())
+  fs.writeFileSync(`./public/${entryType}-atom.xml`, feed.atom1())
 }
