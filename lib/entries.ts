@@ -16,6 +16,7 @@ type MatterData = {
 }
 
 export type NotePost = Omit<MatterData, 'title'> & {
+  title?: string
   id: string
   contentHtml: string
 }
@@ -26,7 +27,7 @@ export type BlogPost = MatterData & {
   contentHtml: string
 }
 
-type EntryType = 'posts' | 'notes'
+export type EntryType = 'posts' | 'notes'
 type EntryTypeWithTags = 'posts'
 
 export type EntryPostTypesMap = {
