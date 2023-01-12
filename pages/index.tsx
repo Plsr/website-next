@@ -6,8 +6,10 @@ import Divider from '../components/divider'
 import { NewspaperIcon } from '@heroicons/react/24/solid'
 import RecentArticle from '../components/recent-article'
 import HomepageHeadline from '../components/homepage-headline'
+import { generateFeed } from '../lib/feeds'
 
 export async function getStaticProps() {
+  await generateFeed()
   const allPostsData = await getSortedAndFilteredEntries({ entryType: 'posts' })
   const recentPosts = allPostsData.slice(0, 3)
 
