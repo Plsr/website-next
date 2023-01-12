@@ -17,25 +17,25 @@ export default function Document() {
         <link
           rel="alternate"
           type="application/rss+xml"
-          href="/atom.xml"
+          href="/posts-atom.xml"
           title="Posts (RSS Feed)"
         />
         <link
           rel="alternate"
           type="application/json"
-          href="/rss.json"
+          href="/posts-rss.json"
           title="Posts (JSON Feed)"
         />
         <link
           rel="alternate"
           type="application/rss+xml"
-          href="/atom.xml"
+          href="/notes-atom.xml"
           title="Notes (RSS Feed)"
         />
         <link
           rel="alternate"
           type="application/json"
-          href="/rss.json"
+          href="/notes-rss.json"
           title="Notes (JSON Feed)"
         />
         <meta
