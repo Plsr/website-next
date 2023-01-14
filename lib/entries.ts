@@ -72,8 +72,10 @@ export const getPaginatedEntries = async <T extends EntryType>({
   perPage = 10,
   entryType,
 }: GetPaginatedEntriesParams<T>) => {
-  const allNotes = await getAllSortedEntries(entryType)
-  const totalPages = allNotes.length / perPage
+  const allEntries = await getAllSortedEntries(entryType)
+  const totalPages = Math.ceil(allEntries.length / perPage)
+
+  console.log(totalPages)
 
   // We want to hanlde the calculation on a zero-based pages array,
   // we're not barbarians.
@@ -84,11 +86,11 @@ export const getPaginatedEntries = async <T extends EntryType>({
       ? totalPages * perPage
       : normalizedPage * perPage
   const end = start + perPage
-  const posts = allNotes.slice(start, end)
+  const posts = allEntries.slice(start, end)
 
   return {
     currentPage: page,
-    totalPostsCount: allNotes.length,
+    totalPostsCount: allEntries.length,
     totalPages: totalPages,
     posts,
   }
