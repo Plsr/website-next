@@ -26,6 +26,7 @@ export default function Note({ noteData }: props) {
     <>
       <Head>
         <title>Note from {noteData.formattedDate} - Chris Jarling</title>
+        <meta name="description" content={noteData.description} />
       </Head>
       <StyledArticleContent contentHtml={noteData.contentHtml} />
       <small className="text-slate-500 text-sm">{noteData.formattedDate}</small>

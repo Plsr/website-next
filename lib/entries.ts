@@ -18,12 +18,14 @@ type MatterData = {
 export type NotePost = Omit<MatterData, 'title'> & {
   title?: string
   id: string
+  description: string
   contentHtml: string
 }
 
 export type BlogPost = MatterData & {
   id: string
   excerpt?: string
+  description: string
   contentHtml: string
 }
 
@@ -167,11 +169,14 @@ const getAllEntries = async <T extends EntryType>(
       const file = await processFile(matterResult.content)
 
       let excerpt: string | undefined = matterResult.data.excerpt
+      const processedContent = await processFile(matterResult.content)
 
       if (!excerpt && entryType === 'posts') {
-        const processedContent = await processFile(matterResult.content)
         excerpt = processedContent.value.toString().substring(0, 300) + '...'
       }
+
+      let description =
+        processedContent.value.toString().substring(0, 152) + '...'
 
       const contentHtml = file.value.toString()
 
@@ -179,6 +184,7 @@ const getAllEntries = async <T extends EntryType>(
         id,
         contentHtml,
         ...(excerpt && { excerpt }),
+        description,
         ...formattedFrontMatter(matterResult.data as MatterData),
       }
     })
