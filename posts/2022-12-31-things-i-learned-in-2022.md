@@ -3,6 +3,7 @@ layout: post
 title: Things I learned in 2022
 date: '2022-12-31T10:39:26.350Z'
 tags: life
+excerpt: "An unorderd list of things I learned in the course of 2022. You won't believe No. 4"
 ---
 
 I recently did my annual review and wrote down some things I learned this year.
