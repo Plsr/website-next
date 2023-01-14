@@ -37,7 +37,7 @@ export const generateFeed = async (entryType: EntryType) => {
     },
     author: {
       name: 'Chris Jarling',
-      email: 'hello@chrisjarling.com',
+      email: 'hi@chrisjarling.com',
       link: 'https://chrisjarling.com/about',
     },
   })
@@ -52,7 +52,7 @@ export const generateFeed = async (entryType: EntryType) => {
       author: [
         {
           name: 'Chris Jarling',
-          email: 'hello@chrisjarling.com',
+          email: 'hi@chrisjarling.com',
           link: 'https://chrisjarling.com/about',
         },
       ],
