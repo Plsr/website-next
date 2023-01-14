@@ -24,7 +24,7 @@ export default function Home({ recentBlogPosts }: props) {
   return (
     <>
       <div className="flex md:flex-row flex-col-reverse justify-center items-center">
-        <div className="mr-12">
+        <div className="mr-0 md:mr-12">
           <h2 className="text-4xl text-slate-800 mb-4 font-headline font-bold">
             Hi, I&apos;m Chris Jarling
           </h2>
