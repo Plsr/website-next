@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Button } from './button'
+import { ReactNode } from 'react'
 
 type PaginationProps = {
   currentPage: number
@@ -18,15 +18,31 @@ export const Pagination = ({
   return (
     <div className="flex justify-between">
       {hasNextPage && (
-        <Link href={`/${recordName}/${currentPage + 1}`}>
-          <Button>Older {recordName}</Button>
-        </Link>
+        <PaginationLink href={`/${recordName}/${currentPage + 1}`}>
+          Older {recordName}
+        </PaginationLink>
       )}
       {hasPreviousPages && (
-        <Link href={`/${recordName}/${currentPage - 1}`}>
-          <Button>Newer {recordName}</Button>
-        </Link>
+        <PaginationLink href={`/${recordName}/${currentPage - 1}`}>
+          Newer {recordName}
+        </PaginationLink>
       )}
     </div>
+  )
+}
+
+type PaginationLinkProps = {
+  href: string
+  children: ReactNode | ReactNode[]
+}
+
+const PaginationLink = ({ href, children }: PaginationLinkProps) => {
+  return (
+    <Link
+      href={href}
+      className="font-headline border-b-2 border-b-blue-500 hover:text-blue-500"
+    >
+      {children}
+    </Link>
   )
 }
