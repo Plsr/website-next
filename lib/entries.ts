@@ -143,9 +143,12 @@ export const getEntryData = async <T extends EntryType>(
 
   const contentHtml = file.value.toString()
 
+  const description = contentHtml.substring(0, 300) + '...'
+
   return {
     id,
     contentHtml,
+    description,
     ...formattedFrontMatter(matterResult.data as MatterData),
   }
 }
