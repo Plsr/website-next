@@ -26,7 +26,7 @@ export const generateFeed = async (entryType: EntryType) => {
     id: `${siteUrl}`,
     link: `${siteUrl}`,
     language: 'en', // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-    image: `${siteUrl}/image.png`,
+    image: `${siteUrl}/memoji.png`,
     favicon: `${siteUrl}/favicon.ico`,
     copyright: `All rights reserved ${currentYear}, Chris Jarling`,
     updated: updatedAt, // optional, default = today
