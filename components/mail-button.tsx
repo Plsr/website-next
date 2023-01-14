@@ -1,11 +1,12 @@
 import { EnvelopeOpenIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export default function MailButton() {
   const [isHovering, setIsHovering] = useState(false)
 
   return (
-    <div className="inline-flex flex-col">
+    <Link href="mailto:hi@chrisjarling.com" className="inline-flex flex-col">
       <div
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
@@ -21,6 +22,6 @@ export default function MailButton() {
       >
         👋 Say hi
       </small>
-    </div>
+    </Link>
   )
 }
