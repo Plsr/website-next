@@ -28,7 +28,10 @@ export default function Post({ postData }: props) {
     <>
       <Head>
         <title>{postData.title} - Chris Jarling</title>
-        <meta name="description" content={postData.description} />
+        <meta
+          name="description"
+          content={postData.excerpt?.substring(0, 155) || postData.description}
+        />
       </Head>
       <div className="text-slate-300">
         <div className="mb-8">
