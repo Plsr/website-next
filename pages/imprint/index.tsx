@@ -26,7 +26,7 @@ export const ImprintPage: NextPage = () => {
       </Paragraph>
 
       <Headline level={2}>Kontakt</Headline>
-      <Paragraph>E-Mail: hi@hrisjarling.com</Paragraph>
+      <Paragraph>E-Mail: hi@chrisjarling.com</Paragraph>
 
       <Paragraph>
         Quelle:{' '}
