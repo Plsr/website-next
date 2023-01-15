@@ -12,6 +12,7 @@ type MatterData = {
   title: string
   date: string
   formattedDate: string
+  series?: string
   tags?: string
 }
 
@@ -46,11 +47,14 @@ type GetPaginatedEntriesParams<T extends EntryType> = {
   perPage?: number
 }
 
+// TODO: Make filter function an argumrnet of the function instead of adding if clauses
 export const getSortedAndFilteredEntries = async <T extends EntryType>({
   filterByTag = undefined,
+  filterBySeries = undefined,
   entryType,
 }: {
   filterByTag?: string
+  filterBySeries?: string
   entryType: T
 }): Promise<EntryPostTypesMap[T][]> => {
   const sortedEntriesData = await getAllSortedEntries(entryType)
@@ -61,6 +65,14 @@ export const getSortedAndFilteredEntries = async <T extends EntryType>({
 
       const tagsList = entryData.tags.split(' ')
       return tagsList.includes(filterByTag)
+    })
+  }
+
+  if (filterBySeries) {
+    return sortedEntriesData.filter((entryData) => {
+      if (!entryData.series) return false
+      if (entryData.series !== filterBySeries) return false
+      return true
     })
   }
 
