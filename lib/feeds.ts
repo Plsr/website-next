@@ -2,6 +2,7 @@ import { Feed } from 'feed'
 import { EntryType, getAllSortedEntries } from './entries'
 import fs from 'fs'
 import { getYear } from 'date-fns'
+import { siteUrl } from './utill/site'
 
 export const generateFeeds = async () => {
   await generateFeed('posts')
@@ -9,10 +10,6 @@ export const generateFeeds = async () => {
 }
 
 export const generateFeed = async (entryType: EntryType) => {
-  const siteUrl =
-    process.env.NODE_ENV === 'development'
-      ? 'localhost:3000'
-      : 'https://chrisjarling.com'
   const allPosts = await getAllSortedEntries(entryType)
 
   const currentYear = getYear(new Date())
