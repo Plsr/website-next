@@ -47,36 +47,47 @@ type GetPaginatedEntriesParams<T extends EntryType> = {
   perPage?: number
 }
 
+export const filterByTag = <T extends EntryType>(
+  tagName: string,
+  entriesData: EntryPostTypesMap[T][]
+) => {
+  return entriesData.filter((entryData) => {
+    if (!entryData.tags) return false
+
+    const tagsList = entryData.tags.split(' ')
+    return tagsList.includes(tagName)
+  })
+}
+
+export const filterBySeriesName = <T extends EntryType>(
+  seriesName: string,
+  entriesData: EntryPostTypesMap[T][]
+) => {
+  return entriesData.filter((entryData) => {
+    if (!entryData.series) return false
+    if (entryData.series !== seriesName) return false
+    return true
+  })
+}
+
 // TODO: Make filter function an argumrnet of the function instead of adding if clauses
 export const getSortedAndFilteredEntries = async <T extends EntryType>({
-  filterByTag = undefined,
-  filterBySeries = undefined,
+  filterFunction = undefined,
   entryType,
+  filterString = undefined,
 }: {
-  filterByTag?: string
-  filterBySeries?: string
+  filterFunction?: <K extends EntryType>(
+    filterString: string,
+    entries: EntryPostTypesMap[K][]
+  ) => EntryPostTypesMap[K][]
+  filterString?: string
   entryType: T
 }): Promise<EntryPostTypesMap[T][]> => {
   const sortedEntriesData = await getAllSortedEntries(entryType)
-
-  if (filterByTag) {
-    return sortedEntriesData.filter((entryData) => {
-      if (!entryData.tags) return false
-
-      const tagsList = entryData.tags.split(' ')
-      return tagsList.includes(filterByTag)
-    })
-  }
-
-  if (filterBySeries) {
-    return sortedEntriesData.filter((entryData) => {
-      if (!entryData.series) return false
-      if (entryData.series !== filterBySeries) return false
-      return true
-    })
-  }
-
-  return sortedEntriesData
+  const shouldFilter = !!filterFunction && !!filterString
+  return shouldFilter
+    ? filterFunction(filterString, sortedEntriesData)
+    : sortedEntriesData
 }
 
 export const getPaginatedEntries = async <T extends EntryType>({
@@ -86,8 +97,6 @@ export const getPaginatedEntries = async <T extends EntryType>({
 }: GetPaginatedEntriesParams<T>) => {
   const allEntries = await getAllSortedEntries(entryType)
   const totalPages = Math.ceil(allEntries.length / perPage)
-
-  console.log(totalPages)
 
   // We want to hanlde the calculation on a zero-based pages array,
   // we're not barbarians.

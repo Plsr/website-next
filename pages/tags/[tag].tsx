@@ -1,6 +1,7 @@
 import { GetStaticPropsContext } from 'next'
 import {
   BlogPost,
+  filterByTag,
   getAllTags,
   getSortedAndFilteredEntries,
 } from '../../lib/entries'
@@ -19,7 +20,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const posts = await getSortedAndFilteredEntries({
-    filterByTag: params?.tag as string,
+    filterString: params!.tag as string,
+    filterFunction: filterByTag,
     entryType: 'posts',
   })
 

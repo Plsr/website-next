@@ -44,7 +44,6 @@ export default function NotesIndex({
   currentPage,
   totalPages,
 }: NotesIndexProps) {
-  console.log(posts)
   return (
     <>
       <Head>
