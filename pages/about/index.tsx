@@ -4,6 +4,18 @@ import Link from 'next/link'
 import { Headline } from '../../components/headline'
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { Paragraph } from '../../components/paragraph'
+import { getWebsiteReleases } from '../../lib/github'
+
+export async function getStaticProps() {
+  const releases = await getWebsiteReleases()
+
+  return {
+    props: {
+      releases,
+    },
+    revalidate: 60, // At most regenerate every minute
+  }
+}
 
 const AboutPage: NextPage = () => {
   const birthDay = new Date('22 Jul 1991')
