@@ -1,11 +1,29 @@
 import { formatDistanceStrict } from 'date-fns'
 import { NextPage } from 'next'
 import Link from 'next/link'
+import { ChangelogList } from '../../components/changelog-list'
 import { Headline } from '../../components/headline'
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { Paragraph } from '../../components/paragraph'
+import { getWebsiteReleases, ReleasesResponseData } from '../../lib/github'
 
-const AboutPage: NextPage = () => {
+export async function getStaticProps() {
+  const releases = await getWebsiteReleases()
+  console.log(JSON.stringify(releases[0]))
+
+  return {
+    props: {
+      releases,
+    },
+    revalidate: 60, // At most regenerate every minute
+  }
+}
+
+type AboutPageProps = {
+  releases: ReleasesResponseData[]
+}
+
+const AboutPage = ({ releases }: AboutPageProps) => {
   const birthDay = new Date('22 Jul 1991')
   const today = new Date()
   const yearsOld = formatDistanceStrict(today, birthDay)
@@ -52,6 +70,14 @@ const AboutPage: NextPage = () => {
         quickly, I decided to only add the most important pages in the
         beginning. Things on here will likely change over time.
       </Paragraph>
+      <Headline level={2} id="changelog">
+        Changelog
+      </Headline>
+      <Paragraph>
+        A list of changes on this site that have been added over time.
+      </Paragraph>
+      <div className="mb-8" />
+      <ChangelogList changelogEntries={releases} />
     </div>
   )
 }
