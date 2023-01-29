@@ -6,6 +6,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeStringify from 'rehype-stringify'
+import rehypeFigure from 'rehype-figure'
 import format from 'date-fns/format'
 
 type MatterData = {
@@ -234,6 +235,7 @@ async function processFile(content: string) {
   return await unified()
     .use(remarkParse)
     .use(remarkRehype)
+    .use(rehypeFigure, { className: 'article-figure' })
     .use(rehypePrism)
     .use(rehypeStringify)
     .process(content)
