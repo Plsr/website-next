@@ -23,7 +23,7 @@ export async function getStaticPaths() {
   const totalPages = await getPaginatedEntries({ page: 1, entryType: 'notes' })
 
   return {
-    fallback: false,
+    fallback: true,
     paths: [...Array(totalPages)].map((_, index) => ({
       params: {
         page: (index + 1).toString(),
@@ -44,6 +44,7 @@ export default function NotesIndex({
   currentPage,
   totalPages,
 }: NotesIndexProps) {
+  console.log(posts)
   return (
     <>
       <Head>
