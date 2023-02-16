@@ -15,10 +15,12 @@ type MatterData = {
   formattedDate: string
   series?: string
   tags?: string
+  headline?: string
 }
 
 export type NotePost = Omit<MatterData, 'title'> & {
-  title?: string
+  title: string
+  headline?: string
   id: string
   description: string
   contentHtml: string

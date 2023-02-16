@@ -2,6 +2,7 @@
 layout: note
 title: Seneca on focus and distractions
 date: '2023-01-29T23:44:00.000Z'
+headline: Seneca on focus and distractions
 ---
 
 Seneca, in Letter LVI:
