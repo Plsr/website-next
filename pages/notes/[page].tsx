@@ -1,6 +1,9 @@
+import clsx from 'clsx'
 import { GetStaticPropsContext } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { BlogPostHeadline } from '../../components/blog-post-headline'
+import Divider from '../../components/divider'
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { Pagination } from '../../components/pagination'
 import { PostMetadata } from '../../components/post-metadata'
@@ -20,9 +23,13 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-  const totalPages = await getPaginatedEntries({ page: 1, entryType: 'notes' })
+  const { totalPages } = await getPaginatedEntries({
+    page: 1,
+    entryType: 'notes',
+  })
 
   return {
+    // Opt-in to on-demand generation for non-existent pages
     fallback: false,
     paths: [...Array(totalPages)].map((_, index) => ({
       params: {
@@ -61,20 +68,33 @@ export default function NotesIndex({
           />
         </div>
         {posts.map((note) => (
-          <li key={note.id} className="mb-24">
-            <StyledArticleContent contentHtml={note.contentHtml} />
-            <PostMetadata>
-              <span>{note.formattedDate}</span> -{' '}
-              <span>
-                <Link
-                  href={`/note/${note.id}`}
-                  className="hover:border-b-2 hover:border-blue-500"
-                >
-                  Permalink
+          <>
+            <li key={note.id} className="mb-24">
+              {!!note.headline && (
+                <Link href={`/note/${note.id}`}>
+                  <div className={clsx('flex flex-col mb-8')}>
+                    <PostMetadata>{note.formattedDate}</PostMetadata>
+                    <BlogPostHeadline title={note.headline} large={false} />
+                  </div>
                 </Link>
-              </span>
-            </PostMetadata>
-          </li>
+              )}
+              <StyledArticleContent contentHtml={note.contentHtml} />
+              {!note.headline && (
+                <PostMetadata>
+                  <span>{note.formattedDate}</span> -{' '}
+                  <span>
+                    <Link
+                      href={`/note/${note.id}`}
+                      className="hover:border-b-2 hover:border-blue-500"
+                    >
+                      Permalink
+                    </Link>
+                  </span>
+                </PostMetadata>
+              )}
+            </li>
+            <Divider />
+          </>
         ))}
       </ul>
       <Pagination
