@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "tinacms dev -c \"next dev\"",
+    "build": "tinacms build && next build",
+    "start": "tinacms build && next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.12",
     "@octokit/types": "^8.1.1",
+    "@tinacms/cli": "^1.2.1",
     "clsx": "^1.2.1",
     "date-fns": "^2.29.3",
     "feed": "^4.2.2",
@@ -28,6 +29,7 @@
     "remark-html": "^15.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
+    "tinacms": "^1.2.1",
     "unified": "^10.1.2"
   },
   "devDependencies": {
