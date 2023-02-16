@@ -23,10 +23,14 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-  const totalPages = await getPaginatedEntries({ page: 1, entryType: 'notes' })
+  const { totalPages } = await getPaginatedEntries({
+    page: 1,
+    entryType: 'notes',
+  })
 
   return {
-    fallback: true,
+    // Opt-in to on-demand generation for non-existent pages
+    fallback: false,
     paths: [...Array(totalPages)].map((_, index) => ({
       params: {
         page: (index + 1).toString(),
@@ -47,7 +51,6 @@ export default function NotesIndex({
   currentPage,
   totalPages,
 }: NotesIndexProps) {
-  console.log(posts)
   return (
     <>
       <Head>
