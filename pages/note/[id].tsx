@@ -26,10 +26,20 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 export default function Note({ noteData }: props) {
+  const getTitle = () => {
+    if (noteData.link) {
+      return `► ${noteData.headline?.toString() || noteData.link.toString()}`
+    }
+
+    return (
+      noteData.headline?.toString() || `Note from ${noteData.formattedDate}`
+    )
+  }
+
   return (
     <>
       <Head>
-        <title>Note from {noteData.formattedDate} - Chris Jarling</title>
+        <title>{getTitle()} - Chris Jarling</title>
         <meta name="description" content={noteData.description} />
       </Head>
       <NoteComponent note={noteData} asListItem={false} />
