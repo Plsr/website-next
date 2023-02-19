@@ -1,7 +1,8 @@
 ---
 title: Blogging like Chris Coyier
-headline: 'https://timomeh.de/offtopic/blogging-like-chris-coyier'
+headline: Blogging like Chris Coyier
 date: '2023-02-19T00:22:00.000Z'
+link: 'https://timomeh.de/offtopic/blogging-like-chris-coyier'
 ---
 
 Timo:
@@ -10,4 +11,4 @@ Timo:
 
 I feel the same. I guess in the past years, personal blogging did kind of die and all blogs that were left were the big, professional ones. And now I have the association of "blogging" and "professional" engraved in my brain and it's really hard to make it go away.
 
-I try to write more casual stuff on my site, but in order to feel good about it, I had to create this extra section so I don't "spoil" my other content. Which is weird, since most of the content over there isn't exactly sophisticated. Whatever, if this is the way I'm able to wrote more informal stuff on here, so be it. 
+I try to write more casual stuff on my site, but in order to feel good about it, I had to create this extra section so I don't "spoil" my other content. Which is weird, since most of the content over there isn't exactly sophisticated. Whatever, if this is the way I'm able to wrote more informal stuff on here, so be it.
