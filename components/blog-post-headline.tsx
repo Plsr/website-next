@@ -1,12 +1,13 @@
 import clsx from 'clsx'
 
-export const BlogPostHeadline = ({ title, large = true }: props) => {
+export const BlogPostHeadline = ({ title, large = true, className }: props) => {
   return (
     <h2
       className={clsx(
         'text-slate-800 font-bold font-headline',
         large && 'text-3xl',
-        !large && 'text-xl'
+        !large && 'text-xl',
+        className
       )}
     >
       {title}
@@ -17,4 +18,4 @@ export const BlogPostHeadline = ({ title, large = true }: props) => {
 type props = {
   title: string
   large?: boolean
-}
+} & JSX.IntrinsicElements['div']

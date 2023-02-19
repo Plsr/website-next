@@ -44,6 +44,14 @@ export default defineConfig({
             }
           },
           {
+            type: "string",
+            name: "link",
+            label: "Link",
+            ui: {
+              description: 'If filled out, the note will become a link post'
+            }
+          },
+          {
             type: "datetime",
             name: "date",
             label: "Date",
