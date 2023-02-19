@@ -4,6 +4,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { BlogPostHeadline } from '../../components/blog-post-headline'
 import Divider from '../../components/divider'
+import { Note } from '../../components/note'
+import { NoteHeadline } from '../../components/note-headline'
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { Pagination } from '../../components/pagination'
 import { PostMetadata } from '../../components/post-metadata'
@@ -70,28 +72,7 @@ export default function NotesIndex({
         {posts.map((note) => (
           <>
             <li key={note.id} className="mb-24">
-              {!!note.headline && (
-                <Link href={`/note/${note.id}`}>
-                  <div className={clsx('flex flex-col mb-8')}>
-                    <PostMetadata>{note.formattedDate}</PostMetadata>
-                    <BlogPostHeadline title={note.headline} large={false} />
-                  </div>
-                </Link>
-              )}
-              <StyledArticleContent contentHtml={note.contentHtml} />
-              {!note.headline && (
-                <PostMetadata>
-                  <span>{note.formattedDate}</span> -{' '}
-                  <span>
-                    <Link
-                      href={`/note/${note.id}`}
-                      className="hover:border-b-2 hover:border-blue-500"
-                    >
-                      Permalink
-                    </Link>
-                  </span>
-                </PostMetadata>
-              )}
+              <Note note={note} />
             </li>
             <Divider />
           </>

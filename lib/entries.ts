@@ -16,11 +16,13 @@ type MatterData = {
   series?: string
   tags?: string
   headline?: string
+  link?: string
 }
 
-export type NotePost = Omit<MatterData, 'title'> & {
+export type NotePost = Omit<MatterData, 'series'> & {
   title: string
   headline?: string
+  link?: string
   id: string
   description: string
   contentHtml: string
@@ -62,9 +64,9 @@ export const filterByTag = <T extends EntryType>(
   })
 }
 
-export const filterBySeriesName = <T extends EntryType>(
+export const filterBySeriesName = (
   seriesName: string,
-  entriesData: EntryPostTypesMap[T][]
+  entriesData: BlogPost[]
 ) => {
   return entriesData.filter((entryData) => {
     if (!entryData.series) return false

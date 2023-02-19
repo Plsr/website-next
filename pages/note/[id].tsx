@@ -2,6 +2,10 @@ import { GetStaticPropsContext } from 'next'
 import { StyledArticleContent } from '../../components/styled-article-content'
 import Head from 'next/head'
 import { getAllEntryIds, getEntryData, NotePost } from '../../lib/entries'
+import clsx from 'clsx'
+import { PostMetadata } from '../../components/post-metadata'
+import { BlogPostHeadline } from '../../components/blog-post-headline'
+import { Note as NoteComponent } from '../../components/note'
 
 export async function getStaticPaths() {
   const noteIds = getAllEntryIds('notes')
@@ -28,8 +32,7 @@ export default function Note({ noteData }: props) {
         <title>Note from {noteData.formattedDate} - Chris Jarling</title>
         <meta name="description" content={noteData.description} />
       </Head>
-      <StyledArticleContent contentHtml={noteData.contentHtml} />
-      <small className="text-slate-500 text-sm">{noteData.formattedDate}</small>
+      <NoteComponent note={noteData} asListItem={false} />
     </>
   )
 }

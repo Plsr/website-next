@@ -1,5 +1,5 @@
 import { Feed } from 'feed'
-import { EntryType, getAllSortedEntries } from './entries'
+import { BlogPost, EntryType, getAllSortedEntries, NotePost } from './entries'
 import fs from 'fs'
 import { getYear } from 'date-fns'
 import { siteUrl } from './utill/site'
@@ -41,7 +41,7 @@ export const generateFeed = async (entryType: EntryType) => {
 
   allPosts.forEach((post) => {
     feed.addItem({
-      title: post.title?.toString() || `Note from ${post.date}`,
+      title: createTitle(post, entryType),
       id: post.id,
       link: 'https://chrisjarling.com/' + entryType + '/' + post.id,
       description: post.contentHtml,
@@ -59,4 +59,16 @@ export const generateFeed = async (entryType: EntryType) => {
 
   fs.writeFileSync(`./public/${entryType}-rss.json`, feed.rss2())
   fs.writeFileSync(`./public/${entryType}-atom.xml`, feed.atom1())
+}
+
+const createTitle = (entry: BlogPost | NotePost, entryType: EntryType) => {
+  if (entryType === 'posts') {
+    return entry.title.toString()
+  }
+
+  if (entry.link) {
+    return `► ${entry.headline?.toString() || entry.link.toString()}`
+  }
+
+  return entry.headline?.toString() || entry.title.toString()
 }
