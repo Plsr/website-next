@@ -21,7 +21,7 @@ Serverless Computing (Firebase et al.): It's amazing how simple it is to add aut
 
 General features in websites: This point is kind of vague. But I like the complex features that we can use in websites today. There are a lot of examples worth mentioning here, but let's stick with one I noticed recently: embedded editors.  
 I looked at [Matt Pocock's typescript course](https://www.totaltypescript.com/) the other day which uses [stackblitz](https://stackblitz.com/) for its exercises. It allows you to edit code inline and run test suites to see if what you did was correct. Embedded right there in the exercise. Without ever leaving the site.  
-I regularly spin up a [codesandbox](codesandbox.io) Next.js example to try something out because it is way faster than doing so on my local machine.  
+I regularly spin up a [codesandbox](https://codesandbox.io) Next.js example to try something out because it is way faster than doing so on my local machine.  
 Pressing `.` while watching a repository on GitHub will open a VSCode instance in your web browser that allows to change the project. How awesome is that? The tools we use to build websites can now actually be run in websites. And you can create websites with them. 🤯
 
 I'm not 100% sure which point I'm trying to make here. Maybe you can tell. If you need a point it probably would be this: I like the current state of the web and web development.
