@@ -2,9 +2,12 @@ import { ReactNode } from 'react'
 
 export default function HomepageHeadline({ children }: props) {
   return (
-    <h3 className="-mr-2 mb-6 inline-flex items-center text-xl text-slate-800 font-semibold">
-      {children}
-    </h3>
+    <div className="flex flex-row items-center mb-6">
+      <h2 className="font-headline text-xl text-neutral-300 mr-4 flex-shrink-0">
+        {children}
+      </h2>
+      <div className="h-1 w-full border-b border-b-neutral-600" />
+    </div>
   )
 }
 

@@ -4,8 +4,8 @@ export const BlogPostHeadline = ({ title, large = true, className }: props) => {
   return (
     <h2
       className={clsx(
-        'text-slate-800 font-bold font-headline',
-        large && 'text-3xl',
+        'text-neutral-100 font-bold font-headline',
+        large && 'text-2xl',
         !large && 'text-xl',
         className
       )}

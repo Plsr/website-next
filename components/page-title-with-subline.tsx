@@ -9,7 +9,7 @@ export const PageTitleWithSubline = ({
     <>
       <h1
         className={clsx(
-          'font-headline text-3xl font-bold',
+          'text-2xl font-bold',
           subline === undefined ? 'mb-8' : 'mb-2'
         )}
       >
@@ -26,7 +26,7 @@ type PageTitleWithSublineProps = {
 }
 
 const Subline = ({ children }: { children: ReactNode | ReactNode[] }) => {
-  return <div className="text-slate-400 text-xl mb-8">{children}</div>
+  return <div className="text-neutral-400 mb-8">{children}</div>
 }
 
 PageTitleWithSubline.Subline = Subline

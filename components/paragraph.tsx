@@ -6,7 +6,7 @@ type ParagraphProps = {
 }
 
 export const Paragraph = ({ children }: ParagraphProps) => {
-  return <p className="text-slate-700 mb-2">{children}</p>
+  return <p className="text-neutral-400 font-light mb-2">{children}</p>
 }
 
 type LinkProps = {

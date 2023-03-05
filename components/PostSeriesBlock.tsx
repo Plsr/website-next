@@ -17,15 +17,15 @@ export const PostSeriesBlock = ({ seriesEntries }: PostSeriesBlockProps) => {
   }
 
   return (
-    <div className="bg-blue-50 rounded p-6 inline-block mt-8">
-      <h3 className="italic text-slate-500 mb-4">
+    <div className="bg-neutral-800 rounded p-6 inline-block mt-8">
+      <h3 className="italic text-neutral-300 mb-4">
         This post is part of a series. Here are the other parts:
       </h3>
       <ul className="list-disc ml-8">
         {seriesEntries.map((entry) => (
           <li key={entry.title} className="mb-2 last:mb-0">
             {entryIsCurrent(entry.url) ? (
-              <p className="text-slate-600 font-bold">
+              <p className="text-neutral-400 font-bold">
                 {entry.title}{' '}
                 <span className="font-normal">(currently reading)</span>
               </p>

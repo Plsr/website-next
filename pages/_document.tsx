@@ -32,9 +32,10 @@ export default function Document() {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Hind:wght@400;600&family=Josefin+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Libre+Caslon+Text:wght@400;700&display=swap"
           rel="stylesheet"
         />
+
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -64,7 +65,7 @@ export default function Document() {
           content="https://website-next-alpha.vercel.app/og.jpg"
         />
       </Head>
-      <body className="font-body">
+      <body className="font-body bg-zinc-900">
         <Main />
         <NextScript />
       </body>
