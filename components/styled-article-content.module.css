@@ -1,7 +1,8 @@
 .article {
-  line-height: 1.6;
+  line-height: 1.8;
   letter-spacing: 0.03rem;
-  color: #37474f;
+  color: #d4d4d4;
+  font-weight: 300;
 }
 
 .article p {
@@ -25,7 +26,7 @@
 
 .article blockquote {
   padding-left: 2rem;
-  border-left: 2px solid #bbdefb;
+  border-left: 2px solid #525252;
   font-style: italic;
   opacity: 0.8;
 }
@@ -35,7 +36,7 @@
   font-weight: bold;
   margin-bottom: 0.5rem;
   margin-top: 3rem;
-  font-family: 'Josefin Sans', sans-serif;
+  color: #e5e5e5;
 }
 
 .article h2 {
@@ -48,6 +49,9 @@
 
 .article a {
   color: #1e88e5;
+}
+
+.article a:hover {
   text-decoration: underline;
 }
 
@@ -83,7 +87,7 @@
 }
 
 .article code:not(pre code) {
-  background-color: #cfd8dc;
+  background-color: #525252;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;

@@ -9,9 +9,7 @@ type FooterRowProps = {
 export function FooterRow({ listItems, title }: FooterRowProps) {
   return (
     <div className="mb-8 md:mb-0">
-      <h4 className="font-headline font-bold text-lg mb-2 text-slate-800">
-        {title}
-      </h4>
+      <h4 className="font-body font-bold mb-2 text-gray-100">{title}</h4>
       <div>
         {listItems.map((item, index) =>
           cloneElement(item, {
@@ -43,7 +41,7 @@ function FooterRowItem({
     <div {...rest}>
       <Link
         href={href}
-        className="underline-offset-4 hover:underline hover:decoration-dotted text-slate-600"
+        className="underline-offset-4 hover:underline mb-2 block text-gray-400"
       >
         <p>{text}</p>
       </Link>

@@ -5,8 +5,8 @@ const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 export default function Footer() {
   return (
     <div className="mt-auto">
-      <div className="px-8 bg-slate-200 py-12">
-        <div className="max-w-screen-md mx-auto text-slate-300">
+      <div className="px-8 bg-zinc-800 py-12">
+        <div className="max-w-screen-md mx-auto text-gray-100">
           <div className="flex flex-col md:flex-row justify-between">
             <FooterRow
               title="Pages"
@@ -56,7 +56,7 @@ export default function Footer() {
             />
           </div>
           <div className="mt-12 flex justify-center">
-            <small className="text-slate-500">{copyrightString}</small>
+            <small className="text-gray-500">{copyrightString}</small>
           </div>
         </div>
       </div>

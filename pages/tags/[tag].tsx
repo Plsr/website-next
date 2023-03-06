@@ -41,8 +41,10 @@ type PostsIndexProps = {
 export default function PostsIndex({ posts, tag }: PostsIndexProps) {
   return (
     <>
-      <h2 className="text-2xl font-headline mb-24">All Posts tagged #{tag} </h2>
-      <PostsList posts={posts} expanded={false} />
+      <h2 className="text-xl font-body font-bold text-neutral-500 mb-8">
+        All Posts tagged #{tag}{' '}
+      </h2>
+      <PostsList posts={posts} />
     </>
   )
 }
