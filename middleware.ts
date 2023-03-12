@@ -4,25 +4,26 @@ import type { NextRequest } from 'next/server'
 
 // Set the paths that don't require the user to be signed in
 const publicPaths = ['/', '/signin*', '/signup*', '']
+const restrictedPaths = ['/backoffice*']
 
-const isPublic = (path: string) => {
-  return publicPaths.find((x) =>
+const isRestricted = (path: string) => {
+  return restrictedPaths.find((x) =>
     path.match(new RegExp(`^${x}$`.replace('*$', '($|/)')))
   )
 }
 
 export default withClerkMiddleware((request: NextRequest) => {
-  // FIXIME: Dirty dirty hack
-  if (true || isPublic(request.nextUrl.pathname)) {
+  if (!isRestricted(request.nextUrl.pathname)) {
     return NextResponse.next()
   }
+
   // if the user is not signed in redirect them to the sign in page.
   const { userId } = getAuth(request)
 
   if (!userId) {
     // redirect the users to /pages/sign-in/[[...index]].ts
 
-    const signInUrl = new URL('/sign-in', request.url)
+    const signInUrl = new URL('/login', request.url)
     signInUrl.searchParams.set('redirect_url', request.url)
     return NextResponse.redirect(signInUrl)
   }
