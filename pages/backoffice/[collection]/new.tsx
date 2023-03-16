@@ -1,54 +1,53 @@
-import clsx from 'clsx'
+import { collection } from '@prisma/client'
+import { GetServerSidePropsContext } from 'next'
+import { BookmarkForm } from '../../../components/backoffice/bookmark-form'
+import {
+  BookmarkData,
+  createBookmark,
+} from '../../../lib/data/bookmarksHandler'
+import { prisma } from '../../../lib/utill/db'
 
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const collectionName = context?.params?.collection as string
+
+  if (!collectionName) {
+    return {
+      notFound: true,
+    }
+  }
+
+  const collection = await prisma.collection.findFirst({
+    where: {
+      name: collectionName,
+    },
+  })
+
+  if (!collection) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { collection: JSON.parse(JSON.stringify(collection)) },
+  }
+}
 type CreateCollectionEntryProps = {
-  collectionName: string
+  collection: collection
 }
 
 export const CreateCollectionEntry = ({
-  collectionName,
+  collection,
 }: CreateCollectionEntryProps) => {
+  const handleSubmitClick = async (formData: BookmarkData) => {
+    await createBookmark({ ...formData, collectionId: collection.id })
+  }
+
   return (
     <div>
-      <h1 className="font-bold text-lg mb-4">Create new {collectionName}</h1>
-      <div className="flex flex-col gap-y-6">
-        <FormInput type="text" placeholder="title" />
-        <FormInput type="text" placeholder="link" />
-        <FormTextArea placeholder="text" className="min-h-[300px]" />
-        <div className="flex gap-x-4">
-          <button className="px-4 py-2 bg-blue-500 rounded-lg">Save</button>
-          <button className="px-4 py-2 border border-neutral-50 rounded-lg">
-            Draft
-          </button>
-        </div>
-      </div>
+      <h1 className="font-bold text-lg mb-4">Create new {collection.name}</h1>
+      <BookmarkForm onSubmit={handleSubmitClick} />
     </div>
-  )
-}
-
-const FormInput = ({ className, ...props }: JSX.IntrinsicElements['input']) => {
-  return (
-    <input
-      {...props}
-      className={clsx(
-        'rounded bg-neutral-800 border border-neutral-400 p-2',
-        className
-      )}
-    />
-  )
-}
-
-const FormTextArea = ({
-  className,
-  ...props
-}: JSX.IntrinsicElements['textarea']) => {
-  return (
-    <textarea
-      {...props}
-      className={clsx(
-        'rounded bg-neutral-800 border border-neutral-400 p-2',
-        className
-      )}
-    />
   )
 }
 

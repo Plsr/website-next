@@ -1,4 +1,5 @@
 import { collection } from '@prisma/client'
+import Link from 'next/link'
 import { useState } from 'react'
 import { prisma } from '../../lib/utill/db'
 
@@ -34,7 +35,7 @@ const Backoffice = ({ collections }: { collections: collection[] }) => {
 
   return (
     <div>
-      <h1>Here be backoffice</h1>
+      <h1>Welcome to the backoffice</h1>
       <div>
         <h2>Create new collection</h2>
         <input
@@ -45,7 +46,9 @@ const Backoffice = ({ collections }: { collections: collection[] }) => {
         <button onClick={handleClick}>Create new collection</button>
       </div>
       {collections.map((collection) => (
-        <div key={collection.id}>{collection.name}</div>
+        <Link href={`backoffice/${collection.name}`} key={collection.id}>
+          {collection.name}
+        </Link>
       ))}
     </div>
   )
