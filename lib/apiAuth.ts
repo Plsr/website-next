@@ -1,7 +1,7 @@
 import { clerkClient, getAuth } from '@clerk/nextjs/server'
-import { NextApiRequest } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-export const apiAuth = async (req: NextApiRequest) => {
+export const apiAuth = async (req: NextApiRequest, res: NextApiResponse) => {
   const { userId } = getAuth(req)
   const user = userId ? await clerkClient.users.getUser(userId) : undefined
 
@@ -9,6 +9,7 @@ export const apiAuth = async (req: NextApiRequest) => {
     !user ||
     user.emailAddresses[0].emailAddress !== process.env.ADMIN_EMAIL_ADDRESS
   ) {
-    throw new Error('Who do you think you are')
+    console.error('Unauthorized api usage')
+    return res.status(403)
   }
 }
