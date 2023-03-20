@@ -13,7 +13,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     where: { collection_id: bookmarksCollectionId.id },
   })
 
-  console.log(bookmarks)
   return {
     props: {
       bookmarks: JSON.parse(JSON.stringify(bookmarks)),
