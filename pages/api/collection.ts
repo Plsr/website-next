@@ -8,7 +8,11 @@ export default async function handle(
   res: NextApiResponse
 ) {
   const { name } = req.body
-  await apiAuth(req, res)
+  const authenticated = await apiAuth(req, res)
+
+  if (!authenticated) {
+    return
+  }
 
   const result = await prisma.collection.create({
     data: {
