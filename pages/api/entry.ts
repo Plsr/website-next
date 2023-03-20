@@ -18,7 +18,11 @@ export default async function handle(
 ) {
   const { title, link, text, collectionId, entryId } = req.body
 
-  await apiAuth(req, res)
+  const authenticated = await apiAuth(req, res)
+
+  if (!authenticated) {
+    return
+  }
 
   if (req.method === 'POST') {
     const result = await prisma.entry.create({

@@ -10,6 +10,7 @@ export const apiAuth = async (req: NextApiRequest, res: NextApiResponse) => {
     user.emailAddresses[0].emailAddress !== process.env.ADMIN_EMAIL_ADDRESS
   ) {
     console.error('Unauthorized api usage')
-    return res.status(403)
+    res.status(403).send({ error: 'Not authorized' })
+    return false
   }
 }

@@ -9,7 +9,6 @@ import { getWebsiteReleases, ReleasesResponseData } from '../../lib/github'
 
 export async function getStaticProps() {
   const releases = await getWebsiteReleases()
-  console.log(JSON.stringify(releases[0]))
 
   return {
     props: {
