@@ -28,7 +28,7 @@ type BookmarksPageProps = {
   bookmarks: BookmarkApiData[]
 }
 
-const BookmarksPage = ({ bookmarks }: BookmarksPageProps) => {
+const BookmarksPage = ({ bookmarks = [] }: BookmarksPageProps) => {
   return (
     <div>
       <PageTitleWithSubline
