@@ -40,3 +40,4 @@ public/*atom.xml
 public/*rss.json
 
 node_modules
+.env
