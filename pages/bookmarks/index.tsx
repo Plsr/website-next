@@ -1,4 +1,5 @@
 import { GetServerSidePropsContext } from 'next'
+import Head from 'next/head'
 import { BookmarkItem } from '../../components/bookmark-item'
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { BookmarkData } from '../../lib/data/bookmarksHandler'
@@ -11,6 +12,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const bookmarks = await prisma.entry.findMany({
     where: { collection_id: bookmarksCollectionId.id },
+    orderBy: { created_at: 'desc' },
   })
 
   return {
@@ -30,19 +32,24 @@ type BookmarksPageProps = {
 
 const BookmarksPage = ({ bookmarks = [] }: BookmarksPageProps) => {
   return (
-    <div>
-      <PageTitleWithSubline
-        title="Bookmarks"
-        subline={
-          <PageTitleWithSubline.Subline>
-            Things around the web I liked
-          </PageTitleWithSubline.Subline>
-        }
-      />
-      {bookmarks.map((bookmark) => (
-        <BookmarkItem key={bookmark.id} bookmark={bookmark} />
-      ))}
-    </div>
+    <>
+      <Head>
+        <title>Bookmarks - Chris Jarling</title>
+      </Head>
+      <div>
+        <PageTitleWithSubline
+          title="Bookmarks"
+          subline={
+            <PageTitleWithSubline.Subline>
+              Things around the web I liked
+            </PageTitleWithSubline.Subline>
+          }
+        />
+        {bookmarks.map((bookmark) => (
+          <BookmarkItem key={bookmark.id} bookmark={bookmark} />
+        ))}
+      </div>
+    </>
   )
 }
 

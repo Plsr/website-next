@@ -13,4 +13,6 @@ export const apiAuth = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(403).send({ error: 'Not authorized' })
     return false
   }
+
+  return true
 }
