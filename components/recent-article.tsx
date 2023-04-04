@@ -1,5 +1,4 @@
 import formatDistance from 'date-fns/formatDistance'
-import { useRouter } from 'next/router'
 import { StyledArticleContent } from './styled-article-content'
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -7,12 +6,11 @@ import Link from 'next/link'
 export default function RecentArticle({ date, id, title, excerpt }: props) {
   const postDate = Date.parse(date)
   const ago = formatDistance(postDate, new Date())
-  const router = useRouter()
 
   return (
     <Link
       href={`/post/${id}`}
-      className="transition duration-300 cursor-pointer hover:bg-zinc-700 -ml-4 p-4 rounded-xl"
+      className="block transition duration-300 cursor-pointer hover:bg-zinc-700 -ml-4 p-4 rounded-xl"
     >
       <small className="text-gray-500 mb-2 block">{ago} ago</small>
       <h4
