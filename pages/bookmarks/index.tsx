@@ -6,6 +6,11 @@ import { BookmarkData } from '../../lib/data/bookmarksHandler'
 import { prisma } from '../../lib/utill/db'
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  context.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=59, stale-while-revalidate=599'
+  )
+
   const bookmarksCollectionId = await prisma.collection.findFirstOrThrow({
     where: { name: 'bookmarks' },
   })
