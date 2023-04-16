@@ -13,3 +13,5 @@ After three years of Covid, there really is not much news to me having it. I bas
 Since I'm back home, I'm isolating away in my daughters room to not get the family sick. I spend a lot of time on the computer and my wife places food at the door. Basically feel as if I'm 14 again.\
 \
 My symptoms are gone for a few days now, but my tests just don't seem to get negative. It's day 12 now since I noticed first symptoms. Hope to get out of here soon. Also, my daughter want's her room back.
+
+**Update (16th April)**: I finally tested negative on the evening of the 11th. I experience some fatigue currently, am tired a lot quicker than usual. Focussing is a little harder than usual.
