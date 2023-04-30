@@ -7,7 +7,6 @@ type EntryApiRequest = NextApiRequest & {
     title: string
     link: string
     text: string
-    collectionId: number
     entryId?: number
   }
 }
@@ -16,7 +15,7 @@ export default async function handle(
   req: EntryApiRequest,
   res: NextApiResponse
 ) {
-  const { title, link, text, collectionId, entryId } = req.body
+  const { title, link, text, entryId } = req.body
 
   const authenticated = await apiAuth(req, res)
 
@@ -25,12 +24,11 @@ export default async function handle(
   }
 
   if (req.method === 'POST') {
-    const result = await prisma.entry.create({
+    const result = await prisma.bookmark.create({
       data: {
         title,
         link,
         text,
-        collection_id: collectionId,
       },
     })
     res.json(result)
