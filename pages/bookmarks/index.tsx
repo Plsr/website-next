@@ -6,12 +6,7 @@ import { BookmarkData } from '../../lib/data/bookmarksHandler'
 import { prisma } from '../../lib/utill/db'
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const bookmarksCollectionId = await prisma.collection.findFirstOrThrow({
-    where: { name: 'bookmarks' },
-  })
-
-  const bookmarks = await prisma.entry.findMany({
-    where: { collection_id: bookmarksCollectionId.id },
+  const bookmarks = await prisma.bookmark.findMany({
     orderBy: { created_at: 'desc' },
   })
 

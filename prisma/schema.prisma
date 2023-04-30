@@ -15,25 +15,6 @@ model collection {
   name       String?   @db.VarChar(255)
 }
 
-model df1d1737_444f_52d0_bac3_341c5235366a_20230311105050_vrepl {
-  id         Int       @id @default(autoincrement())
-  created_at DateTime? @default(now()) @db.Timestamp(0)
-  updated_at DateTime? @default(now()) @db.Timestamp(0)
-
-  @@map("_df1d1737_444f_52d0_bac3_341c5235366a_20230311105050_vrepl")
-}
-
-model fe44d49a_e148_59e9_aa9b_d267f2101759_20230311104555_vrepl {
-  id         Int       @id @default(autoincrement())
-  created_at DateTime? @default(now()) @db.Timestamp(0)
-  updated_at DateTime? @default(now()) @db.Timestamp(0)
-  tags       String?   @db.VarChar(255)
-  title      String?   @db.VarChar(255)
-  text       String?   @db.Text
-
-  @@map("_fe44d49a_e148_59e9_aa9b_d267f2101759_20230311104555_vrepl")
-}
-
 model entry {
   id            Int       @id @default(autoincrement())
   created_at    DateTime? @default(now()) @db.Timestamp(0)
@@ -45,4 +26,13 @@ model entry {
   collection_id Int?
 
   @@index([collection_id], map: "collection_id_idx")
+}
+
+model bookmark {
+  id         Int       @id
+  created_at DateTime? @db.Timestamp(0)
+  updated_at DateTime? @db.Timestamp(0)
+  title      String?   @db.VarChar(255)
+  link       String?   @db.VarChar(255)
+  text       String?   @db.Text
 }
