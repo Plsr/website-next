@@ -4,18 +4,14 @@ export type BookmarkData = {
   text: string
 }
 
-type CreateBookmarkPayload = BookmarkData & {
-  collectionId: number
-}
-
-// TODO: Might be a good idea to move to reac query in the future
-export const createBookmark = async (payload: CreateBookmarkPayload) => {
+// TODO: Might be a good idea to move to react query in the future
+export const createBookmark = async (payload: BookmarkData) => {
   try {
     const body = {
       ...payload,
     }
 
-    const entry = await fetch('/api/entry', {
+    const entry = await fetch('/api/bookmark', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
@@ -39,7 +35,7 @@ export const updateBookmark = async (
       entryId,
     }
 
-    const entry = await fetch('/api/entry', {
+    const entry = await fetch('/api/bookmark', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),

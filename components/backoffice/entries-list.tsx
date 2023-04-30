@@ -2,10 +2,17 @@ import { entry } from '@prisma/client'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-type EntriesListProps = {
-  entries: entry[]
+export type GeneralizedEntry = {
+  id: number
+  title: string
+  created_at: Date
 }
-export const EntriesList = ({ entries }: EntriesListProps) => {
+
+type EntriesListProps = {
+  entries: GeneralizedEntry[]
+  collectionPath: string
+}
+export const EntriesList = ({ entries, collectionPath }: EntriesListProps) => {
   const router = useRouter()
   const collectionName = router.query.collection!
 
@@ -24,12 +31,7 @@ export const EntriesList = ({ entries }: EntriesListProps) => {
             <td>{entry.title}</td>
             <td>{entry.created_at?.toString()}</td>
             <td>
-              <Link
-                href={{
-                  pathname: '/backoffice/[collection]/[entryId]',
-                  query: { collection: collectionName, entryId: entry.id },
-                }}
-              >
+              <Link href={`${collectionPath}/${entry.id}`}>
                 <button className="rounded-lg border border-neutral-400 px-4 py-2 text-sm mr-2">
                   Edit
                 </button>
