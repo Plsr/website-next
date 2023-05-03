@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { apiAuth } from '../../lib/apiAuth'
 import { prisma } from '../../lib/utill/db'
+import { siteUrl } from '../../lib/utill/site'
 
 type EntryApiRequest = NextApiRequest & {
   body: {
@@ -31,6 +32,7 @@ export default async function handle(
         text,
       },
     })
+    await res.revalidate('/bookmarks')
     res.json(result)
   }
 
@@ -49,6 +51,13 @@ export default async function handle(
         text,
       },
     })
+    await res.revalidate('/bookmarks')
     res.json(result)
   }
+}
+
+async function revalidate() {
+  await fetch(
+    `${siteUrl}/api/revalidate?secret=${process.env.REVALIDATE_SECRET}`
+  )
 }
