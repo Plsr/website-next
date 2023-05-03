@@ -36,3 +36,14 @@ model bookmark {
   link       String?   @db.VarChar(255)
   text       String?   @db.Text
 }
+
+model f2e76a01_d2c6_582f_a38b_c00889fd8b91_20230503132011_vrepl {
+  id         Int       @id
+  created_at DateTime? @db.Timestamp(0)
+  updated_at DateTime? @db.Timestamp(0)
+  title      String?   @db.VarChar(255)
+  link       String?   @db.VarChar(255)
+  text       String?   @db.Text
+
+  @@map("_f2e76a01_d2c6_582f_a38b_c00889fd8b91_20230503132011_vrepl")
+}

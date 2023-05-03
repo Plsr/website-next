@@ -5,7 +5,7 @@ import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { BookmarkData } from '../../lib/data/bookmarksHandler'
 import { prisma } from '../../lib/utill/db'
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetServerSidePropsContext) {
   const bookmarks = await prisma.bookmark.findMany({
     orderBy: { created_at: 'desc' },
   })
