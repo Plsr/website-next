@@ -1,9 +1,9 @@
 ---
 layout: post
-title: VS Code Search Editors
-date: '2023-03-06T23:36:26.271Z'
-excerpt: On the usefuleness of search editors in VS Code
-tags: programming tools
+title: Finding large folders in macOS
+date: '2023-05-04T21:18:26.271Z'
+excerpt: Finding large folder in macOS. There's a cool way and a not so cool way. This is the cool way.
+tags: cli
 ---
 
 **tl;dr:** Use `du -sh */ | sort -hr` to find large folders or [set the "calculate all sizes" option](https://www.macrumors.com/how-to/view-folder-sizes-on-your-mac/) (it's not as cool as doing stuff in your shell).
