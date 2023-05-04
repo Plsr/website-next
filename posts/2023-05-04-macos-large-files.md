@@ -2,7 +2,7 @@
 layout: post
 title: Finding large folders in macOS
 date: '2023-05-04T21:18:26.271Z'
-excerpt: Finding large folder in macOS. There's a cool way and a not so cool way. This is the cool way.
+excerpt: There's a cool way and a not so cool way. This is the cool way.
 tags: cli
 ---
 
