@@ -33,12 +33,11 @@ export default function Home({ recentBlogPosts }: props) {
           </p>
           <div className="flex gap-4 mt-12 flex-wrap">
             <SocialLink href="mailto:hi@chrisjarling.com">Email</SocialLink>
-            <SocialLink href="https://mastodon.social/@chrispop">
+            <SocialLink href="https://hachyderm.io/@chrisjarling" rel="me">
               Mastodon
             </SocialLink>
-            <SocialLink href="https://github.com/Plsr">Github</SocialLink>
-            <SocialLink href="https://twitter.com/chrisjarling">
-              Twitter
+            <SocialLink href="https://github.com/Plsr" rel="me">
+              Github
             </SocialLink>
           </div>
         </div>
