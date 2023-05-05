@@ -15,13 +15,12 @@ export const NowPage: NextPage = () => {
       />
       <Paragraph>
         <ul className="mb-2 list-disc ml-4">
-          <li>I’m working full time for gigs my</li>
-          <li>Working on a redesign of this site in spare time </li>
-          <li>Reading The Lean Startup and The Martian </li>
-          <li>Also reading a lot of blogs </li>
-          <li>Minimalising various aspects of my life</li>
+          <li>I’m working full time for gigs</li>
+          <li>Reading Skin in the Game</li>
+          <li>Still reading a lot of blogs </li>
+          <li>Playing Pokemon Yellow Edition again after about 20 years</li>
         </ul>
-        <small>Last updated: 6th November, 2022</small>
+        <small>Last updated: 5th May, 2023</small>
       </Paragraph>
     </div>
   )
