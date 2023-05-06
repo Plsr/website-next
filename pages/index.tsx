@@ -36,7 +36,7 @@ export default function Home({ recentBlogPosts }: props) {
             <SocialLink href="https://hachyderm.io/@chrisjarling" rel="me">
               Mastodon
             </SocialLink>
-            <SocialLink href="https://github.com/Plsr" rel="me">
+            <SocialLink href="https://github.com/plsr" rel="me authn">
               Github
             </SocialLink>
           </div>
