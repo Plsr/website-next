@@ -23,11 +23,11 @@ export default function Document() {
         />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="theme-color" content="#ffffff" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="me" href="https://github.com/plsr" />
+
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -68,6 +68,8 @@ export default function Document() {
         />
       </Head>
       <body className="font-body bg-zinc-900">
+        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+        <link rel="me" href="https://github.com/plsr" />
         <Main />
         <NextScript />
       </body>
