@@ -21,6 +21,8 @@ export async function getStaticProps() {
 export default function Home({ recentBlogPosts }: props) {
   return (
     <>
+      <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+      <link rel="me" href="https://github.com/plsr" />
       <div className="flex md:flex-row flex-col-reverse justify-center items-center mb-36">
         <div className="mr-0 md:mr-12">
           <h2 className="text-xl text-gray-100 mb-4 font-headline font-bold">
@@ -36,7 +38,7 @@ export default function Home({ recentBlogPosts }: props) {
             <SocialLink href="https://hachyderm.io/@chrisjarling" rel="me">
               Mastodon
             </SocialLink>
-            <SocialLink href="https://github.com/plsr" rel="me authn">
+            <SocialLink href="https://github.com/plsr" rel="me">
               Github
             </SocialLink>
           </div>

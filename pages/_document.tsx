@@ -68,8 +68,6 @@ export default function Document() {
         />
       </Head>
       <body className="font-body bg-zinc-900">
-        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
-        <link rel="me" href="https://github.com/plsr" />
         <Main />
         <NextScript />
       </body>
