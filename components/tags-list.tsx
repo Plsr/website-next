@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Tag } from './tag'
 
 type TagsListProps = {
   tags: string[]
@@ -8,11 +8,7 @@ export const TagsList = ({ tags, ...rest }: TagsListProps) => {
   return (
     <div {...rest} className="flex flex-wrap">
       {tags.map((tag) => (
-        <Link key={tag} href={`/tags/${tag}`}>
-          <span className="mr-4 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
-            #{tag}
-          </span>
-        </Link>
+        <Tag key={tag} name={tag} />
       ))}
     </div>
   )
