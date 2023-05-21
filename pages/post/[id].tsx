@@ -6,6 +6,7 @@ import { BlogPostHeadline } from '../../components/blog-post-headline'
 import { PostMetadata } from '../../components/post-metadata'
 import { PostSeriesBlock } from '../../components/PostSeriesBlock'
 import { postSeriesList, SeriesEntry } from '../../lib/post-series'
+import { TagsList } from '../../components/tags-list'
 
 export async function getStaticPaths() {
   const postIds = getAllEntryIds('posts')

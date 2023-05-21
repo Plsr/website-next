@@ -19,7 +19,11 @@ type MatterData = {
   link?: string
 }
 
-export type NotePost = Omit<MatterData, 'series'> & {
+type FormattedMatterData = Omit<MatterData, 'tags'> & {
+  tags: string[]
+}
+
+export type NotePost = Omit<FormattedMatterData, 'series'> & {
   title: string
   headline?: string
   link?: string
@@ -28,7 +32,7 @@ export type NotePost = Omit<MatterData, 'series'> & {
   contentHtml: string
 }
 
-export type BlogPost = MatterData & {
+export type BlogPost = FormattedMatterData & {
   id: string
   excerpt?: string
   description: string
@@ -59,8 +63,7 @@ export const filterByTag = <T extends EntryType>(
   return entriesData.filter((entryData) => {
     if (!entryData.tags) return false
 
-    const tagsList = entryData.tags.split(' ')
-    return tagsList.includes(tagName)
+    return entryData.tags.includes(tagName)
   })
 }
 
@@ -133,8 +136,7 @@ export const getAllTags = async (entryType: EntryTypeWithTags) => {
   const allTags: string[] = []
 
   allPosts.forEach((post) => {
-    const tags = post?.tags?.split(' ')
-    tags && tags.length > 0 && allTags.push(...tags)
+    post.tags.length > 0 && allTags.push(...post.tags)
   })
 
   return [...new Set(allTags)]
@@ -229,10 +231,13 @@ function formattedFrontMatter(matterResultData: MatterData) {
     ? format(new Date(matterResultData.date), 'do MMMM, yyyy')
     : matterResultData.date
 
+  const tags = matterResultData.tags ? matterResultData.tags.split(' ') : []
+
   return {
     ...matterResultData,
+    tags,
     formattedDate,
-  }
+  } as FormattedMatterData
 }
 
 async function processFile(content: string) {
