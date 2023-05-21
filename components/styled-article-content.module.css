@@ -1,5 +1,5 @@
 .article {
-  line-height: 1.8;
+  line-height: 1.75rem;
   letter-spacing: 0.03rem;
   color: #d4d4d4;
   font-weight: 300;
@@ -16,6 +16,7 @@
 .article > figure > img {
   border-radius: 0.5rem;
 }
+
 .article > figure > figcaption {
   margin-top: 0.5rem;
   font-size: 0.8rem;
