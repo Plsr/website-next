@@ -137,7 +137,7 @@ export const getAllTags = async (entryType: EntryTypeWithTags) => {
     tags && tags.length > 0 && allTags.push(...tags)
   })
 
-  return allTags
+  return [...new Set(allTags)]
 }
 
 export const getAllSortedEntries = async <T extends EntryType>(
