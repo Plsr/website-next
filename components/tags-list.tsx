@@ -1,18 +1,19 @@
-import Link from 'next/link'
+import { Tag as TagComponent } from './tag'
+import type { Tag } from '../lib/entries'
 
 type TagsListProps = {
-  tags: string[]
+  tags: Tag[]
 } & JSX.IntrinsicElements['div']
 
 export const TagsList = ({ tags, ...rest }: TagsListProps) => {
   return (
-    <div {...rest}>
+    <div {...rest} className="flex flex-wrap gap-x-1 gap-y-7">
       {tags.map((tag) => (
-        <Link key={tag} href={`/tags/${tag}`}>
-          <span className="mr-4 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
-            #{tag}
-          </span>
-        </Link>
+        <TagComponent
+          key={tag.tagName}
+          name={tag.tagName}
+          timesUsed={tag.count}
+        />
       ))}
     </div>
   )

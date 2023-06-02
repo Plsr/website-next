@@ -19,7 +19,16 @@ type MatterData = {
   link?: string
 }
 
-export type NotePost = Omit<MatterData, 'series'> & {
+export type Tag = {
+  tagName: string
+  count: number
+}
+
+type FormattedMatterData = Omit<MatterData, 'tags'> & {
+  tags: string[]
+}
+
+export type NotePost = Omit<FormattedMatterData, 'series'> & {
   title: string
   headline?: string
   link?: string
@@ -28,7 +37,7 @@ export type NotePost = Omit<MatterData, 'series'> & {
   contentHtml: string
 }
 
-export type BlogPost = MatterData & {
+export type BlogPost = FormattedMatterData & {
   id: string
   excerpt?: string
   description: string
@@ -59,8 +68,7 @@ export const filterByTag = <T extends EntryType>(
   return entriesData.filter((entryData) => {
     if (!entryData.tags) return false
 
-    const tagsList = entryData.tags.split(' ')
-    return tagsList.includes(tagName)
+    return entryData.tags.includes(tagName)
   })
 }
 
@@ -130,14 +138,29 @@ export const getAllEntryIds = (entryType: EntryType): string[] => {
 
 export const getAllTags = async (entryType: EntryTypeWithTags) => {
   const allPosts = await getAllEntries(entryType)
-  const allTags: string[] = []
+  const allTags: { [key: string]: number } = {}
 
   allPosts.forEach((post) => {
-    const tags = post?.tags?.split(' ')
-    tags && tags.length > 0 && allTags.push(...tags)
+    const postTags = post.tags
+
+    if (postTags.length > 0) {
+      postTags.forEach((tag) => {
+        allTags[tag] ? (allTags[tag] += 1) : (allTags[tag] = 1)
+      })
+    }
   })
 
-  return allTags
+  const tagsArray = Object.entries(allTags).map(
+    ([tagName, count]) =>
+      ({
+        tagName,
+        count,
+      } as Tag)
+  )
+
+  const sortedTagsArray = tagsArray.sort((a, b) => b.count - a.count)
+
+  return sortedTagsArray
 }
 
 export const getAllSortedEntries = async <T extends EntryType>(
@@ -229,10 +252,13 @@ function formattedFrontMatter(matterResultData: MatterData) {
     ? format(new Date(matterResultData.date), 'do MMMM, yyyy')
     : matterResultData.date
 
+  const tags = matterResultData.tags ? matterResultData.tags.split(' ') : []
+
   return {
     ...matterResultData,
+    tags,
     formattedDate,
-  }
+  } as FormattedMatterData
 }
 
 async function processFile(content: string) {

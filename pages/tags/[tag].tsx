@@ -6,11 +6,12 @@ import {
   getSortedAndFilteredEntries,
 } from '../../lib/entries'
 import { PostsList } from '../../components/posts-list'
+import { Tag } from '../../components/tag'
 
 export async function getStaticPaths() {
   const tags = await getAllTags('posts')
   const paths = tags.map((tag) => ({
-    params: { tag },
+    params: { tag: tag.tagName },
   }))
   return {
     paths,
@@ -41,8 +42,9 @@ type PostsIndexProps = {
 export default function PostsIndex({ posts, tag }: PostsIndexProps) {
   return (
     <>
-      <h2 className="text-xl font-body font-bold text-neutral-500 mb-8">
-        All Posts tagged #{tag}{' '}
+      <h2 className="text-xl font-body font-bold mb-8 flex items-center">
+        <span className="block mr-2">All {posts.length} Posts tagged</span>
+        <Tag.Pill hover={false}>#{tag}</Tag.Pill>
       </h2>
       <PostsList posts={posts} />
     </>

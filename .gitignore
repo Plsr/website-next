@@ -35,9 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# rss feeds
-public/*atom.xml
-public/*rss.json
-
 node_modules
+/public
+.tina
 .env

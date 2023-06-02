@@ -6,6 +6,8 @@ import { BlogPostHeadline } from '../../components/blog-post-headline'
 import { PostMetadata } from '../../components/post-metadata'
 import { PostSeriesBlock } from '../../components/PostSeriesBlock'
 import { postSeriesList, SeriesEntry } from '../../lib/post-series'
+import { TagsList } from '../../components/tags-list'
+import { Tag } from '../../components/tag'
 
 export async function getStaticPaths() {
   const postIds = getAllEntryIds('posts')
@@ -48,6 +50,9 @@ export default function Post({ postData, seriesEntries }: props) {
         </div>
         <StyledArticleContent contentHtml={postData.contentHtml} />
       </div>
+      {postData.tags.map((tag) => (
+        <Tag name={tag} key={tag} />
+      ))}
     </>
   )
 }
