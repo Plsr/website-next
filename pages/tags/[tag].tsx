@@ -11,7 +11,7 @@ import { Tag } from '../../components/tag'
 export async function getStaticPaths() {
   const tags = await getAllTags('posts')
   const paths = tags.map((tag) => ({
-    params: { tag },
+    params: { tag: tag.tagName },
   }))
   return {
     paths,

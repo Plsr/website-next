@@ -1,5 +1,5 @@
 import { TagsList } from '../../components/tags-list'
-import { getAllTags } from '../../lib/entries'
+import { getAllTags, Tag } from '../../lib/entries'
 
 export async function getStaticProps() {
   const tags = await getAllTags('posts')
@@ -12,14 +12,13 @@ export async function getStaticProps() {
 }
 
 type TagsIndexPageProps = {
-  tags: string[]
+  tags: Tag[]
 }
 
 const TagsIndexPage = ({ tags }: TagsIndexPageProps) => {
   return (
     <>
       <h2 className="font-bold text-2xl mb-8">All tags ({tags.length})</h2>
-      <span>Filter posts/notes</span>
       <TagsList tags={tags} />
     </>
   )

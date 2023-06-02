@@ -19,6 +19,11 @@ type MatterData = {
   link?: string
 }
 
+export type Tag = {
+  tagName: string
+  count: number
+}
+
 type FormattedMatterData = Omit<MatterData, 'tags'> & {
   tags: string[]
 }
@@ -133,13 +138,29 @@ export const getAllEntryIds = (entryType: EntryType): string[] => {
 
 export const getAllTags = async (entryType: EntryTypeWithTags) => {
   const allPosts = await getAllEntries(entryType)
-  const allTags: string[] = []
+  const allTags: { [key: string]: number } = {}
 
   allPosts.forEach((post) => {
-    post.tags.length > 0 && allTags.push(...post.tags)
+    const postTags = post.tags
+
+    if (postTags.length > 0) {
+      postTags.forEach((tag) => {
+        allTags[tag] ? (allTags[tag] += 1) : (allTags[tag] = 1)
+      })
+    }
   })
 
-  return [...new Set(allTags)]
+  const tagsArray = Object.entries(allTags).map(
+    ([tagName, count]) =>
+      ({
+        tagName,
+        count,
+      } as Tag)
+  )
+
+  const sortedTagsArray = tagsArray.sort((a, b) => b.count - a.count)
+
+  return sortedTagsArray
 }
 
 export const getAllSortedEntries = async <T extends EntryType>(
