@@ -7,15 +7,16 @@ type TagProps = {
   timesUsed?: number
 }
 
-export const Tag = ({ name, timesUsed = 123 }: TagProps) => {
+export const Tag = ({ name, timesUsed }: TagProps) => {
   return (
     <Link href={`/tags/${name}`}>
       <TagPill>
-        #{name} ({timesUsed})
+        #{name} {timesUsed && <TimesUsed count={timesUsed} />}
       </TagPill>
     </Link>
   )
 }
+
 type TagPillProps = {
   children: ReactNode | ReactNode[]
   hover?: boolean
@@ -32,6 +33,14 @@ const TagPill = ({ children, hover = true }: TagPillProps) => {
       {children}
     </span>
   )
+}
+
+type TimesUsedProps = {
+  count: number
+}
+
+const TimesUsed = ({ count }: TimesUsedProps) => {
+  return <>({count})</>
 }
 
 Tag.Pill = TagPill
