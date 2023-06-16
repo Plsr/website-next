@@ -1,9 +1,8 @@
-import { NextPage } from 'next'
 import { Headline } from '../../components/headline'
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { Paragraph } from '../../components/paragraph'
 
-export const ImprintPage: NextPage = () => {
+const PrivacyPage = () => {
   return (
     <div>
       <PageTitleWithSubline
@@ -710,4 +709,4 @@ export const ImprintPage: NextPage = () => {
   )
 }
 
-export default ImprintPage
+export default PrivacyPage
