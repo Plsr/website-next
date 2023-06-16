@@ -13,8 +13,8 @@ module.exports = {
       ...colors,
     },
     fontFamily: {
-      body: ['Nunito', 'sans-serif'],
-      headline: ['Nunito', 'sans-serif'],
+      body: ['var(--font-nunito)'],
+      headline: ['var(--font-nunito)'],
     },
     extend: {},
   },
