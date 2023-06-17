@@ -18,12 +18,12 @@ export const Pagination = ({
   return (
     <div className="flex justify-between">
       {hasNextPage && (
-        <PaginationLink href={`/${recordName}/${currentPage + 1}`}>
+        <PaginationLink href={`/${recordName}/page/${currentPage + 1}`}>
           Older {recordName}
         </PaginationLink>
       )}
       {hasPreviousPages && (
-        <PaginationLink href={`/${recordName}/${currentPage - 1}`}>
+        <PaginationLink href={`/${recordName}/page/${currentPage - 1}`}>
           Newer {recordName}
         </PaginationLink>
       )}
