@@ -64,8 +64,8 @@ type ChangelogEntryProps = {
 
 const ChangelogEntry = ({ entry, latest = false }: ChangelogEntryProps) => {
   return (
-    <div className="bg-slate-100 p-4 rounded-xl mb-8">
-      <h3 className=" text-slate-800 flex items-center mb-2">
+    <div className="bg-neutral-800 p-4 rounded-xl mb-8">
+      <h3 className=" text-neutral-200 flex items-center mb-2">
         <div
           className={clsx(
             'font-semibold font-headline',
@@ -76,18 +76,18 @@ const ChangelogEntry = ({ entry, latest = false }: ChangelogEntryProps) => {
           {entry.name}
         </div>{' '}
         {latest && (
-          <span className=" text-xs ml-2 px-2 py-1 pb-0.5 rounded-xl bg-blue-300 text-slate-50">
+          <span className=" text-xs ml-2 px-2 py-1 pb-0.5 rounded-xl bg-blue-500 text-neutral-50">
             latest
           </span>
         )}
       </h3>
-      <p className="text-sm text-slate-500">{entry.body}</p>
+      <p className="text-sm text-neutral-300">{entry.body}</p>
       <div className="flex mt-4">
-        <p className="text-xs text-slate-500 mr-4 flex">
+        <p className="text-xs text-neutral-400 mr-4 flex">
           <UserCircleIcon className="inline h-3 w-3 mr-1" />
           {entry.author.login}
         </p>
-        <p className="text-xs text-slate-500 mr-4 flex">
+        <p className="text-xs text-neutral-400 mr-4 flex">
           <CalendarIcon className="inline h-3 w-3 mr-1" />
           {format(new Date(entry.created_at.toString()), 'do MMMM, yyyy')}
         </p>
