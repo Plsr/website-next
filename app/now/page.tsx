@@ -1,8 +1,7 @@
-import { NextPage } from 'next'
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { Paragraph } from '../../components/paragraph'
 
-export const NowPage: NextPage = () => {
+const NowPage = () => {
   return (
     <div>
       <PageTitleWithSubline
