@@ -11,6 +11,8 @@ const yearsOld = formatDistanceToNowStrict(birthDay, {
   roundingMethod: 'floor',
 })
 
+export const revalidate = 60
+
 const AboutPage = async () => {
   const releases = await getWebsiteReleases()
 
