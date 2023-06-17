@@ -12,7 +12,7 @@ export const PostsList = ({ posts }: PostsListProps) => {
     <ul>
       {posts.map((post) => (
         <li key={post.id} className="mb-2 ">
-          <Link href={`/post/${post.id}`}>
+          <Link href={`/posts/${post.id}`}>
             <div className="flex flex-row justify-between group">
               <div className="flex flex-col mb-6 group-hover:translate-x-2 transition">
                 <h2 className="text-gray-200 font-bold font-body">

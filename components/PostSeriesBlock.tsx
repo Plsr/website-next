@@ -1,19 +1,20 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { siteUrl } from '../lib/utill/site'
 import { SeriesEntry } from '../lib/post-series'
 
 type PostSeriesBlockProps = {
   seriesEntries: SeriesEntry[]
+  activeEntryId: string
 }
 
-export const PostSeriesBlock = ({ seriesEntries }: PostSeriesBlockProps) => {
-  const router = useRouter()
-
+export const PostSeriesBlock = ({
+  seriesEntries,
+  activeEntryId,
+}: PostSeriesBlockProps) => {
   if (seriesEntries.length === 1) return null
 
-  const entryIsCurrent = (entryUrl: string) => {
-    return entryUrl === `${siteUrl}${router.asPath}`
+  const entryIsCurrent = (entryId: string) => {
+    console.log(entryId, activeEntryId)
+    return entryId === activeEntryId
   }
 
   return (
@@ -24,7 +25,7 @@ export const PostSeriesBlock = ({ seriesEntries }: PostSeriesBlockProps) => {
       <ul className="list-disc ml-8">
         {seriesEntries.map((entry) => (
           <li key={entry.title} className="mb-2 last:mb-0">
-            {entryIsCurrent(entry.url) ? (
+            {entryIsCurrent(entry.id) ? (
               <p className="text-neutral-400 font-bold">
                 {entry.title}{' '}
                 <span className="font-normal">(currently reading)</span>

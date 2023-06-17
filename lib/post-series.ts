@@ -4,6 +4,7 @@ import { siteUrl } from './utill/site'
 export type SeriesEntry = {
   title: string
   url: string
+  id: string
 }
 
 export const postSeriesList = async (
@@ -22,6 +23,7 @@ export const postSeriesList = async (
       return {
         title: entry.title,
         url,
+        id: entry.id,
       }
     })
     .reverse()
