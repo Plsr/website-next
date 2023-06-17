@@ -3,22 +3,12 @@ import memoji from '../public/memoji.png'
 import { getSortedAndFilteredEntries, BlogPost } from '../lib/entries'
 import RecentArticle from '../components/recent-article'
 import HomepageHeadline from '../components/homepage-headline'
-import { generateFeeds } from '../lib/feeds'
 import { SocialLink } from '../components/social-link'
 
-export async function getStaticProps() {
-  await generateFeeds()
+export default async function Home() {
   const allPostsData = await getSortedAndFilteredEntries({ entryType: 'posts' })
-  const recentPosts = allPostsData.slice(0, 3)
+  const recentBlogPosts = allPostsData.slice(0, 3)
 
-  return {
-    props: {
-      recentBlogPosts: recentPosts,
-    },
-  }
-}
-
-export default function Home({ recentBlogPosts }: props) {
   return (
     <>
       <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
@@ -63,8 +53,4 @@ export default function Home({ recentBlogPosts }: props) {
       </ul>
     </>
   )
-}
-
-type props = {
-  recentBlogPosts: BlogPost[]
 }
