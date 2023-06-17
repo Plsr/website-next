@@ -1,3 +1,5 @@
+'use client'
+
 import {
   CalendarIcon,
   CodeBracketIcon,
@@ -9,7 +11,6 @@ import { motion, useAnimation, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 import { ReleasesResponseData } from '../lib/github'
-import { Headline } from './headline'
 
 type ChangelogListProps = {
   changelogEntries: ReleasesResponseData[]
@@ -23,7 +24,7 @@ const variants = {
     opacity: 1,
     transition: {
       delayChildren: 0,
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
     },
   },
 }
