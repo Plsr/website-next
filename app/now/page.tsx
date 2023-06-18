@@ -1,6 +1,8 @@
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 import { Paragraph } from '../../components/paragraph'
 
+export const dynamic = 'force-static'
+
 const NowPage = () => {
   return (
     <div>
