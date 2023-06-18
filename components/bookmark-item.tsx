@@ -1,4 +1,4 @@
-import { BookmarkData } from '../lib/data/bookmarksHandler'
+import { BookmarkData } from './backoffice/bookmark-form'
 
 type BookmarkItemProps = {
   bookmark: BookmarkData

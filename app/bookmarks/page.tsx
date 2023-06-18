@@ -1,6 +1,6 @@
+import { BookmarkData } from 'components/backoffice/bookmark-form'
 import { BookmarkItem } from 'components/bookmark-item'
 import { PageTitleWithSubline } from 'components/page-title-with-subline'
-import { BookmarkData } from 'lib/data/bookmarksHandler'
 import { prisma } from 'lib/utill/db'
 import { Metadata } from 'next'
 
