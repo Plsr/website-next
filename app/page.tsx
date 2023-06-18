@@ -13,7 +13,7 @@ export default async function Home() {
     <>
       <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
       <link rel="me" href="https://github.com/plsr" />
-      <div className="flex md:flex-row flex-col-reverse justify-center items-center mb-36">
+      <div className="flex md:flex-row flex-col-reverse justify-center items-center mb-24">
         <div className="mr-0 md:mr-12">
           <h2 className="text-xl text-gray-100 mb-4 font-headline font-bold">
             Hi, I&apos;m Chris Jarling 👋
@@ -23,7 +23,7 @@ export default async function Home() {
             Cologne, Germany. <br />I currently work on shaping the future of
             phone plans at gigs 😍
           </p>
-          <div className="flex gap-4 mt-12 flex-wrap">
+          <div className="flex gap-x-4 mt-12 flex-wrap">
             <SocialLink href="mailto:hi@chrisjarling.com">Email</SocialLink>
             <SocialLink href="https://hachyderm.io/@chrisjarling" rel="me">
               Mastodon
@@ -41,7 +41,7 @@ export default async function Home() {
       <HomepageHeadline>Latest posts</HomepageHeadline>
       <ul>
         {recentBlogPosts.map((postData) => (
-          <li key={postData.id} className="mb-12">
+          <li key={postData.id} className="mb-8">
             <RecentArticle
               id={postData.id}
               title={postData.title}

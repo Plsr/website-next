@@ -1,7 +1,13 @@
+'use client'
 import { useState } from 'react'
-import { BookmarkData } from '../../lib/data/bookmarksHandler'
 import { FormInput } from './form-input'
 import { FormTextArea } from './form-textarea'
+
+export type BookmarkData = {
+  link: string
+  title: string
+  text: string
+}
 
 type BookmarkFormProps = {
   onSubmit: (data: BookmarkData) => void
@@ -21,9 +27,12 @@ export const BookmarkForm = ({
   }
 
   const handleSubmitClick = () => {
+    console.log('handling submit clikc')
     if (!formValid()) {
       return
     }
+
+    console.log('valid')
 
     onSubmit({
       link,

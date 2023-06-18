@@ -40,6 +40,5 @@ const getBookmarks = async (): Promise<BookmarkApiData[]> => {
   const bookmarks = await prisma.bookmark.findMany({
     orderBy: { created_at: 'desc' },
   })
-
   return JSON.parse(JSON.stringify(bookmarks))
 }

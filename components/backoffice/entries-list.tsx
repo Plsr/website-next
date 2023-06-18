@@ -1,6 +1,4 @@
-import { entry } from '@prisma/client'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 export type GeneralizedEntry = {
   id: number
@@ -13,9 +11,6 @@ type EntriesListProps = {
   collectionPath: string
 }
 export const EntriesList = ({ entries, collectionPath }: EntriesListProps) => {
-  const router = useRouter()
-  const collectionName = router.query.collection!
-
   return (
     <table className="table-auto w-full">
       <thead>

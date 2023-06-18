@@ -10,7 +10,7 @@
     "postinstall": "npx prisma generate"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.11.5",
+    "@clerk/nextjs": "^4.21.3",
     "@heroicons/react": "^2.0.12",
     "@octokit/types": "^8.1.1",
     "@prisma/client": "^4.11.0",

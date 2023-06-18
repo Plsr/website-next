@@ -4,6 +4,7 @@ import './global.css'
 import { Nunito } from 'next/font/google'
 import { Metadata } from 'next'
 import Footer from '../components/footer'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -44,16 +45,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${nunito.variable}`}>
-      <body className="font-body bg-zinc-900">
-        <div className="flex flex-col min-h-full">
-          <Header />
-          <main className="px-8 md:px-4  max-w-screen-md mx-auto text-slate-200 font-body mb-24 w-full">
-            <div className="mt-24 md:mt-48">{children}</div>
-          </main>
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={`${nunito.variable}`}>
+        <body className="font-body bg-zinc-900">
+          <div className="flex flex-col min-h-full">
+            <Header />
+            <main className="px-8 md:px-4  max-w-screen-md mx-auto text-slate-200 font-body mb-24 w-full">
+              <div className="mt-24 md:mt-48">{children}</div>
+            </main>
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
