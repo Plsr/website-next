@@ -105,7 +105,7 @@ const HeadlineNote = ({
 
   const headlineComponent = () =>
     headlineLink ? (
-      <Link href={`/note/${id}`}>{headlineContent()}</Link>
+      <Link href={`/notes/${id}`}>{headlineContent()}</Link>
     ) : (
       headlineContent()
     )
@@ -142,7 +142,7 @@ const NoteFooter = ({ date, id, showPermalink }: NoteFooterProps) => {
         <>
           <span>
             <Link
-              href={`/note/${id}`}
+              href={`/notes/${id}`}
               className="hover:border-b-2 hover:border-blue-500"
             >
               {' '}
