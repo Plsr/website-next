@@ -54,8 +54,10 @@ export type EntryPostTypesMap = {
   notes: NotePost
 }
 
-const getEntriesDirectory = (entryType: EntryType) =>
-  path.join(process.cwd(), entryType)
+const getEntriesDirectory = (entryType: EntryType) => {
+  console.log(process.cwd())
+  return path.join(process.cwd(), entryType)
+}
 
 type GetPaginatedEntriesParams<T extends EntryType> = {
   entryType: T
