@@ -29,7 +29,6 @@ export async function generateMetadata({ params }: Params) {
 }
 
 export default async function Post({ params }: Params) {
-  console.log(params)
   const postData = await getEntryData(params!.id as string, 'posts')
 
   if (!postData) {

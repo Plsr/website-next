@@ -16,8 +16,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     where: { id: parseInt(bookmarkId as string) },
   })
 
-  console.log(bookmark)
-
   if (!bookmark) {
     return { notFound: true }
   }

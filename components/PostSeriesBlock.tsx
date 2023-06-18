@@ -13,7 +13,6 @@ export const PostSeriesBlock = ({
   if (seriesEntries.length === 1) return null
 
   const entryIsCurrent = (entryId: string) => {
-    console.log(entryId, activeEntryId)
     return entryId === activeEntryId
   }
 
