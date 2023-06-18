@@ -7,7 +7,6 @@ export async function generateStaticParams() {
 }
 
 export default async function Note({ params }: Props) {
-  console.log('here')
   const noteData = await getEntryData(params!.id as string, 'notes')
 
   return <NoteComponent note={noteData} asListItem={false} />
