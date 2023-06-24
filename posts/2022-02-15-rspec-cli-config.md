@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: RSpec command line config
 date: '2022-02-15 23:07 +0100'
 tags: web-dev rails

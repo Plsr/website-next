@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Recurring thoughts
 date: '2023-05-12T09:25:26.271Z'
 excerpt: On how I get my head to shut up.

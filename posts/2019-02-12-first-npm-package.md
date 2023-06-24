@@ -1,7 +1,7 @@
 ---
 title: What I learned writing my first npm package
 date: '2019-02-12'
-layout: post
+
 tags: web-dev learning npm javascript
 ---
 

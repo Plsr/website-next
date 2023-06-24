@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: I had a commute today
 date: '2022-10-17T22:16:15.584Z'
 excerpt: Commutes suck. I got reminded why today.

@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Island Life
 date: '2018-04-06 10:28 +0200'
 tags: prose

@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: On noise cancelling headphones and the Bose QC 35ii
 date: '2019-02-05 10:25 +0100'
 tags: headphones review

@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: On Chesterton's fence
 date: '2019-05-17 19:10 +0200'
 tags: programming meta

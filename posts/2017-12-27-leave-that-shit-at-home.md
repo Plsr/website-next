@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Leave that shit at home
 date: '2017-12-27 13:30 +0100'
 tags: minimalism

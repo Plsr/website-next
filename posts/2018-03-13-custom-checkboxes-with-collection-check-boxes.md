@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Custom checkboxes with collection_check_boxes
 date: '2018-03-13 17:25 +0100'
 tags: web-dev rails

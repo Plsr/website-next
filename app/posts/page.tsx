@@ -4,17 +4,18 @@ import { BlogPost, getAllSortedEntries } from '../../lib/entries'
 import { getYear } from 'date-fns'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { allPosts, Post } from '.contentlayer/generated'
 
 export const metadata: Metadata = {
   title: 'Posts - Chris Jarling',
 }
 
 type PostsByYear = {
-  [key: number]: BlogPost[]
+  [key: number]: Post[]
 }
 
 const getPostsByYear = async () => {
-  const data = await getAllSortedEntries('posts')
+  const data = allPosts
   const postsByYear: PostsByYear = {}
 
   data.forEach((page) => {

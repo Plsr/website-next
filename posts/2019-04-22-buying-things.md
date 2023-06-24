@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Buying Things
 date: '2019-04-22 12:14 +0200'
 tags: life minimalism

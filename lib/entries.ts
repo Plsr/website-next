@@ -10,6 +10,7 @@ import rehypePrism from 'rehype-prism-plus'
 import rehypeStringify from 'rehype-stringify'
 import rehypeFigure from 'rehype-figure'
 import format from 'date-fns/format'
+import { allPosts } from '.contentlayer/generated'
 
 type MatterData = {
   title: string
@@ -140,14 +141,14 @@ export const getAllEntryIds = (entryType: EntryType): string[] => {
   return fileNames.map((fileName) => fileName.replace(/\.md$/, ''))
 }
 
-export const getAllTags = async (entryType: EntryTypeWithTags) => {
-  const allPosts = await getAllEntries(entryType)
+export const getAllTags = () => {
+  const posts = allPosts
   const allTags: { [key: string]: number } = {}
 
-  allPosts.forEach((post) => {
-    const postTags = post.tags
+  posts.forEach((post) => {
+    const postTags = post.tags?.split(' ')
 
-    if (postTags.length > 0) {
+    if (postTags && postTags.length > 0) {
       postTags.forEach((tag) => {
         allTags[tag] ? (allTags[tag] += 1) : (allTags[tag] = 1)
       })

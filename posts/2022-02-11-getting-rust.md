@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title:  "Getting into Rust"
 headline: "Getting into Rust"
 date:  2022-02-11 23:22:00 +0200

@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Kill your darlings
 date: '2019-09-08 18:11 +0200'
 tags: programming meta

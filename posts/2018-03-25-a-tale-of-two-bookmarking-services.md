@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: A Tale of two Bookmarking Services
 date: '2018-03-25 17:49 +0200'
 tags: ideas

@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: A Year without Alcohol - Three Months In
 date: '2018-03-27 20:32 +0200'
 tags: life alcohol

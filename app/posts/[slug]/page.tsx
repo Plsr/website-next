@@ -1,42 +1,48 @@
 import { StyledArticleContent } from 'components/styled-article-content'
-import { getAllEntryIds, getEntryData } from 'lib/entries'
 import { BlogPostHeadline } from 'components/blog-post-headline'
 import { PostMetadata } from 'components/post-metadata'
 import { PostSeriesBlock } from 'components/PostSeriesBlock'
 import { postSeriesList, SeriesEntry } from 'lib/post-series'
 import { Tag } from 'components/tag'
 import { notFound } from 'next/navigation'
+import { allPosts, Post } from '.contentlayer/generated'
+import { formatDistanceToNow } from 'date-fns'
 
 export const dynamic = 'force-static'
 
 type Params = {
   params: {
-    id: string
+    slug: string
   }
 }
 
 export async function generateStaticParams() {
-  const postIds = getAllEntryIds('posts')
-  return postIds.map((id) => ({ params: { id } }))
+  return allPosts.map((post: Post) => ({
+    slug: post.computedSlug,
+  }))
 }
 
 export async function generateMetadata({ params }: Params) {
-  const postData = await getEntryData(params!.id as string, 'posts')
-  return {
-    title: `${postData.title} - Chris Jarling`,
-    description: postData.excerpt?.substring(0, 155) || postData.description,
-  }
+  const post = allPosts.find((post: Post) => {
+    return post.computedSlug === params.slug
+  })
+
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+
+  return { title: `${post.title} - Chris Jarling`, description: post.excerpt }
 }
 
 export default async function Post({ params }: Params) {
-  const postData = await getEntryData(params!.id as string, 'posts')
+  const post = allPosts.find((post: Post) => {
+    return post.computedSlug === params.slug
+  })
 
-  if (!postData) {
+  if (!post) {
     notFound()
   }
 
-  const seriesEntries = postData.series
-    ? await postSeriesList(postData.series)
+  const seriesEntries = post.series
+    ? await postSeriesList(post.series)
     : undefined
 
   return (
@@ -44,19 +50,21 @@ export default async function Post({ params }: Params) {
       <div>
         <div className="mb-8">
           <div className="mb-2">
-            <PostMetadata>{postData.formattedDate}</PostMetadata>
+            <PostMetadata>
+              {formatDistanceToNow(new Date(post.date))} ago
+            </PostMetadata>
           </div>
-          <BlogPostHeadline title={postData.title} />
+          <BlogPostHeadline title={post.title} />
           {seriesEntries && (
             <PostSeriesBlock
               seriesEntries={seriesEntries}
-              activeEntryId={params.id}
+              activeEntryId={params.slug}
             />
           )}
         </div>
-        <StyledArticleContent contentHtml={postData.contentHtml} />
+        <StyledArticleContent contentHtml={post.body.html} />
       </div>
-      {postData.tags.map((tag) => (
+      {post.tags?.split(' ').map((tag) => (
         <Tag name={tag} key={tag} />
       ))}
     </>

@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Escpae liquid tags in jekyll code blocks
 date: '2022-02-13 10:38 +0100'
 tags: web-dev jekyll

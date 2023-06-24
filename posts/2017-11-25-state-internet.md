@@ -1,8 +1,7 @@
 ---
-layout: post
+
 title:  "The state of the internet"
 date:   2017-11-25 23:10:18 +0100
-categories: links internet
 tags: internet
 ---
 

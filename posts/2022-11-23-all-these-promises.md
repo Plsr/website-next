@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: All these Promises
 date: '2022-11-23T06:59:26.271Z'
 excerpt: On the different approaches JavaScript offers to simultaneously handle multiple promises.

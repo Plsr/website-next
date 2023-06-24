@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: Getting lost
 date: '2019-06-15 12:38 +0200'
 tags: life learning

@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: On children and behavior
 date: '2022-08-31T22:57:22.843Z'
 ---
