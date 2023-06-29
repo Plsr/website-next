@@ -5,21 +5,25 @@ import { NotePost } from '../lib/entries'
 import { BlogPostHeadline } from './blog-post-headline'
 import { PostMetadata } from './post-metadata'
 import { StyledArticleContent } from './styled-article-content'
+import { Note as NoteType } from '.contentlayer/generated'
+import { format } from 'date-fns'
 
 type NoteProps = {
-  note: NotePost
+  note: NoteType
   asListItem?: boolean
 }
 
 export const Note = ({ note, asListItem = true }: NoteProps) => {
+  const formattedNoteDate = format(new Date(note.date), 'do LLL, yyyy')
+
   if (!!note.link) {
     return (
       <LinkNote
-        id={note.id}
+        url={note.url}
         link={note.link}
         headline={note.headline}
-        date={note.formattedDate}
-        content={note.contentHtml}
+        date={formattedNoteDate}
+        content={note.body.html}
         showPermalink={asListItem}
       />
     )
@@ -28,10 +32,10 @@ export const Note = ({ note, asListItem = true }: NoteProps) => {
   if (!!note.headline) {
     return (
       <HeadlineNote
-        id={note.id}
+        url={note.url}
         headline={note.headline}
-        date={note.formattedDate}
-        content={note.contentHtml}
+        date={formattedNoteDate}
+        content={note.body.html}
         headlineLink={asListItem}
       />
     )
@@ -39,9 +43,9 @@ export const Note = ({ note, asListItem = true }: NoteProps) => {
 
   return (
     <InlineNote
-      id={note.id}
-      date={note.formattedDate}
-      content={note.contentHtml}
+      url={note.url}
+      date={formattedNoteDate}
+      content={note.body.html}
       showPermalink={asListItem}
     />
   )
@@ -49,7 +53,7 @@ export const Note = ({ note, asListItem = true }: NoteProps) => {
 
 type NoteBaseProps = {
   date: string
-  id: string
+  url: string
   content: string
 }
 
@@ -62,7 +66,7 @@ type LinkNoteProps = NoteBaseProps & {
 const LinkNote = ({
   link,
   headline,
-  id,
+  url,
   date,
   content,
   showPermalink,
@@ -80,7 +84,7 @@ const LinkNote = ({
         </div>
       </a>
       <StyledArticleContent contentHtml={content} />
-      <NoteFooter id={id} date={date} showPermalink={showPermalink} />
+      <NoteFooter url={url} date={date} showPermalink={showPermalink} />
     </>
   )
 }
@@ -90,7 +94,7 @@ type HeadlineNoteProps = NoteBaseProps & {
   headlineLink: boolean
 }
 const HeadlineNote = ({
-  id,
+  url,
   date,
   headline,
   content,
@@ -105,7 +109,7 @@ const HeadlineNote = ({
 
   const headlineComponent = () =>
     headlineLink ? (
-      <Link href={`/notes/${id}`}>{headlineContent()}</Link>
+      <Link href={url}>{headlineContent()}</Link>
     ) : (
       headlineContent()
     )
@@ -120,33 +124,30 @@ const HeadlineNote = ({
 type InlineNoteProps = NoteBaseProps & {
   showPermalink: boolean
 }
-const InlineNote = ({ date, id, content, showPermalink }: InlineNoteProps) => {
+const InlineNote = ({ date, url, content, showPermalink }: InlineNoteProps) => {
   return (
     <>
       <StyledArticleContent contentHtml={content} />
-      <NoteFooter id={id} date={date} showPermalink={showPermalink} />
+      <NoteFooter url={url} date={date} showPermalink={showPermalink} />
     </>
   )
 }
 
 type NoteFooterProps = {
   date: string
-  id: string
+  url: string
   showPermalink: boolean
 }
-const NoteFooter = ({ date, id, showPermalink }: NoteFooterProps) => {
+const NoteFooter = ({ date, url, showPermalink }: NoteFooterProps) => {
   return (
     <PostMetadata>
       <span>{date}</span>
       {showPermalink && (
         <>
+          <span className="mx-2">-</span>
           <span>
-            <Link
-              href={`/notes/${id}`}
-              className="hover:border-b-2 hover:border-blue-500"
-            >
-              {' '}
-              - Permalink
+            <Link href={url} className="hover:border-b-2 hover:border-blue-500">
+              Permalink
             </Link>
           </span>
         </>

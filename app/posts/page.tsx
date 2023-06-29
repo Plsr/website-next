@@ -1,10 +1,10 @@
 import { PostsList } from '../../components/posts-list'
 
-import { BlogPost, getAllSortedEntries } from '../../lib/entries'
+import { getAllSortedPosts } from '../../lib/entries'
 import { getYear } from 'date-fns'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { allPosts, Post } from '.contentlayer/generated'
+import { Post } from '.contentlayer/generated'
 
 export const metadata: Metadata = {
   title: 'Posts - Chris Jarling',
@@ -14,8 +14,8 @@ type PostsByYear = {
   [key: number]: Post[]
 }
 
-const getPostsByYear = async () => {
-  const data = allPosts
+const getPostsByYear = () => {
+  const data = getAllSortedPosts()
   const postsByYear: PostsByYear = {}
 
   data.forEach((page) => {
@@ -32,7 +32,7 @@ const getPostsByYear = async () => {
 }
 
 export default async function PostsIndex() {
-  const postsByYear = await getPostsByYear()
+  const postsByYear = getPostsByYear()
 
   if (!postsByYear) {
     notFound()

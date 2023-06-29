@@ -1,4 +1,3 @@
-import { allPosts } from '.contentlayer/generated'
 import { TagsList } from '../../components/tags-list'
 import { getAllTags, Tag } from '../../lib/entries'
 

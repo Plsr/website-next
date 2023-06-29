@@ -27,12 +27,9 @@ export const BookmarkForm = ({
   }
 
   const handleSubmitClick = () => {
-    console.log('handling submit clikc')
     if (!formValid()) {
       return
     }
-
-    console.log('valid')
 
     onSubmit({
       link,

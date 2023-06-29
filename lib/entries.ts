@@ -10,7 +10,8 @@ import rehypePrism from 'rehype-prism-plus'
 import rehypeStringify from 'rehype-stringify'
 import rehypeFigure from 'rehype-figure'
 import format from 'date-fns/format'
-import { allPosts } from '.contentlayer/generated'
+import { allPosts, Note, allNotes } from '.contentlayer/generated'
+import { compareDesc } from 'date-fns'
 
 type MatterData = {
   title: string
@@ -60,8 +61,7 @@ const getEntriesDirectory = (entryType: EntryType) => {
   return path.join(process.cwd(), entryType)
 }
 
-type GetPaginatedEntriesParams<T extends EntryType> = {
-  entryType: T
+type GetPaginatedNotesParams = {
   page: number
   perPage?: number
 }
@@ -108,12 +108,11 @@ export const getSortedAndFilteredEntries = async <T extends EntryType>({
     : sortedEntriesData
 }
 
-export const getPaginatedEntries = async <T extends EntryType>({
+export const getPaginatedNotes = ({
   page,
   perPage = 10,
-  entryType,
-}: GetPaginatedEntriesParams<T>) => {
-  const allEntries = await getAllSortedEntries(entryType)
+}: GetPaginatedNotesParams) => {
+  const allEntries = allNotes
   const totalPages = Math.ceil(allEntries.length / perPage)
 
   // We want to hanlde the calculation on a zero-based pages array,
@@ -139,33 +138,6 @@ export const getAllEntryIds = (entryType: EntryType): string[] => {
   const entriesDirectory = getEntriesDirectory(entryType)
   const fileNames = fs.readdirSync(entriesDirectory)
   return fileNames.map((fileName) => fileName.replace(/\.md$/, ''))
-}
-
-export const getAllTags = () => {
-  const posts = allPosts
-  const allTags: { [key: string]: number } = {}
-
-  posts.forEach((post) => {
-    const postTags = post.tags?.split(' ')
-
-    if (postTags && postTags.length > 0) {
-      postTags.forEach((tag) => {
-        allTags[tag] ? (allTags[tag] += 1) : (allTags[tag] = 1)
-      })
-    }
-  })
-
-  const tagsArray = Object.entries(allTags).map(
-    ([tagName, count]) =>
-      ({
-        tagName,
-        count,
-      } as Tag)
-  )
-
-  const sortedTagsArray = tagsArray.sort((a, b) => b.count - a.count)
-
-  return sortedTagsArray
 }
 
 export const getAllSortedEntries = async <T extends EntryType>(
@@ -274,4 +246,42 @@ async function processFile(content: string) {
     .use(rehypePrism)
     .use(rehypeStringify)
     .process(content)
+}
+
+/**
+ * Keep below after the switch to contentlayer.
+ * Everything above can be removed
+ */
+
+export const getAllTags = () => {
+  const posts = allPosts
+  const allTags: { [key: string]: number } = {}
+
+  posts.forEach((post) => {
+    const postTags = post.tags?.split(' ')
+
+    if (postTags && postTags.length > 0) {
+      postTags.forEach((tag) => {
+        allTags[tag] ? (allTags[tag] += 1) : (allTags[tag] = 1)
+      })
+    }
+  })
+
+  const tagsArray = Object.entries(allTags).map(
+    ([tagName, count]) =>
+      ({
+        tagName,
+        count,
+      } as Tag)
+  )
+
+  const sortedTagsArray = tagsArray.sort((a, b) => b.count - a.count)
+
+  return sortedTagsArray
+}
+
+export const getAllSortedPosts = () => {
+  return allPosts.sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date))
+  )
 }

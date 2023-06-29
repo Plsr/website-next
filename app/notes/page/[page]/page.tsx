@@ -2,12 +2,13 @@ import Divider from 'components/divider'
 import { Note } from 'components/note'
 import { PageTitleWithSubline } from 'components/page-title-with-subline'
 import { Pagination } from 'components/pagination'
-import { getPaginatedEntries, NotePost } from 'lib/entries'
+import { getPaginatedNotes, NotePost } from 'lib/entries'
+
+export const dynamic = 'force-dynamic'
 
 export async function generateStaticParams() {
-  const { totalPages } = await getPaginatedEntries({
+  const { totalPages } = getPaginatedNotes({
     page: 1,
-    entryType: 'notes',
   })
 
   return [...Array(totalPages)].map((_, index) => ({
@@ -29,9 +30,8 @@ type NotesIndexProps = {
 export default async function NotesIndex({ params }: NotesIndexProps) {
   const page = Number(params?.page) || 1
 
-  const { posts, totalPages, currentPage } = await getPaginatedEntries({
+  const { posts, totalPages, currentPage } = getPaginatedNotes({
     page,
-    entryType: 'notes',
   })
 
   return (
@@ -49,7 +49,7 @@ export default async function NotesIndex({ params }: NotesIndexProps) {
         </div>
         {posts.map((note) => (
           <>
-            <li key={note.id} className="mb-24">
+            <li key={note.url} className="mb-24">
               <Note note={note} />
             </li>
             <Divider />

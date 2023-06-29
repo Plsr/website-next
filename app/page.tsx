@@ -3,15 +3,11 @@ import memoji from '../public/memoji.png'
 import RecentArticle from '../components/recent-article'
 import HomepageHeadline from '../components/homepage-headline'
 import { SocialLink } from '../components/social-link'
-import { allPosts, Post } from '.contentlayer/generated'
-import { compareDesc } from 'date-fns'
+import { getAllSortedPosts } from 'lib/entries'
 
 export default async function Home() {
-  const allPostsData: Post[] = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  )
-
-  const recentBlogPosts = allPostsData.slice(0, 3)
+  const allSortedPosts = getAllSortedPosts()
+  const recentBlogPosts = allSortedPosts.slice(0, 3)
 
   return (
     <>
