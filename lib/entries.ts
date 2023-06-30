@@ -77,17 +77,6 @@ export const filterByTag = <T extends EntryType>(
   })
 }
 
-export const filterBySeriesName = (
-  seriesName: string,
-  entriesData: BlogPost[]
-) => {
-  return entriesData.filter((entryData) => {
-    if (!entryData.series) return false
-    if (entryData.series !== seriesName) return false
-    return true
-  })
-}
-
 // TODO: Make filter function an argumrnet of the function instead of adding if clauses
 export const getSortedAndFilteredEntries = async <T extends EntryType>({
   filterFunction = undefined,

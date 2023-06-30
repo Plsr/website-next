@@ -41,9 +41,7 @@ export default async function Post({ params }: Params) {
     notFound()
   }
 
-  const seriesEntries = post.series
-    ? await postSeriesList(post.series)
-    : undefined
+  const seriesEntries = post.series ? postSeriesList(post.series) : undefined
 
   return (
     <>
