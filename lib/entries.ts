@@ -101,7 +101,7 @@ export const getPaginatedNotes = ({
   page,
   perPage = 10,
 }: GetPaginatedNotesParams) => {
-  const allEntries = allNotes
+  const allEntries = getAllSortedNotes()
   const totalPages = Math.ceil(allEntries.length / perPage)
 
   // We want to hanlde the calculation on a zero-based pages array,
@@ -271,6 +271,12 @@ export const getAllTags = () => {
 
 export const getAllSortedPosts = () => {
   return allPosts.sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date))
+  )
+}
+
+export const getAllSortedNotes = () => {
+  return allNotes.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   )
 }
