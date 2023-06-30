@@ -1,8 +1,9 @@
-import { getAllEntryIds, getEntryData } from 'lib/entries'
 import { Note as NoteComponent } from 'components/note'
 import { allNotes } from '.contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { format } from 'date-fns'
+
+export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
   const notes = allNotes
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props) {
 
   return {
     title: `${title} - Chris Jarling`,
-    description: 'foo',
+    description: note.body.raw.slice(0, 150),
   }
 }
 
