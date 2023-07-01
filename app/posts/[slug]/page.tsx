@@ -9,8 +9,6 @@ import { allPosts, Post } from '.contentlayer/generated'
 import { formatDistanceToNow } from 'date-fns'
 import { Metadata } from 'next'
 
-export const dynamic = 'force-static'
-
 type Params = {
   params: {
     slug: string

@@ -4,8 +4,6 @@ import { notFound } from 'next/navigation'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
 
-export const dynamic = 'force-static'
-
 export const generateStaticParams = () => []
 
 export default async function Note({ params }: Props) {

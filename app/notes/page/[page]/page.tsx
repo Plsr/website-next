@@ -4,17 +4,7 @@ import { PageTitleWithSubline } from 'components/page-title-with-subline'
 import { Pagination } from 'components/pagination'
 import { getPaginatedNotes, NotePost } from 'lib/entries'
 
-export const dynamic = 'force-dynamic'
-
-export async function generateStaticParams() {
-  const { totalPages } = getPaginatedNotes({
-    page: 1,
-  })
-
-  return [...Array(totalPages)].map((_, index) => ({
-    page: (index + 1).toString(),
-  }))
-}
+export const generateStaticParams = () => []
 
 export async function generateMetadata({ params }: NotesIndexProps) {
   const page = Number(params?.page) || 1
