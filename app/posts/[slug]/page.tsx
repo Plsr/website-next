@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       images: [
         {
           url: 'https://www.chrisjarling.com/og.jpg',
+          secureUrl: 'https://www.chrisjarling.com/og.jpg',
           width: 1200,
           height: 630,
         },

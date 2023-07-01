@@ -2,6 +2,7 @@ import { Note as NoteComponent } from 'components/note'
 import { allNotes } from '.contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { format } from 'date-fns'
+import { Metadata } from 'next'
 
 export const dynamic = 'force-static'
 
@@ -22,7 +23,7 @@ export default async function Note({ params }: Props) {
   return <NoteComponent note={note} asListItem={false} />
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const note = allNotes.find((note) => note.slug === params.slug)
 
   if (!note) {
@@ -46,6 +47,7 @@ export async function generateMetadata({ params }: Props) {
       images: [
         {
           url: 'https://www.chrisjarling.com/og.jpg',
+          secureUrl: 'https://www.chrisjarling.com/og.jpg',
           width: 1200,
           height: 630,
         },
