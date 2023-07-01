@@ -17,11 +17,7 @@ type Params = {
   }
 }
 
-export async function generateStaticParams() {
-  return allPosts.map((post: Post) => ({
-    slug: post.computedSlug,
-  }))
-}
+export const generateStaticParams = []
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const post = allPosts.find((post: Post) => {

@@ -6,12 +6,7 @@ import { Metadata } from 'next'
 
 export const dynamic = 'force-static'
 
-export async function generateStaticParams() {
-  const notes = allNotes
-  return notes.map((note) => ({
-    params: { slug: note.slug },
-  }))
-}
+export const generateStaticParams = []
 
 export default async function Note({ params }: Props) {
   const note = allNotes.find((note) => note.slug === params.slug)
