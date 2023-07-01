@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     'Personal website of Chris Jarling, full stack developer from Germany.',
   alternates: {
     types: {
-      'application/rss+xml': '/posts-atom.xml',
-      'application/json': '/notes-rss.json',
+      'application/rss+xml': '/posts/feed.rss',
+      'application/atom+xml': '/posts/feed.atom',
     },
   },
   openGraph: {
