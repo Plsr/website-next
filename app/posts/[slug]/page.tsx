@@ -17,7 +17,7 @@ type Params = {
   }
 }
 
-export const generateStaticParams = []
+export const generateStaticParams = () => []
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const post = allPosts.find((post: Post) => {
