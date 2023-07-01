@@ -8,7 +8,6 @@ export default function Header() {
           <MainNavLink href="/">Home</MainNavLink>
           <MainNavLink href="/posts">Posts</MainNavLink>
           <MainNavLink href="/notes/page/1">Notes</MainNavLink>
-          <MainNavLink href="/bookmarks">Bookmarks</MainNavLink>
         </div>
       </nav>
     </div>

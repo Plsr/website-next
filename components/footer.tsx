@@ -34,12 +34,6 @@ export default function Footer() {
                 />,
                 <FooterRow.Item key="tags" href="/tags" text="Tags" />,
                 <FooterRow.Item
-                  key="bookmarks"
-                  href="/bookmarks"
-                  text="Bookmarks"
-                  hidden
-                />,
-                <FooterRow.Item
                   key="books"
                   href="/books"
                   text="Books"
