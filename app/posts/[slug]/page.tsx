@@ -7,6 +7,7 @@ import { Tag } from 'components/tag'
 import { notFound } from 'next/navigation'
 import { allPosts, Post } from '.contentlayer/generated'
 import { formatDistanceToNow } from 'date-fns'
+import { Metadata } from 'next'
 
 export const dynamic = 'force-static'
 
@@ -22,14 +23,31 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: Params) {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const post = allPosts.find((post: Post) => {
     return post.computedSlug === params.slug
   })
 
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
-  return { title: `${post.title} - Chris Jarling`, description: post.excerpt }
+  const title = `${post.title} - Chris Jarling`
+  const description = post.excerpt || post.body.raw.slice(0, 150)
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: 'https://www.chrisjarling.com/og.jpg',
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  }
 }
 
 export default async function Post({ params }: Params) {
