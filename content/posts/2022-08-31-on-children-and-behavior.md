@@ -2,6 +2,7 @@
 
 title: On children and behavior
 date: '2022-08-31T22:57:22.843Z'
+tags: parenting
 ---
 
 I thought about the behavior of children today. Especially the kinds of behaviors in children we might not like. I think it might be all our fault.
