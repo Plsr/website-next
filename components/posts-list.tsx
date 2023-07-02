@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { PostMetadata } from './post-metadata'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
-import { formatDistanceToNow } from 'date-fns'
+import { format } from 'date-fns'
 import { Post } from '.contentlayer/generated'
 
 type PostsListProps = {
@@ -20,7 +20,7 @@ export const PostsList = ({ posts }: PostsListProps) => {
                   {post.title}
                 </h2>
                 <PostMetadata>
-                  {formatDistanceToNow(new Date(post.date))} ago
+                  {format(new Date(post.date), 'do LLL, yyyy')}
                 </PostMetadata>
               </div>
               <ArrowRightIcon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition transition-600" />

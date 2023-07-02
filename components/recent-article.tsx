@@ -1,7 +1,7 @@
-import formatDistance from 'date-fns/formatDistance'
 import { StyledArticleContent } from './styled-article-content'
 import clsx from 'clsx'
 import Link from 'next/link'
+import { format } from 'date-fns'
 
 type Props = {
   date: string
@@ -11,15 +11,14 @@ type Props = {
 }
 
 export default function RecentArticle({ date, slug, title, excerpt }: Props) {
-  const postDate = Date.parse(date)
-  const ago = formatDistance(postDate, new Date())
+  const formattedDate = format(new Date(date), 'do LLL, yyyy')
 
   return (
     <Link
       href={`/posts/${slug}`}
       className="block transition duration-300 cursor-pointer hover:bg-zinc-700 -ml-4 p-4 rounded-xl"
     >
-      <small className="text-gray-500 mb-2 block">{ago} ago</small>
+      <small className="text-gray-500 mb-2 block">{formattedDate}</small>
       <h4
         className={clsx(
           'cursor-pointer transition text-lg duration-300 font-semibold mb-2'

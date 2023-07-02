@@ -2,11 +2,11 @@ import { StyledArticleContent } from 'components/styled-article-content'
 import { BlogPostHeadline } from 'components/blog-post-headline'
 import { PostMetadata } from 'components/post-metadata'
 import { PostSeriesBlock } from 'components/PostSeriesBlock'
-import { postSeriesList, SeriesEntry } from 'lib/post-series'
+import { postSeriesList } from 'lib/post-series'
 import { Tag } from 'components/tag'
 import { notFound } from 'next/navigation'
 import { allPosts, Post } from '.contentlayer/generated'
-import { formatDistanceToNow } from 'date-fns'
+import { format } from 'date-fns'
 import { Metadata } from 'next'
 
 type Params = {
@@ -62,7 +62,7 @@ export default async function Post({ params }: Params) {
         <div className="mb-8">
           <div className="mb-2">
             <PostMetadata>
-              {formatDistanceToNow(new Date(post.date))} ago
+              {format(new Date(post.date), 'do LLL, yyyy')}
             </PostMetadata>
           </div>
           <BlogPostHeadline title={post.title} />
