@@ -2,14 +2,14 @@ import Header from '../components/header'
 import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
-import { Nunito } from 'next/font/google'
+import { Nunito, Literata } from 'next/font/google'
 import { Metadata } from 'next'
 import Footer from '../components/footer'
 
-const nunito = Nunito({
+const nunito = Literata({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-nunito',
+  variable: '--font-main',
 })
 
 export const metadata: Metadata = {

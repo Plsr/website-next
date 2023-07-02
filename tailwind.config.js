@@ -10,8 +10,8 @@ module.exports = {
       ...colors,
     },
     fontFamily: {
-      body: ['var(--font-nunito)'],
-      headline: ['var(--font-nunito)'],
+      body: ['var(--font-main)'],
+      headline: ['var(--font-main)'],
     },
     extend: {},
   },
