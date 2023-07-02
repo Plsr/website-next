@@ -1,27 +1,22 @@
-import { filterBySeriesName, getSortedAndFilteredEntries } from './entries'
-import { siteUrl } from './utill/site'
+import { allPosts } from '.contentlayer/generated'
 
 export type SeriesEntry = {
   title: string
   url: string
+  id: string
 }
 
-export const postSeriesList = async (
-  seriesName: string
-): Promise<SeriesEntry[]> => {
-  const seriesEntries = await getSortedAndFilteredEntries({
-    filterString: seriesName,
-    filterFunction: filterBySeriesName,
-    entryType: 'posts',
-  })
+export const postSeriesList = (seriesName: string) => {
+  const seriesPosts = allPosts.filter(
+    (post) => post.series && post.series === seriesName
+  )
 
-  return seriesEntries
-    .map((entry) => {
-      const url = `${siteUrl}/post/${entry.id}`
-
+  return seriesPosts
+    .map((post) => {
       return {
-        title: entry.title,
-        url,
+        title: post.title,
+        url: post.url,
+        id: post._id,
       }
     })
     .reverse()

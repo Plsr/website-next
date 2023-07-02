@@ -1,19 +1,17 @@
 import { Feed } from 'feed'
-import { BlogPost, EntryType, getAllSortedEntries, NotePost } from './entries'
-import fs from 'fs'
+import { EntryType } from './entries'
 import { getYear } from 'date-fns'
 import { siteUrl } from './utill/site'
+import { Note, Post } from '.contentlayer/generated'
 
-export const generateFeeds = async () => {
-  await generateFeed('posts')
-  await generateFeed('notes')
+type GenerateFeedParams = {
+  entryType: EntryType
+  entries: Post[] | Note[]
 }
 
-export const generateFeed = async (entryType: EntryType) => {
-  const allPosts = await getAllSortedEntries(entryType)
-
+export const generateFeed = ({ entryType, entries }: GenerateFeedParams) => {
   const currentYear = getYear(new Date())
-  const updatedAt = new Date(allPosts[0].date)
+  const updatedAt = new Date(entries[0].date)
 
   const feed = new Feed({
     title: `Chris Jarling - ${
@@ -39,13 +37,13 @@ export const generateFeed = async (entryType: EntryType) => {
     },
   })
 
-  allPosts.forEach((post) => {
+  entries.forEach((entry) => {
     feed.addItem({
-      title: createTitle(post, entryType),
-      id: post.id,
-      link: 'https://chrisjarling.com/' + entryType + '/' + post.id,
-      description: post.contentHtml,
-      content: post.contentHtml,
+      title: createTitle(entry),
+      id: entry._id,
+      link: 'https://chrisjarling.com/' + entry.url,
+      description: entry.body.html,
+      content: entry.body.html,
       author: [
         {
           name: 'Chris Jarling',
@@ -53,16 +51,15 @@ export const generateFeed = async (entryType: EntryType) => {
           link: 'https://chrisjarling.com/about',
         },
       ],
-      date: new Date(post.date),
+      date: new Date(entry.date),
     })
   })
 
-  fs.writeFileSync(`./public/${entryType}-rss.json`, feed.rss2())
-  fs.writeFileSync(`./public/${entryType}-atom.xml`, feed.atom1())
+  return feed
 }
 
-const createTitle = (entry: BlogPost | NotePost, entryType: EntryType) => {
-  if (entryType === 'posts') {
+const createTitle = (entry: Post | Note) => {
+  if (entry.type === 'Post') {
     return entry.title.toString()
   }
 

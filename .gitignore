@@ -39,3 +39,6 @@ node_modules
 /public
 .tina
 .env
+
+# contentlayer
+.contentlayer
