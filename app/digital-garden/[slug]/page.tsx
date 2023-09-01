@@ -1,12 +1,6 @@
 import { StyledArticleContent } from 'components/styled-article-content'
-import { BlogPostHeadline } from 'components/blog-post-headline'
-import { PostMetadata } from 'components/post-metadata'
-import { PostSeriesBlock } from 'components/PostSeriesBlock'
-import { postSeriesList } from 'lib/post-series'
-import { Tag } from 'components/tag'
 import { notFound } from 'next/navigation'
-import { allPosts, allSeeds, Post, Seed } from '.contentlayer/generated'
-import { format } from 'date-fns'
+import { allSeeds, Seed } from '.contentlayer/generated'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -46,7 +40,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
-export function getBacklinks(slug: string) {
+function getBacklinks(slug: string) {
   const backlinkingDocs = allSeeds.filter((seed) =>
     seed.body.raw.includes('[[' + slug)
   ) as Seed[]
