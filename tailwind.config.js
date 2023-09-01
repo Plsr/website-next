@@ -11,7 +11,7 @@ module.exports = {
     },
     fontFamily: {
       body: ['var(--font-main)'],
-      headline: ['var(--font-main)'],
+      headline: ['var(--font-title)'],
     },
     extend: {},
   },

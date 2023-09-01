@@ -1,5 +1,10 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypePrism from 'rehype-prism-plus'
+import rehypeStringify from 'rehype-stringify'
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkParse from 'remark-parse'
+import wikiLinkPlugin from 'remark-wiki-link'
+import remark2rehype from 'remark-rehype'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -47,8 +52,39 @@ export const Note = defineDocumentType(() => ({
   },
 }))
 
+export const Seed = defineDocumentType(() => ({
+  name: 'Seed',
+  filePathPattern: 'garden/*.md',
+  fields: {
+    title: { type: 'string', required: true },
+    wip: { type: 'boolean', required: false },
+    createdAt: { type: 'string', required: true },
+    updatedAt: { type: 'string', required: true },
+    excerpt: { type: 'string', required: false },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (seed) => seed._raw.flattenedPath.replace('garden/', ''),
+    },
+    url: {
+      type: 'string',
+      resolve: (seed) => `/${seed._raw.flattenedPath}`,
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Note],
-  markdown: { rehypePlugins: [rehypePrism] },
+  documentTypes: [Post, Note, Seed],
+  markdown: (builder) => {
+    builder.use(remarkFrontmatter)
+    builder.use(remarkParse as any)
+    builder.use(remark2rehype)
+    builder.use(rehypeStringify as any)
+    builder.use(rehypePrism)
+    builder.use(wikiLinkPlugin, {
+      hrefTemplate: (permalink: string) => `/digital-garden/${permalink}`,
+    })
+  },
 })

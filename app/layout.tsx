@@ -2,14 +2,22 @@ import Header from '../components/header'
 import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
-import { Nunito, Literata } from 'next/font/google'
+import { Nunito, Literata, Playfair, Fira_Sans, Rufina } from 'next/font/google'
 import { Metadata } from 'next'
 import Footer from '../components/footer'
 
-const nunito = Literata({
+const bodyFont = Fira_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-main',
+  weight: ['400', '700'],
+})
+
+const playfair = Fira_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-title',
+  weight: ['400', '700'],
 })
 
 export const metadata: Metadata = {
@@ -45,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${nunito.variable}`}>
+    <html lang="en" className={`${bodyFont.variable} ${playfair.variable}`}>
       <body className="font-body bg-zinc-900">
         <div className="flex flex-col min-h-full">
           <Header />
