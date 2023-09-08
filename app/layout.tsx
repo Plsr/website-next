@@ -2,18 +2,26 @@ import Header from '../components/header'
 import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
-import { Nunito, Literata, Playfair, Fira_Sans, Rufina } from 'next/font/google'
+import {
+  Nunito,
+  Literata,
+  Space_Grotesk,
+  Inter,
+  Open_Sans,
+  Merriweather,
+  Lato,
+} from 'next/font/google'
 import { Metadata } from 'next'
 import Footer from '../components/footer'
 
-const bodyFont = Fira_Sans({
+const bodyFont = Lato({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-main',
-  weight: ['400', '700'],
+  weight: ['300', '400', '700'],
 })
 
-const playfair = Fira_Sans({
+const playfair = Merriweather({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-title',
@@ -54,10 +62,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bodyFont.variable} ${playfair.variable}`}>
-      <body className="font-body bg-zinc-900">
+      <body className="font-body bg-storm-gray-950">
         <div className="flex flex-col min-h-full">
           <Header />
-          <main className="px-8 md:px-4  max-w-screen-md mx-auto text-slate-200 font-body mb-24 w-full">
+          <main className="px-8 md:px-4  max-w-screen-md mx-auto text-gray-100 font-body mb-24 w-full">
             <div className="mt-24 md:mt-48">{children}</div>
           </main>
           <Footer />

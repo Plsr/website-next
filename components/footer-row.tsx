@@ -9,7 +9,7 @@ type FooterRowProps = {
 export function FooterRow({ listItems, title }: FooterRowProps) {
   return (
     <div className="mb-8 md:mb-0">
-      <h4 className="font-body font-bold mb-2 text-gray-100">{title}</h4>
+      <h4 className="font-title font-bold mb-2 text-gray-100">{title}</h4>
       <div>
         {listItems.map((item, index) =>
           cloneElement(item, {

@@ -16,12 +16,12 @@ export default function RecentArticle({ date, slug, title, excerpt }: Props) {
   return (
     <Link
       href={`/posts/${slug}`}
-      className="block transition duration-300 cursor-pointer hover:bg-zinc-700 -ml-4 p-4 rounded-xl"
+      className="block transition duration-300 cursor-pointer  -ml-4 p-4 rounded-xl group"
     >
-      <small className="text-gray-500 mb-2 block">{formattedDate}</small>
+      <small className="text-gray-500 block">{formattedDate}</small>
       <h4
         className={clsx(
-          'cursor-pointer transition text-lg duration-300 font-semibold mb-2'
+          'cursor-pointer transition text-lg duration-300 font-semibold mb-2 font-title group-hover:text-turkish-rose-400'
         )}
       >
         {title}
