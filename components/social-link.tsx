@@ -1,4 +1,3 @@
-import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { ReactNode } from 'react'
 
 type SocialLinkProps = {
@@ -8,9 +7,8 @@ type SocialLinkProps = {
 export const SocialLink = ({ children, ...linkProps }: SocialLinkProps) => {
   return (
     <a {...linkProps}>
-      <span className="hover:border-neutral-400 transition group flex flex-row items-center border border-zinc-500 rounded-lg py-2 px-4 text-xs text-zinc-300">
+      <span className="hover:bg-rose-bud-50 hover:text-storm-gray-900 transition duration-400 border border-rose-bud-50 rounded py-2 px-4 text-sm text-rose-bud-50">
         {children}
-        <ArrowUpRightIcon className="transition group-hover:scale-110 w-3 h-3 ml-2" />
       </span>
     </a>
   )

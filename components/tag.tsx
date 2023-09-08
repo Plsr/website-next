@@ -26,8 +26,8 @@ const TagPill = ({ children, hover = true }: TagPillProps) => {
   return (
     <span
       className={clsx(
-        'bg-zinc-700 p-2 rounded-lg text-sm mr-4',
-        hover && 'hover:bg-pink-500'
+        'bg-storm-gray-700 p-2 rounded-lg text-sm mr-4',
+        hover && 'hover:bg-turkish-rose-600'
       )}
     >
       {children}

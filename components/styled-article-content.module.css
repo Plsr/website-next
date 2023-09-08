@@ -1,8 +1,8 @@
 .article {
-  line-height: 1.75rem;
+  line-height: 1.8rem;
   letter-spacing: 0.03rem;
-  color: #d4d4d4;
-  font-weight: 300;
+  color: #dad9de;
+  font-family: var(--font-title);
 }
 
 .article p {
@@ -32,6 +32,10 @@
   opacity: 0.8;
 }
 
+.article h1, .article h2, .article h3 {
+  font-family: var(--font-main);
+}
+
 .article h2,
 .article h3 {
   font-weight: bold;
@@ -49,10 +53,7 @@
 }
 
 .article a {
-  color: #1e88e5;
-}
-
-.article a:hover {
+  color: #b97a95;
   text-decoration: underline;
 }
 
