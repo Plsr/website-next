@@ -32,7 +32,9 @@
   opacity: 0.8;
 }
 
-.article h1, .article h2, .article h3 {
+.article h1,
+.article h2,
+.article h3 {
   font-family: var(--font-main);
 }
 
@@ -82,10 +84,6 @@
   border-radius: 8px;
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-
-.article pre > code {
-  font-size: 0.8rem;
 }
 
 .article code:not(pre code) {

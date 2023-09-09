@@ -16,7 +16,7 @@ _.intersection([2, 1], [2, 3])
 
 ### Vanilla Javascript
 
-#### Using `Set`
+### Using `Set`
 
 ```js
 function intersection(a, b) {
@@ -28,7 +28,7 @@ function intersection(a, b) {
 Source: [https://stackoverflow.com/a/73246941/4181679
 ](https://stackoverflow.com/a/73246941/4181679)
 
-#### Using `.filter()` and `.includes()`
+### Using `.filter()` and `.includes()`
 
 ```js
 const filteredArray = array1.filter((value) => array2.includes(value))
