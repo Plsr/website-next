@@ -2,8 +2,8 @@
 title: Streams vs Pages
 wip: true
 createdAt: 2023-08-12T20:24:21.048Z
-updatedAt: 2023-08-12T20:24:21.048Z
-excerpt: "Thoughts about writing content in form of streams of thoughs or pages"
+updatedAt: 2023-09-09T10:48:21.048Z
+excerpt: 'Thoughts about writing content in form of streams of thoughs or pages'
 ---
 
 Most content on my site is in stream format: I write it once and then do not come back to it. Works good for log-like entries. It does not work well for opinions (which I tend to change over time) and knowledge (which I tend to acquire more over time). I think it makes sense to orient my site more towards pages.
@@ -12,7 +12,12 @@ I want to keep the stream part of the site around (term is stolen from Timo's si
 
 I'm afraid that moving the main content of my site to pages will again give me the feeling that things need to be polished. Even though the idea of moving to pages should be just the opposite: Write early and iterate on ideas when they involve. Can also have different states displayed on it to communicate its state.
 
+It should get me rid of the behavior of publishing a post and then never looking at it again. While fine for just updates of my life, it feels bad for more "scientific" content. Here's [Joel Hooks](https://joelhooks.com/digital-garden/):
+
+> The phrase "digital garden" is a metaphor for thinking about writing and creating that focuses less on the resulting "showpiece" and more on the process, care, and craft it takes to get there.
+
 Not sure what the states could be. There are two that I'm certain of:
+
 - Still working on it
 - Done
 
