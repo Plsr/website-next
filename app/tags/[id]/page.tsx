@@ -1,8 +1,7 @@
-import { getAllTags } from 'lib/entries'
+import { getAllSortedPosts, getAllTags } from 'lib/entries'
 import { PostsList } from 'components/posts-list'
 import { Tag } from 'components/tag'
 import { notFound } from 'next/navigation'
-import { allPosts } from '.contentlayer/generated'
 
 export async function generateStaticParams() {
   const tags = getAllTags()
@@ -17,7 +16,7 @@ type PostsIndexProps = {
 
 export default async function PostsIndex({ params }: PostsIndexProps) {
   const tag = params.id
-  const posts = allPosts.filter(
+  const posts = getAllSortedPosts().filter(
     (post) => post.tags && post.tags.split(' ').includes(tag)
   )
 

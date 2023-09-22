@@ -16,6 +16,7 @@ export const Post = defineDocumentType(() => ({
     excerpt: { type: 'string', required: false },
     series: { type: 'string', required: false },
     slug: { type: 'string', required: false },
+    draft: { type: 'boolean', required: false, default: false },
   },
   computedFields: {
     url: {

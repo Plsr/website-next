@@ -5,6 +5,7 @@ import { getYear } from 'date-fns'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Post } from '.contentlayer/generated'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Posts - Chris Jarling',
@@ -44,6 +45,11 @@ export default async function PostsIndex() {
 
   return (
     <>
+      <div className="flex justify-end mb-6">
+        <Link href="posts/drafts" className="text-sm text-turkish-rose-500">
+          📝 Go to Drafts
+        </Link>
+      </div>
       {sortedPostsByYears.map(([year, posts]) => (
         <div className="mb-16" key={year}>
           <div className="flex flex-row items-center mb-6">

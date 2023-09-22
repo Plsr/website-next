@@ -65,7 +65,12 @@ export default async function Post({ params }: Params) {
               {format(new Date(post.date), 'do LLL, yyyy')}
             </PostMetadata>
           </div>
-          <BlogPostHeadline title={post.title} />
+          <BlogPostHeadline title={post.title} draft={post.draft} />
+          {post.draft && (
+            <div className="rounded-lg p-4 my-6 bg-rose-bud-700/10 border border-rose-bud-900 text-rose-bud-200 text-sm">
+              This post is a draft. It&apos;s not complete yet and may never be.
+            </div>
+          )}
           {seriesEntries && (
             <PostSeriesBlock
               seriesEntries={seriesEntries}
