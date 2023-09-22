@@ -8,7 +8,7 @@ import rehypePrism from 'rehype-prism-plus'
 import rehypeStringify from 'rehype-stringify'
 import rehypeFigure from 'rehype-figure'
 import format from 'date-fns/format'
-import { allPosts, Note, allNotes } from '.contentlayer/generated'
+import { allPosts, Note, allNotes, Post } from '.contentlayer/generated'
 import { compareDesc } from 'date-fns'
 
 type MatterData = {
@@ -267,9 +267,23 @@ export const getAllTags = () => {
   return sortedTagsArray
 }
 
-export const getAllSortedPosts = () => {
-  return allPosts.sort((a, b) =>
+type PostsFilter = Partial<Pick<Post, 'draft'>>
+
+export const getAllSortedPosts = (filter: PostsFilter = { draft: false }) => {
+  const hasFilters = Object.keys(filter).length > 0
+
+  const sortedPosts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
+  )
+
+  if (!hasFilters) {
+    return sortedPosts
+  }
+
+  return sortedPosts.filter((post) =>
+    Object.entries(filter).every(
+      ([key, value]) => post[key as keyof PostsFilter] === value
+    )
   )
 }
 

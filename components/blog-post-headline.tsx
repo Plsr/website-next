@@ -1,6 +1,18 @@
 import clsx from 'clsx'
 
-export const BlogPostHeadline = ({ title, large = true, className }: props) => {
+type Props = {
+  title: string
+  large?: boolean
+  draft?: boolean
+  className?: string
+}
+
+export const BlogPostHeadline = ({
+  title,
+  large = true,
+  draft = false,
+  className,
+}: Props) => {
   return (
     <h2
       className={clsx(
@@ -10,12 +22,7 @@ export const BlogPostHeadline = ({ title, large = true, className }: props) => {
         className
       )}
     >
-      {title}
+      {draft && '📝 '} {title}
     </h2>
   )
 }
-
-type props = {
-  title: string
-  large?: boolean
-} & JSX.IntrinsicElements['div']

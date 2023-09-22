@@ -17,7 +17,7 @@ export const PostsList = ({ posts }: PostsListProps) => {
             <div className="flex flex-row justify-between group">
               <div className="flex flex-col mb-6 group-hover:translate-x-2 transition">
                 <h2 className="text-gray-200 font-bold font-body">
-                  {post.title}
+                  {post.draft && '📝 '} {post.title}
                 </h2>
                 <PostMetadata>
                   {format(new Date(post.date), 'do LLL, yyyy')}
