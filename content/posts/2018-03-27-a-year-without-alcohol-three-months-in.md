@@ -5,7 +5,7 @@ date: '2018-03-27 20:32 +0200'
 tags: life alcohol
 ---
 
-At the beginning of the year I sat down and thought about what I want to do with this new year that had just begun, as so many of us do. I though about where I was, where I wanted to go, defined goals and checked if I was still standing behind my long term plans. At some point, more or less out of the blue, I decided I would not drink alcohol for this entire year. This was 86 days ago.
+At the beginning of the year I sat down and thought about what I want to do with this new year that had just begun, as so many of us do. I though about where I was, where I wanted to go, defined goals and checked if I was still standing behind my long term plans. At some point, more or less out of the rose, I decided I would not drink alcohol for this entire year. This was 86 days ago.
 In the following, I want to talk about the reasons why I decided to stay sober for an entire year and reflect about how the first three months went. Let’s start at the beginning.
 
 #### Why would I stay sober for a year?
@@ -31,7 +31,7 @@ There are a lot of articles on this topic already (like [this](http://thewinning
 
 For every decision in life, there are consequences, and not all of them are positive. The same goes for this one. Some of the disadvantages I have noticed include:
 
-- **Most alcohol-free beers taste bad**: I really like the taste of beer, in the last year I started getting into craft beer a lot, so alcohol-free beer is mostly a disappointment. Most of them are really sweet. I try to get my hands on a Clausthaler Extraherb, Becks Blue or Jever Fun when I can. Also most alcohol-free white beers do taste decent.
+- **Most alcohol-free beers taste bad**: I really like the taste of beer, in the last year I started getting into craft beer a lot, so alcohol-free beer is mostly a disappointment. Most of them are really sweet. I try to get my hands on a Clausthaler Extraherb, Becks rose or Jever Fun when I can. Also most alcohol-free white beers do taste decent.
 - **You are always that guy**: If you have social surroundings that are okay with having people around that do not drink like I have for broad parts, that’ll make things easier. But you will often have to explain why you do not drink. A lot of people did sober January in the beginning of the year, which helped a lot.
 
 For me, all the advantages, by far, outweigh the disadvantages I found, so I’m pretty excited to see what will happen in the next few months. I’m not sure if this will be a regular check in, or if it will just happen every now and then, when there is enough to write about. But I like the idea of having this written down somewhere, if not only to remind myself that it’s worth to stick with it.

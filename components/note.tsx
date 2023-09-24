@@ -73,13 +73,13 @@ const LinkNote = ({
 }: LinkNoteProps) => {
   return (
     <>
-      <a href={link} className="mb-4 block hover:text-blue-400 transition">
+      <a href={link} className="mb-4 block hover:text-rose-400 transition">
         <div className="flex flex-row items-center">
           <ArrowUturnRightIcon className="w-4 h-4 mr-2" />
           <BlogPostHeadline
             title={headline || link}
             large={false}
-            className="border-b-2 border-b-blue-400 hover:text-blue-400 transition"
+            className="border-b-2 border-b-rose-400 hover:text-rose-400 transition"
           />
         </div>
       </a>
@@ -146,7 +146,7 @@ const NoteFooter = ({ date, url, showPermalink }: NoteFooterProps) => {
         <>
           <span className="mx-2">-</span>
           <span>
-            <Link href={url} className="hover:border-b-2 hover:border-blue-500">
+            <Link href={url} className="hover:border-b-2 hover:border-rose-500">
               Permalink
             </Link>
           </span>

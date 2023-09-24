@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      'storm-gray': {
+      neutral: {
         50: '#f7f7f8',
         100: '#efeef0',
         200: '#dad9de',
@@ -20,19 +20,6 @@ module.exports = {
         800: '#42414b',
         900: '#3a3941',
         950: '#27262b',
-      },
-      'turkish-rose': {
-        50: '#faf5f8',
-        100: '#f6edf1',
-        200: '#eddde5',
-        300: '#e0c1d0',
-        400: '#cc9ab1',
-        500: '#b97a95',
-        600: '#a35f79',
-        700: '#8b4b62',
-        800: '#744052',
-        900: '#623946',
-        950: '#391e27',
       },
       'rose-bud': {
         50: '#fdf5f3',
@@ -49,18 +36,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      title: [
-        // '-apple-system',
-        // 'BlinkMacSystemFont',
-        'var(--font-title)',
-        'sans-serif',
-      ],
-      body: [
-        // '-apple-system',
-        // 'BlinkMacSystemFont',
-        'var(--font-main)',
-        'sans-serif',
-      ],
+      title: ['-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      body: ['-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
     },
     extend: {},
   },

@@ -10,21 +10,17 @@ type PostsListProps = {
 
 export const PostsList = ({ posts }: PostsListProps) => {
   return (
-    <ul>
+    <ul className="ml-4">
       {posts.map((post) => (
-        <li key={post._id} className="mb-2 ">
+        <li key={post._id} className="mb-2 list-disc">
           <Link href={`/posts/${post.computedSlug}`}>
-            <div className="flex flex-row justify-between group">
-              <div className="flex flex-col mb-6 group-hover:translate-x-2 transition">
-                <h2 className="text-gray-200 font-bold font-body">
-                  {post.draft && '📝 '} {post.title}
-                </h2>
-                <PostMetadata>
-                  {format(new Date(post.date), 'do LLL, yyyy')}
-                </PostMetadata>
-              </div>
-              <ArrowRightIcon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition transition-600" />
-            </div>
+            <span className="text-rose-500 underline">
+              {post.draft && '📝 '}
+              {post.title}
+            </span>
+            <span className="ml-2 text-sm text-neutral-400">
+              ({format(new Date(post.date), 'do LLL, yyyy')})
+            </span>
           </Link>
         </li>
       ))}

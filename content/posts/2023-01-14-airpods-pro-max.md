@@ -7,11 +7,11 @@ excerpt: 'I used to think the AirPods Pro Max were weird and nobody would buy th
 ---
 
 When the AirPods Pro were announced, I did not really bat an eye. They looked weird and were a lot more expensive than their Bose or Sony counterparts. I was a happy Bose user back then and did not see any reason to even think about these headphones.
-My Bose since broke and I now am using a pair of AirPods Pro Max. Let’s explore why anyone would ever want to pay that much money for a pair of bluetooth headphones.
+My Bose since broke and I now am using a pair of AirPods Pro Max. Let’s explore why anyone would ever want to pay that much money for a pair of rosetooth headphones.
 
 ![The AirPods Pro Max on my kitchen table](https://ik.imagekit.io/chrisjarling/IMG_0106.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1674431647977)
 
-I am convinced that starting at a certain price point, it does not matter which bluetooth headphones with active noise cancellation you buy, they will all make you happy. I think there will be no impactful difference in your happiness with the product if you go with the Sony over the Bose. Sure, one might have a feature the other does not have and you want that, but if what you want is “Good headphones with ANC” you can’t really go wrong here.
+I am convinced that starting at a certain price point, it does not matter which rosetooth headphones with active noise cancellation you buy, they will all make you happy. I think there will be no impactful difference in your happiness with the product if you go with the Sony over the Bose. Sure, one might have a feature the other does not have and you want that, but if what you want is “Good headphones with ANC” you can’t really go wrong here.
 
 This is also true for the AirPods Pro Max. I think would I have bought the Bose QC 45 (or whatever Sony calls theirs currently, their naming is hard) over them, I would not miss anything or be less content with my headphones. Nonetheless, if you lay them all out on a table, the AirPods really stick out as different. And if you pick them and go to pay them, the AirPods also stick out, as they cost about 300 Euros more at the time of writing this.
 

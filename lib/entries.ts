@@ -121,6 +121,35 @@ export const getPaginatedNotes = ({
   }
 }
 
+export const getPaginatedPosts = ({
+  page,
+  perPage = 10,
+}: {
+  page: number
+  perPage?: number
+}) => {
+  const allEntries = getAllSortedPosts()
+  const totalPages = Math.ceil(allEntries.length / perPage)
+
+  // We want to hanlde the calculation on a zero-based pages array,
+  // we're not barbarians.
+  const normalizedPage = page - 1
+
+  const start =
+    normalizedPage > totalPages
+      ? totalPages * perPage
+      : normalizedPage * perPage
+  const end = start + perPage
+  const posts = allEntries.slice(start, end)
+
+  return {
+    currentPage: page,
+    totalPostsCount: allEntries.length,
+    totalPages: totalPages,
+    posts,
+  }
+}
+
 export const getAllEntryIds = (entryType: EntryType): string[] => {
   const entriesDirectory = getEntriesDirectory(entryType)
   const fileNames = fs.readdirSync(entriesDirectory)

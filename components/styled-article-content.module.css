@@ -1,8 +1,8 @@
 .article {
-  line-height: 1.8rem;
+  line-height: 1.6rem;
   letter-spacing: 0.03rem;
   color: #dad9de;
-  font-family: var(--font-title);
+  font-family: sans-serif;
 }
 
 .article p {
@@ -35,7 +35,7 @@
 .article h1,
 .article h2,
 .article h3 {
-  font-family: var(--font-main);
+  font-family: sans-serif;
 }
 
 .article h2,
@@ -47,15 +47,15 @@
 }
 
 .article h2 {
-  font-size: 1.5rem;
-}
-
-.article h3 {
   font-size: 1.3rem;
 }
 
+.article h3 {
+  font-size: 1.1rem;
+}
+
 .article a {
-  color: #b97a95;
+  color: #3b82f6;
   text-decoration: underline;
 }
 
@@ -84,6 +84,7 @@
   border-radius: 8px;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  font-size: 0.9rem;
 }
 
 .article code:not(pre code) {

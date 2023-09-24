@@ -6,6 +6,9 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Post } from '.contentlayer/generated'
 import Link from 'next/link'
+import { BlogPostHeadline } from 'components/blog-post-headline'
+import { StyledArticleContent } from 'components/styled-article-content'
+import { PencilSquareIcon, QueueListIcon } from '@heroicons/react/24/outline'
 
 export const metadata: Metadata = {
   title: 'Posts - Chris Jarling',
@@ -45,9 +48,18 @@ export default async function PostsIndex() {
 
   return (
     <>
-      <div className="flex justify-end mb-6">
-        <Link href="posts/drafts" className="text-sm text-turkish-rose-500">
-          📝 Go to Drafts
+      <div className="flex justify-end mb-6 space-x-6">
+        <Link
+          href="posts/page/1"
+          className="text-sm text-rose-500 flex items-center"
+        >
+          <QueueListIcon className="w-4 h-4 mr-2" /> Stream view
+        </Link>
+        <Link
+          href="posts/drafts"
+          className="text-sm text-rose-500 flex itemx-center"
+        >
+          <PencilSquareIcon className="w-4 h-4 mr-2" /> Drafts
         </Link>
       </div>
       {sortedPostsByYears.map(([year, posts]) => (
@@ -56,7 +68,6 @@ export default async function PostsIndex() {
             <h2 className="font-headline text-xl text-neutral-300 mr-4">
               {year}
             </h2>
-            <div className="h-1 w-full border-b border-b-neutral-600" />
           </div>
           <PostsList posts={posts} />
         </div>

@@ -40,7 +40,7 @@ const PaginationLink = ({ href, children }: PaginationLinkProps) => {
   return (
     <Link
       href={href}
-      className="font-headline border-b-2 border-b-blue-500 hover:text-blue-500"
+      className="font-headline border-b-2 border-b-rose-500 hover:text-rose-500"
     >
       {children}
     </Link>

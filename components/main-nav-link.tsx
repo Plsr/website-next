@@ -13,7 +13,7 @@ export default function MainNavLink({
       href={href}
       as={as}
       className={clsx(
-        'text-zinc-200 p-2 text-sm font-medium font-title hover:text-turkish-rose-500 hover:underline hover:underline-offset-4',
+        'text-zinc-200 p-2 text-sm font-medium font-title hover:text-rose-500 hover:underline hover:underline-offset-4',
         lastOfType ? 'mr-0' : 'mr-2 md:mr-8'
       )}
     >

@@ -80,9 +80,11 @@ export default async function Post({ params }: Params) {
         </div>
         <StyledArticleContent contentHtml={post.body.html} />
       </div>
-      {post.tags?.split(' ').map((tag) => (
-        <Tag name={tag} key={tag} />
-      ))}
+      <div className="space-x-4">
+        {post.tags?.split(' ').map((tag) => (
+          <Tag name={tag} key={tag} />
+        ))}
+      </div>
     </>
   )
 }

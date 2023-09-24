@@ -1,5 +1,5 @@
 import Header from '../components/header'
-import './prism-atom-dark.css'
+import './vscode-dark-plus.css'
 import './tailwind.css'
 import './global.css'
 import {
@@ -62,10 +62,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bodyFont.variable} ${playfair.variable}`}>
-      <body className="font-body bg-storm-gray-950">
+      <body className="font-body bg-neutral-950">
         <div className="flex flex-col min-h-full">
           <Header />
-          <main className="px-8 md:px-4  max-w-screen-md mx-auto text-gray-100 font-body mb-24 w-full">
+          <main className="px-8 md:px-4 max-w-screen-md mx-auto text-gray-100 font-body mb-24 w-full">
             <div className="mt-24 md:mt-48">{children}</div>
           </main>
           <Footer />

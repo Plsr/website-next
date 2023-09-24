@@ -23,16 +23,7 @@ type TagPillProps = {
 }
 
 const TagPill = ({ children, hover = true }: TagPillProps) => {
-  return (
-    <span
-      className={clsx(
-        'bg-storm-gray-700 p-2 rounded-lg text-sm mr-4',
-        hover && 'hover:bg-turkish-rose-600'
-      )}
-    >
-      {children}
-    </span>
-  )
+  return <span className="underline text-rose-500">{children}</span>
 }
 
 type TimesUsedProps = {

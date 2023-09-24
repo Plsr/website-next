@@ -24,7 +24,7 @@ const AboutPage = async () => {
           <PageTitleWithSubline.Subline>
             Information about me and this site. For more information about what
             I&apos;m up to currently, see{' '}
-            <Link href="/now" className="text-blue-500 underline">
+            <Link href="/now" className="text-rose-500 underline">
               /now
             </Link>
           </PageTitleWithSubline.Subline>
@@ -65,7 +65,7 @@ const AboutPage = async () => {
         A list of changes on this site that have been added over time.
       </Paragraph>
       <div className="mb-8" />
-      <ChangelogList changelogEntries={releases} />
+      {false && <ChangelogList changelogEntries={releases} />}
     </div>
   )
 }
