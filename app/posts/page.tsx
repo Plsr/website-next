@@ -56,7 +56,7 @@ export default async function PostsIndex() {
           <QueueListIcon className="w-4 h-4 mr-2" /> Stream view
         </Link>
         <Link
-          href="posts/drafts"
+          href="/posts/drafts"
           className="text-sm text-rose-500 flex itemx-center"
         >
           <PencilSquareIcon className="w-4 h-4 mr-2" /> Drafts

@@ -41,7 +41,7 @@ export default async function PaginatedPostPage({
           <ListBulletIcon className="w-4 h-4 mr-2" /> List view
         </Link>
         <Link
-          href="posts/drafts"
+          href="/posts/drafts"
           className="text-sm text-rose-500 flex itemx-center"
         >
           <PencilSquareIcon className="w-4 h-4 mr-2" /> Drafts
