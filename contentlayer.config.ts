@@ -5,6 +5,7 @@ import remarkFrontmatter from 'remark-frontmatter'
 import remarkParse from 'remark-parse'
 import wikiLinkPlugin from 'remark-wiki-link'
 import remark2rehype from 'remark-rehype'
+import remarkGfm from 'remark-gfm'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -81,6 +82,7 @@ export default makeSource({
   markdown: (builder) => {
     builder.use(remarkFrontmatter)
     builder.use(remarkParse as any)
+    builder.use(remarkGfm)
     builder.use(remark2rehype)
     builder.use(rehypeStringify as any)
     builder.use(rehypePrism)
