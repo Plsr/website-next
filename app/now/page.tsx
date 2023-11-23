@@ -21,7 +21,7 @@ const NowPage = () => {
             <a className="text-rose-500" href="https://gigs.com">
               gigs
             </a>{' '}
-            (we're hiring 🤫)
+            (we&apos;re hiring 🤫)
           </li>
           <li>
             Currently in Stay-at-home-Dad mode, spending a lot of time with the
