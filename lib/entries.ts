@@ -55,7 +55,6 @@ export type EntryPostTypesMap = {
 }
 
 const getEntriesDirectory = (entryType: EntryType) => {
-  console.log(process.cwd())
   return path.join(process.cwd(), entryType)
 }
 

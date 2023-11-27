@@ -24,8 +24,6 @@ export default async function PostsIndex({ params }: PostsIndexProps) {
     notFound()
   }
 
-  console.log(posts)
-
   return (
     <>
       <h2 className="text-xl font-body font-bold mb-8 flex items-center">
