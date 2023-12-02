@@ -1,4 +1,4 @@
-import { defineConfig } from "tinacms";
+import { defineConfig } from 'tinacms'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -12,61 +12,62 @@ export default defineConfig({
   clientId: process.env.TINA_CLIENT_ID!, // Get this from tina.io
   token: process.env.TINA_TOKEN!, // Get this from tina.io
   build: {
-    outputFolder: "admin",
-    publicFolder: "public",
+    outputFolder: 'admin',
+    publicFolder: 'public',
   },
   media: {
     tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+      mediaRoot: '',
+      publicFolder: 'public',
     },
   },
   schema: {
     collections: [
       {
-        name: "notes",
-        label: "Notes",
-        path: "/notes",
+        name: 'notes',
+        label: 'Notes',
+        path: 'content/notes',
         fields: [
           {
-            type: "string",
-            name: "title",
-            label: "Title",
+            type: 'string',
+            name: 'title',
+            label: 'Title',
             isTitle: true,
             required: true,
           },
           {
-            type: "string",
-            name: "headline",
-            label: "Headline",
+            type: 'string',
+            name: 'headline',
+            label: 'Headline',
             ui: {
-              description: 'Optional title for a note. If this is filled out, it will be rendered as a headline.'
-            }
-          },
-          {
-            type: "string",
-            name: "link",
-            label: "Link",
-            ui: {
-              description: 'If filled out, the note will become a link post'
-            }
-          },
-          {
-            type: "datetime",
-            name: "date",
-            label: "Date",
-            ui: {
-              timeFormat: "HH:mm"
+              description:
+                'Optional title for a note. If this is filled out, it will be rendered as a headline.',
             },
           },
           {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
+            type: 'string',
+            name: 'link',
+            label: 'Link',
+            ui: {
+              description: 'If filled out, the note will become a link post',
+            },
+          },
+          {
+            type: 'datetime',
+            name: 'date',
+            label: 'Date',
+            ui: {
+              timeFormat: 'HH:mm',
+            },
+          },
+          {
+            type: 'rich-text',
+            name: 'body',
+            label: 'Body',
             isBody: true,
           },
         ],
       },
     ],
   },
-});
+})
