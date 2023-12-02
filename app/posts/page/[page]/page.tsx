@@ -1,15 +1,11 @@
 import { ListBulletIcon, PencilSquareIcon } from '@heroicons/react/24/outline'
 import { BlogPostHeadline } from 'components/blog-post-headline'
-import Divider from 'components/divider'
-import { Note } from 'components/note'
-import { PageTitleWithSubline } from 'components/page-title-with-subline'
 import { Pagination } from 'components/pagination'
 import { PostMetadata } from 'components/post-metadata'
-import { PostsList } from 'components/posts-list'
 import { StyledArticleContent } from 'components/styled-article-content'
 import { Tag } from 'components/tag'
 import { format } from 'date-fns'
-import { getPaginatedNotes, getPaginatedPosts, NotePost } from 'lib/entries'
+import { getPaginatedPosts } from 'lib/entries'
 import Link from 'next/link'
 
 type PaginatedPostPageProps = {
@@ -21,7 +17,7 @@ export const generateStaticParams = () => []
 export async function generateMetadata({ params }: PaginatedPostPageProps) {
   const page = Number(params?.page) || 1
   return {
-    title: `Notes - Page ${page} - Chris Jarling`,
+    title: `Posts - Page ${page} - Chris Jarling`,
   }
 }
 
