@@ -7,11 +7,17 @@ import { getAllSortedPosts, getAllTags } from 'lib/entries'
 import Link from 'next/link'
 import { format } from 'date-fns'
 import { Tag } from 'components/tag'
+import { allSeeds } from '.contentlayer/generated'
 
 export default async function Home() {
   const allSortedPosts = getAllSortedPosts()
   const recentBlogPosts = allSortedPosts.slice(0, 5)
   const tags = getAllTags().splice(0, 5)
+
+  // TODO: Move to shared util
+  const sortedSeeds = allSeeds.sort((a, b) => {
+    return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+  })
 
   return (
     <>
@@ -76,7 +82,9 @@ export default async function Home() {
         </div>
       </div>
 
-      <h2 className="text-xl font-bold mb-4">Latest posts</h2>
+      <h2 className="text-xl font-bold mb-4">
+        Latest posts <AllLink href="/posts" text="all" />
+      </h2>
       <ul className="ml-4 mb-6">
         {recentBlogPosts.map((postData) => (
           <li key={postData._id} className="mb-2 list-disc">
@@ -99,6 +107,27 @@ export default async function Home() {
           <Tag key={tag.tagName} name={tag.tagName} timesUsed={tag.count} />
         ))}
       </div>
+      <div className="mt-16">
+        <h2 className="text-xl font-bold mb-4">
+          Recent updates from the Garden{' '}
+          <AllLink href="/digital-garden" text="all" />
+        </h2>
+        <ul className="ml-4 mb-6">
+          {allSeeds.slice(0, 5).map((seedData) => (
+            <li key={seedData._id} className="mb-2 list-disc">
+              <Link href={`/digital-garden/${seedData.slug}`}>
+                <span className="text-rose-500 underline">
+                  {seedData.title}
+                </span>
+                <span className="ml-2 text-sm text-neutral-400">
+                  (updated{' '}
+                  {format(new Date(seedData.updatedAt), 'do LLL, yyyy')})
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div id="1" className="text-sm italic text-neutral-300 mt-24">
         [1]: &rdquo;But this website looks not sleek at all.&rdquo; That&apos;s
         right. The goal of this website is to be very simple and allow me to
@@ -107,5 +136,22 @@ export default async function Home() {
         decided to just not do anything fancy.
       </div>
     </>
+  )
+}
+
+type AllLinkProps = {
+  text: string
+  href: string
+}
+
+const AllLink = ({ text, href }: AllLinkProps) => {
+  return (
+    <span className="font-normal text-md">
+      (
+      <Link href={href} className=" text-rose-500 underline">
+        {text}
+      </Link>
+      )
+    </span>
   )
 }
