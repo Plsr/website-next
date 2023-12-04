@@ -15,6 +15,7 @@
     "@octokit/types": "^8.1.1",
     "@prisma/client": "^4.11.0",
     "@tinacms/cli": "^1.2.1",
+    "@vercel/analytics": "^1.1.1",
     "clsx": "^1.2.1",
     "contentlayer": "^0.3.3",
     "date-fns": "^2.29.3",

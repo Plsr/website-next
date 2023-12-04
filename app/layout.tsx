@@ -1,4 +1,5 @@
 import Header from '../components/header'
+import { Analytics } from '@vercel/analytics/react'
 import './vscode-dark-plus.css'
 import './tailwind.css'
 import './global.css'
@@ -63,6 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bodyFont.variable} ${playfair.variable}`}>
       <body className="font-body bg-neutral-950">
+        <Analytics />
         <div className="flex flex-col min-h-full">
           <Header />
           <main className="px-8 md:px-4 max-w-screen-md mx-auto text-gray-100 font-body mb-24 w-full">
