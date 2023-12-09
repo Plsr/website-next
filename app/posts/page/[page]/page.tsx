@@ -49,11 +49,13 @@ export default async function PaginatedPostPage({
           <PostMetadata>
             {format(new Date(post.date), 'do LLL, yyyy')}
           </PostMetadata>
-          <BlogPostHeadline
-            title={post.title}
-            draft={post.draft}
-            className="mb-4"
-          />
+          <Link href={`/posts/${post.computedSlug}`}>
+            <BlogPostHeadline
+              title={post.title}
+              draft={post.draft}
+              className="mb-4"
+            />
+          </Link>
           <StyledArticleContent contentHtml={post.body.html} />
           <div className="space-x-2">
             {post.tags?.split(' ').map((tag) => (

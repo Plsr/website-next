@@ -36,8 +36,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      title: ['-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-      body: ['-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      title: ['var(--font-main)'],
+      body: ['var(--font-main)'],
     },
     extend: {},
   },

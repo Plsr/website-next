@@ -10,19 +10,20 @@ import {
   Inter,
   Open_Sans,
   Merriweather,
+  Source_Serif_4,
   Lato,
 } from 'next/font/google'
 import { Metadata } from 'next'
 import Footer from '../components/footer'
 
-const bodyFont = Lato({
+const bodyFont = Source_Serif_4({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-main',
   weight: ['300', '400', '700'],
 })
 
-const playfair = Merriweather({
+const playfair = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-title',
