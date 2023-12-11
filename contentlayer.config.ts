@@ -76,9 +76,31 @@ export const Seed = defineDocumentType(() => ({
   },
 }))
 
+export const LibraryArticle = defineDocumentType(() => ({
+  name: 'LibraryArticle',
+  filePathPattern: 'library/articles/*.md',
+  fields: {
+    link: { type: 'string', requierd: true },
+    title: { type: 'string', required: true },
+    createdAt: { type: 'string', required: true },
+    tags: { type: 'string', required: false },
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (article) => `/${article._raw.flattenedPath}`,
+    },
+    computedSlug: {
+      type: 'string',
+      resolve: (article) =>
+        article._raw.flattenedPath.replace('library/articles/', ''),
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Note, Seed],
+  documentTypes: [Post, Note, Seed, LibraryArticle],
   markdown: (builder) => {
     builder.use(remarkFrontmatter)
     builder.use(remarkParse as any)

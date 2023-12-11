@@ -23,7 +23,7 @@ const bodyFont = Source_Serif_4({
   weight: ['300', '400', '700'],
 })
 
-const playfair = Inter({
+const playfair = Open_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-title',

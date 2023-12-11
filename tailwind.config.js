@@ -36,8 +36,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      title: ['var(--font-main)'],
-      body: ['var(--font-main)'],
+      title: ['sans-serif'],
+      body: ['sans-serif'],
     },
     extend: {},
   },

@@ -68,6 +68,40 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: 'libraryArticles',
+        label: 'Library Articles',
+        path: 'content/library/articles',
+        fields: [
+          {
+            type: 'string',
+            name: 'title',
+            label: 'Title',
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: 'string',
+            name: 'link',
+            label: 'Link',
+            required: true,
+          },
+          {
+            type: 'datetime',
+            name: 'createdAt',
+            label: 'Created at',
+            ui: {
+              timeFormat: 'HH:mm',
+            },
+          },
+          {
+            type: 'rich-text',
+            name: 'body',
+            label: 'Body',
+            isBody: true,
+          },
+        ],
+      },
     ],
   },
 })
