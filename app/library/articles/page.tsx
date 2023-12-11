@@ -23,7 +23,7 @@ const ArticlesIndexPage = () => {
       />
       <div className="mb-24" />
       {allLibraryArticles.map((libraryArticle) => (
-        <div key={libraryArticle._id}>
+        <div key={libraryArticle._id} className="mb-36">
           <h2 className="underline text-lg mb-4">
             <a href={libraryArticle.link}>{libraryArticle.title}</a>
           </h2>
