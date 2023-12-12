@@ -1,7 +1,7 @@
 import { allLibraryArticles } from '.contentlayer/generated'
 import { PageTitleWithSubline } from 'components/page-title-with-subline'
 import { StyledArticleContent } from 'components/styled-article-content'
-import { format } from 'date-fns'
+import { compareDesc, format } from 'date-fns'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -11,6 +11,10 @@ export const metadata: Metadata = {
 }
 
 const ArticlesIndexPage = () => {
+  const sortedLibraryArticles = allLibraryArticles.sort((a, b) =>
+    compareDesc(new Date(a.createdAt), new Date(b.createdAt))
+  )
+
   return (
     <>
       <PageTitleWithSubline
@@ -22,7 +26,7 @@ const ArticlesIndexPage = () => {
         }
       />
       <div className="mb-24" />
-      {allLibraryArticles.map((libraryArticle) => (
+      {sortedLibraryArticles.map((libraryArticle) => (
         <div key={libraryArticle._id} className="mb-36">
           <h2 className="underline text-lg mb-4">
             <a href={libraryArticle.link}>{libraryArticle.title}</a>

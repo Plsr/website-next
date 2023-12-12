@@ -1,8 +1,3 @@
-import Image from 'next/image'
-import memoji from '../public/memoji.png'
-import RecentArticle from '../components/recent-article'
-import HomepageHeadline from '../components/homepage-headline'
-import { SocialLink } from '../components/social-link'
 import { getAllSortedPosts, getAllTags } from 'lib/entries'
 import Link from 'next/link'
 import { format } from 'date-fns'
@@ -55,6 +50,13 @@ export default async function Home() {
             href="/digital-garden"
           >
             notes
+          </Link>
+          , store my{' '}
+          <Link
+            className="text-rose-500 underline-offset-4 underline"
+            href="/library/articles"
+          >
+            reading notes
           </Link>{' '}
           and use it as a general playground to try out now things.
         </p>
