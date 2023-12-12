@@ -37,7 +37,7 @@ export default async function Home() {
           </sup>
           .
           <br />
-          Currently working on the worlds first Telecom-as-a-Service at Gigs.
+          Currently working on the world’s first Telecom-as-a-Service at Gigs.
         </p>
         <p className=" text-gray-400 mb-6 max-w-lg">
           This is my personal website, which I use as my primary home on the
