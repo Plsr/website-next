@@ -36,8 +36,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      title: ['monospace'],
-      body: ['monospace'],
+      title: ['var(--font-title)'],
+      body: ['var(--font-title)'],
     },
     extend: {},
   },
