@@ -10,16 +10,16 @@ type PostsListProps = {
 
 export const PostsList = ({ posts }: PostsListProps) => {
   return (
-    <ul className="ml-4">
+    <ul>
       {posts.map((post) => (
-        <li key={post._id} className="mb-2 list-disc">
+        <li key={post._id} className="mb-2">
           <Link href={`/posts/${post.computedSlug}`}>
-            <span className="text-rose-500 underline">
+            <span className="text-base-200 underline">
               {post.draft && '📝 '}
               {post.title}
             </span>
             <span className="ml-2 text-sm text-neutral-400">
-              ({format(new Date(post.date), 'do LLL, yyyy')})
+              {format(new Date(post.date), 'do LLL, yyyy')}
             </span>
           </Link>
         </li>

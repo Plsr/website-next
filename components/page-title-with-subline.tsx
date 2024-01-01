@@ -9,7 +9,7 @@ export const PageTitleWithSubline = ({
     <>
       <h1
         className={clsx(
-          'text-2xl font-bold',
+          'text-2xl font-bold text-base-400',
           subline === undefined ? 'mb-8' : 'mb-2'
         )}
       >

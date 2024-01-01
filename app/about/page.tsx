@@ -18,54 +18,60 @@ const AboutPage = async () => {
 
   return (
     <div>
-      <PageTitleWithSubline
-        title="About"
-        subline={
-          <PageTitleWithSubline.Subline>
-            Information about me and this site. For more information about what
-            I&apos;m up to currently, see{' '}
-            <Link href="/now" className="text-rose-500 underline">
-              /now
-            </Link>
-          </PageTitleWithSubline.Subline>
-        }
-      />
-      <Headline level={2}>Me</Headline>
+      <Headline level={2}>About</Headline>
       <Paragraph>
-        My name is Chris Jarling. I&apos;m {yearsOld} years old, am a husband
-        and father and currently live in Cologne, Germany.
-        <br />I currently work for a neat starup called{' '}
-        <Paragraph.Link href="https://gigs.com">Gigs</Paragraph.Link>{' '}
-        (we&apos;re hiring) as a Frontend Engineer.
+        Hey, I&apos;m Chris Jarling. I&apos;m a {yearsOld} year old husband and
+        father of two. Frontend Engineer at{' '}
+        <Paragraph.Link href="https://gigs.com">Gigs</Paragraph.Link>, the
+        world&apos;s first Telecom-as-a-Service (we&apos;re hiring).
+        <br />
+        <br />
+        If you want to contact me, I&apos;d be stoked to receive and email from
+        you:{' '}
+        <a
+          href="mailto:hi@chrisjarling.com"
+          className="underline text-accent-500"
+        >
+          hi@chrisjarling.com
+        </a>
       </Paragraph>
-      <Paragraph>
-        When I&apos;m not working or spending time with my family, I usually
-        work on a side project, write for this site or take photos.
-      </Paragraph>
+      <Headline level={3}>Elsewhere</Headline>
+      <ul className="list-disc ml-4">
+        <li>
+          Twitter:{' '}
+          <a
+            href="https://twitter.com/chrisjarling"
+            className="text-base-400 underline"
+          >
+            @chrisjarling
+          </a>
+        </li>
+        <li>
+          Mastodon:{' '}
+          <a
+            href="https://hachyderm.io/@chrisjarling"
+            className="text-base-400 underline"
+          >
+            @chrisjarling@hachyderm.io
+          </a>
+        </li>
+        <li>
+          Github:{' '}
+          <a href="https://github.com/Plsr" className="text-base-400 underline">
+            Plsr
+          </a>
+        </li>
+      </ul>
 
-      <Headline level={2}>This site</Headline>
+      <Headline level={2}>Colophon</Headline>
       <Paragraph>
         This site is built with Next.js and hosted on Vercel. Content is just
         plain markdown files. You can find the source code on{' '}
         <Paragraph.Link href="https://github.com/Plsr/website-next">
           Github
         </Paragraph.Link>
-        .
+        . Styling via Tailwind.
       </Paragraph>
-      <Paragraph>
-        I used to run this site on Jekyll, but I wanted to have something more
-        dynamic which was written in Javascript. In order to get this done
-        quickly, I decided to only add the most important pages in the
-        beginning. Things on here will likely change over time.
-      </Paragraph>
-      <Headline level={2} id="changelog">
-        Changelog
-      </Headline>
-      <Paragraph>
-        A list of changes on this site that have been added over time.
-      </Paragraph>
-      <div className="mb-8" />
-      {false && <ChangelogList changelogEntries={releases} />}
     </div>
   )
 }

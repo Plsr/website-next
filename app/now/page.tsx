@@ -25,7 +25,7 @@ const NowPage = () => {
           </li>
           <li>
             Currently in Stay-at-home-Dad mode, spending a lot of time with the
-            family, awaiting our second child
+            family after the birth of our second child.
           </li>
           <li>
             Reading{' '}
@@ -36,9 +36,28 @@ const NowPage = () => {
               Before the Coffee Gets Cold
             </a>
           </li>
-          <li>Trying to get back in the habit of writing more on here</li>
+          <li>
+            Reading{' '}
+            <a
+              className="text-rose-500"
+              href="https://lesetagebu.ch/buch/masters-of-doom"
+            >
+              Masters of Doom
+            </a>
+          </li>
+          <li>
+            Reading{' '}
+            <a
+              className="text-rose-500"
+              href="https://lesetagebu.ch/buch/founders-at-work"
+            >
+              Founders at work
+            </a>
+          </li>
+          <li>Reading a lot of essays online</li>
+          <li>Writing</li>
         </ul>
-        <small>Last updated: 23rd November, 2023</small>
+        <small>Last updated: 1st January, 2024</small>
       </Paragraph>
     </div>
   )

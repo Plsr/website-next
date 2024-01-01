@@ -8,6 +8,8 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
+      accent: colors.rose,
+      base: colors.stone,
       neutral: {
         50: '#f7f7f8',
         100: '#efeef0',
