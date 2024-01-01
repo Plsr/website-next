@@ -19,14 +19,16 @@ export default async function Home() {
       <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
       <link rel="me" href="https://github.com/plsr" />
       <div className="flex flex-col mb-24">
-        <h2 className="text-gray-400 mb-2 font-headline">
+        <h2 className="text-base-400 mb-2 font-headline">
           Hi, I&apos;m Chris Jarling 👋
         </h2>
-        <p className=" text-gray-100 mb-6 text-2xl font-bold max-w-xl leading-8 font-title">
-          <span className="text-rose-500">FullStack Developer</span> specialized
-          in Typescript, with a love for sleek User Interfaces
+        <p className=" text-base-100 mb-6 text-2xl font-bold max-w-xl leading-8 font-title">
+          <span className="bg-clip-text text-transparent bg-gradient-to-br from-rose-500 via-pink-500 to-amber-500">
+            FullStack Developer
+          </span>{' '}
+          specialized in Typescript, with a love for sleek User Interfaces
           <sup className="text-sm">
-            <a href="#1" className="text-rose-500 underline">
+            <a href="#1" className="text-highlight-500 underline">
               1
             </a>
           </sup>
@@ -34,11 +36,11 @@ export default async function Home() {
           <br />
           Currently working on the world’s first Telecom-as-a-Service at Gigs.
         </p>
-        <p className=" text-gray-400 mb-6 max-w-lg">
+        <p className=" text-base-300 mb-6 max-w-lg">
           This is my personal website, which I use as my primary home on the
           internet. On here, I mostly{' '}
           <Link
-            className="text-rose-500 underline-offset-4 underline"
+            className="text-highlight-500 underline-offset-4 underline"
             href="/posts"
           >
             write
@@ -46,41 +48,44 @@ export default async function Home() {
           about software development, partenting and personal growth, try to
           keep some{' '}
           <Link
-            className="text-rose-500 underline-offset-4 underline"
+            className="text-highlight-500 underline-offset-4 underline"
             href="/digital-garden"
           >
             notes
           </Link>
           , store my{' '}
           <Link
-            className="text-rose-500 underline-offset-4 underline"
+            className="text-highlight-500 underline-offset-4 underline"
             href="/library/articles"
           >
             reading notes
           </Link>{' '}
           and use it as a general playground to try out now things.
         </p>
-        <div className="flex gap-x-4 mt-6 flex-wrap">
-          <Link
-            className="text-rose-500 underline font-lg"
-            href="mailto:hi@chrisjarling.com"
-          >
-            Email
-          </Link>
-          <Link
-            className="text-rose-500 underline font-lg"
-            href="https://hachyderm.io/@chrisjarling"
-            rel="me"
-          >
-            Mastodon
-          </Link>
-          <Link
-            className="text-rose-500 underline font-lg"
-            href="https://github.com/plsr"
-            rel="me"
-          >
-            Github
-          </Link>
+        <div className="mt-6">
+          <span className="text-sm text-slate-400">Get in touch</span>
+          <div className="flex gap-x-4 flex-wrap mt-2">
+            <Link
+              className="text-base-300 hover:text-highlight-400 bg-base-800 border transition hover:border-base-700 border-base-800 py-2 px-6 rounded-lg text-sm"
+              href="mailto:hi@chrisjarling.com"
+            >
+              Email
+            </Link>
+            <Link
+              className="text-base-300 hover:text-highlight-400 bg-base-800 border transition hover:border-base-700 border-base-800 py-2 px-6 rounded-lg text-sm"
+              href="https://hachyderm.io/@chrisjarling"
+              rel="me"
+            >
+              Mastodon
+            </Link>
+            <Link
+              className="text-base-300 hover:text-highlight-400 bg-base-800 border transition hover:border-base-700 border-base-800 py-2 px-6 rounded-lg text-sm"
+              href="https://github.com/plsr"
+              rel="me"
+            >
+              Github
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -91,7 +96,9 @@ export default async function Home() {
         {recentBlogPosts.map((postData) => (
           <li key={postData._id} className="mb-2 list-disc">
             <Link href={`/posts/${postData.slug}`}>
-              <span className="text-rose-500 underline">{postData.title}</span>
+              <span className="text-highlight-500 underline">
+                {postData.title}
+              </span>
               <span className="ml-2 text-sm text-neutral-400">
                 ({format(new Date(postData.date), 'do LLL, yyyy')})
               </span>
@@ -118,7 +125,7 @@ export default async function Home() {
           {allSeeds.slice(0, 5).map((seedData) => (
             <li key={seedData._id} className="mb-2 list-disc">
               <Link href={`/digital-garden/${seedData.slug}`}>
-                <span className="text-rose-500 underline">
+                <span className="text-highlight-500 underline">
                   {seedData.title}
                 </span>
                 <span className="ml-2 text-sm text-neutral-400">
@@ -150,7 +157,7 @@ const AllLink = ({ text, href }: AllLinkProps) => {
   return (
     <span className="font-normal text-md">
       (
-      <Link href={href} className=" text-rose-500 underline">
+      <Link href={href} className=" text-highlight-500 underline">
         {text}
       </Link>
       )

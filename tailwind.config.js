@@ -8,19 +8,8 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      neutral: {
-        50: '#f7f7f8',
-        100: '#efeef0',
-        200: '#dad9de',
-        300: '#b9b7c2',
-        400: '#9290a0',
-        500: '#716f81',
-        600: '#5f5c6d',
-        700: '#4d4b59',
-        800: '#42414b',
-        900: '#3a3941',
-        950: '#27262b',
-      },
+      highlight: colors.purple,
+      base: colors.slate,
       'rose-bud': {
         50: '#fdf5f3',
         100: '#fde9e3',

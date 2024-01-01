@@ -12,6 +12,8 @@ import {
   Merriweather,
   Source_Serif_4,
   Lato,
+  Fira_Sans,
+  Nunito_Sans,
 } from 'next/font/google'
 import { Metadata } from 'next'
 import Footer from '../components/footer'
@@ -23,7 +25,7 @@ const bodyFont = Source_Serif_4({
   weight: ['300', '400', '700'],
 })
 
-const playfair = Open_Sans({
+const playfair = Nunito_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-title',
@@ -64,7 +66,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bodyFont.variable} ${playfair.variable}`}>
-      <body className="font-body bg-neutral-950">
+      <body className="font-body bg-base-900">
         <Analytics />
         <div className="flex flex-col min-h-full">
           <Header />
