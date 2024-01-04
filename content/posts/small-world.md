@@ -9,11 +9,11 @@ draft: false
 
 Growing up, I thought the world is huge. There are 7.8 billion people on this planet and I only knew a few of them. But really, the world is kind of small. Reaching out to people you think of as unreachable becomes easier once you know a few people. An example: Paul Graham.
 
-Pretty well known in business, seems unreachable. However, Gigs was part of the Y Combinator, so chances are our founders know Graham. So this would make him a 2nd level connection for me:
+Pretty well known in business, seems unreachable. However, Gigs was part of Y Combinator, so chances are our founders know Graham. So this would make him a 2nd level connection for me:
 
 `me -> our founders -> Paul Graham`
 
-(not sure if they actually know him, but if not, they definitely know someone how does. This would make him a 3rd level connection)
+(not sure if they actually know him, but if not, they definitely know someone who does. This would make him a 3rd level connection)
 
 Let's get a little more ambitious, even: Barack Obama.
 
