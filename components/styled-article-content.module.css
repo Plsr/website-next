@@ -94,3 +94,9 @@
   white-space: normal;
   word-break: break-word;
 }
+
+
+.article hr {
+  margin-bottom: 2rem;
+  opacity: .4;
+}

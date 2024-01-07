@@ -45,7 +45,7 @@ export const Form = () => {
 
 Which will yield: `'Expected number, received nan'`. What happened?
 
-Looking at the [react-hook-form documentation](https://react-hook-form.com/docs/useform/register), we learn that `valueAsNumber` will fall back to `NaN` if no conversion is possible:
+Looking at the [react-hook-form documentation](https://react-hook-form.com/docs/useform/register), we learn that `valueAsNumber` will fall back to `NaN` if no conversion is possible[^1]:
 
 > Returns a Number normally. If something goes wrong `NaN` will be returned.
 
@@ -70,3 +70,15 @@ How do we fix it? Luckily, `react-hook-form` also provides another option for `r
 ```
 
 This way, we make sure we set the value to the expected `undefined` if the input is left empty.
+
+-----
+
+[moshyfawn](https://moshyfawn.dev/) suggested [another approach to the problem on twitter](https://x.com/moshyfawn/status/1743798518853025858?s=20) using zod's `coerce` functionality, shifting the value transformation from react-hook-form to zod:
+
+```ts
+const schema = z.object({
+  duration: z.coerce.number().min(0).optional(),
+});
+```
+
+[^1]: This is a limitation react-hook-form has inherited from the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)
