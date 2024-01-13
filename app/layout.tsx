@@ -3,16 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import './vscode-dark-plus.css'
 import './tailwind.css'
 import './global.css'
-import {
-  Nunito,
-  Literata,
-  Space_Grotesk,
-  Inter,
-  Open_Sans,
-  Merriweather,
-  Source_Serif_4,
-  Lato,
-} from 'next/font/google'
+import { Source_Serif_4, PT_Sans } from 'next/font/google'
 import { Metadata } from 'next'
 import Footer from '../components/footer'
 
@@ -23,7 +14,7 @@ const bodyFont = Source_Serif_4({
   weight: ['300', '400', '700'],
 })
 
-const playfair = Open_Sans({
+const playfair = PT_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-title',
@@ -64,7 +55,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bodyFont.variable} ${playfair.variable}`}>
-      <body className="font-body bg-stone-900">
+      <body className="font-body bg-base-900">
         <Analytics />
         <div className="flex flex-col min-h-full">
           <main className="px-8 md:px-0 max-w-screen-sm mx-auto text-gray-100 font-body mb-4">

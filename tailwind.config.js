@@ -9,7 +9,7 @@ module.exports = {
     colors: {
       ...colors,
       accent: colors.rose,
-      base: colors.stone,
+      base: colors.zinc,
       neutral: {
         50: '#f7f7f8',
         100: '#efeef0',
