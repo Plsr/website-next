@@ -57,13 +57,13 @@ export default function RootLayout({
     <html lang="en" className={`${bodyFont.variable} ${playfair.variable}`}>
       <body className="font-body bg-base-900">
         <Analytics />
-        <div className="flex flex-col min-h-full">
-          <main className="px-8 md:px-0 max-w-screen-sm mx-auto text-gray-100 font-body mb-4">
+        <div className="flex mx-auto flex-col min-h-full max-w-screen-sm items-center">
+          <main className="px-8 md:px-0 w-full text-gray-100 font-body mb-4">
             <Header />
             <div className="mt-16">{children}</div>
           </main>
-          <Footer />
         </div>
+        <Footer />
       </body>
     </html>
   )
