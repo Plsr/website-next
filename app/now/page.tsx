@@ -24,17 +24,15 @@ const NowPage = () => {
             (we&apos;re hiring 🤫)
           </li>
           <li>
-            Currently in Stay-at-home-Dad mode, spending a lot of time with the
-            family after the birth of our second child.
+            Trying to spend a lot of time with my family since we just had our
+            second child.
           </li>
           <li>
-            Reading{' '}
-            <a
-              className="text-rose-500"
-              href="https://lesetagebu.ch/buch/before-the-coffee-gets-cold"
-            >
-              Before the Coffee Gets Cold
+            Working on{' '}
+            <a className="text-rose-500" href="https://rapidlist.xyz">
+              RapidList
             </a>
+            , a simple todo list app that I built to fit my needs
           </li>
           <li>
             Reading{' '}
@@ -55,7 +53,6 @@ const NowPage = () => {
             </a>
           </li>
           <li>Reading a lot of essays online</li>
-          <li>Writing</li>
         </ul>
         <small>Last updated: 1st January, 2024</small>
       </Paragraph>
