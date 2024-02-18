@@ -4,6 +4,7 @@ import { format, getYear } from 'date-fns'
 import { Tag } from 'components/tag'
 import { Post, allSeeds } from '.contentlayer/generated'
 import { PostsList } from 'components/posts-list'
+import { Metadata } from 'next'
 
 type PostsByYear = {
   [key: number]: Post[]
@@ -24,6 +25,33 @@ const getPostsByYear = () => {
   })
 
   return postsByYear
+}
+
+export const metadata: Metadata = {
+  title: 'Chris Jarling',
+  description:
+    'Personal website of Chris Jarling, full stack developer from Germany.',
+  alternates: {
+    types: {
+      'application/rss+xml': '/posts/feed.rss',
+      'application/atom+xml': '/posts/feed.atom',
+    },
+  },
+  openGraph: {
+    title: 'Chris Jarling',
+    description:
+      'Personal website of Chris Jarling, full stack developer from Germany.',
+    url: 'https://chrisjarling.com',
+    images: [
+      {
+        url: 'https://www.chrisjarling.com/og.jpg',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 export default async function Home() {
