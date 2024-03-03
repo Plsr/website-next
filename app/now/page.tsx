@@ -18,7 +18,7 @@ const NowPage = () => {
         <ul className="mb-2 list-disc ml-4">
           <li>
             I’m working full time for{' '}
-            <a className="text-rose-500" href="https://gigs.com">
+            <a className="text-indigo-500" href="https://gigs.com">
               gigs
             </a>{' '}
             (we&apos;re hiring 🤫)
@@ -29,7 +29,7 @@ const NowPage = () => {
           </li>
           <li>
             Working on{' '}
-            <a className="text-rose-500" href="https://rapidlist.xyz">
+            <a className="text-indigo-500" href="https://rapidlist.xyz">
               RapidList
             </a>
             , a simple todo list app that I built to fit my needs
@@ -37,7 +37,7 @@ const NowPage = () => {
           <li>
             Reading{' '}
             <a
-              className="text-rose-500"
+              className="text-indigo-500"
               href="https://lesetagebu.ch/buch/masters-of-doom"
             >
               Masters of Doom
@@ -46,7 +46,7 @@ const NowPage = () => {
           <li>
             Reading{' '}
             <a
-              className="text-rose-500"
+              className="text-indigo-500"
               href="https://lesetagebu.ch/buch/founders-at-work"
             >
               Founders at work

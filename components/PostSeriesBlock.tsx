@@ -30,7 +30,10 @@ export const PostSeriesBlock = ({
                 <span className="font-normal">(currently reading)</span>
               </p>
             ) : (
-              <Link className="text-rose-500 hover:underline" href={entry.url}>
+              <Link
+                className="text-indigo-500 hover:underline"
+                href={entry.url}
+              >
                 {entry.title}
               </Link>
             )}

@@ -16,7 +16,7 @@ type LinkProps = {
 
 const ParagraphLink = ({ href, children }: LinkProps) => {
   return (
-    <Link href={href} className="underline text-rose-500">
+    <Link href={href} className="underline text-indigo-500">
       {children}
     </Link>
   )

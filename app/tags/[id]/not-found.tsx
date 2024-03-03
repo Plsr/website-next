@@ -7,7 +7,7 @@ export default function NotFound() {
       <p>This tag could not be found.</p>
       <p>
         You can see all available tags{' '}
-        <Link className="text-rose-500" href={'/tags'}>
+        <Link className="text-indigo-500" href={'/tags'}>
           here
         </Link>
       </p>

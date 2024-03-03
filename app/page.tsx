@@ -113,7 +113,7 @@ const AllLink = ({ text, href }: AllLinkProps) => {
   return (
     <span className="font-normal text-md">
       (
-      <Link href={href} className=" text-rose-500 underline">
+      <Link href={href} className=" text-indigo-500 underline">
         {text}
       </Link>
       )
