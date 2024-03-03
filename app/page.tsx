@@ -171,7 +171,7 @@ const Intro = () => {
   )
 }
 
-const PillThing = ({ children }) => {
+const PillThing = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex hover:bg-base-800 hover:border-base-700 transition text-sm px-3 py-1 rounded-lg bg-base-900 border border-base-800">
       {children}
