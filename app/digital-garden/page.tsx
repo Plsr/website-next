@@ -18,7 +18,7 @@ const DigitalGardenIndexPage = async () => {
               {seed.excerpt && (
                 <span className="text-xs mt-2">{seed.excerpt}</span>
               )}
-              <span className="text-xs text-rose-bud-100 mt-2">
+              <span className="text-xs text-indigo-bud-100 mt-2">
                 Updated at: {format(new Date(seed.updatedAt), 'do LLL, yyyy')}
               </span>
             </div>

@@ -48,20 +48,6 @@ export default async function PostsIndex() {
 
   return (
     <>
-      <div className="flex justify-end mb-6 space-x-6">
-        <Link
-          href="posts/page/1"
-          className="text-sm text-rose-500 flex items-center"
-        >
-          <QueueListIcon className="w-4 h-4 mr-2" /> Stream view
-        </Link>
-        <Link
-          href="/posts/drafts"
-          className="text-sm text-rose-500 flex itemx-center"
-        >
-          <PencilSquareIcon className="w-4 h-4 mr-2" /> Drafts
-        </Link>
-      </div>
       {sortedPostsByYears.map(([year, posts]) => (
         <div className="mb-16" key={year}>
           <div className="flex flex-row items-center mb-6">

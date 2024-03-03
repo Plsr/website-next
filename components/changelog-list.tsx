@@ -91,7 +91,7 @@ const ChangelogEntry = ({ entry, latest = false }: ChangelogEntryProps) => {
           <CalendarIcon className="inline h-3 w-3 mr-1" />
           {format(new Date(entry.created_at.toString()), 'do MMMM, yyyy')}
         </p>
-        <p className="text-xs text-rose-500 flex underline">
+        <p className="text-xs text-indigo-500 flex underline">
           <Link
             href={`https://github.com/Plsr/website-next/commit/${entry.target_commitish}`}
           >

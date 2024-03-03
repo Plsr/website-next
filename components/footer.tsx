@@ -5,7 +5,7 @@ const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 export default function Footer() {
   return (
     <div className="mt-auto">
-      <div className="px-8 bg-base-800 py-12">
+      <div className="px-8 bg-base-900 py-12">
         <div className="max-w-screen-md mx-auto text-gray-100">
           <div className="flex flex-col md:flex-row justify-between">
             <FooterRow
@@ -26,12 +26,7 @@ export default function Footer() {
             <FooterRow
               title="Collections"
               listItems={[
-                <FooterRow.Item key="blog" href="/posts/page/1" text="Blog" />,
-                <FooterRow.Item
-                  key="notes"
-                  href="/notes/page/1"
-                  text="Notes"
-                />,
+                <FooterRow.Item key="blog" href="/posts" text="Blog" />,
                 <FooterRow.Item key="tags" href="/tags" text="Tags" />,
                 <FooterRow.Item
                   key="books"

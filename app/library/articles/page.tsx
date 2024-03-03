@@ -34,7 +34,7 @@ const ArticlesIndexPage = () => {
           <StyledArticleContent contentHtml={libraryArticle.body.html} />
           <Link
             href={`/library/articles/${libraryArticle.computedSlug}`}
-            className="underline text-sm text-rose-500"
+            className="underline text-sm text-indigo-500"
           >
             {format(new Date(libraryArticle.createdAt), 'do LLL, yyyy')}
           </Link>

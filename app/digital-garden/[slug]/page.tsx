@@ -71,7 +71,7 @@ export default async function Post({ params }: Params) {
           {seed.title}
         </h2>
         {seed.wip && (
-          <div className="rounded-lg p-4 mb-6 bg-rose-bud-700/10 border border-rose-bud-900 text-rose-bud-200 text-sm">
+          <div className="rounded-lg p-4 mb-6 bg-rose-bud-700/10 border border-rose-bud-900 text-indigo-bud-200 text-sm">
             This page is still work in progress. Information might be
             incomplete, formatting and grammar might be off.
           </div>

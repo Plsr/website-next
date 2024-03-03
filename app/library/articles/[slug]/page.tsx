@@ -56,7 +56,7 @@ const LibraryArticleDetailPage = ({ params }: Params) => {
       </h2>
       <span className="text-sm block mb-8">
         Link:{' '}
-        <a className="underline text-rose-500" href={libraryArticle.link}>
+        <a className="underline text-indigo-500" href={libraryArticle.link}>
           {libraryArticle.link}
         </a>
       </span>

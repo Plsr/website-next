@@ -23,7 +23,11 @@ type TagPillProps = {
 }
 
 const TagPill = ({ children, hover = true }: TagPillProps) => {
-  return <span className="underline text-rose-500">{children}</span>
+  return (
+    <span className="bg-accent-500/40 px-3 py-1 rounded-full text-xs text-accent-200">
+      {children}
+    </span>
+  )
 }
 
 type TimesUsedProps = {
