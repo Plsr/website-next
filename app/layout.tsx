@@ -1,30 +1,43 @@
 import Header from '../components/header'
 import { Analytics } from '@vercel/analytics/react'
-import './vscode-dark-plus.css'
+import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
-import { Source_Serif_4, PT_Sans } from 'next/font/google'
+import {
+  Source_Serif_4,
+  PT_Sans,
+  Inter,
+  Rock_Salt,
+  IBM_Plex_Serif,
+} from 'next/font/google'
 import { Metadata } from 'next'
 import Footer from '../components/footer'
 
-const bodyFont = Source_Serif_4({
+const bodyFont = IBM_Plex_Serif({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-main',
+  variable: '--font-copy',
   weight: ['300', '400', '700'],
 })
 
-const playfair = PT_Sans({
+const playfair = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-title',
   weight: ['400', '700'],
 })
 
+const handwriting = Rock_Salt({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-handwriting',
+  weight: ['400'],
+})
+
 export const metadata: Metadata = {
   title: 'Chris Jarling',
   description:
-    'Personal website of Chris Jarling, full stack developer from Germany.',
+    'Senior Frontend Egineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
   alternates: {
     types: {
       'application/rss+xml': '/posts/feed.rss',
@@ -34,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Chris Jarling',
     description:
-      'Personal website of Chris Jarling, full stack developer from Germany.',
+      'Senior Frontend Egineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
     url: 'https://chrisjarling.com',
     images: [
       {
@@ -54,14 +67,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${bodyFont.variable} ${playfair.variable}`}>
-      <body className="font-body bg-base-900">
-        <Analytics />
-        <div className="flex mx-auto flex-col min-h-full max-w-screen-sm items-center">
-          <main className="px-8 md:px-0 w-full text-gray-100 font-body mb-4">
-            <Header />
-            <div className="mt-16">{children}</div>
-          </main>
+    <html
+      lang="en"
+      className={`${bodyFont.variable} ${handwriting.variable} ${playfair.variable}`}
+    >
+      <body className="font-body overflow-x-hidden ">
+        <div className="bg-gradient-to-br from-slate-900 to-slate-950 bg-no-repeat min-h-full">
+          <div className="absolute top-24  -left-24 z-0 rounded-full bg-sky-700/10 w-1/3 h-1/3 blur-3xl" />
+          <div className="absolute -right-96 bottom-36 z-0 rounded-full bg-indigo-700/5 w-1/2 h-1/2 blur-3xl" />
+          <Analytics />
+          <div className="flex mx-auto flex-col  max-w-screen-md items-center ">
+            <main className="z-10 px-8 md:px-0 w-full text-gray-100 flex-1 font-body mb-4">
+              <Header />
+              <div className="mt-16">{children}</div>
+            </main>
+          </div>
         </div>
         <Footer />
       </body>

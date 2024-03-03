@@ -57,15 +57,15 @@ export default async function Post({ params }: Params) {
   const seriesEntries = post.series ? postSeriesList(post.series) : undefined
 
   return (
-    <>
+    <div className="mx-auto max-w-2xl mb-16">
       <div>
-        <div className="mb-8">
-          <div className="mb-2">
+        <div className="mb-8 ">
+          <div className="mb-2 ">
             <PostMetadata>
               {format(new Date(post.date), 'do LLL, yyyy')}
             </PostMetadata>
           </div>
-          <BlogPostHeadline title={post.title} draft={post.draft} />
+          <h2 className="text-slate-200 font-bold text-2xl">{post.title}</h2>
           {post.draft && (
             <div className="rounded-lg p-4 my-6 bg-rose-bud-700/10 border border-rose-bud-900 text-rose-bud-200 text-sm">
               This post is a draft. It&apos;s not complete yet and may never be.
@@ -85,6 +85,6 @@ export default async function Post({ params }: Params) {
           <Tag name={tag} key={tag} />
         ))}
       </div>
-    </>
+    </div>
   )
 }

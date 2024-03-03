@@ -1,7 +1,7 @@
 .article {
-  line-height: 1.6rem;
+  line-height: 1.9rem;
   letter-spacing: 0.03rem;
-  color: #dad9de;
+  color: #94a3b8;
 }
 
 .article p {
@@ -26,7 +26,7 @@
 
 .article blockquote {
   padding-left: 2rem;
-  border-left: 2px solid #525252;
+  border-left: 2px solid #1e293b;
   font-style: italic;
   opacity: 0.8;
 }
@@ -54,8 +54,14 @@
 }
 
 .article a {
-  color: #f43f5e;
+  color: #e2e8f0;
+  transition: .3s;
+}
+
+.article a:hover {
   text-decoration: underline;
+  color: #6366f1;
+  transition: .3s;
 }
 
 .article ul,
@@ -87,10 +93,12 @@
 }
 
 .article code:not(pre code) {
-  background-color: #525252;
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.8rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
   white-space: normal;
   word-break: break-word;
 }
@@ -98,7 +106,8 @@
 
 .article hr {
   margin-bottom: 2rem;
-  opacity: .4;
+  border-color: #1e293b;
+  opacity: 0.7;
 }
 
 .article #footnote-label {

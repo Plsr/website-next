@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      accent: colors.rose,
-      base: colors.zinc,
+      accent: colors.indigo,
+      base: colors.slate,
       neutral: {
         50: '#f7f7f8',
         100: '#efeef0',
@@ -40,6 +40,8 @@ module.exports = {
     fontFamily: {
       title: ['var(--font-title)'],
       body: ['var(--font-title)'],
+      copy: ['var(--font-copy)'],
+      handwriting: ['var(--font-handwriting)'],
     },
     extend: {},
   },
