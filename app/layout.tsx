@@ -72,9 +72,9 @@ export default function RootLayout({
       className={`${bodyFont.variable} ${handwriting.variable} ${playfair.variable}`}
     >
       <body className="font-body overflow-x-hidden ">
-        <div className="bg-gradient-to-br from-slate-900 to-slate-950 bg-no-repeat min-h-full">
+        <div className="bg-gradient-to-br from-slate-900 to-slate-950 bg-no-repeat min-h-full max-w-full overflow-x-hidden">
           <div className="absolute top-24  -left-24 z-0 rounded-full bg-sky-700/10 w-1/3 h-1/3 blur-3xl" />
-          <div className="absolute -right-96 bottom-36 z-0 rounded-full bg-indigo-700/5 w-1/2 h-1/2 blur-3xl" />
+          <div className="absolute -right-96 bottom-36 z-0 rounded-full bg-indigo-700/5 w-1/2 h-1/2 blur-3xl hidden md:block" />
           <Analytics />
           <div className="flex mx-auto flex-col  max-w-screen-md items-center ">
             <main className="z-10 px-8 md:px-0 w-full text-gray-100 flex-1 font-body mb-4">
