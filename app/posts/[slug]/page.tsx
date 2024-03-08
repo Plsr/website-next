@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   const title = `${post.title} - Chris Jarling`
-  const description = post.excerpt || post.body.raw.slice(0, 150)
+  const description =
+    post.metaDescription || post.excerpt || post.body.raw.slice(0, 150)
 
   return {
     title,

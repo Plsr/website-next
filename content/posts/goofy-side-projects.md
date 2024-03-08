@@ -5,6 +5,7 @@ excerpt: On embracing the $0 MRR and still being happy.
 tags: programming side-project
 slug: goofy-side-projects
 draft: false
+metaDescription: "You may be tempted to monetize all you programming side projects. You don't have to."
 ---
 
 _It's important to make a distinction between a side project and a side hustle for this article to make sense. When I talk about side project in the following, I exclusively mean programming side projects._

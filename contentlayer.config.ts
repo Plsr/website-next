@@ -18,6 +18,7 @@ export const Post = defineDocumentType(() => ({
     series: { type: 'string', required: false },
     slug: { type: 'string', required: false },
     draft: { type: 'boolean', required: false, default: false },
+    metaDescription: { type: 'string', required: false },
   },
   computedFields: {
     url: {
