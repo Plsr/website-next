@@ -25,7 +25,7 @@ const ObjectJSONConverterPage = () => {
         </p>
       </div>
       <JSONFormatter />
-      <h2 id="about" className="text-xl font-bold mt-12 mb-4">
+      <h2 id="about" className="text-xl font-bold mt-48 mb-4">
         About this JSON formatter
       </h2>
       <div className="prose gap-4 flex flex-col">
