@@ -1,12 +1,14 @@
 'use client'
 
+import { useState } from 'react'
+
 export const IMEIGenerator = () => {
-  const result = false
+  const [result, setResult] = useState<number | null>(null)
 
   const handleGenerateClick = () => {
     // TODO: Do we want to account for the flooring?
-    // const randomBase = Math.floor(Math.random() * 100000000000000)
-    const randomBase = 38598603328960
+    const randomBase = Math.floor(Math.random() * 100000000000000)
+    console.log(randomBase)
 
     // Generat Luhn Check number
     const numArray = Array.from(String(randomBase), Number)
@@ -37,6 +39,8 @@ export const IMEIGenerator = () => {
 
     const luhnDigit = (10 - (sum % 10)) % 10
     console.log(luhnDigit)
+    const result = parseInt([...numArray, luhnDigit].join(''))
+    setResult(result)
   }
   return (
     <>
