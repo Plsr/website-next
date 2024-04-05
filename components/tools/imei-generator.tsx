@@ -7,8 +7,9 @@ export const IMEIGenerator = () => {
 
   const handleGenerateClick = () => {
     // TODO: Do we want to account for the flooring?
-    const randomBase = Math.floor(Math.random() * 100000000000000)
-    console.log(randomBase)
+    // const randomBase = Math.floor(Math.random() * 100000000000000)
+    const randomBase = 29855850600698 // TODO: This one will create a wrong luhn number, find out why
+    // console.log(randomBase)
 
     // Generat Luhn Check number
     const numArray = Array.from(String(randomBase), Number)
