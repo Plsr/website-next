@@ -10,7 +10,7 @@ export const StyledArticleContent = ({
 }: StyledArticleContentProps) => {
   return (
     <div
-      className={styles.article}
+      className="dark:prose-invert prose"
       dangerouslySetInnerHTML={{ __html: contentHtml }}
       {...rest}
     />

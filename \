@@ -1,7 +1,10 @@
 import { formatDistanceToNowStrict } from 'date-fns'
+import Link from 'next/link'
+import { ChangelogList } from '../../components/changelog-list'
+import { Headline } from '../../components/headline'
+import { PageTitleWithSubline } from '../../components/page-title-with-subline'
+import { getWebsiteReleases } from '../../lib/github'
 
-// TODO: This date will be invalid at some time if I don't deploy this
-// site too often
 const birthDay = new Date('22 Jul 1991')
 const yearsOld = formatDistanceToNowStrict(birthDay, {
   roundingMethod: 'floor',
@@ -13,7 +16,7 @@ const AboutPage = async () => {
   //const releases = await getWebsiteReleases()
 
   return (
-    <div className="prose dark:prose-invert">
+    <div className="prose">
       <h2>About</h2>
       <p>
         Hey, I&apos;m Chris Jarling. I&apos;m a {yearsOld} year old husband and
