@@ -83,28 +83,33 @@ export default async function Home() {
           className="rounded-lg"
         />
         <div className="flex-row">
-          <p className="font-bold mb-0">Hey, I'm Chris Jarling 👋</p>
+          <p className="font-bold mb-0">Hey, I&apos;m Chris Jarling 👋</p>
           <p className="mt-0">
-            I'm a Senior Fullstack Engineer and Team Lead working at Gigs where
-            I specialize in building great web apps that help our customers go
-            to market with lightspeed.
+            I&apos;m a Senior Fullstack Engineer and Team Lead working at Gigs
+            where I specialize in building great web apps that help our
+            customers go to market with lightspeed.
           </p>
         </div>
       </div>
       <h2 className="text-sm">Experience</h2>
       <div className="not-prose flex flex-col gap-6">
-        <WorkExperience />
-        <div>
-          <h3>Software Engineer</h3>
-          <span>Cisco</span>
-          <span>Apr. 2021 - Oct. 2022</span>
-        </div>
-        <div>
-          <h3>Fullstack Engineer</h3>
-          <span>Railslove</span>
-          <span>2016 - Mar. 2021</span>
-        </div>
+        <WorkExperience
+          title="Senior Fullstack Engineer"
+          company="Gigs"
+          timespan="Nov. 2022 - Now"
+        />
+        <WorkExperience
+          title="Software Engineer"
+          company="Cisco"
+          timespan="Nov. 2022 - Now"
+        />
+        <WorkExperience
+          title="Fullstack Engineer"
+          company="Railslove"
+          timespan="2016 - Mar. 2021"
+        />
       </div>
+      <h2 className="text-sm">Writing</h2>
       <ul>
         {allSortedPosts.map((post) => (
           <li key={post._id}>
@@ -116,12 +121,20 @@ export default async function Home() {
   )
 }
 
-const WorkExperience = () => {
+const WorkExperience = ({
+  title,
+  company,
+  timespan,
+}: {
+  title: string
+  company: string
+  timespan: string
+}) => {
   return (
     <div className="flex flex-col">
-      <h3 className="font-bold text-lg">Senior Fullstack Engineer</h3>
-      <span className="underline decoration-dotted">Gigs</span>
-      <span className="text-base-400">Nov. 2022 - now</span>
+      <h3 className="font-bold text-lg">{title}</h3>
+      <span className="underline decoration-dotted">{company}</span>
+      <span className="text-base-400">{timespan}</span>
     </div>
   )
 }
