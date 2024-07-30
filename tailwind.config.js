@@ -48,7 +48,13 @@ module.exports = {
         DEFAULT: {
           css: {
             a: {
-              color: theme('colors.blue.500'),
+              color: theme('colors.blue.800'),
+            },
+            code: {
+              fontSize: '0.7rem',
+            },
+            pre: {
+              fontSize: '0.7rem',
             },
           },
         },

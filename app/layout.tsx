@@ -1,6 +1,6 @@
 import Header from '../components/header'
 import { Analytics } from '@vercel/analytics/react'
-import './prism-atom-dark.css'
+import './prism-vs.css'
 import './tailwind.css'
 import './global.css'
 import { Metadata } from 'next'
