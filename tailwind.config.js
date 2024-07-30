@@ -38,8 +38,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      title: ['Avant Garde, sans-serif'],
-      body: ['Avant Garde, sans-serif'],
+      title: ['serif'],
+      body: ['serif'],
       copy: ['var(--font-copy)'],
       handwriting: ['var(--font-handwriting)'],
     },

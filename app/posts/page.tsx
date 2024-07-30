@@ -51,7 +51,7 @@ export default async function PostsIndex() {
       {sortedPostsByYears.map(([year, posts]) => (
         <div className="mb-16" key={year}>
           <div className="flex flex-row items-center mb-6">
-            <h2 className="font-headline text-xl text-neutral-300 mr-4">
+            <h2 className="font-headline text-xl text-neutral-800 mr-4">
               {year}
             </h2>
           </div>

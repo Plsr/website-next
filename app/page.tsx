@@ -75,13 +75,6 @@ export default async function Home() {
   return (
     <div className="prose dark:prose-invert mt-12">
       <div className="flex flex-row items-center gap-4">
-        <Image
-          width="120"
-          height="120"
-          src="/me.jpg"
-          alt="A portrait shot of Chris Jarling"
-          className="rounded-lg"
-        />
         <div className="flex-row">
           <p className="font-bold mb-0">Hey, I&apos;m Chris Jarling 👋</p>
           <p className="mt-0">
@@ -109,13 +102,15 @@ export default async function Home() {
           timespan="2016 - Mar. 2021"
         />
       </div>
-      <h2 className="text-sm">Writing</h2>
+      <h2 className="text-sm">Recent Writing</h2>
       <ul>
-        {allSortedPosts.map((post) => (
+        {allSortedPosts.slice(0, 3).map((post) => (
           <li key={post._id}>
-            <a href={post.url}>{post.title}</a>
+            <a href={`/posts/${post.computedSlug}`}>{post.title}</a>
           </li>
         ))}
+
+        <Link href="/posts">See all</Link>
       </ul>
     </div>
   )

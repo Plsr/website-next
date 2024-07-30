@@ -14,11 +14,11 @@ export const PostsList = ({ posts }: PostsListProps) => {
       {posts.map((post) => (
         <li key={post._id} className="mb-2">
           <Link href={`/posts/${post.computedSlug}`}>
-            <span className="text-base-200 underline">
+            <span className="text-accent-700 underline">
               {post.draft && '📝 '}
               {post.title}
             </span>
-            <span className="ml-2 text-sm text-neutral-400">
+            <span className="ml-2 text-sm text-neutral-500">
               {format(new Date(post.date), 'do LLL, yyyy')}
             </span>
           </Link>

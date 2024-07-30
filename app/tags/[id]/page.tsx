@@ -26,7 +26,7 @@ export default async function PostsIndex({ params }: PostsIndexProps) {
 
   return (
     <>
-      <h2 className="text-xl font-body font-bold mb-8 flex items-center">
+      <h2 className="text-base-800 text-xl font-body font-bold mb-8 flex items-center">
         <span className="block mr-2">All {posts.length} Posts tagged</span>
         <Tag.Pill hover={false}>#{tag}</Tag.Pill>
       </h2>

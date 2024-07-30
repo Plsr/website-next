@@ -42,10 +42,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={GeistSans.variable}>
-      <body className="dark font-body bg-base-950 overflow-x-hidden text-base-100">
+      <body className="font-body bg-base-50 overflow-x-hidden text-base-100">
         <Analytics />
         <Header />
-        <main className="max-w-xl mx-auto">{children}</main>
+        <main className="max-w-xl mx-auto mb-12">{children}</main>
+        <Footer />
       </body>
     </html>
   )
