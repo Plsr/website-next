@@ -45,7 +45,7 @@ export default function RootLayout({
       <body className="font-body bg-base-50 overflow-x-hidden text-base-100">
         <Analytics />
         <Header />
-        <main className="max-w-xl mx-auto mb-12">{children}</main>
+        <main className="max-w-xl mx-auto px-4 mb-12 mt-8">{children}</main>
         <Footer />
       </body>
     </html>
