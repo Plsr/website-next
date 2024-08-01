@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      accent: colors.indigo,
-      base: colors.slate,
+      accent: colors.blue,
+      base: colors.zinc,
       neutral: {
         50: '#f7f7f8',
         100: '#efeef0',
@@ -38,12 +38,28 @@ module.exports = {
       },
     },
     fontFamily: {
-      title: ['var(--font-title)'],
-      body: ['var(--font-title)'],
+      title: ['serif'],
+      body: ['serif'],
       copy: ['var(--font-copy)'],
       handwriting: ['var(--font-handwriting)'],
     },
-    extend: {},
+    extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              color: theme('colors.blue.800'),
+            },
+            code: {
+              fontSize: '0.7rem',
+            },
+            pre: {
+              fontSize: '0.7rem',
+            },
+          },
+        },
+      }),
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }
