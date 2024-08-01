@@ -1,6 +1,6 @@
 ---
 title: Desk - August 2024
-date: '2023-09-22T21:57:26.271Z'
+date: '2024-08-01T21:57:26.271Z'
 excerpt: The desk I'm working on as of August 2024
 tags: desk work
 slug: desk-august-2024
