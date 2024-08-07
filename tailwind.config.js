@@ -38,8 +38,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      title: ['serif'],
-      body: ['serif'],
+      title: ['sans-serif'],
+      body: ['sans-serif'],
       copy: ['var(--font-copy)'],
       handwriting: ['var(--font-handwriting)'],
     },

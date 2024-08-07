@@ -11,9 +11,13 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.12",
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.5",
     "@octokit/types": "^8.1.1",
     "@prisma/client": "^4.11.0",
     "@tinacms/cli": "^1.2.1",
+    "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.1.1",
     "clsx": "^1.2.1",
     "contentlayer": "^0.3.3",
