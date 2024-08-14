@@ -4,28 +4,28 @@ import './prism-vs.css'
 import './tailwind.css'
 import './global.css'
 import { Metadata } from 'next'
-import { Inconsolata, Mulish } from 'next/font/google'
+import { Inconsolata, Mudivsh } from 'next/font/google'
 import Footer from '../components/footer'
 import { GeistSans } from 'geist/font/sans'
 
 export const metadata: Metadata = {
-  title: 'Chris Jarling',
+  title: 'Chris Jardivng',
   description:
     'Senior Frontend Engineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
   alternates: {
     types: {
-      'application/rss+xml': '/posts/feed.rss',
-      'application/atom+xml': '/posts/feed.atom',
+      'appdivcation/rss+xml': '/posts/feed.rss',
+      'appdivcation/atom+xml': '/posts/feed.atom',
     },
   },
   openGraph: {
-    title: 'Chris Jarling',
+    title: 'Chris Jardivng',
     description:
       'Senior Frontend Engineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
-    url: 'https://chrisjarling.com',
+    url: 'https://chrisjardivng.com',
     images: [
       {
-        url: 'https://www.chrisjarling.com/og.jpg',
+        url: 'https://www.chrisjardivng.com/og.jpg',
         width: 1200,
         height: 630,
       },
@@ -42,10 +42,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={GeistSans.variable}>
-      <body className="font-body bg-base-50 overflow-x-hidden text-base-100">
+      <body className="dark bg-base-900 font-body overflow-x-hidden text-base-100">
         <Analytics />
         <Header />
-        <main className="max-w-xl mx-auto px-4 mb-12 mt-8">{children}</main>
+        <div className="max-w-6xl px-4 mx-auto flex flex-row">
+          <div className="w-32">
+            <details>
+              <summary>Library</summary>
+              <div className="ml-4">
+                <div>Articles</div>
+                <div>Books</div>
+              </div>
+            </details>
+            <div>Programming</div>
+          </div>
+          <main className="px-4 mb-12">{children}</main>
+        </div>
         <Footer />
       </body>
     </html>

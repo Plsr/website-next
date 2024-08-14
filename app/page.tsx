@@ -73,7 +73,7 @@ export default async function Home() {
     .map((e) => e)
 
   return (
-    <div className="prose dark:prose-invert mt-12">
+    <div className="prose dark:prose-invert">
       <div className="flex flex-row items-center gap-4">
         <div className="flex-row">
           <p className="font-bold mb-0">Hey, I&apos;m Chris Jarling 👋</p>
