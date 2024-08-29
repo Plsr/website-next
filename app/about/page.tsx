@@ -1,7 +1,5 @@
 import { formatDistanceToNowStrict } from 'date-fns'
 
-// TODO: This date will be invalid at some time if I don't deploy this
-// site too often
 const birthDay = new Date('22 Jul 1991')
 const yearsOld = formatDistanceToNowStrict(birthDay, {
   roundingMethod: 'floor',
@@ -14,7 +12,7 @@ const AboutPage = async () => {
 
   return (
     <div className="prose dark:prose-invert">
-      <h2>About</h2>
+      <h1>About</h1>
       <p>
         Hey, I&apos;m Chris Jarling. I&apos;m a {yearsOld} year old husband and
         father of two. Frontend Engineer at <a href="https://gigs.com">Gigs</a>,

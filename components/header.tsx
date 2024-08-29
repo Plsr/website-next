@@ -7,7 +7,7 @@ export default function Header() {
       <div className="flex flex-col justify-center">
         <Link
           href="/"
-          className="hover:text-accent-600 text-accent-500 transition-all"
+          className="dark:hover:text-accent-600 dark:text-base-300 transition-all"
         >
           <h1 className="-mb-1 font-bold">Chris Jarling</h1>
         </Link>

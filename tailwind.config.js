@@ -1,5 +1,14 @@
 const colors = require('tailwindcss/colors')
 
+// Copied over from tailwindcss-typography default styles
+// see https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js#L3-L9
+const round = (num) =>
+  num
+    .toFixed(7)
+    .replace(/(\.[0-9]+?)0+$/, '$1')
+    .replace(/\.0$/, '')
+const em = (px, base) => `${round(px / base)}em`
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -63,6 +72,9 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: null,
+            h1: {
+              fontSize: em(26, 14),
+            },
             a: {
               color: theme('colors.accent.500'),
             },
