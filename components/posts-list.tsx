@@ -26,7 +26,7 @@ export const PostsList = ({ posts }: Props) => {
             />
           </Link>
           <StyledArticleContent contentHtml={post.body.html} />
-          <div className="space-x-2">
+          <div className="space-x-2 mt-8">
             {post.tags?.split(' ').map((tag) => (
               <Tag key={tag} name={tag} />
             ))}
