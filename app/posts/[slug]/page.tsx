@@ -58,7 +58,7 @@ export default async function Post({ params }: Params) {
   const seriesEntries = post.series ? postSeriesList(post.series) : undefined
 
   return (
-    <div className="mx-auto max-w-2xl mb-16">
+    <div className="mx-auto max-w-5xl mb-16">
       <div>
         <div className="mb-8 ">
           <div className="mb-2 ">

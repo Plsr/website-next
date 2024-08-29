@@ -25,7 +25,7 @@ const ArticlesIndexPage = () => {
           </PageTitleWithSubline.Subline>
         }
       />
-      <div className="mb-24" />
+      <div className="mb-24 prose" />
       {sortedLibraryArticles.map((libraryArticle) => (
         <div key={libraryArticle._id} className="mb-36">
           <h2 className="underline text-lg mb-4">

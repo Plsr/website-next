@@ -50,7 +50,7 @@ const LibraryArticleDetailPage = ({ params }: Params) => {
   }
 
   return (
-    <div key={libraryArticle._id}>
+    <div className="prose" key={libraryArticle._id}>
       <h2 className="text-lg font-bold font-title mb-1">
         {libraryArticle.title}
       </h2>
