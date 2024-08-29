@@ -1,7 +1,6 @@
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { ReactNode } from 'react'
 
 type PaginationProps = {
   currentPage: number
@@ -45,18 +44,5 @@ export const Pagination = ({
         </Link>
       )}
     </div>
-  )
-}
-
-type PaginationLinkProps = {
-  href: string
-  children: ReactNode | ReactNode[]
-}
-
-const PaginationLink = ({ href, children }: PaginationLinkProps) => {
-  return (
-    <Link href={href} className="font-body ">
-      {children}
-    </Link>
   )
 }

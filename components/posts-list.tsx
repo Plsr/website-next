@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { BlogPostHeadline } from './blog-post-headline'
 import { StyledArticleContent } from './styled-article-content'
 import { Tag } from './tag'
-import { Pagination } from './pagination'
 import format from 'date-fns/format'
 
 type Props = {
@@ -14,7 +13,7 @@ type Props = {
 export const PostsList = ({ posts }: Props) => {
   return (
     <>
-      {posts.map((post) => (
+      {posts.map((post, index) => (
         <div key={post.computedSlug} className="mb-24">
           <PostMetadata>
             {format(new Date(post.date), 'do LLL, yyyy')}
@@ -32,7 +31,9 @@ export const PostsList = ({ posts }: Props) => {
               <Tag key={tag} name={tag} />
             ))}
           </div>
-          <hr className="mt-24 w-4/5 mx-auto border-neutral-700" />
+          {index !== posts.length - 1 && (
+            <hr className="mt-24 w-4/5 mx-auto border-neutral-700" />
+          )}
         </div>
       ))}
     </>
