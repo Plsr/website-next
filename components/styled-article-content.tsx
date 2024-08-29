@@ -1,5 +1,3 @@
-import styles from './styled-article-content.module.css'
-
 type StyledArticleContentProps = {
   contentHtml: string
 } & JSX.IntrinsicElements['div']
@@ -10,7 +8,7 @@ export const StyledArticleContent = ({
 }: StyledArticleContentProps) => {
   return (
     <div
-      className="dark:prose-invert prose"
+      className="dark:prose-invert prose prose-img:rounded-lg"
       dangerouslySetInnerHTML={{ __html: contentHtml }}
       {...rest}
     />
