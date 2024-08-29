@@ -1,3 +1,5 @@
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline'
+import clsx from 'clsx'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 
@@ -15,17 +17,32 @@ export const Pagination = ({
   const hasNextPage = currentPage < totalPages
   const hasPreviousPages = currentPage > 1
 
+  const baseClass =
+    'transition-all dark:text-base-500 hover:dark:bg-base-800 hover:dark:text-base-200 px-4 py-2 rounded-full'
+
   return (
     <div className="flex justify-between">
-      {hasNextPage && (
-        <PaginationLink href={`/${recordName}/page/${currentPage + 1}`}>
-          Older {recordName}
-        </PaginationLink>
-      )}
       {hasPreviousPages && (
-        <PaginationLink href={`/${recordName}/page/${currentPage - 1}`}>
-          Newer {recordName}
-        </PaginationLink>
+        <Link
+          href={`/${recordName}/page/${currentPage - 1}`}
+          className={baseClass}
+        >
+          <div className="flex items-center gap-2">
+            <ArrowLeftIcon className="w-3 h-3" />
+            Newer {recordName}
+          </div>
+        </Link>
+      )}
+      {hasNextPage && (
+        <Link
+          href={`/${recordName}/page/${currentPage + 1}`}
+          className={clsx(baseClass, 'ml-auto')}
+        >
+          <div className="flex items-center gap-2">
+            Older {recordName}
+            <ArrowRightIcon className="w-3 h-3" />
+          </div>
+        </Link>
       )}
     </div>
   )
@@ -38,10 +55,7 @@ type PaginationLinkProps = {
 
 const PaginationLink = ({ href, children }: PaginationLinkProps) => {
   return (
-    <Link
-      href={href}
-      className="font-headline border-b-2 border-b-rose-500 hover:text-indigo-500"
-    >
+    <Link href={href} className="font-body ">
       {children}
     </Link>
   )
