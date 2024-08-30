@@ -50,15 +50,10 @@ const LibraryArticleDetailPage = ({ params }: Params) => {
   }
 
   return (
-    <div className="prose" key={libraryArticle._id}>
-      <h2 className="text-lg font-bold font-title mb-1">
-        {libraryArticle.title}
-      </h2>
+    <div className="prose dark:prose-invert" key={libraryArticle._id}>
+      <h2>{libraryArticle.title}</h2>
       <span className="text-sm block mb-8">
-        Link:{' '}
-        <a className="underline text-indigo-500" href={libraryArticle.link}>
-          {libraryArticle.link}
-        </a>
+        Link: <a href={libraryArticle.link}>{libraryArticle.link}</a>
       </span>
 
       <StyledArticleContent contentHtml={libraryArticle.body.html} />

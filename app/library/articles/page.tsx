@@ -16,31 +16,25 @@ const ArticlesIndexPage = () => {
   )
 
   return (
-    <>
-      <PageTitleWithSubline
-        title="Article notes"
-        subline={
-          <PageTitleWithSubline.Subline>
-            Notes on articles I read and found interesting.
-          </PageTitleWithSubline.Subline>
-        }
-      />
+    <div className="prose dark:prose-invert">
+      <h1>Article reading notes</h1>
+      <p>Notes on articles I read and found interesting.</p>
       <div className="mb-24 prose" />
       {sortedLibraryArticles.map((libraryArticle) => (
         <div key={libraryArticle._id} className="mb-36">
-          <h2 className="underline text-lg mb-4">
+          <h2>
             <a href={libraryArticle.link}>{libraryArticle.title}</a>
           </h2>
           <StyledArticleContent contentHtml={libraryArticle.body.html} />
           <Link
             href={`/library/articles/${libraryArticle.computedSlug}`}
-            className="underline text-sm text-indigo-500"
+            className="mt-4 block"
           >
             {format(new Date(libraryArticle.createdAt), 'do LLL, yyyy')}
           </Link>
         </div>
       ))}
-    </>
+    </div>
   )
 }
 
