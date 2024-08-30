@@ -1,14 +1,9 @@
-import { PostsList } from '../../components/posts-list'
-
 import { getAllSortedPosts } from '../../lib/entries'
-import { getYear } from 'date-fns'
+import { format, getYear } from 'date-fns'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Post } from '.contentlayer/generated'
 import Link from 'next/link'
-import { BlogPostHeadline } from 'components/blog-post-headline'
-import { StyledArticleContent } from 'components/styled-article-content'
-import { PencilSquareIcon, QueueListIcon } from '@heroicons/react/24/outline'
 
 export const metadata: Metadata = {
   title: 'Posts - Chris Jarling',
@@ -47,17 +42,30 @@ export default async function PostsIndex() {
     .map((e) => e)
 
   return (
-    <>
+    <div className="prose dark:prose-invert">
       {sortedPostsByYears.map(([year, posts]) => (
-        <div className="mb-16" key={year}>
+        <div className="mb-16 not-prose" key={year}>
           <div className="flex flex-row items-center mb-6">
             <h2 className="font-headline text-xl text-neutral-800 mr-4">
               {year}
             </h2>
           </div>
-          <PostsList posts={posts} />
+          {posts.map((post) => {
+            return (
+              <Link
+                className="flex flex-col mb-6"
+                key={post._id}
+                href={`/posts/${post.computedSlug}`}
+              >
+                <span className="dark:text-base-500 text-sm">
+                  {format(new Date(post.date), 'do LLL, yyyy')}
+                </span>
+                <span>{post.title}</span>
+              </Link>
+            )
+          })}
         </div>
       ))}
-    </>
+    </div>
   )
 }
