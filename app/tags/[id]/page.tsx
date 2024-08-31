@@ -2,6 +2,8 @@ import { getAllSortedPosts, getAllTags } from 'lib/entries'
 import { PostsList } from 'components/posts-list'
 import { Tag } from 'components/tag'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { format } from 'date-fns'
 
 export async function generateStaticParams() {
   const tags = getAllTags()
@@ -26,11 +28,26 @@ export default async function PostsIndex({ params }: PostsIndexProps) {
 
   return (
     <>
-      <h2 className="text-base-800 text-xl font-body font-bold mb-8 flex items-center">
-        <span className="block mr-2">All {posts.length} Posts tagged</span>
+      <h2 className="prose dark:prose-invert flex items-center mb-8">
+        <span className="text-xl font-bold block mr-2">
+          All {posts.length} Posts tagged
+        </span>
         <Tag.Pill hover={false}>#{tag}</Tag.Pill>
       </h2>
-      <PostsList posts={posts} />
+      {posts.map((post) => {
+        return (
+          <Link
+            className="flex flex-col mb-6"
+            key={post._id}
+            href={`/posts/${post.computedSlug}`}
+          >
+            <span className="dark:text-base-500 text-sm">
+              {format(new Date(post.date), 'do LLL, yyyy')}
+            </span>
+            <span>{post.title}</span>
+          </Link>
+        )
+      })}
     </>
   )
 }

@@ -26,6 +26,7 @@
     ],
     "paths": {
       "components/*": ["./components/*"],
+      "@components/*": ["./components/*"],
       "lib/*": ["./lib/*"],
       ".contentlayer/generated": ["./.contentlayer/generated"]
     }
@@ -36,7 +37,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
-  ],
+, "app/cv/page.mdx"  ],
   "exclude": [
     "node_modules"
   ]

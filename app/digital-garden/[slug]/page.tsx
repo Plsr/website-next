@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { allSeeds, Seed } from '.contentlayer/generated'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { format } from 'date-fns'
 
 type Params = {
   params: {
@@ -66,12 +67,11 @@ export default async function Post({ params }: Params) {
 
   return (
     <>
-      <div>
-        <h2 className="text-neutral-100 font-bold font-headline text-xl mb-4">
-          {seed.title}
-        </h2>
+      <div className="prose dark:prose-invert">
+        <h2>{seed.title}</h2>
         {seed.wip && (
-          <div className="rounded-lg p-4 mb-6 bg-rose-bud-700/10 border border-rose-bud-900 text-indigo-bud-200 text-sm">
+          <div className="rounded-lg dark:bg-accent-800/10 border dark:border-accent-900/30 p-4 mb-6 text-sm">
+            <span className="block font-bold mb-2">🚧 Work in Progress</span>
             This page is still work in progress. Information might be
             incomplete, formatting and grammar might be off.
           </div>
@@ -79,7 +79,7 @@ export default async function Post({ params }: Params) {
         <StyledArticleContent contentHtml={seed.body.html} />
         {backlinks.length > 0 && (
           <>
-            <h2 className="text-lg font-bold mb-4">Backlinks</h2>
+            <h2>Backlinks</h2>
             <div className="grid grid-cols-2">
               {backlinks.map((backlink) => (
                 <Link
@@ -97,6 +97,10 @@ export default async function Post({ params }: Params) {
           </>
         )}
       </div>
+
+      <small>
+        Last update: {format(new Date(seed.updatedAt), 'do LLL, yyyy')}
+      </small>
     </>
   )
 }

@@ -1,5 +1,14 @@
 const colors = require('tailwindcss/colors')
 
+// Copied over from tailwindcss-typography default styles
+// see https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js#L3-L9
+const round = (num) =>
+  num
+    .toFixed(7)
+    .replace(/(\.[0-9]+?)0+$/, '$1')
+    .replace(/\.0$/, '')
+const em = (px, base) => `${round(px / base)}em`
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -8,7 +17,7 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      accent: colors.blue,
+      // accent: colors.amber,
       base: colors.zinc,
       neutral: {
         50: '#f7f7f8',
@@ -23,32 +32,51 @@ module.exports = {
         900: '#3a3941',
         950: '#27262b',
       },
-      'rose-bud': {
-        50: '#fdf5f3',
-        100: '#fde9e3',
-        200: '#fbd7cd',
-        300: '#f6ae99',
-        400: '#f19378',
-        500: '#e6704d',
-        600: '#d3542f',
-        700: '#b14424',
-        800: '#923b22',
-        900: '#7a3622',
-        950: '#42190d',
+
+      accent: {
+        50: '#fbf6fe',
+        100: '#f5ebfc',
+        200: '#ecdbf9',
+        300: '#ddbff3',
+        400: '#c792ea',
+        500: '#b36ce0',
+        600: '#9f4dd0',
+        700: '#883bb5',
+        800: '#733594',
+        900: '#5e2b78',
+        950: '#401457',
       },
+
+      // accent: {
+      //   50: '#f0f1fd',
+      //   100: '#e3e4fc',
+      //   200: '#cccdf9',
+      //   300: '#aeadf4',
+      //   400: '#958ced',
+      //   500: '#8370e4',
+      //   600: '#6e4dd4',
+      //   700: '#6546bc',
+      //   800: '#523b98',
+      //   900: '#453679',
+      //   950: '#292046',
+      // },
     },
     fontFamily: {
-      title: ['sans-serif'],
-      body: ['sans-serif'],
-      copy: ['var(--font-copy)'],
+      title: ['var(--font-rubik)'],
+      body: ['var(--font-rubik)'],
+      copy: ['var(--font-rubik)'],
       handwriting: ['var(--font-handwriting)'],
     },
     extend: {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            maxWidth: null,
+            h1: {
+              fontSize: em(26, 14),
+            },
             a: {
-              color: theme('colors.blue.800'),
+              color: theme('colors.accent.500'),
             },
             code: {
               fontSize: '0.7rem',

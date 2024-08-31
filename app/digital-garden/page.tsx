@@ -10,21 +10,20 @@ const DigitalGardenIndexPage = async () => {
   return (
     <>
       <div className="text-xl font-bold mb-4">The garden</div>
-      <div className="grid gird-cols-1 md:grid-cols-3 gap-4">
-        {sortedSeeds.map((seed: Seed) => (
-          <Link key={seed._id} href={`/digital-garden/${seed.slug}`}>
-            <div className="p-4 bg-neutral-800 flex flex-col rounded-lg h-full hover:bg-neutral-700">
-              <span className="font-bold">{seed.title}</span>
-              {seed.excerpt && (
-                <span className="text-xs mt-2">{seed.excerpt}</span>
-              )}
-              <span className="text-xs text-indigo-bud-100 mt-2">
-                Updated at: {format(new Date(seed.updatedAt), 'do LLL, yyyy')}
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
+      {sortedSeeds.map((seed: Seed) => (
+        <Link
+          key={seed._id}
+          href={`/digital-garden/${seed.slug}`}
+          className="block mb-2 border-b dark:border-b-base-600 pb-2"
+        >
+          <div className="flex flex-row justify-between items-center rounded-lg h-full">
+            <span className="font-bold">{seed.title}</span>
+            <span className="text-xs text-indigo-bud-100 mt-2">
+              Updated at: {format(new Date(seed.updatedAt), 'do LLL, yyyy')}
+            </span>
+          </div>
+        </Link>
+      ))}
     </>
   )
 }

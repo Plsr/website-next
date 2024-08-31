@@ -1,29 +1,41 @@
-import Link from 'next/link'
-import { PostMetadata } from './post-metadata'
-import { ArrowRightIcon } from '@heroicons/react/24/outline'
-import { format } from 'date-fns'
 import { Post } from '.contentlayer/generated'
+import { PostMetadata } from './post-metadata'
+import Link from 'next/link'
+import { BlogPostHeadline } from './blog-post-headline'
+import { StyledArticleContent } from './styled-article-content'
+import { Tag } from './tag'
+import format from 'date-fns/format'
 
-type PostsListProps = {
+type Props = {
   posts: Post[]
 }
 
-export const PostsList = ({ posts }: PostsListProps) => {
+export const PostsList = ({ posts }: Props) => {
   return (
-    <ul>
-      {posts.map((post) => (
-        <li key={post._id} className="mb-2">
+    <>
+      {posts.map((post, index) => (
+        <div key={post.computedSlug} className="mb-24">
+          <PostMetadata>
+            {format(new Date(post.date), 'do LLL, yyyy')}
+          </PostMetadata>
           <Link href={`/posts/${post.computedSlug}`}>
-            <span className="text-accent-700 underline">
-              {post.draft && '📝 '}
-              {post.title}
-            </span>
-            <span className="ml-2 text-sm text-neutral-500">
-              {format(new Date(post.date), 'do LLL, yyyy')}
-            </span>
+            <BlogPostHeadline
+              title={post.title}
+              draft={post.draft}
+              className="mb-4"
+            />
           </Link>
-        </li>
+          <StyledArticleContent contentHtml={post.body.html} />
+          <div className="space-x-2 mt-8">
+            {post.tags?.split(' ').map((tag) => (
+              <Tag key={tag} name={tag} />
+            ))}
+          </div>
+          {index !== posts.length - 1 && (
+            <hr className="mt-24 w-4/5 mx-auto border-neutral-700" />
+          )}
+        </div>
       ))}
-    </ul>
+    </>
   )
 }

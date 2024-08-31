@@ -1,0 +1,52 @@
+import { formatDistanceToNowStrict } from 'date-fns'
+
+export const birthDay = new Date('22 Jul 1991')
+export const yearsOld = formatDistanceToNowStrict(birthDay, {
+  roundingMethod: 'floor',
+})
+
+# About
+
+Hey, I'm Chris Jarling. I'm a {yearsOld} year old husband and
+father of two. I'm a Senior Frontend Engineer at <a href="https://gigs.com">Gigs</a>,
+the world's first Telecom-as-a-Service (we're hiring). Currently, I'm also acting as
+an interm Team Lead, which has been very interesting so far.
+
+If you want to contact me, I'd be stoked to receive and email from
+you: [hi@chrisjarling.com](mailto:hi@chrisjarling.com)
+
+In my free time, I like to work side projects or this website and reading other
+peoples' websites. I also like reading, taking photographs and learning about a
+vast variety of things.
+
+## Elsewhere on the internet
+
+- Mastodon: <a href="https://hachyderm.io/@chrisjarling">@chrisjarling@hachyderm.io</a>
+- Twitter: <a href="https://twitter.com/chrisjarling">@chrisjarling</a> (currently not active)
+- Github: <a href="https://github.com/Plsr">Plsr</a>
+
+## Me and websites
+
+I've have quite some history with websites. I've switched technology and domains a lot
+over the years, but I have been maintaining a personal website or blog for over 10 years
+now. I've started to build and maintain a photo blog back in 2011 when I was still in
+school (the [wayback machine has some broken records of it](https://web.archive.org/web/20110926161400/http://www.christian-poplawski.de:80/#expand). This is what ultimately got me to do web development and write more.
+
+I've been writing on this website since 2017 (which is 7 years at the time of writing - not bad),
+although I have changed the domain name once in 2022 when I got married and took on my
+wife's last name.
+
+## Colophon
+
+This site is built with Next.js and hosted on Vercel. Content is just
+plain markdown files. You can find the source code on [Github](https://github.com/Plsr/website-next). Styling via Tailwind.
+
+export default function MDXPage({ children }) {
+  return <div className="prose dark:prose-invert">{children}</div>
+
+}
+
+export const metadata = {
+  title: 'About - Chris Jarling',
+  description: 'More about Chris Jarling and this websited.',
+}

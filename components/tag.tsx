@@ -11,7 +11,7 @@ export const Tag = ({ name, timesUsed }: TagProps) => {
   return (
     <Link href={`/tags/${name}`}>
       <TagPill>
-        #{name} {timesUsed && <TimesUsed count={timesUsed} />}
+        #{name} {timesUsed && <>({timesUsed}) </>}
       </TagPill>
     </Link>
   )
@@ -23,15 +23,17 @@ type TagPillProps = {
 }
 
 const TagPill = ({ children, hover = true }: TagPillProps) => {
-  return <span className=" text-sm text-accent-800">{children}</span>
-}
-
-type TimesUsedProps = {
-  count: number
-}
-
-const TimesUsed = ({ count }: TimesUsedProps) => {
-  return <>({count})</>
+  return (
+    <span
+      className={clsx(
+        'transition-all dark:text-base-500  px-4 py-2 rounded-full text-sm',
+        hover && 'hover:dark:bg-base-800 hover:dark:text-base-200',
+        !hover && 'dark:bg-base-800 dark:text-base-100 '
+      )}
+    >
+      {children}
+    </span>
+  )
 }
 
 Tag.Pill = TagPill

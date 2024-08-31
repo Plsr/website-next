@@ -1,38 +1,26 @@
-import { Headline } from '../../components/headline'
-import { PageTitleWithSubline } from '../../components/page-title-with-subline'
-import { Paragraph } from '../../components/paragraph'
-
 const ImprintPage = () => {
   return (
-    <div>
-      <PageTitleWithSubline
-        title="Imprint"
-        subline={
-          <PageTitleWithSubline.Subline>
-            This is information the German law requires me to provide. In case
-            you want to sue me: please don&apos;t.
-          </PageTitleWithSubline.Subline>
-        }
-      />
-
-      <Headline level={2}>Angaben gem&auml;&szlig; &sect; 5 TMG</Headline>
-      <Paragraph>
+    <div className="prose dark:prose-invert">
+      <h1>Imprint</h1>
+      <p>
+        This is information the German law requires me to provide. In case you
+        want to sue me: please don&apos;t.
+      </p>
+      <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+      <p>
         Christian Jarling
         <br />
         Fellm&uuml;hlenweg 1A
         <br />
         51069 K&ouml;ln
-      </Paragraph>
+      </p>
 
-      <Headline level={2}>Kontakt</Headline>
-      <Paragraph>E-Mail: hi@chrisjarling.com</Paragraph>
+      <h2>Kontakt</h2>
+      <p>E-Mail: hi@chrisjarling.com</p>
 
-      <Paragraph>
-        Quelle:{' '}
-        <Paragraph.Link href="https://www.e-recht24.de">
-          https://www.e-recht24.de
-        </Paragraph.Link>
-      </Paragraph>
+      <p>
+        Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a>
+      </p>
     </div>
   )
 }

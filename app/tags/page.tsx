@@ -6,9 +6,9 @@ const TagsIndexPage = async () => {
 
   return (
     <>
-      <h2 className="text-base-800 font-bold text-2xl mb-8">
-        All tags ({tags.length})
-      </h2>
+      <div className="prose dark:prose-invert">
+        <h2 className="mb-8">All tags ({tags.length})</h2>
+      </div>
       <TagsList tags={tags} />
     </>
   )

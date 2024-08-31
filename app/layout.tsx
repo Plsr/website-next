@@ -1,12 +1,18 @@
 import Header from '../components/header'
 import { Analytics } from '@vercel/analytics/react'
-import './prism-vs.css'
+import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
 import { Metadata } from 'next'
-import { Inconsolata, Mulish } from 'next/font/google'
+import { Inconsolata, Mulish, Rubik, Mukta } from 'next/font/google'
 import Footer from '../components/footer'
 import { GeistSans } from 'geist/font/sans'
+
+const moderustic = Mukta({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-rubik',
+})
 
 export const metadata: Metadata = {
   title: 'Chris Jarling',
@@ -41,11 +47,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="font-body bg-base-50 overflow-x-hidden text-base-100">
+    <html lang="en" className={moderustic.variable}>
+      <body className="font-body bg-base-900 overflow-x-hidden text-base-100 dark">
         <Analytics />
         <Header />
-        <main className="max-w-xl mx-auto px-4 mb-12 mt-8">{children}</main>
+        <main className="max-w-2xl mx-auto px-4 mb-12 mt-8">{children}</main>
         <Footer />
       </body>
     </html>

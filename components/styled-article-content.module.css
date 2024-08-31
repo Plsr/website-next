@@ -116,3 +116,7 @@
 .article #footnote-label {
   font-size: 0.8rem !important;
 }
+
+.article img {
+  border-radius: 8px;
+}
