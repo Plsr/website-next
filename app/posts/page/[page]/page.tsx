@@ -28,20 +28,6 @@ export default async function PaginatedPostPage({
 
   return (
     <>
-      <div className="flex justify-end mb-6 space-x-6">
-        <Link
-          href="/posts"
-          className="text-sm text-indigo-500 flex items-center"
-        >
-          <ListBulletIcon className="w-4 h-4 mr-2" /> List view
-        </Link>
-        <Link
-          href="/posts/drafts"
-          className="text-sm text-indigo-500 flex itemx-center"
-        >
-          <PencilSquareIcon className="w-4 h-4 mr-2" /> Drafts
-        </Link>
-      </div>
       <PostsList posts={posts} />
       <Pagination
         currentPage={currentPage}

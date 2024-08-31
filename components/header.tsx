@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <div className="py-4 px-4 mx-auto max-w-2xl text-base-800 dark:text-base-50 flex justify-between items-center">
+    <div className="py-4 px-4 mx-auto max-w-2xl text-base-800 dark:text-base-50 flex flex-col  md:flex-row justify-between items-start md:items-center gap-y-4 md:gap-y-0">
       <div className="flex flex-col justify-center">
         <Link
           href="/"
