@@ -1,0 +1,33 @@
+import { formatDistanceToNowStrict } from 'date-fns'
+
+export const birthDay = new Date('22 Jul 1991')
+export const yearsOld = formatDistanceToNowStrict(birthDay, {
+  roundingMethod: 'floor',
+})
+
+# About
+
+Hey, I'm Chris Jarling. I'm a {yearsOld} year old husband and
+father of two. I'm a Senior Frontend Engineer at <a href="https://gigs.com">Gigs</a>,
+the world's first Telecom-as-a-Service (we're hiring).
+
+If you want to contact me, I&apos;d be stoked to receive and email from
+you: <a href="mailto:hi@chrisjarling.com">hi@chrisjarling.com</a>
+
+## Elsewhere
+
+- Twitter: <a href="https://twitter.com/chrisjarling">@chrisjarling</a>
+- Mastodon: <a href="https://hachyderm.io/@chrisjarling">@chrisjarling@hachyderm.io</a>
+- Github: <a href="https://github.com/Plsr">Plsr</a>
+
+## Colophon
+
+This site is built with Next.js and hosted on Vercel. Content is just
+plain markdown files. You can find the source code on
+
+<a href="https://github.com/Plsr/website-next">Github</a>. Styling via Tailwind.
+
+export default function MDXPage({ children }) {
+  return <div className="prose dark:prose-invert">{children}</div>
+
+}
