@@ -17,7 +17,7 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      // accent: colors.amber,
+      accent: colors.amber,
       base: colors.zinc,
       neutral: {
         50: '#f7f7f8',
@@ -33,19 +33,19 @@ module.exports = {
         950: '#27262b',
       },
 
-      accent: {
-        50: '#fbf6fe',
-        100: '#f5ebfc',
-        200: '#ecdbf9',
-        300: '#ddbff3',
-        400: '#c792ea',
-        500: '#b36ce0',
-        600: '#9f4dd0',
-        700: '#883bb5',
-        800: '#733594',
-        900: '#5e2b78',
-        950: '#401457',
-      },
+      //accent: {
+      //  50: '#fbf6fe',
+      //  100: '#f5ebfc',
+      //  200: '#ecdbf9',
+      //  300: '#ddbff3',
+      //  400: '#c792ea',
+      //  500: '#b36ce0',
+      //  600: '#9f4dd0',
+      //  700: '#883bb5',
+      //  800: '#733594',
+      //  900: '#5e2b78',
+      //  950: '#401457',
+      //},
 
       // accent: {
       //   50: '#f0f1fd',
@@ -62,9 +62,9 @@ module.exports = {
       // },
     },
     fontFamily: {
-      title: ['var(--font-rubik)'],
-      body: ['var(--font-rubik)'],
-      copy: ['var(--font-rubik)'],
+      title: ['var(--font-main)'],
+      body: ['var(--font-main)'],
+      copy: ['var(--font-main)'],
       handwriting: ['var(--font-handwriting)'],
     },
     extend: {

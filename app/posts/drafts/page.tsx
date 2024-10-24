@@ -1,12 +1,8 @@
-import { Headline } from 'components/headline'
-import HomepageHeadline from 'components/homepage-headline'
 import { PageTitleWithSubline } from 'components/page-title-with-subline'
 import { PostsList } from 'components/posts-list'
 import { getAllSortedPosts } from 'lib/entries'
 
 export default async function PostsIndex() {
-  const data = getAllSortedPosts({ draft: true })
-
   return (
     <>
       <PageTitleWithSubline
@@ -19,7 +15,7 @@ export default async function PostsIndex() {
           </PageTitleWithSubline.Subline>
         }
       />
-      <PostsList posts={data} />
+      <PostsList />
     </>
   )
 }

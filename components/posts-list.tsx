@@ -5,37 +5,61 @@ import { BlogPostHeadline } from './blog-post-headline'
 import { StyledArticleContent } from './styled-article-content'
 import { Tag } from './tag'
 import format from 'date-fns/format'
+import { getAllSortedPosts } from 'lib/entries'
+import { getYear } from 'date-fns'
+import { notFound } from 'next/navigation'
+import { PostListItem } from './post-list-item'
 
 type Props = {
   posts: Post[]
 }
 
-export const PostsList = ({ posts }: Props) => {
+type PostsByYear = {
+  [key: number]: Post[]
+}
+
+const getPostsByYear = () => {
+  const data = getAllSortedPosts()
+  const postsByYear: PostsByYear = {}
+
+  data.forEach((page) => {
+    const year = getYear(new Date(page.date))
+
+    if (!postsByYear[year]) {
+      postsByYear[year] = [page]
+      return
+    }
+    postsByYear[year].push(page)
+  })
+
+  return postsByYear
+}
+
+export const PostsList = () => {
+  const postsByYear = getPostsByYear()
+
+  if (!postsByYear) {
+    notFound()
+  }
+
+  const sortedPostsByYears = Object.entries(postsByYear)
+    .sort((a, b) => parseInt(b[0]) - parseInt(a[0]))
+    .map((e) => e)
+
   return (
-    <>
-      {posts.map((post, index) => (
-        <div key={post.computedSlug} className="mb-24">
-          <PostMetadata>
-            {format(new Date(post.date), 'do LLL, yyyy')}
-          </PostMetadata>
-          <Link href={`/posts/${post.computedSlug}`}>
-            <BlogPostHeadline
-              title={post.title}
-              draft={post.draft}
-              className="mb-4"
-            />
-          </Link>
-          <StyledArticleContent contentHtml={post.body.html} />
-          <div className="space-x-2 mt-8">
-            {post.tags?.split(' ').map((tag) => (
-              <Tag key={tag} name={tag} />
-            ))}
+    <div className="prose dark:prose-invert">
+      {sortedPostsByYears.map(([year, posts]) => (
+        <div className="mb-16 not-prose" key={year}>
+          <div className="flex flex-row items-center mb-6">
+            <h2 className="font-headline text-xl text-neutral-800 mr-4">
+              {year}
+            </h2>
           </div>
-          {index !== posts.length - 1 && (
-            <hr className="mt-24 w-4/5 mx-auto border-neutral-700" />
-          )}
+          {posts.map((post) => (
+            <PostListItem post={post} key={post._id} />
+          ))}
         </div>
       ))}
-    </>
+    </div>
   )
 }
