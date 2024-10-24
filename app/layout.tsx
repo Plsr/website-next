@@ -4,14 +4,13 @@ import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
 import { Metadata } from 'next'
-import { Inconsolata, Mulish, Rubik, Mukta } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import Footer from '../components/footer'
-import { GeistSans } from 'geist/font/sans'
 
-const moderustic = Mukta({
+const font = Rubik({
   weight: ['400', '700'],
   subsets: ['latin'],
-  variable: '--font-rubik',
+  variable: '--font-main',
 })
 
 export const metadata: Metadata = {
@@ -47,11 +46,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={moderustic.variable}>
+    <html lang="en" className={font.variable}>
       <body className="font-body bg-base-900 overflow-x-hidden text-base-100 dark">
         <Analytics />
         <Header />
-        <main className="max-w-2xl mx-auto px-4 mb-12 mt-8">{children}</main>
+        <main className="max-w-3xl mx-auto px-4 mb-12 mt-8">{children}</main>
         <Footer />
       </body>
     </html>

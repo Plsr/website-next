@@ -1,7 +1,7 @@
 import { getPaginatedPosts } from 'lib/entries'
-import { PostsList } from 'components/posts-list'
 import { Metadata } from 'next'
-import { Pagination } from 'components/pagination'
+import { PostListItem } from 'components/post-list-item'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Chris Jarling',
@@ -36,13 +36,27 @@ export default async function Home() {
   })
 
   return (
-    <>
-      <PostsList posts={posts} />
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        recordName="posts"
-      />
-    </>
+    <div className="prose dark:prose-invert">
+      <div className="text-lg">
+        <div>👋</div>
+        <div>Hey, I&apos;m Chris Jarling.</div>
+        <div>
+          I&apos;m a Senior Fullstack Engineer and interim Team Lead at Gigs,
+          where we&apos;re shaping the future of telecom.
+        </div>
+      </div>
+      <div className="opacity-60 mt-4">
+        This is my personal website, where I share thoughts about programming,
+        web development, and reflections on my personal journey.
+      </div>
+
+      <h2>Recent Posts</h2>
+      <div className="not-prose">
+        {posts.slice(0, 3).map((post) => (
+          <PostListItem key={post._id} post={post} />
+        ))}
+      </div>
+      <Link href="/posts">See all</Link>
+    </div>
   )
 }
