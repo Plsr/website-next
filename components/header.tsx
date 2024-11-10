@@ -17,7 +17,7 @@ export default function Header() {
         <div className="gap-2 flex justify-center items-center">
           <NavLink href="/about">About</NavLink>
           <NavLink href="/now">Now</NavLink>
-          <NavLink href="/digital-garden">🪴 Garden</NavLink>
+          <NavLink href="/digital-garden">Garden</NavLink>
         </div>
       </nav>
     </div>
