@@ -3,11 +3,11 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <div className="py-4 mx-auto text-gray-800 dark:text-base-50 flex flex-col  md:flex-row justify-between items-start md:items-center gap-y-4 md:gap-y-0">
+    <div className="py-4 mx-auto text-gray-800 dark:text-base-50 flex flex-col md:flex-row justify-between items-center gap-y-4 md:gap-y-0">
       <div className="flex flex-col justify-center">
-        <Link href="/" className="transition-all group">
+        <Link href="/" className="transition-all group relative">
           <h1 className="-mb-1 font-bold text-lg ">Chris Jarling</h1>
-          <small className="-mt-1 text-gray-400 opacity-0 group-hover:opacity-100 transition block">
+          <small className="absolute select-none text-gray-400 opacity-0 md:group-hover:opacity-100 transition block">
             Go home
           </small>
         </Link>

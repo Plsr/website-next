@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { FooterRow } from './footer-row'
 
 const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 
@@ -21,7 +20,7 @@ export default function Footer() {
         </Link>
 
         <Link href="/privacy" className="">
-          Reading Notes
+          Reading
         </Link>
       </div>
       <div className="mt-8 flex justify-center text-gray-500 gap-6">

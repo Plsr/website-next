@@ -61,9 +61,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={font.variable}>
       <body className="font-body bg-gray-100 overflow-x-hidden text-gray-800">
-        <div className="bg-gray-100 text-base-800 px-12">
+        <div className="bg-gray-100 text-base-800 md:px-12 px-1 md:py-12 py-1">
           <Analytics />
-          <main className="max-w-screen-lg py-12 mx-auto px-24 mb-12 mt-12  bg-white border border-gray-200 rounded-lg">
+          <main className="max-w-screen-lg py-12 mx-auto md:px-24 px-4   bg-white border border-gray-200 rounded-lg">
             <Header />
             <div className="h-16" />
             {children}

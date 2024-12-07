@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { PostListItem } from 'components/post-list-item'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GigsCallout } from 'components/GigsCallout'
 
 export const metadata: Metadata = {
   title: 'Chris Jarling',
@@ -38,7 +39,7 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="grid grid-cols-2">
+      <div className="grid md:grid-cols-2 grid-cols-1">
         <div className="self-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">
             <span className="text-gray-400 font-normal">Hej, I&apos;m</span>{' '}
@@ -53,7 +54,7 @@ export default async function Home() {
           </p>
         </div>
         <Image
-          className="rounded-xl shadow-[0px_0px_14px_rgba(0,0,0,0.028),0px_0px_22px_rgba(0,0,0,0.04),0px_0px_28.4px_rgba(0,0,0,0.052),0px_0px_53px_rgba(0,0,0,0.08)] border place-self-center self-center rotate-3"
+          className="md:block hidden rounded-xl shadow-[0px_0px_14px_rgba(0,0,0,0.028),0px_0px_22px_rgba(0,0,0,0.04),0px_0px_28.4px_rgba(0,0,0,0.052),0px_0px_53px_rgba(0,0,0,0.08)] border place-self-center self-center rotate-3"
           src="/me.jpg"
           width={250}
           height={250}
@@ -61,26 +62,7 @@ export default async function Home() {
           alt=""
         />
       </div>
-      <div className="flex border gap-2 border-gray-200 bg-gray-50 rounded-lg mt-20 p-4">
-        <Image
-          className="self-center"
-          src="/gigs_logo.png"
-          width={130}
-          height={34}
-          alt=""
-        />
-        <p className="flex-wrap text-gray-500 text-sm">
-          I currently work as an <strong>Engineering Manager</strong> at{' '}
-          <strong>Gigs</strong>, where we shape the future of telecom.
-          We&apos;re hiring, come work with me.{' '}
-          <Link href="/" className="text-gray-700 underline">
-            Read why you should &rarr;
-          </Link>
-        </p>
-        <button className="self-center text-sm shrink-0 hover:bg-indigo-600 transition-colors bg-indigo-500 border border-indigo-600 rounded-lg px-4 py-1 text-indigo-50">
-          Work with me
-        </button>
-      </div>
+      <GigsCallout />
       <div className="mt-24">
         <h2 className="text-2xl font-bold mb-4">
           <span className="text-gray-400 font-normal">Recent</span> Posts
