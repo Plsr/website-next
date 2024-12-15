@@ -5,8 +5,8 @@ const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 export default function Footer() {
   return (
     <div className="mt-auto pt-12">
-      <hr className="border-0 bg-gray-100 h-px" />
-      <div className="mt-12 flex justify-center text-gray-700 gap-12">
+      <hr className="dark:bg-gray-700 h-px border-0 bg-gray-100" />
+      <div className="dark:text-gray-400 mt-12 flex justify-center gap-12 text-gray-700">
         <Link href="/imprint" className="">
           Now
         </Link>
@@ -23,7 +23,7 @@ export default function Footer() {
           Reading
         </Link>
       </div>
-      <div className="mt-8 flex justify-center text-gray-500 gap-6">
+      <div className="mt-8 flex justify-center gap-6 text-gray-500">
         <small>{copyrightString}</small>
         <small>
           <Link href="/imprint" className="underline decoration-dotted">
