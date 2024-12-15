@@ -39,13 +39,15 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="grid md:grid-cols-2 grid-cols-1">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="self-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
-            <span className="text-gray-400 font-normal">Hej, I&apos;m</span>{' '}
+          <h1 className="dark:text-gray-200 mb-4 text-3xl font-bold text-gray-900">
+            <span className="dark:text-gray-500 font-normal text-gray-400">
+              Hej, I&apos;m
+            </span>{' '}
             Chris Jarling
           </h1>
-          <p className=" text-gray-600">
+          <p className="dark:text-gray-400 text-gray-600">
             <strong>Engineering Manager</strong> and Fullstack Engineer with a
             focus on building scalable, user-centered web applications. <br />I
             thrive on solving complex problems, fostering collaboration, and
@@ -54,7 +56,7 @@ export default async function Home() {
           </p>
         </div>
         <Image
-          className="md:block hidden rounded-xl shadow-[0px_0px_14px_rgba(0,0,0,0.028),0px_0px_22px_rgba(0,0,0,0.04),0px_0px_28.4px_rgba(0,0,0,0.052),0px_0px_53px_rgba(0,0,0,0.08)] border place-self-center self-center rotate-3"
+          className="hidden rotate-3 place-self-center self-center rounded-xl shadow-[0px_0px_14px_rgba(0,0,0,0.028),0px_0px_22px_rgba(0,0,0,0.04),0px_0px_28.4px_rgba(0,0,0,0.052),0px_0px_53px_rgba(0,0,0,0.08)] md:block"
           src="/me.jpg"
           width={250}
           height={250}
@@ -64,8 +66,11 @@ export default async function Home() {
       </div>
       <GigsCallout />
       <div className="mt-24">
-        <h2 className="text-2xl font-bold mb-4">
-          <span className="text-gray-400 font-normal">Recent</span> Posts
+        <h2 className="mb-4 text-2xl font-bold">
+          <span className="dark:text-gray-500 font-normal text-gray-400">
+            Recent
+          </span>{' '}
+          Posts
         </h2>
         <div className="not-prose">
           {posts.slice(0, 3).map((post) => (
@@ -74,7 +79,10 @@ export default async function Home() {
             </div>
           ))}
         </div>
-        <Link href="/posts" className="text-indigo-600 text-sm hover:underline">
+        <Link
+          href="/posts"
+          className="dark:text-indigo-400 text-sm text-indigo-600 hover:underline"
+        >
           See All &rsaquo;
         </Link>
       </div>
