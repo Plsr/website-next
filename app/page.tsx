@@ -8,7 +8,7 @@ import { GigsCallout } from 'components/GigsCallout'
 export const metadata: Metadata = {
   title: 'Chris Jarling',
   description:
-    'Senior Frontend Engineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
+    'Engineering Manager working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
   alternates: {
     types: {
       'application/rss+xml': '/posts/feed.rss',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Chris Jarling',
     description:
-      'Senior Frontend Engineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
+      'Engineering Manager working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
     url: 'https://chrisjarling.com',
     images: [
       {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const { posts, totalPages, currentPage } = getPaginatedPosts({
+  const { posts } = getPaginatedPosts({
     page: 1,
   })
 
@@ -41,18 +41,17 @@ export default async function Home() {
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="self-center">
-          <h1 className="dark:text-gray-200 mb-4 text-3xl font-bold text-gray-900">
-            <span className="dark:text-gray-500 font-normal text-gray-400">
+          <h1 className="mb-4 text-3xl font-bold text-gray-900 dark:text-gray-200">
+            <span className="font-normal text-gray-400 dark:text-gray-500">
               Hej, I&apos;m
             </span>{' '}
             Chris Jarling
           </h1>
-          <p className="dark:text-gray-400 text-gray-600">
+          <p className="text-gray-600 dark:text-gray-400">
             <strong>Engineering Manager</strong> and Fullstack Engineer with a
             focus on building scalable, user-centered web applications. <br />I
-            thrive on solving complex problems, fostering collaboration, and
-            delivering impactful results through a balance of technical
-            expertise and clear communication.
+            thrive in environments where I can tackle tough problems, apply a
+            structured approach to them and deliver impactful solutions.
           </p>
         </div>
         <Image
@@ -67,7 +66,7 @@ export default async function Home() {
       <GigsCallout />
       <div className="mt-24">
         <h2 className="mb-4 text-2xl font-bold">
-          <span className="dark:text-gray-500 font-normal text-gray-400">
+          <span className="font-normal text-gray-400 dark:text-gray-500">
             Recent
           </span>{' '}
           Posts
@@ -81,7 +80,7 @@ export default async function Home() {
         </div>
         <Link
           href="/posts"
-          className="dark:text-accent-400 text-sm text-accent-600 hover:underline"
+          className="text-sm text-accent-600 hover:underline dark:text-accent-400"
         >
           See All &rsaquo;
         </Link>

@@ -58,17 +58,17 @@ export default async function Post({ params }: Params) {
   const seriesEntries = post.series ? postSeriesList(post.series) : undefined
 
   return (
-    <div className="mx-auto max-w-5xl mb-16">
+    <div className="mx-auto mb-16 max-w-5xl">
       <div>
         <div className="mb-4">
           <PostMetadata>
             {format(new Date(post.date), 'do LLL, yyyy')}
           </PostMetadata>
-          <h2 className="mt-0 text-base-800 dark:text-base-300 font-bold text-2xl">
+          <h2 className="mt-0 text-2xl font-bold text-base-800 dark:text-base-300">
             {post.title}
           </h2>
           {post.draft && (
-            <div className="rounded-lg p-4 my-6 bg-rose-bud-700/10 border border-rose-bud-900 text-indigo-bud-200 text-sm">
+            <div className="bg-rose-bud-700/10 border-rose-bud-900 text-indigo-bud-200 my-6 rounded-lg border p-4 text-sm">
               This post is a draft. It&apos;s not complete yet and may never be.
             </div>
           )}
@@ -81,10 +81,8 @@ export default async function Post({ params }: Params) {
         </div>
         <StyledArticleContent contentHtml={post.body.html} />
       </div>
-      <div className="space-x-4">
-        {post.tags?.split(' ').map((tag) => (
-          <Tag name={tag} key={tag} />
-        ))}
+      <div className="mt-8 space-x-4">
+        {post.tags?.split(' ').map((tag) => <Tag name={tag} key={tag} />)}
       </div>
     </div>
   )

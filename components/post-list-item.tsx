@@ -1,5 +1,5 @@
 import { Post } from '.contentlayer/generated'
-import { CalendarDaysIcon, CalendarIcon } from '@heroicons/react/24/outline'
+import { CalendarDaysIcon } from '@heroicons/react/24/outline'
 import { format } from 'date-fns'
 import Link from 'next/link'
 
