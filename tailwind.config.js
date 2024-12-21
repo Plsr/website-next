@@ -17,7 +17,7 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      accent: colors.amber,
+      accent: colors.indigo,
       base: colors.zinc,
       neutral: {
         50: '#f7f7f8',

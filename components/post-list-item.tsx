@@ -10,17 +10,19 @@ type Props = {
 export const PostListItem = ({ post }: Props) => {
   return (
     <Link
-      className="dark:hover:bg-base-700 mb-6 inline-flex flex-col rounded-lg p-4 transition-all hover:bg-base-50"
+      className="mb-6 flex flex-col rounded-lg p-4 transition-all hover:bg-base-50 dark:hover:bg-base-700"
       key={post._id}
       href={`/posts/${post.computedSlug}`}
     >
-      <span className="dark:text-base-400 flex items-center gap-1 text-xs text-base-400">
+      <span className="flex items-center gap-1 text-xs text-base-400 dark:text-base-400">
         <CalendarDaysIcon className="mb-[1px] h-3 w-3" />
         {format(new Date(post.date), 'do LLL, yyyy')}
       </span>
-      <span className="mb-2 text-lg font-bold">{post.title}</span>
+      <span className="mb-2 text-lg font-bold dark:text-base-100">
+        {post.title}
+      </span>
       {post.excerpt && (
-        <span className="dark:text-base-300 text-base-500">{post.excerpt}</span>
+        <span className="text-base-500 dark:text-base-400">{post.excerpt}</span>
       )}
     </Link>
   )

@@ -81,7 +81,7 @@ export default async function Home() {
         </div>
         <Link
           href="/posts"
-          className="dark:text-indigo-400 text-sm text-indigo-600 hover:underline"
+          className="dark:text-accent-400 text-sm text-accent-600 hover:underline"
         >
           See All &rsaquo;
         </Link>

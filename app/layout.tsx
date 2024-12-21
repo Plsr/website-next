@@ -61,16 +61,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={font.variable}>
-      <body className="dark:bg-base-900 overflow-x-hidden bg-base-100 font-body text-base-800">
+      <body className="overflow-x-hidden font-body text-base-800 dark:bg-base-900">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="dark:bg-base-900 dark:text-base-100 bg-base-100 px-1 py-1 text-base-800 md:px-12 md:py-12">
+          <div className="relative bg-gray-50 bg-[linear-gradient(to_right,#eee_1px,transparent_1px),linear-gradient(to_bottom,#eee_1px,transparent_1px)] bg-[length:30px_30px] px-1 py-1 text-base-800 dark:bg-base-900 dark:bg-[linear-gradient(to_right,#1c1c20_1px,transparent_1px),linear-gradient(to_bottom,#1c1c20_1px,transparent_1px)] dark:text-base-100 md:px-12 md:py-12">
+            <div className="relative mx-auto max-w-screen-lg">
+              <div className="absolute -left-60 top-40 z-0 h-80 w-80 rounded-full bg-purple-200/40 blur-3xl dark:bg-purple-500/10" />
+              <div className="absolute -right-40 top-10 z-0 h-80 w-80 rounded-full bg-sky-200/40 blur-3xl dark:bg-sky-500/10" />
+              <div className="absolute -right-20 -top-10 z-0 h-32 w-96 rounded-full bg-orange-200/30 blur-3xl dark:bg-orange-500/10" />
+            </div>
             <Analytics />
-            <main className="dark:bg-base-800 dark:border-base-700 mx-auto max-w-screen-lg rounded-lg border border-base-200 bg-white px-4 py-12 md:px-24">
+            <main className="relative z-10 mx-auto max-w-screen-lg rounded-lg border border-base-200 bg-white px-4 py-12 shadow-xl dark:border-base-800 dark:bg-base-900 md:px-24">
               <Header />
               <div className="h-16" />
               {children}

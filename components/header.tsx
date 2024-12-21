@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <div className="dark:text-base-100 mx-auto flex flex-col items-center justify-between gap-y-4 py-4 text-base-800 md:flex-row md:gap-y-0">
+    <div className="mx-auto flex flex-col items-center justify-between gap-y-4 py-4 text-base-800 dark:text-base-100 md:flex-row md:gap-y-0">
       <div className="flex flex-col justify-center">
         <Link href="/" className="group relative transition-all">
           <h1 className="-mb-1 text-lg font-bold">Chris Jarling</h1>
@@ -30,7 +30,7 @@ type NavLinkProps = {
 const NavLink = ({ children, ...rest }: NavLinkProps) => {
   return (
     <Link
-      className="dark:text-base-200 hover:dark:bg-base-800 hover:dark:text-base-100 dark:hover:bg-base-700 rounded-full px-4 py-1 transition-all hover:bg-base-100"
+      className="rounded-lg px-4 py-1 transition-all hover:bg-base-100 dark:text-base-200 dark:hover:bg-base-700 hover:dark:bg-base-700 hover:dark:text-base-100"
       {...rest}
     >
       {children}
