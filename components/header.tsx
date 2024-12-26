@@ -11,7 +11,7 @@ export default function Header() {
         >
           <h1 className="-mb-1 font-bold">Chris Jarling</h1>
         </Link>
-        <span className="text-base-500 font-light">Fullstack Engineer</span>
+        <span className="text-base-500 font-light">Engineering Manager</span>
       </div>
       <nav>
         <div className="gap-2 flex justify-center items-center">

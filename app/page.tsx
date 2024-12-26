@@ -39,15 +39,21 @@ export default async function Home() {
     <div className="prose dark:prose-invert">
       <div className="text-lg">
         <div>👋</div>
-        <div>Hey, I&apos;m Chris Jarling.</div>
+        <div className="text-xl font-bold">Hey, I&apos;m Chris Jarling.</div>
         <div>
-          I&apos;m a Senior Fullstack Engineer and interim Team Lead at Gigs,
-          where we&apos;re shaping the future of telecom.
+          I&apos;m an Engineering Manager at <a href="https://gigs.com">Gigs</a>
+          , where we&apos;re shaping the future of telecom.
         </div>
+      </div>
+      <div className="opacity-80 mt-4">
+        Before becoming an Engineering Manager, I was a Senior Frontend Engineer
+        with Gigs. Previously, I worked at <strong>Cisco</strong> and{' '}
+        <strong>Placetel</strong>, where I built web apps for a Could-Based PBX
+        System. I've also did some agency work, one of which I co-founded.
       </div>
       <div className="opacity-60 mt-4">
         This is my personal website, where I share thoughts about programming,
-        web development, and reflections on my personal journey.
+        web development, management and reflections on my personal journey.
       </div>
 
       <h2>Recent Posts</h2>
