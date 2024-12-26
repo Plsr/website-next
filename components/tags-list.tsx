@@ -7,7 +7,7 @@ type TagsListProps = {
 
 export const TagsList = ({ tags, ...rest }: TagsListProps) => {
   return (
-    <div {...rest} className="flex flex-wrap gap-x-1 gap-y-7">
+    <div {...rest} className="flex flex-wrap gap-x-4 gap-y-4">
       {tags.map((tag) => (
         <TagComponent
           key={tag.tagName}

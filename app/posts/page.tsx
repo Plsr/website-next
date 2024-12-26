@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Post } from '.contentlayer/generated'
 import Link from 'next/link'
+import { PostListItem } from 'components/post-list-item'
 
 export const metadata: Metadata = {
   title: 'Posts - Chris Jarling',
@@ -51,18 +52,7 @@ export default async function PostsIndex() {
             </h2>
           </div>
           {posts.map((post) => {
-            return (
-              <Link
-                className="flex flex-col mb-6"
-                key={post._id}
-                href={`/posts/${post.computedSlug}`}
-              >
-                <span className="dark:text-base-500 text-sm">
-                  {format(new Date(post.date), 'do LLL, yyyy')}
-                </span>
-                <span>{post.title}</span>
-              </Link>
-            )
+            return <PostListItem post={post} />
           })}
         </div>
       ))}

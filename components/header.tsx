@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <div className="py-4 px-4 mx-auto max-w-3xl text-base-800 dark:text-base-50 flex flex-col  md:flex-row justify-between items-start md:items-center gap-y-4 md:gap-y-0">
+    <div className="py-4 px-4 mx-auto w-full max-w-3xl text-base-800 dark:text-base-50 flex flex-col  md:flex-row justify-between items-start md:items-center gap-y-4 md:gap-y-0">
       <div className="flex flex-col justify-center">
         <Link
           href="/"
@@ -17,7 +17,7 @@ export default function Header() {
         <div className="gap-2 flex justify-center items-center">
           <NavLink href="/about">About</NavLink>
           <NavLink href="/now">Now</NavLink>
-          <NavLink href="/digital-garden">Garden</NavLink>
+          {/* <NavLink href="/digital-garden">Garden</NavLink> */}
         </div>
       </nav>
     </div>

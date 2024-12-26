@@ -47,10 +47,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={font.variable}>
-      <body className="font-body bg-base-900 overflow-x-hidden text-base-100 dark">
+      <body className="h-screen flex flex-col font-body bg-base-50 dark:bg-base-900 overflow-x-hidden text-base-100 dark">
         <Analytics />
         <Header />
-        <main className="max-w-3xl mx-auto px-4 mb-12 mt-8">{children}</main>
+        <main className="max-w-3xl w-full mx-auto px-4 mb-12 mt-8">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

@@ -11,13 +11,13 @@ const em = (px, base) => `${round(px / base)}em`
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: 'media',
   important: true,
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
       ...colors,
-      accent: colors.green,
+      accent: colors.blue,
       base: colors.zinc,
       neutral: {
         50: '#f7f7f8',
@@ -32,34 +32,6 @@ module.exports = {
         900: '#3a3941',
         950: '#27262b',
       },
-
-      //accent: {
-      //  50: '#fbf6fe',
-      //  100: '#f5ebfc',
-      //  200: '#ecdbf9',
-      //  300: '#ddbff3',
-      //  400: '#c792ea',
-      //  500: '#b36ce0',
-      //  600: '#9f4dd0',
-      //  700: '#883bb5',
-      //  800: '#733594',
-      //  900: '#5e2b78',
-      //  950: '#401457',
-      //},
-
-      // accent: {
-      //   50: '#f0f1fd',
-      //   100: '#e3e4fc',
-      //   200: '#cccdf9',
-      //   300: '#aeadf4',
-      //   400: '#958ced',
-      //   500: '#8370e4',
-      //   600: '#6e4dd4',
-      //   700: '#6546bc',
-      //   800: '#523b98',
-      //   900: '#453679',
-      //   950: '#292046',
-      // },
     },
     fontFamily: {
       title: ['-apple-system, BlinkMacSystemFont, sans-serif'],

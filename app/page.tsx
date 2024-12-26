@@ -39,7 +39,7 @@ export default async function Home() {
     <div className="prose dark:prose-invert">
       <div className="text-lg">
         <div>👋</div>
-        <div className="text-xl font-bold">Hey, I&apos;m Chris Jarling.</div>
+        <h1 className="text-xl font-bold">Hey, I&apos;m Chris Jarling.</h1>
         <div>
           I&apos;m an Engineering Manager at <a href="https://gigs.com">Gigs</a>
           , where we&apos;re shaping the future of telecom.
@@ -51,12 +51,12 @@ export default async function Home() {
         <strong>Placetel</strong>, where I built web apps for a Could-Based PBX
         System. I've also did some agency work, one of which I co-founded.
       </div>
-      <div className="opacity-60 mt-4">
+      <div className="dark:opacity-60 opacity-80 mt-4">
         This is my personal website, where I share thoughts about programming,
         web development, management and reflections on my personal journey.
       </div>
 
-      <h2>Recent Posts</h2>
+      <h2 className="prose dark:prose-invert text-lg mt-24">Recent Posts</h2>
       <div className="not-prose">
         {posts.slice(0, 3).map((post) => (
           <PostListItem key={post._id} post={post} />
