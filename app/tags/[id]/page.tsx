@@ -32,7 +32,7 @@ export default async function PostsIndex({ params }: PostsIndexProps) {
         #{tag}
       </h2>
       {posts.map((post) => {
-        return <PostListItem post={post} />
+        return <PostListItem key={post._id} post={post} />
       })}
     </>
   )

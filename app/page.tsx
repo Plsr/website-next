@@ -49,7 +49,7 @@ export default async function Home() {
         Before becoming an Engineering Manager, I was a Senior Frontend Engineer
         with Gigs. Previously, I worked at <strong>Cisco</strong> and{' '}
         <strong>Placetel</strong>, where I built web apps for a Could-Based PBX
-        System. I've also did some agency work, one of which I co-founded.
+        System. I&apos;ve also did some agency work, one of which I co-founded.
       </div>
       <div className="dark:opacity-60 opacity-80 mt-4">
         This is my personal website, where I share thoughts about programming,
