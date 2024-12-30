@@ -16,7 +16,7 @@ const font = Rubik({
 export const metadata: Metadata = {
   title: 'Chris Jarling',
   description:
-    'Senior Frontend Engineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
+    'Engineering Manager working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
   alternates: {
     types: {
       'application/rss+xml': '/posts/feed.rss',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Chris Jarling',
     description:
-      'Senior Frontend Engineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
+      'Engineering Manager working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
     url: 'https://chrisjarling.com',
     images: [
       {
