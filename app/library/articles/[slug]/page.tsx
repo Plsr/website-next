@@ -5,12 +5,13 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 type Params = {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
   const libraryArticle = allLibraryArticles.find((libraryArticle) => {
     return libraryArticle.computedSlug === params.slug
   })
@@ -40,7 +41,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
-const LibraryArticleDetailPage = ({ params }: Params) => {
+const LibraryArticleDetailPage = async (props: Params) => {
+  const params = await props.params;
   const libraryArticle = allLibraryArticles.find(
     (article) => article.computedSlug === params.slug
   )

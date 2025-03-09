@@ -10,14 +10,15 @@ import { format } from 'date-fns'
 import { Metadata } from 'next'
 
 type Params = {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export const generateStaticParams = () => []
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
   const post = allPosts.find((post: Post) => {
     return post.computedSlug === params.slug
   })
@@ -46,7 +47,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
-export default async function Post({ params }: Params) {
+export default async function Post(props: Params) {
+  const params = await props.params;
   const post = allPosts.find((post: Post) => {
     return post.computedSlug === params.slug
   })

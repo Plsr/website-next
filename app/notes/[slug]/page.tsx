@@ -6,7 +6,8 @@ import { Metadata } from 'next'
 
 export const generateStaticParams = () => []
 
-export default async function Note({ params }: Props) {
+export default async function Note(props: Props) {
+  const params = await props.params;
   const note = allNotes.find((note) => note.slug === params.slug)
 
   if (!note) {
@@ -16,7 +17,8 @@ export default async function Note({ params }: Props) {
   return <NoteComponent note={note} asListItem={false} />
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const note = allNotes.find((note) => note.slug === params.slug)
 
   if (!note) {
@@ -50,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }

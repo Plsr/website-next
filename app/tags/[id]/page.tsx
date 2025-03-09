@@ -10,10 +10,11 @@ export async function generateStaticParams() {
 }
 
 type PostsIndexProps = {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
-export default async function PostsIndex({ params }: PostsIndexProps) {
+export default async function PostsIndex(props: PostsIndexProps) {
+  const params = await props.params;
   const tag = params.id
   const posts = getAllSortedPosts().filter(
     (post) => post.tags && post.tags.split(' ').includes(tag)
