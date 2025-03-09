@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: 'plsr/website'
+  IMAGE_NAME: 'plsr/website-next'
 
 jobs:
   build:
