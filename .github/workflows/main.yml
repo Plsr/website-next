@@ -13,7 +13,7 @@ jobs:
     needs: ci
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME: ${{ github.repository | toLower }}
+      IMAGE_NAME: ${{ github.repository.lowercase }}
     concurrency:
       group: deploy-production
     environment:
