@@ -1,11 +1,13 @@
-import Header from '../components/header'
-import { Analytics } from '@vercel/analytics/react'
 import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
+
+import { Analytics } from '@vercel/analytics/react'
 import { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
+
 import Footer from '../components/footer'
+import Header from '../components/header'
 
 const font = Rubik({
   weight: ['400', '700'],

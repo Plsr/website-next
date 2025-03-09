@@ -25,11 +25,12 @@ type Person = Name & Age
 
 const me: Person = {
   name: 'Chris',
-  age: 32
+  age: 32,
 }
 ```
 
 ## The differences
+
 If you’d prefer to just read annotated code, [this playground example](https://www.typescriptlang.org/play#example/types-vs-interfaces) might be what you want.
 
 The first difference you may have noticed above is not a functional one, but one in the syntax. Types and Interfaces differ in how they are declared and in mutating them.
@@ -70,7 +71,7 @@ As you can see, Interfaces are more verbose in comparison to Types. Depending on
 
 Another, and basically the only real big difference, is extendability.
 
-Once you defined a Type somewhere, it cannot be mutated in any other place it is used. 
+Once you defined a Type somewhere, it cannot be mutated in any other place it is used.
 
 ```ts
 type Person = {
@@ -98,23 +99,26 @@ interface Person {
 
 const me: Person = {
   name: 'Chris',
-  age: 32
+  age: 32,
 }
 ```
 
 ## Which one should I use?
+
 There are not many factors on which we can make the decision on wether it's best to use Types or Interfaces. The [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces) states:
 
 > If you would like a heuristic, use `interface`until you need to use features from `type`
 
-Which could be a starting point. Another factor would be your personal preference on verbosity. 
+Which could be a starting point. Another factor would be your personal preference on verbosity.
 
 Here’s my personal opinion: I don’t like the verbosity, as it does not blend in well with the rest of the JavaScript syntax I usually write (I don't use classes a lot; however, if you use classes a lot, this argument can easily be reversed), where somewhat cryptic symbols are what I am used to anyways.
-I strongly dislike the mutability of interfaces. If I use a typed language, I want my types to be a single source of truth. This is my only real argument for using Types above Interfaces. 
+I strongly dislike the mutability of interfaces. If I use a typed language, I want my types to be a single source of truth. This is my only real argument for using Types above Interfaces.
 
 Also, it's called TypeScript, not InterfaceScript, so...
 
-### Further Reading 
+### Further Reading
+
 For more detailed information on the topic, I recommend checking out:
+
 - [The TypeScript Documentation](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces)
 - [This exhaustive StackOverflow thread](https://stackoverflow.com/questions/37233735/interfaces-vs-types-in-typescript)

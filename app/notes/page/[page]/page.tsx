@@ -2,12 +2,12 @@ import Divider from 'components/divider'
 import { Note } from 'components/note'
 import { PageTitleWithSubline } from 'components/page-title-with-subline'
 import { Pagination } from 'components/pagination'
-import { getPaginatedNotes, NotePost } from 'lib/entries'
+import { getPaginatedNotes } from 'lib/entries'
 
 export const generateStaticParams = () => []
 
 export async function generateMetadata(props: NotesIndexProps) {
-  const params = await props.params;
+  const params = await props.params
   const page = Number(params?.page) || 1
   return {
     title: `Notes - Page ${page} - Chris Jarling`,
@@ -19,7 +19,7 @@ type NotesIndexProps = {
 }
 
 export default async function NotesIndex(props: NotesIndexProps) {
-  const params = await props.params;
+  const params = await props.params
   const page = Number(params?.page) || 1
 
   const { posts, totalPages, currentPage } = getPaginatedNotes({

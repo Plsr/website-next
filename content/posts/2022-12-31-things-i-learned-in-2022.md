@@ -1,5 +1,4 @@
 ---
-
 title: Things I learned in 2022
 date: '2022-12-31T10:39:26.350Z'
 tags: life

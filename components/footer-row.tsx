@@ -1,9 +1,9 @@
-import { ReactElement, cloneElement } from 'react'
 import Link from 'next/link'
+import { cloneElement, JSX } from 'react'
 
 type FooterRowProps = {
   title: string
-  listItems: ReactElement<any>[]
+  listItems: JSX.Element[]
 }
 
 export function FooterRow({ listItems, title }: FooterRowProps) {
@@ -16,7 +16,7 @@ export function FooterRow({ listItems, title }: FooterRowProps) {
         {listItems.map((item, index) =>
           cloneElement(item, {
             className: `${index === listItems.length - 1 ? 'mb-0' : 'mb-1'}`,
-          })
+          }),
         )}
       </div>
     </div>

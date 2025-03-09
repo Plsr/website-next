@@ -1,5 +1,4 @@
 ---
-
 title: Kill your darlings
 date: '2019-09-08 18:11 +0200'
 tags: programming meta
@@ -25,4 +24,5 @@ I think this is an important lesson. You should never take your work personal an
 If you think it is the objectively better solution, argue for it, hell, fight for it. But always ask yourself if you just like it because it is something you crafted. And if that is the case, be ready to let it go.
 
 [^1]: I'm Sorry if I'm not really concrete here, but I haven't asked for permission to write about the project, so this what we'll have to work with.
+
 [^2]: I'm sure that my team would not have let this happen. They're great and I'm positive they would have called me out on that.

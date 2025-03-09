@@ -1,13 +1,14 @@
 import { Note as NoteComponent } from 'components/note'
-import { allNotes } from '.contentlayer/generated'
-import { notFound } from 'next/navigation'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+
+import { allNotes } from '.contentlayer/generated'
 
 export const generateStaticParams = () => []
 
 export default async function Note(props: Props) {
-  const params = await props.params;
+  const params = await props.params
   const note = allNotes.find((note) => note.slug === params.slug)
 
   if (!note) {
@@ -18,7 +19,7 @@ export default async function Note(props: Props) {
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params;
+  const params = await props.params
   const note = allNotes.find((note) => note.slug === params.slug)
 
   if (!note) {

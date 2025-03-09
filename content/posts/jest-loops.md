@@ -102,4 +102,5 @@ Now we can make sure that a test fails in case someone removes one of the words 
 I realize that this example is... somewhat constructed as well. But we have used loops in test suite in a similar manner lately. The array the loop took in contained only three items but the test cases were quite long. The main advantage of having a loop in this case was that it made clear that for _all_ of the values we passed in, we expect the exact same thing to happen. If we need to adapt the cases for one of these values, it will hopefully ring some alarm bells and make people aware of the consequence of the intended change.
 
 [^1]: : I understand that this is an constructed example for documentation purposes and there might be better examples to show when a loop is useful. But this is what we currently have.
+
 [^2]: Often times, you can just test two cases to make sure you code handles the distinction just right, but sometimes it's required to make sure the code handles _all_ of these cases right.

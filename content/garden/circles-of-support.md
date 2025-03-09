@@ -7,7 +7,9 @@ tags:
 wip: true
 excerpt: How to care for yourself while caring for others
 ---
+
 Main idea: Care to the inside of the circle, complain to the outside. The person you take care of should never hear about your complaints or your struggles.
+
 ## Resources
 
 [https://speakinggrief.org/get-better-at-grief/supporting-grief/ring-theory](https://speakinggrief.org/get-better-at-grief/supporting-grief/ring-theory)

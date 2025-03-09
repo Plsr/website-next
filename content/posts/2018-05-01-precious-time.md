@@ -1,5 +1,4 @@
 ---
-
 title: Precious Time
 date: '2018-05-01 18:16 +0200'
 tags: life

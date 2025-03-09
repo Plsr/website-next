@@ -1,5 +1,4 @@
 ---
-
 title: Building a simple tag system for jekyll
 date: '2022-02-12 22:38 +0100'
 tags: web-dev jekyll
@@ -149,7 +148,6 @@ Now I can just add tags to to frontmatter of a post and everything else will be 
 
 ```md
 ---
-
 title: Building a simple tag system for jekyll
 date: 2022-02-12 22:38 +0100
 tags: web-dev jekyll

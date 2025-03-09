@@ -31,8 +31,8 @@ const user = {
   email: 'john@example.com',
   address: {
     city: 'New York',
-    state: 'NY'
-  }
+    state: 'NY',
+  },
 }
 ```
 
@@ -47,7 +47,7 @@ That’s fine if the recipient of the string will parse it, but what if we wante
 ```jsx
 console.log(JSON.stringify(user, null, 2))
 
-// => 
+// =>
 {
   "name": "John Doe",
   "age": 25,
@@ -78,7 +78,7 @@ console.log(JSON.stringify(user, null, '🙈'))
 }
 ```
 
-Both of these are capped at a depth of `10`. You can also pass `\t` into it to indent using tabs. 
+Both of these are capped at a depth of `10`. You can also pass `\t` into it to indent using tabs.
 
 This can be useful in various use cases. For example, I wrote a [JSON formatter](https://www.chrisjarling.com/tools/json-formatter) to wrap my head around the topic. The formatter heavily utilizes the `space` option of `JSON.stringify()`.
 
@@ -127,7 +127,7 @@ function replacer(key, value) {
 
 console.log(JSON.stringify(user, replacer, 2))
 
-// => 
+// =>
 {
   "name": "JoDohne ",
   "age": 25,

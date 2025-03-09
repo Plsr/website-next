@@ -19,7 +19,7 @@ export const BlogPostHeadline = ({
         'text-neutral-100 font-bold font-headline',
         large && 'text-2xl',
         !large && 'text-xl',
-        className
+        className,
       )}
     >
       {draft && '📝 '} {title}

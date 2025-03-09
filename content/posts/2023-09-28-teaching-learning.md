@@ -31,4 +31,5 @@ Another learning that happens in this constellation is identifying holes in my u
 This post is no different, by the way. It's me trying to explain the concept of teaching to learn.
 
 [^1]: This should be done by you directly, because it will be forgotten otherwise
+
 [^2]: In this situation, please admit that you don't know and either come back with something or find the solution together. Do not pretend you know because you feel like that as the "teacher" you have to. People will notice and it provides no value to anyone

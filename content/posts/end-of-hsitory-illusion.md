@@ -20,5 +20,3 @@ They authors of the study behind the illusion have an idea of why that is the ca
 [^1]: It's in German, but I suggest you watch it if you can. It somewhat relates to [what I wrote about goals](https://www.chrisjarling.com/posts/2023-01-04-goals) in the beginning of the year.
 
 [^2]: In fact, when I tried to come up with where I was five years ago, I ended up 4 years ago and was only able to correct myself because I looked at some old pictures of the time.
-
-

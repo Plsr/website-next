@@ -1,5 +1,4 @@
 ---
-
 title: Being the best version of myself
 date: '2019-05-12 19:46 +0200'
 tags: life self-improvement

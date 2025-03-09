@@ -6,6 +6,7 @@ tags: life music
 slug: sportify-wrapped-2023
 draft: false
 ---
+
 _(Sorry for the large images in this post. I may make images be prettier sometime in the future.)_
 
 Another year in music done. Here's what mine has looked like:
@@ -27,6 +28,7 @@ I listened to a lot of Drake as well, but it was almost exclusively the "Scorpio
 As for the remaining artists, they're part of the "Casey Nesitat Music" playlist I listened a lot to while running, after I started rewatching Casey's Vlogs in early summer.
 
 ### Top Songs
+
 ![2023 Top Songs](https://ik.imagekit.io/chrisjarling/spot-wrap23-3.JPG?updatedAt=1701615533718)
 
 "I'm Sitting Here Wondering" is the first song in the "Casey Neistat Music" playlist, so I listened to that every time I went for a run at least once.
@@ -35,8 +37,8 @@ Now "Butterfly" by "Crazy Town" might look weird. But it's the first song in ano
 
 "Hellrot" was my spring song when the sun started to finally come out again.
 
-
 ### Genre distribution
+
 ![2023 Genere distribution](https://ik.imagekit.io/chrisjarling/spot-wrap23-1.JPG?updatedAt=1701615533712)
 
 I think Spotify has Lionheart listed in "Modern Rock" instead of "Hardcore" or "Beatdown", hence the large portion of it. The rest sounds about right to what I like to listen to.

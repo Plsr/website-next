@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
+import { useEffect, useState } from 'react'
 
 const classNames = 'h-4 w-4'
 

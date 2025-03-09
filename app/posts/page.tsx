@@ -1,10 +1,10 @@
-import { getAllSortedPosts } from '../../lib/entries'
-import { format, getYear } from 'date-fns'
+import { PostListItem } from 'components/post-list-item'
+import { getYear } from 'date-fns'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+import { getAllSortedPosts } from '../../lib/entries'
 import { Post } from '.contentlayer/generated'
-import Link from 'next/link'
-import { PostListItem } from 'components/post-list-item'
 
 export const metadata: Metadata = {
   title: 'Posts - Chris Jarling',

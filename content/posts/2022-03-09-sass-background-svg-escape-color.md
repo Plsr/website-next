@@ -1,5 +1,4 @@
 ---
-
 title: Using sass variables for svg background-image fill
 date: '2022-03-09 22:17 +0100'
 tags: svg web-dev sass

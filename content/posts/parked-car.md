@@ -24,5 +24,3 @@ And, somewhat related, [my favorite video by Casey Neistat](https://www.youtube.
 > Life is like going the wrong way on a moving walkway. Stand still and you go backwards. Walk and you stay put. Gotta hustle to get ahead.
 
 [^1]: I think it originally stems from a religious context. At least all the sources I found online are from religious websites. The original saying seems to be "God can't steer a parked car". The god part did not resonate with me, so I left it out.
-
-

@@ -1,5 +1,4 @@
 ---
-
 title: False assumptions
 date: '2022-10-05T21:24:58.672Z'
 ---

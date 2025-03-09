@@ -1,6 +1,5 @@
 import { PageTitleWithSubline } from 'components/page-title-with-subline'
 import { PostsList } from 'components/posts-list'
-import { getAllSortedPosts } from 'lib/entries'
 
 export default async function PostsIndex() {
   return (

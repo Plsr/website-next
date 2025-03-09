@@ -1,8 +1,9 @@
-import { allLibraryArticles } from '.contentlayer/generated'
 import { StyledArticleContent } from 'components/styled-article-content'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+import { allLibraryArticles } from '.contentlayer/generated'
 
 type Params = {
   params: Promise<{
@@ -11,7 +12,7 @@ type Params = {
 }
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
-  const params = await props.params;
+  const params = await props.params
   const libraryArticle = allLibraryArticles.find((libraryArticle) => {
     return libraryArticle.computedSlug === params.slug
   })
@@ -42,9 +43,9 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 }
 
 const LibraryArticleDetailPage = async (props: Params) => {
-  const params = await props.params;
+  const params = await props.params
   const libraryArticle = allLibraryArticles.find(
-    (article) => article.computedSlug === params.slug
+    (article) => article.computedSlug === params.slug,
   )
 
   if (!libraryArticle) {
