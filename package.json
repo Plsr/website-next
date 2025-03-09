@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"next dev\"",
-    "build": "tinacms build && next build",
-    "start": "tinacms build && next start",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
     "postinstall": "npx prisma generate"
   },
@@ -16,7 +16,6 @@
     "@next/mdx": "^14.2.5",
     "@octokit/types": "^8.1.1",
     "@prisma/client": "^4.11.0",
-    "@tinacms/cli": "^1.2.1",
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.1.1",
     "clsx": "^1.2.1",
@@ -43,7 +42,6 @@
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "remark-wiki-link": "^1.0.4",
-    "tinacms": "^1.2.1",
     "unified": "^10.1.2"
   },
   "devDependencies": {
