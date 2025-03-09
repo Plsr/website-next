@@ -13,7 +13,7 @@ jobs:
     needs: ci
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME: ${{ github.repository }}
+      IMAGE_NAME: "plsr/website-next"
     concurrency:
       group: deploy-production
     environment:
