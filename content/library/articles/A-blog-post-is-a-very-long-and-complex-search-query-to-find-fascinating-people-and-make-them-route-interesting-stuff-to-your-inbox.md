@@ -31,6 +31,6 @@ On the question of distribution:
 
 and
 
-> It turns out that if you’ve written something that _you_ find interesting, it is not unlikely that people you like will find it interesting too, and pass it on if you give them the chance.
+> It turns out that if you’ve written something that *you* find interesting, it is not unlikely that people you like will find it interesting too, and pass it on if you give them the chance.
 
 A great read about information flow on the internet. Made me jump out of my chair.

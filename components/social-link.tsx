@@ -1,4 +1,4 @@
-import { type JSX,ReactNode } from 'react'
+import { type JSX, ReactNode } from 'react'
 
 type SocialLinkProps = {
   children: ReactNode | ReactNode[]
