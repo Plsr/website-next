@@ -136,9 +136,12 @@ importers:
       eslint-config-next:
         specifier: 15.2.0
         version: 15.2.0(eslint@9.22.0(jiti@1.18.2))(typescript@4.8.4)
+      eslint-config-prettier:
+        specifier: ^10.1.1
+        version: 10.1.1(eslint@9.22.0(jiti@1.18.2))
       eslint-plugin-prettier:
         specifier: ^4.2.1
-        version: 4.2.1(eslint@9.22.0(jiti@1.18.2))(prettier@3.5.3)
+        version: 4.2.1(eslint-config-prettier@10.1.1(eslint@9.22.0(jiti@1.18.2)))(eslint@9.22.0(jiti@1.18.2))(prettier@3.5.3)
       eslint-plugin-simple-import-sort:
         specifier: ^12.1.1
         version: 12.1.1(eslint@9.22.0(jiti@1.18.2))
@@ -1687,6 +1690,12 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  eslint-config-prettier@10.1.1:
+    resolution: {integrity: sha512-4EQQr6wXwS+ZJSzaR5ZCrYgLxqvUjdXctaEtBqHcbkW944B1NQyO4qpdHQbXBONfwxXdkAY81HH4+LUfrg+zPw==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
 
   eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
@@ -5696,6 +5705,10 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
+  eslint-config-prettier@10.1.1(eslint@9.22.0(jiti@1.18.2)):
+    dependencies:
+      eslint: 9.22.0(jiti@1.18.2)
+
   eslint-import-resolver-node@0.3.9:
     dependencies:
       debug: 3.2.7
@@ -5781,11 +5794,13 @@ snapshots:
       safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-prettier@4.2.1(eslint@9.22.0(jiti@1.18.2))(prettier@3.5.3):
+  eslint-plugin-prettier@4.2.1(eslint-config-prettier@10.1.1(eslint@9.22.0(jiti@1.18.2)))(eslint@9.22.0(jiti@1.18.2))(prettier@3.5.3):
     dependencies:
       eslint: 9.22.0(jiti@1.18.2)
       prettier: 3.5.3
       prettier-linter-helpers: 1.0.0
+    optionalDependencies:
+      eslint-config-prettier: 10.1.1(eslint@9.22.0(jiti@1.18.2))
 
   eslint-plugin-react-hooks@5.2.0(eslint@9.22.0(jiti@1.18.2)):
     dependencies:
