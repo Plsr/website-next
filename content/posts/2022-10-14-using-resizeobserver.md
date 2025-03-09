@@ -1,5 +1,4 @@
 ---
-
 title: Using ResizeObserver
 excerpt: Sometimes, you want to listen to resize events of a specific element.
 date: '2022-10-14T06:12:12.706Z'

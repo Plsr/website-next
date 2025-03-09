@@ -1,5 +1,4 @@
 ---
-
 title: Things that make me happy
 date: '2019-02-20 21:24 +0100'
 tags: life minimalism

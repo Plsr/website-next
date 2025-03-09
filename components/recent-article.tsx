@@ -21,7 +21,7 @@ export default function RecentArticle({ date, slug, title, excerpt }: Props) {
       <small className="text-gray-500 block">{formattedDate}</small>
       <h4
         className={clsx(
-          'cursor-pointer transition text-lg duration-300 font-semibold mb-2 font-title group-hover:text-indigo-400'
+          'cursor-pointer transition text-lg duration-300 font-semibold mb-2 font-title group-hover:text-indigo-400',
         )}
       >
         {title}

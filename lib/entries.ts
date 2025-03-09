@@ -65,7 +65,7 @@ type GetPaginatedNotesParams = {
 
 export const filterByTag = <T extends EntryType>(
   tagName: string,
-  entriesData: EntryPostTypesMap[T][]
+  entriesData: EntryPostTypesMap[T][],
 ) => {
   return entriesData.filter((entryData) => {
     if (!entryData.tags) return false
@@ -82,7 +82,7 @@ export const getSortedAndFilteredEntries = async <T extends EntryType>({
 }: {
   filterFunction?: <K extends EntryType>(
     filterString: string,
-    entries: EntryPostTypesMap[K][]
+    entries: EntryPostTypesMap[K][],
   ) => EntryPostTypesMap[K][]
   filterString?: string
   entryType: T
@@ -156,7 +156,7 @@ export const getAllEntryIds = (entryType: EntryType): string[] => {
 }
 
 export const getAllSortedEntries = async <T extends EntryType>(
-  entryType: T
+  entryType: T,
 ): Promise<EntryPostTypesMap[T][]> => {
   const allEntries = await getAllEntries(entryType)
   const sortedEntries = allEntries.sort(({ date: a }, { date: b }) => {
@@ -174,7 +174,7 @@ export const getAllSortedEntries = async <T extends EntryType>(
 
 export const getEntryData = async <T extends EntryType>(
   id: string,
-  entryType: T
+  entryType: T,
 ): Promise<EntryPostTypesMap[T]> => {
   const entriesDirectory = getEntriesDirectory(entryType)
   const fullPath = path.join(entriesDirectory, `${id}.md`)
@@ -197,7 +197,7 @@ export const getEntryData = async <T extends EntryType>(
 }
 
 const getAllEntries = async <T extends EntryType>(
-  entryType: T
+  entryType: T,
 ): Promise<EntryPostTypesMap[T][]> => {
   const entriesDirectory = getEntriesDirectory(entryType)
 
@@ -233,7 +233,7 @@ const getAllEntries = async <T extends EntryType>(
         description,
         ...formattedFrontMatter(matterResult.data as MatterData),
       }
-    })
+    }),
   )
 
   return allEntriesData
@@ -287,7 +287,7 @@ export const getAllTags = () => {
       ({
         tagName,
         count,
-      } as Tag)
+      }) as Tag,
   )
 
   const sortedTagsArray = tagsArray.sort((a, b) => b.count - a.count)
@@ -301,7 +301,7 @@ export const getAllSortedPosts = (filter: PostsFilter = { draft: false }) => {
   const hasFilters = Object.keys(filter).length > 0
 
   const sortedPosts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
+    compareDesc(new Date(a.date), new Date(b.date)),
   )
 
   if (!hasFilters) {
@@ -310,13 +310,13 @@ export const getAllSortedPosts = (filter: PostsFilter = { draft: false }) => {
 
   return sortedPosts.filter((post) =>
     Object.entries(filter).every(
-      ([key, value]) => post[key as keyof PostsFilter] === value
-    )
+      ([key, value]) => post[key as keyof PostsFilter] === value,
+    ),
   )
 }
 
 export const getAllSortedNotes = () => {
   return allNotes.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
+    compareDesc(new Date(a.date), new Date(b.date)),
   )
 }

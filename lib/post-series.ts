@@ -8,7 +8,7 @@ export type SeriesEntry = {
 
 export const postSeriesList = (seriesName: string) => {
   const seriesPosts = allPosts.filter(
-    (post) => post.series && post.series === seriesName
+    (post) => post.series && post.series === seriesName,
   )
 
   return seriesPosts

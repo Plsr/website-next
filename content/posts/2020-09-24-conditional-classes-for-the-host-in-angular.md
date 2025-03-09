@@ -1,5 +1,4 @@
 ---
-
 title: Conditional classes for the :host in Angular
 date: '2020-09-24 09:19 +0200'
 tags: web-dev angular javascript

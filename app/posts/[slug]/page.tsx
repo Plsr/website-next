@@ -18,7 +18,7 @@ type Params = {
 export const generateStaticParams = () => []
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
-  const params = await props.params;
+  const params = await props.params
   const post = allPosts.find((post: Post) => {
     return post.computedSlug === params.slug
   })
@@ -48,7 +48,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 }
 
 export default async function Post(props: Params) {
-  const params = await props.params;
+  const params = await props.params
   const post = allPosts.find((post: Post) => {
     return post.computedSlug === params.slug
   })
@@ -84,9 +84,7 @@ export default async function Post(props: Params) {
         <StyledArticleContent contentHtml={post.body.html} />
       </div>
       <div className="space-x-4">
-        {post.tags?.split(' ').map((tag) => (
-          <Tag name={tag} key={tag} />
-        ))}
+        {post.tags?.split(' ').map((tag) => <Tag name={tag} key={tag} />)}
       </div>
     </div>
   )

@@ -1,5 +1,4 @@
 ---
-
 title: 'The AirPods Pro Max'
 date: '2023-01-20T21:07:40.785Z'
 tags: tech

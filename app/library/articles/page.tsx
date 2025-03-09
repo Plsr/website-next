@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const ArticlesIndexPage = () => {
   const sortedLibraryArticles = allLibraryArticles.sort((a, b) =>
-    compareDesc(new Date(a.createdAt), new Date(b.createdAt))
+    compareDesc(new Date(a.createdAt), new Date(b.createdAt)),
   )
 
   return (

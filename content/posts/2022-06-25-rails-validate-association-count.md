@@ -1,5 +1,4 @@
 ---
-
 title: Validate association count in Rails
 date: '2022-06-25 11:51 +0200'
 tags: rails programming web-dev

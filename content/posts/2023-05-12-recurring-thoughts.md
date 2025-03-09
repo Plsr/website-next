@@ -1,5 +1,4 @@
 ---
-
 title: Recurring thoughts
 date: '2023-05-12T09:25:26.271Z'
 excerpt: On how I get my head to shut up.
@@ -15,7 +14,7 @@ I have a lot of thoughts over the course of the day. Everything I do is accompan
 In case you don’t have it: If you watched the show “Scrubs”, it’s a lot like J.D. narrating everything that happens.  
 This inner monologue is not a problem per se. But it becomes one once it goes into repeat.
 
-Having it go on repeat is exhausting. Often times, it leads to pondering over things, which is even more exhausting. It causes me not to be in the present,  but either in the (or _a_ theoretical) future or the past. Those are not good places to spend the majority of your thoughts on. Ultimately, it tends to drag me down.   
+Having it go on repeat is exhausting. Often times, it leads to pondering over things, which is even more exhausting. It causes me not to be in the present, but either in the (or _a_ theoretical) future or the past. Those are not good places to spend the majority of your thoughts on. Ultimately, it tends to drag me down.  
 So, there’s a new rule in my life: **No recurring thoughts allowed.**
 
 That’s easy to say, but how do I make them go away? It sounds a lot like telling someone not to think of a pink elephant or telling people suffering from depression to “just be happy and smile more”.  

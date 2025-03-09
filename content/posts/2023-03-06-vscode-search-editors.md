@@ -1,5 +1,4 @@
 ---
-
 title: VS Code Search Editors
 date: '2023-03-06T23:36:26.271Z'
 excerpt: On the usefuleness of search editors in VS Code

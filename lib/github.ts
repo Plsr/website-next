@@ -10,7 +10,7 @@ export const getWebsiteReleases = async (): Promise<ReleasesResponseData[]> => {
     {
       owner: 'Plsr',
       repo: 'website-next',
-    }
+    },
   )
 
   const releaseData = releases.data.filter((release: ReleasesResponseData) => {

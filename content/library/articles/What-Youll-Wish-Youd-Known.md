@@ -10,13 +10,13 @@ On talent: There is such a thing as natural talent; some people are better in sp
 
 > \[...] if you're trying to choose between two theories and one gives you an excuse for being lazy, the other one is probably right.
 
-So you can get good in *most* things by putting in hard work.
+So you can get good in _most_ things by putting in hard work.
 
 On what to work on: Things that interest you and open opportunities. Try not to waste your time.
 
 > It's not so important what you work on, so long as you're not wasting your time. Work on things that interest you and increase your options, and worry later about which you'll take.
 
-> The best protection is always to be working on hard problems. \[...] Hard means worry: if you're not worrying that something you're making will come out badly, or that you won't be able to understand something you're studying, then it isn't hard enough. 
+> The best protection is always to be working on hard problems. \[...] Hard means worry: if you're not worrying that something you're making will come out badly, or that you won't be able to understand something you're studying, then it isn't hard enough.
 
 Curiosity seems to change from children to adults, from broad to narrow and specific:
 

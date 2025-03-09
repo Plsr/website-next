@@ -11,7 +11,7 @@ type Params = {
 }
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
-  const params = await props.params;
+  const params = await props.params
   const libraryArticle = allLibraryArticles.find((libraryArticle) => {
     return libraryArticle.computedSlug === params.slug
   })
@@ -42,9 +42,9 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 }
 
 const LibraryArticleDetailPage = async (props: Params) => {
-  const params = await props.params;
+  const params = await props.params
   const libraryArticle = allLibraryArticles.find(
-    (article) => article.computedSlug === params.slug
+    (article) => article.computedSlug === params.slug,
   )
 
   if (!libraryArticle) {

@@ -1,5 +1,4 @@
 ---
-
 title: I bought the wrong smartwatch
 date: '2022-09-27T22:48:04.345Z'
 ---

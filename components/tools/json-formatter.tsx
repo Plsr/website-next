@@ -13,7 +13,7 @@ export const JSONFormatter = () => {
   const [formattedResult, setFormattedResult] = useState<string | null>(null)
   const [indentation, setIndentation] = useState<number>(2)
   const [indentationType, setIndentationType] = useState<'tabs' | 'spaces'>(
-    'spaces'
+    'spaces',
   )
   const [error, setError] = useState<string | null>(null)
 
@@ -86,7 +86,7 @@ export const JSONFormatter = () => {
                 indentationType === 'spaces' &&
                   'bg-accent-700 text-base-200 border-accent-600',
                 indentationType !== 'spaces' &&
-                  'bg-base-800 text-base-300 border-base-700'
+                  'bg-base-800 text-base-300 border-base-700',
               )}
               onClick={() => setIndentationType('spaces')}
             >
@@ -98,7 +98,7 @@ export const JSONFormatter = () => {
                 indentationType === 'tabs' &&
                   'bg-accent-700 text-base-200 border-accent-600',
                 indentationType !== 'tabs' &&
-                  'bg-base-800 text-base-300 border-base-700'
+                  'bg-base-800 text-base-300 border-base-700',
               )}
               onClick={() => setIndentationType('tabs')}
             >
@@ -129,7 +129,7 @@ export const JSONFormatter = () => {
         <div
           className={clsx(
             'border-base-800 p-4 bg-base-900 w-full border rounded-lg overflow-x-scroll',
-            formattedResult ? 'flex' : 'hidden'
+            formattedResult ? 'flex' : 'hidden',
           )}
         >
           <pre>

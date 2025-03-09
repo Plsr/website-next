@@ -12,7 +12,9 @@ pre[class*='language-'] {
   color: #c3cee3;
   background: #0f172a;
 
-  font-family: Roboto Mono, monospace;
+  font-family:
+    Roboto Mono,
+    monospace;
   font-size: 0.9em;
   line-height: 1.5em;
 

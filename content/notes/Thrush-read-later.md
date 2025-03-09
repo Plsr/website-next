@@ -11,7 +11,7 @@ I‘m in the same boat. I‘ve been using Instapaper for the past 10 years or so
 
 However, I‘m fine with that. I don‘ t have the ambition to have „Instapaper Zero“. At the time of writing this, I have 273 unread items lying around. I‘ll probably never read most of them. But that‘s fine. I open up Instapaper when I want to read something, knowing that I have 273 items stored away that I will most likely find interesting.
 
-This hasn‘t always been the case, but since accepting that I will not read a lot of the things I save for later, using Instapaper has been a lot more fun and felt less like work or something I have to do. Theres a few rules I have for saving, though: 
+This hasn‘t always been the case, but since accepting that I will not read a lot of the things I save for later, using Instapaper has been a lot more fun and felt less like work or something I have to do. Theres a few rules I have for saving, though:
 
-* Only save things I have read a paragraph or two of and would have continued if I had the time. No saving based on interesting headlines.
-* No news. By the time I get to read them, they‘re old and not of interest anyways.
+- Only save things I have read a paragraph or two of and would have continued if I had the time. No saving based on interesting headlines.
+- No news. By the time I get to read them, they‘re old and not of interest anyways.

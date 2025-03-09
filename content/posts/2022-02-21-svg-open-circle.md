@@ -1,5 +1,4 @@
 ---
-
 title: Circle with a gap in SVG
 date: '2022-02-21 22:03 +0100'
 tags: web-dev svg

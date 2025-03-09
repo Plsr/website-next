@@ -12,13 +12,16 @@ in general.
 
 They address various areas in which quality of children play has worsened:
 
-Neighborhoods  
+Neighborhoods
+
 > But now, at least in the United States, if you send your child out to play there are likely no other kids with whom to play, and worse, there is some chance that someone will call the police and you may be reported to Child Protective Services for child neglect.
 
-Playgrounds  
+Playgrounds
+
 > If you look at public playground today, what do you see? Most often nobody or a bunch of little kids with their moms [...] minding their every move and telling them not to do this or that.
 
 Schools
+
 > [...] at many schools there are rules about what you can and cannot do at recess that essentially destroy play
 
 However, some elementary schools now have Play Clubs.

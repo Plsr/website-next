@@ -16,7 +16,7 @@ export function FooterRow({ listItems, title }: FooterRowProps) {
         {listItems.map((item, index) =>
           cloneElement(item, {
             className: `${index === listItems.length - 1 ? 'mb-0' : 'mb-1'}`,
-          })
+          }),
         )}
       </div>
     </div>

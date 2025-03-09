@@ -1,5 +1,4 @@
 ---
-
 title: Grocery shopping with helicopters
 date: '2023-02-26T22:27:26.271Z'
 excerpt: Web development has become a lot more complex over time. I think this is a good thing. Also I like helicopters and bikes.

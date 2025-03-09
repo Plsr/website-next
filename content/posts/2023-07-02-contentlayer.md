@@ -41,6 +41,7 @@ export const Post = defineDocumentType(() => ({
   },
 }))
 ```
+
 Most of this is just type safety for the markdown front matter. If a post does not satisfy all required fields, it will not be processed and Contentlayer will print out a warning. This prevents me from breaking my site with malformed front matter on a post.
 
 What's interesting are the computed fields. These can be pretty much everything you want to add to the post as an attribute after the file was read. In my case, I have an `url` which makes sure my links to posts have the same format everywhere and a `computedSlug` which uses either the defined slug from the front matter or generates one.
@@ -51,11 +52,10 @@ In `posts/page.tsx` I can then just use the method Contentlayer generates for ev
 import { allPosts } from '.contentlayer/generated'
 
 export default async function PostsIndex() {
-  return (
-		<PostsList posts={allPosts} />
-  )
+  return <PostsList posts={allPosts} />
 }
 ```
+
 _(Please not that this is a simplified version of the page. [Here's](https://github.com/Plsr/website-next/blob/874dc8294381045c6e1c793a308481227978a1ac/app/posts/page.tsx) the actual version as of time of this writing)._
 
 All in all, I'm really pleased with effortless the setup was and how much more simple my code got using contentlayer.

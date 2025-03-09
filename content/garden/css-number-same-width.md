@@ -20,4 +20,3 @@ In tailwind, we can use the [existing util](https://tailwindcss.com/docs/font-va
 ```html
 <div class="tabular-nums"></div>
 ```
-

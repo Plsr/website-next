@@ -27,10 +27,10 @@ On the question of distribution:
 
 > The social structure of the internet is shaped like a river.\
 > \
-> People with big followings, say someone like Sam Harris, is the mouth of the Mississippi emptying into the Mexican Gulf. Sam has millions of tributaries. There are perhaps a few hundred people Sam pays close attention to, and these in turn have a few hundred they listen to—tributaries flowing into headwaters flowing into rivers. 
+> People with big followings, say someone like Sam Harris, is the mouth of the Mississippi emptying into the Mexican Gulf. Sam has millions of tributaries. There are perhaps a few hundred people Sam pays close attention to, and these in turn have a few hundred they listen to—tributaries flowing into headwaters flowing into rivers.
 
 and
 
-> It turns out that if you’ve written something that \_you\_ find interesting, it is not unlikely that people you like will find it interesting too, and pass it on if you give them the chance.
+> It turns out that if you’ve written something that _you_ find interesting, it is not unlikely that people you like will find it interesting too, and pass it on if you give them the chance.
 
 A great read about information flow on the internet. Made me jump out of my chair.

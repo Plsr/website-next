@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 export const generateStaticParams = () => []
 
 export default async function Note(props: Props) {
-  const params = await props.params;
+  const params = await props.params
   const note = allNotes.find((note) => note.slug === params.slug)
 
   if (!note) {
@@ -18,7 +18,7 @@ export default async function Note(props: Props) {
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params;
+  const params = await props.params
   const note = allNotes.find((note) => note.slug === params.slug)
 
   if (!note) {
