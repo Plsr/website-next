@@ -44,7 +44,6 @@ export default function Footer() {
             <FooterRow
               title="Legal"
               listItems={[
-                <FooterRow.Item key="imprint" href="/imprint" text="Imprint" />,
                 <FooterRow.Item
                   key="privacy"
                   href="/privacy"
