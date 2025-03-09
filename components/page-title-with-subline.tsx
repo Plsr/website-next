@@ -22,7 +22,7 @@ export const PageTitleWithSubline = ({
 
 type PageTitleWithSublineProps = {
   title: string
-  subline?: ReactElement
+  subline?: ReactElement<any>
 }
 
 const Subline = ({ children }: { children: ReactNode | ReactNode[] }) => {

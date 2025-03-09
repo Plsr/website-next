@@ -35,5 +35,5 @@ type props = {
   title: string
   content: string
   link: string
-  icon: ReactElement
+  icon: ReactElement<any>
 }

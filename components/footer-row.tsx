@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 type FooterRowProps = {
   title: string
-  listItems: ReactElement[]
+  listItems: ReactElement<any>[]
 }
 
 export function FooterRow({ listItems, title }: FooterRowProps) {
