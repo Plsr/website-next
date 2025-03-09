@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { ReactElement, ReactNode } from 'react'
+import { JSX, ReactNode } from 'react'
 
 export const PageTitleWithSubline = ({
   title,
@@ -22,7 +22,7 @@ export const PageTitleWithSubline = ({
 
 type PageTitleWithSublineProps = {
   title: string
-  subline?: ReactElement<any>
+  subline?: JSX.Element
 }
 
 const Subline = ({ children }: { children: ReactNode | ReactNode[] }) => {

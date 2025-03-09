@@ -1,6 +1,7 @@
-import { Post } from '.contentlayer/generated'
 import { format } from 'date-fns'
 import Link from 'next/link'
+
+import { Post } from '.contentlayer/generated'
 
 type Props = {
   post: Post

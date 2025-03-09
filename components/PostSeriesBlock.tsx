@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import { SeriesEntry } from '../lib/post-series'
 
 type PostSeriesBlockProps = {

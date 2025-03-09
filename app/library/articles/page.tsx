@@ -1,9 +1,9 @@
-import { allLibraryArticles } from '.contentlayer/generated'
-import { PageTitleWithSubline } from 'components/page-title-with-subline'
 import { StyledArticleContent } from 'components/styled-article-content'
 import { compareDesc, format } from 'date-fns'
 import { Metadata } from 'next'
 import Link from 'next/link'
+
+import { allLibraryArticles } from '.contentlayer/generated'
 
 export const metadata: Metadata = {
   title: 'Library: Articles - Chris Jarling',

@@ -2,7 +2,7 @@ import Divider from 'components/divider'
 import { Note } from 'components/note'
 import { PageTitleWithSubline } from 'components/page-title-with-subline'
 import { Pagination } from 'components/pagination'
-import { getPaginatedNotes, NotePost } from 'lib/entries'
+import { getPaginatedNotes } from 'lib/entries'
 
 export const generateStaticParams = () => []
 

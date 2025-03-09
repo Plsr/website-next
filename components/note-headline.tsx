@@ -1,12 +1,7 @@
-import {
-  ArrowRightIcon,
-  ArrowSmallRightIcon,
-  ArrowUturnRightIcon,
-  ChevronDoubleRightIcon,
-  LinkIcon,
-} from '@heroicons/react/24/outline'
+import { ArrowUturnRightIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import Link from 'next/link'
+
 import { BlogPostHeadline } from './blog-post-headline'
 import { PostMetadata } from './post-metadata'
 

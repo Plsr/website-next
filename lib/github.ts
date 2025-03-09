@@ -35,7 +35,7 @@ export type ReleasesResponseData = {
   prerelease: boolean
   created_at: Date
   published_at: Date
-  assets: any[]
+  assets: unknown[]
   tarball_url: string
   zipball_url: string
   body: string

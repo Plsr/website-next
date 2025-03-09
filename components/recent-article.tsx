@@ -1,7 +1,8 @@
-import { StyledArticleContent } from './styled-article-content'
 import clsx from 'clsx'
-import Link from 'next/link'
 import { format } from 'date-fns'
+import Link from 'next/link'
+
+import { StyledArticleContent } from './styled-article-content'
 
 type Props = {
   date: string

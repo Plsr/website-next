@@ -1,7 +1,7 @@
-import { Tag as TagComponent } from './tag'
-import type { Tag } from '../lib/entries'
-
 import type { JSX } from 'react'
+
+import type { Tag } from '../lib/entries'
+import { Tag as TagComponent } from './tag'
 
 type TagsListProps = {
   tags: Tag[]

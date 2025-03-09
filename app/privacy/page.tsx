@@ -1,4 +1,3 @@
-import { Headline } from '../../components/headline'
 import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 
 const PrivacyPage = () => {

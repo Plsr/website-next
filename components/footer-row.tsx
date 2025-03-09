@@ -1,9 +1,9 @@
-import { ReactElement, cloneElement } from 'react'
 import Link from 'next/link'
+import { cloneElement, JSX } from 'react'
 
 type FooterRowProps = {
   title: string
-  listItems: ReactElement<any>[]
+  listItems: JSX.Element[]
 }
 
 export function FooterRow({ listItems, title }: FooterRowProps) {

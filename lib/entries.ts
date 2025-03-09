@@ -1,15 +1,16 @@
-import path from 'path'
+import { compareDesc } from 'date-fns'
+import format from 'date-fns/format'
 import fs from 'fs'
 import matter from 'gray-matter'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
+import path from 'path'
+import rehypeFigure from 'rehype-figure'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeStringify from 'rehype-stringify'
-import rehypeFigure from 'rehype-figure'
-import format from 'date-fns/format'
-import { allPosts, Note, allNotes, Post } from '.contentlayer/generated'
-import { compareDesc } from 'date-fns'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import { unified } from 'unified'
+
+import { allNotes, allPosts, Post } from '.contentlayer/generated'
 
 type MatterData = {
   title: string
@@ -47,7 +48,6 @@ export type BlogPost = FormattedMatterData & {
 }
 
 export type EntryType = 'posts' | 'notes'
-type EntryTypeWithTags = 'posts'
 
 export type EntryPostTypesMap = {
   posts: BlogPost
@@ -221,7 +221,7 @@ const getAllEntries = async <T extends EntryType>(
         excerpt = processedContent.value.toString().substring(0, 300) + '...'
       }
 
-      let description =
+      const description =
         processedContent.value.toString().substring(0, 152) + '...'
 
       const contentHtml = file.value.toString()
@@ -277,7 +277,11 @@ export const getAllTags = () => {
 
     if (postTags && postTags.length > 0) {
       postTags.forEach((tag) => {
-        allTags[tag] ? (allTags[tag] += 1) : (allTags[tag] = 1)
+        if (allTags[tag]) {
+          allTags[tag] += 1
+        } else {
+          allTags[tag] = 1
+        }
       })
     }
   })

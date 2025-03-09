@@ -1,5 +1,5 @@
 import { TagsList } from '../../components/tags-list'
-import { getAllTags, Tag } from '../../lib/entries'
+import { getAllTags } from '../../lib/entries'
 
 const TagsIndexPage = async () => {
   const tags = getAllTags()

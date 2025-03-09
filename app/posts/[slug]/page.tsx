@@ -1,13 +1,13 @@
-import { StyledArticleContent } from 'components/styled-article-content'
-import { BlogPostHeadline } from 'components/blog-post-headline'
 import { PostMetadata } from 'components/post-metadata'
 import { PostSeriesBlock } from 'components/PostSeriesBlock'
-import { postSeriesList } from 'lib/post-series'
+import { StyledArticleContent } from 'components/styled-article-content'
 import { Tag } from 'components/tag'
-import { notFound } from 'next/navigation'
-import { allPosts, Post } from '.contentlayer/generated'
 import { format } from 'date-fns'
+import { postSeriesList } from 'lib/post-series'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+
+import { allPosts, Post as PostType } from '.contentlayer/generated'
 
 type Params = {
   params: Promise<{
@@ -19,7 +19,7 @@ export const generateStaticParams = () => []
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params
-  const post = allPosts.find((post: Post) => {
+  const post = allPosts.find((post: PostType) => {
     return post.computedSlug === params.slug
   })
 
@@ -49,7 +49,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
 export default async function Post(props: Params) {
   const params = await props.params
-  const post = allPosts.find((post: Post) => {
+  const post = allPosts.find((post: PostType) => {
     return post.computedSlug === params.slug
   })
 

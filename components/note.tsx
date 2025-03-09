@@ -1,12 +1,12 @@
 import { ArrowUturnRightIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
+import { format } from 'date-fns'
 import Link from 'next/link'
-import { NotePost } from '../lib/entries'
+
 import { BlogPostHeadline } from './blog-post-headline'
 import { PostMetadata } from './post-metadata'
 import { StyledArticleContent } from './styled-article-content'
 import { Note as NoteType } from '.contentlayer/generated'
-import { format } from 'date-fns'
 
 type NoteProps = {
   note: NoteType

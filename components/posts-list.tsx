@@ -1,18 +1,9 @@
-import { Post } from '.contentlayer/generated'
-import { PostMetadata } from './post-metadata'
-import Link from 'next/link'
-import { BlogPostHeadline } from './blog-post-headline'
-import { StyledArticleContent } from './styled-article-content'
-import { Tag } from './tag'
-import format from 'date-fns/format'
-import { getAllSortedPosts } from 'lib/entries'
 import { getYear } from 'date-fns'
+import { getAllSortedPosts } from 'lib/entries'
 import { notFound } from 'next/navigation'
-import { PostListItem } from './post-list-item'
 
-type Props = {
-  posts: Post[]
-}
+import { PostListItem } from './post-list-item'
+import { Post } from '.contentlayer/generated'
 
 type PostsByYear = {
   [key: number]: Post[]

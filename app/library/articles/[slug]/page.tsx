@@ -1,8 +1,9 @@
-import { allLibraryArticles } from '.contentlayer/generated'
 import { StyledArticleContent } from 'components/styled-article-content'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+import { allLibraryArticles } from '.contentlayer/generated'
 
 type Params = {
   params: Promise<{

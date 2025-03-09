@@ -9,7 +9,6 @@ import { useRef, useState } from 'react'
 
 export const JSONFormatter = () => {
   const inputRef = useRef<HTMLTextAreaElement>(null)
-  const outputRef = useRef<HTMLTextAreaElement>(null)
   const [formattedResult, setFormattedResult] = useState<string | null>(null)
   const [indentation, setIndentation] = useState<number>(2)
   const [indentationType, setIndentationType] = useState<'tabs' | 'spaces'>(

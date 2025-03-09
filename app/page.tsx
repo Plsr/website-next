@@ -1,6 +1,6 @@
+import { PostListItem } from 'components/post-list-item'
 import { getPaginatedPosts } from 'lib/entries'
 import { Metadata } from 'next'
-import { PostListItem } from 'components/post-list-item'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const { posts, totalPages, currentPage } = getPaginatedPosts({
+  const { posts } = getPaginatedPosts({
     page: 1,
   })
 
