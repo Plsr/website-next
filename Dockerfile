@@ -2,7 +2,7 @@
 
 FROM node:18-alpine AS base
 ARG RELEASE_VERSION=unversioned
-ENV RELEASE_VERSION=$APP_VERSION
+ENV RELEASE_VERSION=$RELEASE_VERSION
 
 # Install dependencies only when needed
 FROM base AS deps
