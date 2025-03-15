@@ -3,8 +3,6 @@ import { FooterRow } from './footer-row'
 const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 
 export default function Footer() {
-  const currentCommitHash =
-    process.env.RELEASE_VERSION || 'non-production build'
   return (
     <div className="mt-auto">
       <div className="px-8 dark:bg-base-900 bg-base-200 py-12">
@@ -56,11 +54,30 @@ export default function Footer() {
           </div>
           <div className="mt-12 flex justify-center items-center text-base-500">
             <small>
-              {copyrightString} - {currentCommitHash}
+              {copyrightString} - <ReleaseVersion />
             </small>
           </div>
         </div>
       </div>
     </div>
+  )
+}
+
+const ReleaseVersion = () => {
+  if (!process.env.RELEASE_VERSION) return 'dev build'
+
+  const displayValue = process.env.RELEASE_VERSION.slice(
+    process.env.RELEASE_VERSION.length - 7,
+    process.env.RELEASE_VERSION.length,
+  )
+  return (
+    <a
+      href={`https://github.com/Plsr/website-next/commit/${process.env.RELEASE_VERSION}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline"
+    >
+      {displayValue}
+    </a>
   )
 }
