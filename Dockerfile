@@ -1,6 +1,8 @@
 # syntax=docker.io/docker/dockerfile:1
 
 FROM node:18-alpine AS base
+ARG RELEASE_VERSION=unversioned
+ENV RELEASE_VERSION=$APP_VERSION
 
 # Install dependencies only when needed
 FROM base AS deps

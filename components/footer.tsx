@@ -3,6 +3,8 @@ import { FooterRow } from './footer-row'
 const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 
 export default function Footer() {
+  const currentCommitHash =
+    process.env.RELEASE_VERSION || 'non-production build'
   return (
     <div className="mt-auto">
       <div className="px-8 dark:bg-base-900 bg-base-200 py-12">
@@ -52,8 +54,10 @@ export default function Footer() {
               ]}
             />
           </div>
-          <div className="mt-12 flex justify-center">
-            <small className="text-base-500">{copyrightString}</small>
+          <div className="mt-12 flex justify-center items-center text-base-500">
+            <small>
+              {copyrightString} - {currentCommitHash}
+            </small>
           </div>
         </div>
       </div>
