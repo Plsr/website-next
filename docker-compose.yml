@@ -3,5 +3,7 @@ services:
     build:
       context: .
       target: runner
+      args:
+        - RELEASE_VERSION=dev-build
     ports:
       - 3000:3000
