@@ -64,7 +64,7 @@ export default function Footer() {
 }
 
 const ReleaseVersion = () => {
-  if (!process.env.RELEASE_VERSION) return 'dev build'
+  if (!process.env.RELEASE_VERSION) return <span>dev build</span>
 
   const displayValue = process.env.RELEASE_VERSION.slice(
     process.env.RELEASE_VERSION.length - 7,
