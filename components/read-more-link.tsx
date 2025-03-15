@@ -20,7 +20,7 @@ export default function ReadMoreLink({
       <div
         className={`transition duration-300 w-full h-0.5 rounded ${
           isHovered ? 'opacity-1' : 'opacity-0'
-        } bg-gradient-to-r from-orange-300 to-fuchsia-400`}
+        } bg-linear-to-r from-orange-300 to-fuchsia-400`}
       />
     </div>
   )

@@ -18,7 +18,7 @@ export const PostSeriesBlock = ({
   }
 
   return (
-    <div className="bg-neutral-800 rounded p-6 inline-block mt-8">
+    <div className="bg-neutral-800 rounded-xs p-6 inline-block mt-8">
       <h3 className="italic text-neutral-300 mb-4">
         This post is part of a series. Here are the other parts:
       </h3>

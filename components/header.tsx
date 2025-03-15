@@ -31,7 +31,7 @@ type NavLinkProps = {
 const NavLink = ({ children, ...rest }: NavLinkProps) => {
   return (
     <Link
-      className="transition-all dark:text-base-500 hover:dark:bg-base-800 hover:dark:text-base-200 px-4 py-2 rounded-full"
+      className="transition-all dark:text-base-500 dark:hover:bg-base-800 dark:hover:text-base-200 px-4 py-2 rounded-full"
       {...rest}
     >
       {children}
