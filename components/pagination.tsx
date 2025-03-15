@@ -17,7 +17,7 @@ export const Pagination = ({
   const hasPreviousPages = currentPage > 1
 
   const baseClass =
-    'transition-all dark:text-base-500 hover:dark:bg-base-800 hover:dark:text-base-200 px-4 py-2 rounded-full'
+    'transition-all dark:text-base-500 dark:hover:bg-base-800 dark:hover:text-base-200 px-4 py-2 rounded-full'
 
   return (
     <div className="flex justify-between">

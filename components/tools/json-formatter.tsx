@@ -115,11 +115,11 @@ export const JSONFormatter = () => {
           )}
           <textarea
             placeholder="Paste your JSON here"
-            className="focus:outline-none focus:border-base-700 resize-none text-base-200 bg-base-900 border border-base-800 p-4 rounded-lg w-full min-h-[400px]"
+            className="focus:outline-hidden focus:border-base-700 resize-none text-base-200 bg-base-900 border border-base-800 p-4 rounded-lg w-full min-h-[400px]"
             ref={inputRef}
           />
           <button
-            className="mt-2 px-4 py-2 bg-accent-600 rounded font-bold"
+            className="mt-2 px-4 py-2 bg-accent-600 rounded-xs font-bold"
             onClick={handleConvertClick}
           >
             Format
