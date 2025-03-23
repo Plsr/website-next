@@ -42,3 +42,6 @@ node_modules
 # content collections
 .contentlayer
 .content-collections
+
+
+.vscode

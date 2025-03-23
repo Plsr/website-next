@@ -20,6 +20,7 @@ const posts = defineCollection({
     return {
       ...document,
       mdx,
+      slug: document.title.toLowerCase().replace(/ /g, '-'),
     }
   },
 })

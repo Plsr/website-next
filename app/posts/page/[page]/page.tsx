@@ -2,6 +2,12 @@ import { Pagination } from 'components/pagination'
 import { PostList } from 'components/postList'
 import { getPostsForPage, totalPages } from 'data/posts.dto'
 
+export async function generateStaticParams() {
+  return Array.from({ length: totalPages({}) }, (_, i) => ({
+    page: (i + 1).toString(),
+  }))
+}
+
 type Props = {
   params: Promise<{ page: string }>
 }

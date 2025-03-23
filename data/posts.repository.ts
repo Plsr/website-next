@@ -10,4 +10,8 @@ export class PostsRepository {
   static getAll() {
     return allPosts
   }
+
+  static getPublished() {
+    return allPosts.filter((post) => !post.draft)
+  }
 }

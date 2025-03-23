@@ -7,10 +7,9 @@ export const totalPages = ({
 }: {
   perPage?: number
 }) => {
-  const posts = PostsRepository.getAll()
-  const publishedPosts = posts.filter((post) => !post.draft)
+  const posts = PostsRepository.getPublished()
 
-  return publishedPosts.length / perPage
+  return posts.length / perPage
 }
 
 export const getPostsForPage = ({
@@ -20,16 +19,19 @@ export const getPostsForPage = ({
   page: number
   perPage?: number
 }) => {
-  const posts = PostsRepository.getAll()
-
-  const publishedPosts = posts.filter((post) => !post.draft)
+  const posts = PostsRepository.getPublished()
 
   // Sort posts newest to oldest
-  const sortedPosts = publishedPosts.sort((a, b) => {
+  const sortedPosts = posts.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime()
   })
 
   const start = (page - 1) * perPage
   const end = start + perPage
   return sortedPosts.slice(start, end)
+}
+
+export const getPostBySlug = ({ slug }: { slug: string }) => {
+  const posts = PostsRepository.getPublished()
+  return posts.find((post) => post.slug === slug)
 }
