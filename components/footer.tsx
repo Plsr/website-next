@@ -34,11 +34,6 @@ export default function Footer() {
                   text="Books"
                   hidden
                 />,
-                <FooterRow.Item
-                  key="articleNotes"
-                  href="/library/articles"
-                  text="Reading Notes"
-                />,
               ]}
             />
             <FooterRow
