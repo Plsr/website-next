@@ -35,3 +35,10 @@ export const getPostBySlug = ({ slug }: { slug: string }) => {
   const posts = PostsRepository.getPublished()
   return posts.find((post) => post.slug === slug)
 }
+
+export const getSortedPosts = () => {
+  const posts = PostsRepository.getPublished()
+  return posts.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime()
+  })
+}

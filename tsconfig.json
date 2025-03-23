@@ -32,7 +32,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated",
     "app/cv/page.mdx"
   ],
   "exclude": ["node_modules"]
