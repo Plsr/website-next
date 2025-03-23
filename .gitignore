@@ -39,5 +39,6 @@ node_modules
 .tina
 .env
 
-# contentlayer
+# content collections
 .contentlayer
+.content-collections
