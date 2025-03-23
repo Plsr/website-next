@@ -1,13 +1,12 @@
+import { Post } from 'content-collections'
 import { getYear } from 'date-fns'
 import { Feed } from 'feed'
 
-import { EntryType } from './entries'
 import { siteUrl } from './utill/site'
-import { Note, Post } from '.contentlayer/generated'
 
 type GenerateFeedParams = {
-  entryType: EntryType
-  entries: Post[] | Note[]
+  entryType: 'posts'
+  entries: Post[]
 }
 
 export const generateFeed = ({ entryType, entries }: GenerateFeedParams) => {
@@ -41,10 +40,10 @@ export const generateFeed = ({ entryType, entries }: GenerateFeedParams) => {
   entries.forEach((entry) => {
     feed.addItem({
       title: createTitle(entry),
-      id: entry._id,
-      link: 'https://chrisjarling.com/' + entry.url,
-      description: entry.body.html,
-      content: entry.body.html,
+      id: entry.title,
+      link: 'https://chrisjarling.com/' + entry.slug,
+      description: entry.content,
+      content: entry.content,
       author: [
         {
           name: 'Chris Jarling',
@@ -59,14 +58,6 @@ export const generateFeed = ({ entryType, entries }: GenerateFeedParams) => {
   return feed
 }
 
-const createTitle = (entry: Post | Note) => {
-  if (entry.type === 'Post') {
-    return entry.title.toString()
-  }
-
-  if (entry.link) {
-    return `► ${entry.headline?.toString() || entry.link.toString()}`
-  }
-
-  return entry.headline?.toString() || entry.title.toString()
+const createTitle = (entry: Post) => {
+  return entry.title.toString()
 }

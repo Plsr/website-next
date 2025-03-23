@@ -1,10 +1,10 @@
-import { getAllSortedPosts } from 'lib/entries'
+import { getSortedPosts } from 'data/posts.dto'
 import { generateFeed } from 'lib/feeds'
 
 export async function GET() {
   const feed = generateFeed({
     entryType: 'posts',
-    entries: getAllSortedPosts(),
+    entries: getSortedPosts(),
   })
 
   return new Response(feed.atom1(), {
