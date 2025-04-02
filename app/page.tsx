@@ -1,5 +1,7 @@
+import clsx from 'clsx'
 import { PostListItem } from 'components/post-list-item'
 import { getPaginatedPosts } from 'lib/entries'
+import { Briefcase, FileText } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -73,8 +75,9 @@ export default async function Home() {
         web development, management and reflections on my personal journey.
       </div>
 
-      <h2 className="not-prose mt-24 mb-4 opacity-60 font-normal">
-        Recent Writing
+      <h2 className="not-prose mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
+        <FileText className="h-4 w-4 text-base-300" />
+        <span>Recent Writing</span>
       </h2>
       <div className="not-prose">
         {posts.slice(0, 3).map((post) => (
@@ -82,6 +85,93 @@ export default async function Home() {
         ))}
       </div>
       <Link href="/posts">See all</Link>
+
+      <div>
+        <h2 className="not-prose mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
+          <Briefcase className="h-4 w-4 text-base-300" />
+          <span>Work History</span>
+        </h2>
+        <TimelineItem
+          title="Engineering Manager"
+          company="Gigs"
+          startDate="2024"
+        />
+        <TimelineItem
+          title="Senior Fullstack Engineer"
+          company="Gigs"
+          startDate="2022"
+          endDate="2024"
+        />
+        <TimelineItem
+          title="Software Engineer"
+          company="Cisco"
+          startDate="2020"
+          endDate="2022"
+        />
+        <TimelineItem
+          title="Fullstack Engineer"
+          company="Railslove"
+          startDate="2016"
+          endDate="2020"
+        />
+        <TimelineItem
+          title="Designer & Developer"
+          company="Self-Founded Agency"
+          startDate="2014"
+          endDate="2016"
+          lastItem
+        />
+      </div>
+    </div>
+  )
+}
+
+type TimelineItemProps = {
+  title: string
+  company: string
+  startDate: string
+  endDate?: string
+  lastItem?: boolean
+}
+const TimelineItem = ({
+  title,
+  company,
+  startDate,
+  endDate,
+  lastItem = false,
+}: TimelineItemProps) => {
+  const current = endDate === undefined
+  return (
+    <div className="relative py-4">
+      {/* Dot */}
+      <div
+        className={clsx(
+          'z-20 w-2 h-2 rounded-full absolute top-[26px] left-0',
+          current ? 'bg-base-200' : 'bg-base-400',
+        )}
+      />
+      {current && (
+        <div className="z-10 w-2 h-2 bg-accent-400 rounded-full absolute top-[26px] left-0 blur-xs" />
+      )}
+      {/* Line */}
+      {!lastItem && (
+        <div className="absolute top-12 left-[2px] bottom-0 w-[2px] bg-gradient-to-b from-base-600 to-base-800" />
+      )}
+
+      <div className="ml-4 flex flex-col">
+        <div className="flex flex-row gap-2">
+          <span>
+            {startDate} {current ? null : ` - ${endDate}`}
+          </span>
+          {current && (
+            <div className="inline bg-accent-800/30 px-2 pt-[5px] pb-[0px] border border-accent-800/70 text-accent-400 rounded-full text-xs">
+              Current
+            </div>
+          )}
+        </div>
+        <span className="text-base-200">{title}</span>
+        <span className="text-sm">{company}</span>
+      </div>
     </div>
   )
 }
