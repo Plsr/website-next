@@ -17,8 +17,8 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      accent: colors.blue,
-      base: colors.zinc,
+      accent: colors.orange,
+      base: colors.stone,
       neutral: {
         50: '#f7f7f8',
         100: '#efeef0',
@@ -34,21 +34,23 @@ module.exports = {
       },
     },
     fontFamily: {
-      title: ['-apple-system, BlinkMacSystemFont, sans-serif'],
-      body: ['-apple-system, BlinkMacSystemFont, sans-serif'],
-      copy: ['-apple-system, BlinkMacSystemFont, sans-serif'],
-      handwriting: ['-apple-system, BlinkMacSystemFont, sans-serif'],
+      title: ['var(--font-main)'],
+      body: ['var(--font-main)'],
+      copy: ['var(--font-main)'],
+      handwriting: ['var(--font-main)'],
     },
     extend: {
       typography: (theme) => ({
         DEFAULT: {
           css: {
             maxWidth: null,
+            color: theme('colors.base.400'),
             h1: {
               fontSize: em(26, 14),
+              color: theme('colors.base.200'),
             },
             a: {
-              color: theme('colors.accent.500'),
+              color: theme('colors.base.100'),
             },
             code: {
               fontSize: '0.7rem',

@@ -4,13 +4,13 @@ import './global.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { Metadata } from 'next'
-import { Rubik } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 import Footer from '../components/footer'
 import Header from '../components/header'
 
-const font = Rubik({
-  weight: ['400', '700'],
+const font = Inter({
+  weight: ['300', '400', '700'],
   subsets: ['latin'],
   variable: '--font-main',
 })
@@ -49,7 +49,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={font.variable}>
-      <body className="h-screen flex flex-col font-body bg-base-50 dark:bg-base-900 overflow-x-hidden text-base-100 dark">
+      <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-[url('/noise.svg')] bg-repeat">
         <Analytics />
         <Header />
         <main className="max-w-3xl w-full mx-auto px-4 mb-12 mt-8">
