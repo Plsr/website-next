@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link, { LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
-import React from 'react'
+import { unstable_ViewTransition as ViewTransition } from 'react'
 
 export default function Header() {
   const pathname = usePathname()
@@ -18,13 +18,15 @@ export default function Header() {
             className="hover:text-accent-600 text-base-300 transition-all"
           >
             <h1 className="-mb-1 font-bold hidden">Chris Jarling</h1>
-            <Image
-              src="/me_notion.jpg"
-              alt="Chris Jarling"
-              width={48}
-              height={48}
-              className="rounded-full w-12 h-12 grayscale-50 hover:grayscale-0 transition-all"
-            />
+            <ViewTransition name="avatar">
+              <Image
+                src="/me_notion.jpg"
+                alt="Chris Jarling"
+                width={48}
+                height={48}
+                className="rounded-full w-12 h-12 grayscale-50 hover:grayscale-0 transition-all"
+              />
+            </ViewTransition>
           </Link>
         </div>
       )}
