@@ -1,19 +1,15 @@
-import { StyledArticleContent } from 'components/styled-article-content'
-import { compareDesc, format } from 'date-fns'
+import { getArticleMetadata } from 'data/getArticleMetadata'
+import { format } from 'date-fns'
 import { Metadata } from 'next'
 import Link from 'next/link'
-
-import { allLibraryArticles } from '.contentlayer/generated'
 
 export const metadata: Metadata = {
   title: 'Library: Articles - Chris Jarling',
   description: 'A list of links I read and found interesting.',
 }
 
-const ArticlesIndexPage = () => {
-  const sortedLibraryArticles = allLibraryArticles.sort((a, b) =>
-    compareDesc(new Date(a.createdAt), new Date(b.createdAt)),
-  )
+const ArticlesIndexPage = async () => {
+  const articlesWithMetadata = await getArticleMetadata()
 
   return (
     <>
@@ -22,13 +18,29 @@ const ArticlesIndexPage = () => {
         <p>Notes on articles I read and found interesting.</p>
       </div>
 
-      {sortedLibraryArticles.map((libraryArticle) => (
+      {articlesWithMetadata.map((libraryArticle) => (
         <Link
           href={`/library/articles/${libraryArticle.computedSlug}`}
           key={libraryArticle._id}
-          className=" -ml-4 -mr-4 mb-2 py-2 px-4 rounded-md  flex flex-col md:flex-row md:items-center md:justify-between gap-x-6  hover:bg-base-900/50 hover:shadow-xs transition-all"
+          className=" -ml-4 -mr-4 md:mb-2 mb-4 py-2 px-4 rounded-md  flex flex-col md:flex-row md:items-center md:justify-between gap-x-6  hover:bg-base-900/50 hover:shadow-xs transition-all"
         >
-          <h2 className="not-prose text-base-300">{libraryArticle.title}</h2>
+          <div>
+            <h2 className="not-prose text-base-300">{libraryArticle.title}</h2>
+            {(libraryArticle.faviconHref || libraryArticle.pageName) && (
+              <div className="flex items-center gap-x-2 mt-1 md:mb-0 mb-2">
+                {libraryArticle.faviconHref && (
+                  <img
+                    src={libraryArticle.faviconHref}
+                    alt={libraryArticle.title}
+                    className="w-4 h-4"
+                  />
+                )}
+                <span className="text-xs text-base-600">
+                  {libraryArticle.pageName}
+                </span>
+              </div>
+            )}
+          </div>
           <span className="shrink-0 text-base-600">
             {format(new Date(libraryArticle.createdAt), 'do LLL, yyyy')}
           </span>
