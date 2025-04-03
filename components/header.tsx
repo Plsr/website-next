@@ -7,7 +7,7 @@ export default function Header() {
       <div className="flex flex-col justify-center">
         <Link
           href="/"
-          className="dark:hover:text-accent-600 dark:text-base-300 transition-all"
+          className="hover:text-accent-600 text-base-300 transition-all"
         >
           <h1 className="-mb-1 font-bold">Chris Jarling</h1>
         </Link>
@@ -17,7 +17,6 @@ export default function Header() {
         <div className="gap-2 flex justify-center items-center">
           <NavLink href="/about">About</NavLink>
           <NavLink href="/now">Now</NavLink>
-          {/* <NavLink href="/digital-garden">Garden</NavLink> */}
         </div>
       </nav>
     </div>
@@ -31,7 +30,7 @@ type NavLinkProps = {
 const NavLink = ({ children, ...rest }: NavLinkProps) => {
   return (
     <Link
-      className="transition-all dark:text-base-500 dark:hover:bg-base-800 dark:hover:text-base-200 px-4 py-2 rounded-full"
+      className="transition-all text-base-500 hover:bg-base-800 hover:text-base-200 px-4 py-2 rounded-full"
       {...rest}
     >
       {children}

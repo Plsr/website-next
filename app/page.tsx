@@ -64,9 +64,11 @@ export default async function Home() {
         whatever responsibility it takes to make the thing I work on a success.
       </div>
       <div className="mt-4">
-        Previously, I worked at <strong>Cisco</strong> and{' '}
-        <strong>Placetel</strong>, where I built web apps for a Could-Based PBX
-        System. I also did some agency work, one of which I co-founded.
+        Previously, I worked at{' '}
+        <strong className="not-prose text-base-300">Cisco</strong> and{' '}
+        <strong className="not-prose text-base-300">Placetel</strong>, where I
+        built web apps for a Could-Based PBX System. I also did some agency
+        work, one of which I co-founded.
       </div>
       <div className=" mt-4">
         This is my personal website, where I share thoughts about programming,
