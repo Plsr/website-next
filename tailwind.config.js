@@ -47,11 +47,9 @@ module.exports = {
             color: theme('colors.base.400'),
             h1: {
               fontSize: em(20, 14),
-              color: theme('colors.base.200'),
             },
             h2: {
               fontSize: em(18, 14),
-              color: theme('colors.base.300'),
             },
             a: {
               color: theme('colors.base.100'),

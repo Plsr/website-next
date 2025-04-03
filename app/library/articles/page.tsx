@@ -16,7 +16,7 @@ const ArticlesIndexPage = () => {
   )
 
   return (
-    <div className="prose dark:prose-invert">
+    <div className="prose prose-invert">
       <h1>Article reading notes</h1>
       <p>Notes on articles I read and found interesting.</p>
       <div className="mb-24 prose" />

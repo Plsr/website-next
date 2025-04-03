@@ -66,7 +66,7 @@ export default async function Post(props: Params) {
           <PostMetadata>
             {format(new Date(post.date), 'do LLL, yyyy')}
           </PostMetadata>
-          <h2 className="mt-0 text-base-800 dark:text-base-300 font-bold text-2xl">
+          <h2 className="mt-0 text-base-300 font-bold text-2xl">
             {post.title}
           </h2>
           {post.draft && (

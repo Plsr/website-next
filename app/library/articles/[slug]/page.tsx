@@ -53,7 +53,7 @@ const LibraryArticleDetailPage = async (props: Params) => {
   }
 
   return (
-    <div className="prose dark:prose-invert" key={libraryArticle._id}>
+    <div className="prose prose-invert" key={libraryArticle._id}>
       <h2>{libraryArticle.title}</h2>
       <span className="text-sm block mb-8">
         Link: <a href={libraryArticle.link}>{libraryArticle.link}</a>
@@ -61,7 +61,7 @@ const LibraryArticleDetailPage = async (props: Params) => {
 
       <StyledArticleContent contentHtml={libraryArticle.body.html} />
 
-      <span className="text-sm text-slate-400 mb-1 block">
+      <span className="text-sm text-base-700 mb-1 block">
         {format(new Date(libraryArticle.createdAt), 'do LLL, yyyy')}
       </span>
     </div>
