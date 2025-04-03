@@ -43,11 +43,11 @@ export default async function PostsIndex() {
     .map((e) => e)
 
   return (
-    <div className="prose dark:prose-invert">
+    <>
       {sortedPostsByYears.map(([year, posts]) => (
         <div className="mb-16 not-prose" key={year}>
           <div className="flex flex-row items-center mb-6">
-            <h2 className="font-headline text-xl text-neutral-800 mr-4">
+            <h2 className="font-headline text-xl text-neutral-600 mr-4">
               {year}
             </h2>
           </div>
@@ -56,6 +56,6 @@ export default async function PostsIndex() {
           })}
         </div>
       ))}
-    </div>
+    </>
   )
 }
