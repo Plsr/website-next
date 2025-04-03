@@ -1,19 +1,36 @@
+'use client'
+
+import Image from 'next/image'
 import Link, { LinkProps } from 'next/link'
-import React from 'react'
+import { usePathname } from 'next/navigation'
+import { unstable_ViewTransition as ViewTransition } from 'react'
 
 export default function Header() {
+  const pathname = usePathname()
+  const isRootPage = pathname === '/'
+
   return (
-    <div className="py-4 px-4 mx-auto w-full max-w-3xl text-base-800 dark:text-base-50 flex flex-col  md:flex-row justify-between items-start md:items-center gap-y-4 md:gap-y-0">
-      <div className="flex flex-col justify-center">
-        <Link
-          href="/"
-          className="hover:text-accent-600 text-base-300 transition-all"
-        >
-          <h1 className="-mb-1 font-bold">Chris Jarling</h1>
-        </Link>
-        <span className="text-base-500 font-light">Engineering Manager</span>
-      </div>
-      <nav>
+    <div className="py-4 px-4 mx-auto w-full max-w-3xl text-base-800 dark:text-base-50 flex flex-row justify-between items-center gap-y-4 md:gap-y-0">
+      {!isRootPage && (
+        <div className="flex flex-col justify-center">
+          <Link
+            href="/"
+            className="hover:text-accent-600 text-base-300 transition-all"
+          >
+            <h1 className="-mb-1 font-bold hidden">Chris Jarling</h1>
+            <ViewTransition name="avatar">
+              <Image
+                src="/me_notion.jpg"
+                alt="Chris Jarling"
+                width={48}
+                height={48}
+                className="rounded-full w-12 h-12 grayscale-50 hover:grayscale-0 transition-all"
+              />
+            </ViewTransition>
+          </Link>
+        </div>
+      )}
+      <nav className="ml-auto">
         <div className="gap-2 flex justify-center items-center">
           <NavLink href="/about">About</NavLink>
           <NavLink href="/now">Now</NavLink>

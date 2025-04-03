@@ -5,6 +5,7 @@ import { Briefcase, FileText } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { unstable_ViewTransition as ViewTransition } from 'react'
 
 export const metadata: Metadata = {
   title: 'Chris Jarling',
@@ -41,13 +42,15 @@ export default async function Home() {
   return (
     <div className="prose dark:prose-invert">
       <div className="flex flex-row items-center gap-4">
-        <Image
-          src="/me_notion.jpg"
-          alt="Chris Jarling Portrait"
-          width={200}
-          height={200}
-          className="rounded-full w-16 h-16"
-        />
+        <ViewTransition name="avatar">
+          <Image
+            src="/me_notion.jpg"
+            alt="Chris Jarling Portrait"
+            width={200}
+            height={200}
+            className="rounded-full w-16 h-16"
+          />
+        </ViewTransition>
         <div className="flex flex-col not-prose">
           <h1 className="text-base-200 -mb-1">Chris Jarling</h1>
           <span>Engineering Manager @ Gigs</span>

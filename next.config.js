@@ -7,6 +7,9 @@ const nextConfig = {
   output: 'standalone',
   swcMinify: true,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  experimental: {
+    viewTransition: true,
+  },
 }
 
 module.exports = withContentlayer(withMDX(nextConfig))
