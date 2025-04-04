@@ -42,6 +42,9 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   }
 }
 
+// Ensure this page is statically generated
+export const generateStaticParams = () => []
+
 const LibraryArticleDetailPage = async (props: Params) => {
   const params = await props.params
   const libraryArticle = allLibraryArticles.find(
@@ -53,7 +56,7 @@ const LibraryArticleDetailPage = async (props: Params) => {
   }
 
   return (
-    <div className="prose prose-invert" key={libraryArticle._id}>
+    <div className="prose prose-invert">
       <h2>{libraryArticle.title}</h2>
       <span className="text-sm block mb-8">
         Link: <a href={libraryArticle.link}>{libraryArticle.link}</a>
