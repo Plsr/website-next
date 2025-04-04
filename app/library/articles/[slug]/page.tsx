@@ -1,6 +1,7 @@
 import { StyledArticleContent } from 'components/styled-article-content'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { allLibraryArticles } from '.contentlayer/generated'
@@ -57,6 +58,12 @@ const LibraryArticleDetailPage = async (props: Params) => {
 
   return (
     <div className="prose prose-invert">
+      <Link
+        href="/library/articles"
+        className="text-sm text-base-700 mb-1 block"
+      >
+        <span className="text-base-700">← All reading notes</span>
+      </Link>
       <h2>{libraryArticle.title}</h2>
       <span className="text-sm block mb-8">
         Link: <a href={libraryArticle.link}>{libraryArticle.link}</a>
