@@ -1,4 +1,4 @@
-import { SailboatIcon, ShipWheelIcon } from 'lucide-react'
+import { ExternalLink, SailboatIcon, ShipWheelIcon } from 'lucide-react'
 import Image from 'next/image'
 import { Story } from './Story'
 const gigsAchievementsIC = [
@@ -65,7 +65,12 @@ export default function CVPage() {
       <Story />
       <h2 className="text-xl font-bold mt-16 mb-4">Experiences</h2>
       <div className="grid grid-cols-12 gap-4 gap-y-16">
-        <Tenure company="Gigs" imageUrl="/cv-logos/gigs.png" invertLogo>
+        <Tenure
+          company="Gigs"
+          imageUrl="/cv-logos/gigs.png"
+          companyUrl="https://gigs.com"
+          invertLogo
+        >
           <ExperienceItem
             title="Engineering Manager"
             startDate="2024"
@@ -80,7 +85,11 @@ export default function CVPage() {
             achievements={gigsAchievementsIC}
           />
         </Tenure>
-        <Tenure company="Cisco" imageUrl="/cv-logos/cisco.png">
+        <Tenure
+          company="Cisco"
+          companyUrl="https://cisco.com"
+          imageUrl="/cv-logos/cisco.png"
+        >
           <ExperienceItem
             title="Software Engineer"
             startDate="2020"
@@ -88,7 +97,11 @@ export default function CVPage() {
             achievements={ciscoAchievements}
           />
         </Tenure>
-        <Tenure company="Railslove" imageUrl="/cv-logos/railslove.svg">
+        <Tenure
+          company="Railslove"
+          companyUrl="https://railslove.com"
+          imageUrl="/cv-logos/railslove.svg"
+        >
           <ExperienceItem
             title="Fullstack Engineer"
             startDate="2016"
@@ -170,23 +183,27 @@ const Tenure = ({
         {imageUrl && (
           <Image
             src={imageUrl}
-            className={invertLogo ? 'invert bg-transparent' : 'bg-transparent'}
-            alt=""
+            className={
+              invertLogo
+                ? 'invert bg-transparent runded-lg'
+                : 'rounded-lg bg-transparent'
+            }
+            alt={company}
             width={70}
             height={70}
           />
         )}
-        <h3>
+        <h3 className="flex flex-col">
+          {!imageUrl && <span className="text-lg ">{company}</span>}
           {companyUrl ? (
             <a
-              href="https://gigs.com/"
-              className="text-lg underline decoration-dotted"
+              href={companyUrl}
+              className="text-sm underline decoration-dotted"
             >
-              {company}
+              {new URL(companyUrl).hostname.replace('www.', '')}
+              <ExternalLink className="inline-block ml-2 w-3 h-3" />
             </a>
-          ) : (
-            <span>{company}</span>
-          )}
+          ) : null}
         </h3>
       </div>
       <div className="col-span-9">{children}</div>
