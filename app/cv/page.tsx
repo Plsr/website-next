@@ -58,13 +58,13 @@ export default function CVPage() {
           alt="Chris Jarling"
           width={250}
           height={250}
-          className="rounded-xl shadow-lg rotate-3 "
+          className="rounded-xl shadow-lg rotate-3 hidden md:block"
         />
       </div>
 
       <Story />
       <h2 className="text-xl font-bold mt-16 mb-4">Experiences</h2>
-      <div className="grid grid-cols-12 gap-4 gap-y-16">
+      <div className="grid grid-cols-12 gap-4 gap-y-8 md:gap-y-16">
         <Tenure
           company="Gigs"
           imageUrl="/cv-logos/gigs.png"
@@ -179,7 +179,7 @@ const Tenure = ({
 }: TenureProps) => {
   return (
     <>
-      <div className="flex flex-col items-start gap-2 col-span-3">
+      <div className="flex flex-col items-start gap-2 md:col-span-3 col-span-12">
         {imageUrl && (
           <Image
             src={imageUrl}
@@ -206,7 +206,7 @@ const Tenure = ({
           ) : null}
         </h3>
       </div>
-      <div className="col-span-9">{children}</div>
+      <div className="md:col-span-9 col-span-12 mb-12 md:mb-0">{children}</div>
     </>
   )
 }
