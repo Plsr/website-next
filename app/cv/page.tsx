@@ -1,6 +1,8 @@
-import { ExternalLink, SailboatIcon, ShipWheelIcon } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
+
 import { Story } from './Story'
+
 const gigsAchievementsIC = [
   'Worked on Connect, a user-facing, multi-tenant, no-code platform allowing customers to sell connectivity products withou implementation effort.',
   'Refactored the number porting flow and moved it from pre-checkout to post-checkout, vastly decreasing user churn.',
@@ -41,16 +43,16 @@ export default function CVPage() {
       <div className="flex flex-col md:flex-row items-center gap-4">
         <div className="flex flex-col gap-4">
           <h1 className="-mb-4 text-base-400 text-sm">Curriculum Vitae</h1>
-          <h2 className="text-xl font-bold">Hej, I'm Chris Jarling 👋</h2>
+          <h2 className="text-xl font-bold">Hej, I&apos;m Chris Jarling 👋</h2>
           <p>
-            I'm a Senior Fullstack Engineer with more than 10 years of
+            I&apos;m a Senior Fullstack Engineer with more than 10 years of
             professional experience in building products for the web.
           </p>
           <p>
-            I'm driven by building great products with a team of smart people. I
-            will take on whatever responsibility necessarry for the success of
-            the product, though I'm most experienced and useful as an engineer
-            and technical manager.
+            I&apos;m driven by building great products with a team of smart
+            people. I will take on whatever responsibility necessarry for the
+            success of the product, though I&apos;m most experienced and useful
+            as an engineer and technical manager.
           </p>
         </div>
         <Image

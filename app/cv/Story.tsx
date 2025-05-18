@@ -1,11 +1,11 @@
 'use client'
 
-import { ShipWheelIcon, EyeIcon, EyeOffIcon } from 'lucide-react'
+import { EyeIcon, EyeOffIcon, ShipWheelIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 
 export const Story = () => {
-  const [hidden, setHidden] = useState(true)
+  const [hidden, setHidden] = useState(false)
 
   const handleHideButtonClick = () => {
     setHidden(!hidden)
@@ -38,10 +38,10 @@ export const Story = () => {
       {!hidden && (
         <div className="text-md flex flex-col gap-4">
           <p>
-            When I was 16, I read Walter Isaacson's biography of Steve Jobs and
-            I decided that I wanted to be a builder. This was the first time in
-            my life I got up early because <i>I wanted</i> to continue working
-            on a project. Something clicked.
+            When I was 16, I read Walter Isaacson&apos;s biography of Steve Jobs
+            and I decided that I wanted to be a builder. This was the first time
+            in my life I got up early because <i>I wanted</i> to continue
+            working on a project. Something clicked.
           </p>
           <p>
             I started studying Media and Informatics, but did not the thought of
@@ -66,8 +66,8 @@ export const Story = () => {
             stack.{' '}
           </p>
           <p>
-            That said, I do have personal preferences that I'm most experienced
-            in:
+            That said, I do have personal preferences that I&apos;m most
+            experienced in:
           </p>
           <div className="flex flex-row gap-2 flex-wrap">
             <div className="flex flex-row items-center gap-1 bg-base-700/50 border border-base-700 p-2 rounded-md">
