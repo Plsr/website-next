@@ -4,10 +4,10 @@ import Image from 'next/image'
 import { Story } from './Story'
 
 const gigsAchievementsIC = [
-  'Worked on Connect, a user-facing, multi-tenant, no-code platform allowing customers to sell connectivity products withou implementation effort.',
+  'Worked on Connect, a user-facing, multi-tenant, no-code platform allowing customers to sell connectivity products without implementation effort.',
   'Refactored the number porting flow and moved it from pre-checkout to post-checkout, vastly decreasing user churn.',
-  'Authored the initial release of our in-house API documentation, retiring a generic, bought in solution, allowing us to customize the doucmentation to our needs and keeping it in line with our design language across products.',
-  'Wrote guides and recorded instructional videos to aid cusomers implementing Connect features, decreasing the onboarding time for new customers and reducing the thime to ARR.',
+  'Authored the initial release of our in-house API documentation, retiring a generic, bought in solution, allowing us to customize the documentation to our needs and keeping it in line with our design language across products.',
+  'Wrote guides and recorded instructional videos to aid customers implementing Connect features, decreasing the onboarding time for new customers and reducing the time to ARR.',
   'Worked on the conversion of our Next.js app from the pages to the app router, making sure we are able to utilize the latest framework features and allowing us to run data logic on the server, increasing performance and security.',
 ]
 
@@ -20,7 +20,7 @@ const gigsAchievementsEM = [
 const ciscoAchievements = [
   'Created <a href="https://webex.shop">Webex Shop</a> with a small team, bringing it to production within 3 months, allowing the company to sell more devices during the height of the pandemic.',
   'Introduced hotwire to the existing Rails codebase, allowing for smoother UI interactions',
-  'Worked closely with desingers and product managers to improve the existing device shop of our unit to improve sales',
+  'Worked closely with designers and product managers to improve the existing device shop of our unit to improve sales',
 ]
 
 const railsloveAchievements = [
@@ -50,7 +50,7 @@ export default function CVPage() {
           </p>
           <p>
             I&apos;m driven by building great products with a team of smart
-            people. I will take on whatever responsibility necessarry for the
+            people. I will take on whatever responsibility necessary for the
             success of the product, though I&apos;m most experienced and useful
             as an engineer and technical manager.
           </p>
@@ -119,7 +119,7 @@ export default function CVPage() {
             achievements={sevenAchievements}
           />
         </Tenure>
-        <Tenure company="Techincal University of Cologne">
+        <Tenure company="Technical University of Cologne">
           <ExperienceItem
             title="Scientific Assistant & Tutor"
             startDate="2013"
