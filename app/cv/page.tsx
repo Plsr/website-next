@@ -1,4 +1,6 @@
+import { SailboatIcon, ShipWheelIcon } from 'lucide-react'
 import Image from 'next/image'
+import { Story } from './Story'
 const gigsAchievementsIC = [
   'Worked on Connect, a user-facing, multi-tenant, no-code platform allowing customers to sell connectivity products withou implementation effort.',
   'Refactored the number porting flow and moved it from pre-checkout to post-checkout, vastly decreasing user churn.',
@@ -35,39 +37,33 @@ const universityAchievements = [
 
 export default function CVPage() {
   return (
-    <div>
-      <h1>CV</h1>
-      <p>
-        Hello, I'm Chris Jarling. I'm a Sennior Fullstack Engineer with more
-        than 10 years of professional experience.
-      </p>
-      <p>
-        I enjoy working on building great products and all aspects that entails.
-      </p>
-      <p>
-        I'm experienced in building both the frontend and backend of web
-        applications. My origins as a designer allow me to build solutions with
-        the user in mind. More recently, I've also gained some experience as a
-        technical people manager, working on keeping the operational part of
-        product development going.
-      </p>
+    <div className="text-base-200">
+      <div className="flex flex-col md:flex-row items-center gap-4">
+        <div className="flex flex-col gap-4">
+          <h1 className="-mb-4 text-base-400 text-sm">Curriculum Vitae</h1>
+          <h2 className="text-xl font-bold">Hej, I'm Chris Jarling 👋</h2>
+          <p>
+            I'm a Senior Fullstack Engineer with more than 10 years of
+            professional experience in building products for the web.
+          </p>
+          <p>
+            I'm driven by building great products with a team of smart people. I
+            will take on whatever responsibility necessarry for the success of
+            the product, though I'm most experienced and useful as an engineer
+            and technical manager.
+          </p>
+        </div>
+        <Image
+          src="/me-talk.png"
+          alt="Chris Jarling"
+          width={250}
+          height={250}
+          className="rounded-xl shadow-lg rotate-3 "
+        />
+      </div>
 
-      <h2>Tech stack</h2>
-      <p>
-        In my opinion, in the vast majoirty of cases, the tech stack does not
-        play a key role in the success of a product. I try to be open and work
-        with watever tech makes most sense given the current setup.
-      </p>
-      <p>
-        That said, I do have personal preferences that I'm most experienced in
-      </p>
-      <span>Next.js</span>
-      <span>React.js</span>
-      <span>TypeScript</span>
-      <span>Ruby on Rails</span>
-      <span>PostgreSQL</span>
-
-      <h2>Experiences</h2>
+      <Story />
+      <h2 className="text-xl font-bold mt-16 mb-4">Experiences</h2>
       <div className="grid grid-cols-12 gap-4 gap-y-16">
         <Tenure company="Gigs" imageUrl="/cv-logos/gigs.png" invertLogo>
           <ExperienceItem
