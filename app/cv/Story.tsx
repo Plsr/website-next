@@ -51,10 +51,10 @@ export const Story = () => {
             generating value for our customers.
           </p>
           <p>
-            I started my career as a desinger, but quickly realized that I could
+            I started my career as a designer, but quickly realized that I could
             be very useful if I were able to also build the things I designed. I
-            startd out using frontend technologies, but got drawn into building
-            backends in my first job, starting thejourey into fullstack
+            started out using frontend technologies, but got drawn into building
+            backends in my first job, starting the journey into fullstack
             development. I enjoy the ability it gives me to have impact on a
             product in every aspect.
           </p>
@@ -98,7 +98,7 @@ export const Story = () => {
                 height={15}
                 className="inline-block mr-1 color-white"
               />
-              <span className="text-xs">TypseScript</span>
+              <span className="text-xs">TypeScript</span>
             </div>
             <div className="flex flex-row items-center gap-1 bg-base-700/50 border border-base-700 p-2 rounded-md">
               <Image
