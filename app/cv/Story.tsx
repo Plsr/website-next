@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 export const Story = () => {
-  const [hidden, setHidden] = useState(false)
+  const [hidden, setHidden] = useState(true)
 
   const handleHideButtonClick = () => {
     setHidden(!hidden)
