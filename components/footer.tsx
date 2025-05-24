@@ -1,4 +1,5 @@
 import { FooterRow } from './footer-row'
+import { SocialLinks } from './social-links'
 
 const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 
@@ -51,6 +52,9 @@ export default function Footer() {
                 />,
               ]}
             />
+          </div>
+          <div className="mt-6 opacity-60 flex justify-center items-center">
+            <SocialLinks />
           </div>
           <div className="mt-12 flex justify-center items-center text-base-500">
             <small>
