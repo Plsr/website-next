@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { PostListItem } from 'components/post-list-item'
 import { SocialLinks } from 'components/social-links'
 import { getPaginatedPosts } from 'lib/entries'
-import { Briefcase, FileText } from 'lucide-react'
+import { ArrowRight, Briefcase, FileText } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -94,7 +94,12 @@ export default async function Home() {
           <PostListItem key={post._id} post={post} />
         ))}
       </div>
-      <Link href="/posts">See all</Link>
+      <Link
+        className="text-sm inline-flex gap-1 items-center no-underline border-b border-base-600 border-dotted "
+        href="/posts"
+      >
+        See all <ArrowRight className="w-4 h-4" />
+      </Link>
 
       <div>
         <h2 className="not-prose mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
@@ -132,6 +137,12 @@ export default async function Home() {
           lastItem
         />
       </div>
+      <Link
+        href="/cv"
+        className="text-sm inline-flex gap-1 items-center no-underline border-b border-base-600 border-dotted "
+      >
+        Full CV <ArrowRight className="w-4 h-4" />
+      </Link>
     </div>
   )
 }
