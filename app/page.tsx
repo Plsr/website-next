@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { PostListItem } from 'components/post-list-item'
+import { SocialLinks } from 'components/social-links'
 import { getPaginatedPosts } from 'lib/entries'
 import { Briefcase, FileText } from 'lucide-react'
 import { Metadata } from 'next'
@@ -78,6 +79,10 @@ export default async function Home() {
       <div className=" mt-4">
         This is my personal website, where I share thoughts about programming,
         web development, management and reflections on my personal journey.
+      </div>
+
+      <div className="mt-6">
+        <SocialLinks />
       </div>
 
       <h2 className="not-prose mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
