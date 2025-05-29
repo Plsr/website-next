@@ -110,16 +110,22 @@ export const ContextMenu = () => {
 
   return (
     <RemoveScroll>
-      <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-around backdrop-blur-lg z-40">
-        <div className="p-4 bg-base-900 border border-base-700 rounded-lg">
-          <input autoFocus value={filter} onChange={handleFilterChange} />
+      <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-around backdrop-blur z-40">
+        <div className="p-4 bg-base-950 border border-base-700 rounded-lg min-w-96 shadow-lg">
+          <input
+            autoFocus
+            value={filter}
+            onChange={handleFilterChange}
+            placeholder="Start typing to search..."
+            className="w-full focus:outline-none focus:ring-1 focus:ring-accent-500 bg-base-900 text-gray-200 px-4 py-2 rounded mb-4"
+          />
           {filteredMenuItems.map((item, index) => (
             <Link
               key={item.id}
               href={item.href}
               className={clsx(
-                'block px-4 py-2 text-sm text-gray-200 rounded flex items-center gap-4',
-                activeItem === index && 'bg-base-800',
+                'px-4 py-2 text-sm text-gray-200 rounded flex items-center gap-4',
+                activeItem === index && 'bg-base-900',
               )}
               onClick={() => debouncedSetShowMenu(false)}
               onMouseOver={() => handleMouseOver(item.id)}
