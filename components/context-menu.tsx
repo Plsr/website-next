@@ -1,19 +1,19 @@
 'use client'
 
 import clsx from 'clsx'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
-import { RemoveScroll } from 'react-remove-scroll'
 import {
+  BookOpenCheck,
+  FileUser,
   House,
   PenLine,
-  FileUser,
   Sparkle,
-  User,
   Tag,
-  BookOpenCheck,
+  User,
 } from 'lucide-react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { RemoveScroll } from 'react-remove-scroll'
 
 const menuItems = [
   { label: 'Home', href: '/', id: 'home' },

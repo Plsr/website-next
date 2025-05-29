@@ -3,12 +3,12 @@ import './tailwind.css'
 import './global.css'
 
 import { Analytics } from '@vercel/analytics/react'
+import { ContextMenu } from 'components/context-menu'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import Footer from '../components/footer'
 import Header from '../components/header'
-import { ContextMenu } from 'components/context-menu'
 
 const font = Inter({
   weight: ['300', '400', '700'],
