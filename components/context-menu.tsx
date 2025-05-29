@@ -5,6 +5,15 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { RemoveScroll } from 'react-remove-scroll'
+import {
+  House,
+  PenLine,
+  FileUser,
+  Sparkle,
+  User,
+  Tag,
+  BookOpenCheck,
+} from 'lucide-react'
 
 const menuItems = [
   { label: 'Home', href: '/', id: 'home' },
@@ -109,12 +118,13 @@ export const ContextMenu = () => {
               key={item.id}
               href={item.href}
               className={clsx(
-                'block px-4 py-2 text-sm text-gray-200 rounded',
+                'block px-4 py-2 text-sm text-gray-200 rounded flex items-center gap-4',
                 activeItem === index && 'bg-base-800',
               )}
               onClick={() => debouncedSetShowMenu(false)}
               onMouseOver={() => handleMouseOver(item.id)}
             >
+              <RenderIcon icon={item.id} />
               {item.label}
             </Link>
           ))}
@@ -122,4 +132,26 @@ export const ContextMenu = () => {
       </div>
     </RemoveScroll>
   )
+}
+
+const RenderIcon = ({ icon }: { icon: string }) => {
+  const className = 'w-4 h-4'
+  switch (icon) {
+    case 'home':
+      return <House className={className} />
+    case 'writing':
+      return <PenLine className={className} />
+    case 'now':
+      return <Sparkle className={className} />
+    case 'about':
+      return <User className={className} />
+    case 'cv':
+      return <FileUser className={className} />
+    case 'tags':
+      return <Tag className={className} />
+    case 'reading-notes':
+      return <BookOpenCheck className={className} />
+    default:
+      return null
+  }
 }
