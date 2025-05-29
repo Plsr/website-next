@@ -8,6 +8,7 @@ import { Inter } from 'next/font/google'
 
 import Footer from '../components/footer'
 import Header from '../components/header'
+import { ContextMenu } from 'components/context-menu'
 
 const font = Inter({
   weight: ['300', '400', '700'],
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-[url('/noise.svg')] bg-repeat">
         <Analytics />
         <Header />
+        <ContextMenu />
         <main className="max-w-3xl w-full mx-auto px-4 mb-12 mt-8">
           {children}
         </main>
