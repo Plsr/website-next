@@ -17,8 +17,13 @@ const menuItems = [
 ]
 
 export const ContextMenu = () => {
+  const [filter, setFilter] = useState('')
+  const filteredMenuItems = menuItems.filter((item) =>
+    item.label.toLowerCase().includes(filter.toLowerCase()),
+  )
+
   const [showMenu, setShowMenu] = useState(false)
-  const [activeItem, setActiveItem] = useState<string | null>(menuItems[0].id)
+  const [activeItem, setActiveItem] = useState<number>(0)
   const router = useRouter()
 
   useEffect(() => {
@@ -35,37 +40,32 @@ export const ContextMenu = () => {
 
       if (showMenu && event.key === 'ArrowDown') {
         event.preventDefault()
-        const currentIndex = menuItems.findIndex(
-          (item) => item.id === activeItem,
-        )
 
-        const nextIndex = currentIndex + 1
+        const nextIndex = activeItem + 1
 
-        if (nextIndex >= menuItems.length) {
+        if (nextIndex >= filteredMenuItems.length) {
           return
         }
 
-        setActiveItem(menuItems[nextIndex].id)
+        setActiveItem(nextIndex)
       }
 
       if (showMenu && event.key === 'ArrowUp') {
         event.preventDefault()
-        const currentIndex = menuItems.findIndex(
-          (item) => item.id === activeItem,
-        )
 
-        const nextIndex = currentIndex - 1
+        const nextIndex = activeItem - 1
 
         if (nextIndex < 0) {
           return
         }
 
-        setActiveItem(menuItems[nextIndex].id)
+        setActiveItem(nextIndex)
       }
 
       if (showMenu && event.key === 'Enter') {
         event.preventDefault()
-        const activeMenuItem = menuItems.find((item) => item.id === activeItem)
+        const activeMenuItem = filteredMenuItems[activeItem]
+
         if (activeMenuItem) {
           router.push(activeMenuItem.href)
           debouncedSetShowMenu(false)
@@ -78,16 +78,23 @@ export const ContextMenu = () => {
     return () => {
       window.removeEventListener('keydown', contextMenuHotkeyHandler)
     }
-  }, [showMenu, activeItem])
+  }, [showMenu, activeItem, filteredMenuItems, router])
 
   const debouncedSetShowMenu = (visible: boolean) => {
     setTimeout(() => {
       setShowMenu(visible)
+      setFilter('')
     }, 200)
   }
 
   const handleMouseOver = (id: string) => {
-    setActiveItem(id)
+    const itemIndex = filteredMenuItems.findIndex((item) => item.id === id)
+    setActiveItem(itemIndex)
+  }
+
+  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setActiveItem(0)
+    setFilter(e.target.value)
   }
 
   if (!showMenu) return null
@@ -96,14 +103,14 @@ export const ContextMenu = () => {
     <RemoveScroll>
       <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-around backdrop-blur-lg z-40">
         <div className="p-4 bg-base-900 border border-base-700 rounded-lg">
-          <input />
-          {menuItems.map((item) => (
+          <input autoFocus value={filter} onChange={handleFilterChange} />
+          {filteredMenuItems.map((item, index) => (
             <Link
-              key={item.href}
+              key={item.id}
               href={item.href}
               className={clsx(
                 'block px-4 py-2 text-sm text-gray-200 rounded',
-                activeItem === item.id && 'bg-base-800',
+                activeItem === index && 'bg-base-800',
               )}
               onClick={() => debouncedSetShowMenu(false)}
               onMouseOver={() => handleMouseOver(item.id)}
