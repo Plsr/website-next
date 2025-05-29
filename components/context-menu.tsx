@@ -22,7 +22,7 @@ const menuItems = [
   { label: 'About', href: '/about', id: 'about' },
   { label: 'CV', href: '/cv', id: 'cv' },
   { label: 'Tags', href: '/tags', id: 'tags' },
-  { label: 'Reading Notes', href: '/reading-notes', id: 'reading-notes' },
+  { label: 'Reading Notes', href: '/library/articles', id: 'reading-notes' },
 ]
 
 export const ContextMenu = () => {
