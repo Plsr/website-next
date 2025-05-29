@@ -3,6 +3,7 @@ import './tailwind.css'
 import './global.css'
 
 import { Analytics } from '@vercel/analytics/react'
+import { ContextMenu } from 'components/context-menu'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-[url('/noise.svg')] bg-repeat">
         <Analytics />
         <Header />
+        <ContextMenu />
         <main className="max-w-3xl w-full mx-auto px-4 mb-12 mt-8">
           {children}
         </main>
