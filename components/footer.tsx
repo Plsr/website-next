@@ -40,6 +40,11 @@ export default function Footer() {
                   href="/library/articles"
                   text="Reading Notes"
                 />,
+                <FooterRow.Item
+                  key="tools"
+                  href="https://tools.chrisjarling.com"
+                  text="Tools"
+                />,
               ]}
             />
             <FooterRow
