@@ -40,7 +40,7 @@ export function getAllPostsByYear() {
 }
 
 function sortByDateDesc(posts: Post[]) {
-  return posts.toSorted((a, b) => {
+  return [...posts].sort((a, b) => {
     const aDate = new Date(a.date)
     const bDate = new Date(b.date)
     return bDate.getTime() - aDate.getTime()
