@@ -44,3 +44,6 @@ node_modules
 
 # content-collections
 .content-collections
+
+# Editors
+.vscode
