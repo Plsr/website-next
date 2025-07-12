@@ -41,3 +41,6 @@ node_modules
 
 # contentlayer
 .contentlayer
+
+# content-collections
+.content-collections
