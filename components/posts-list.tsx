@@ -1,9 +1,9 @@
+import { Post } from 'content-collections'
 import { getYear } from 'date-fns'
 import { getAllSortedPosts } from 'lib/entries'
 import { notFound } from 'next/navigation'
 
 import { PostListItem } from './post-list-item'
-import { Post } from '.contentlayer/generated'
 
 type PostsByYear = {
   [key: number]: Post[]

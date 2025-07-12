@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { PostListItem } from 'components/post-list-item'
 import { SocialLinks } from 'components/social-links'
-import { getPaginatedPosts } from 'lib/entries'
+import { getLastThreePosts } from 'data/posts.dto'
 import { ArrowRight, Briefcase, FileText } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -36,9 +36,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const { posts } = getPaginatedPosts({
-    page: 1,
-  })
+  const posts = getLastThreePosts()
 
   return (
     <div className="prose dark:prose-invert">
@@ -90,7 +88,7 @@ export default async function Home() {
         <span>Recent Writing</span>
       </h2>
       <div className="not-prose">
-        {posts.slice(0, 3).map((post) => (
+        {posts.map((post) => (
           <PostListItem key={post._id} post={post} />
         ))}
       </div>

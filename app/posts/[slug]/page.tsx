@@ -1,13 +1,10 @@
 import { PostMetadata } from 'components/post-metadata'
-import { PostSeriesBlock } from 'components/PostSeriesBlock'
 import { StyledArticleContent } from 'components/styled-article-content'
 import { Tag } from 'components/tag'
+import { getPostForSlug } from 'data/posts.dto'
 import { format } from 'date-fns'
-import { postSeriesList } from 'lib/post-series'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-
-import { allPosts, Post as PostType } from '.contentlayer/generated'
 
 type Params = {
   params: Promise<{
@@ -19,15 +16,13 @@ export const generateStaticParams = () => []
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params
-  const post = allPosts.find((post: PostType) => {
-    return post.computedSlug === params.slug
-  })
+  const post = getPostForSlug(params.slug)
 
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   const title = `${post.title} - Chris Jarling`
   const description =
-    post.metaDescription || post.excerpt || post.body.raw.slice(0, 150)
+    post.metaDescription || post.excerpt || post.content.slice(0, 150)
 
   return {
     title,
@@ -49,15 +44,11 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
 export default async function Post(props: Params) {
   const params = await props.params
-  const post = allPosts.find((post: PostType) => {
-    return post.computedSlug === params.slug
-  })
+  const post = getPostForSlug(params.slug)
 
   if (!post) {
     notFound()
   }
-
-  const seriesEntries = post.series ? postSeriesList(post.series) : undefined
 
   return (
     <div className="mx-auto max-w-5xl mb-16">
@@ -74,14 +65,14 @@ export default async function Post(props: Params) {
               This post is a draft. It&apos;s not complete yet and may never be.
             </div>
           )}
-          {seriesEntries && (
+          {/* {seriesEntries && (
             <PostSeriesBlock
               seriesEntries={seriesEntries}
               activeEntryId={params.slug}
             />
-          )}
+          )} */}
         </div>
-        <StyledArticleContent contentHtml={post.body.html} />
+        <StyledArticleContent contentHtml={post.html} />
       </div>
       <div className="space-x-4">
         {post.tags?.split(' ').map((tag) => <Tag name={tag} key={tag} />)}

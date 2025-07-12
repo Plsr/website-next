@@ -1,4 +1,4 @@
-import { allPosts } from '.contentlayer/generated'
+import { allPosts } from 'content-collections'
 
 export type SeriesEntry = {
   title: string
@@ -15,7 +15,7 @@ export const postSeriesList = (seriesName: string) => {
     .map((post) => {
       return {
         title: post.title,
-        url: post.url,
+        // url: post.url,
         id: post._id,
       }
     })

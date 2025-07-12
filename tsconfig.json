@@ -24,7 +24,7 @@
       "components/*": ["./components/*"],
       "@components/*": ["./components/*"],
       "lib/*": ["./lib/*"],
-      ".contentlayer/generated": ["./.contentlayer/generated"]
+      "content-collections": ["./.content-collections/generated"]
     }
   },
   "include": [
@@ -32,7 +32,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated",
     "app/cv/page.mdx"
   ],
   "exclude": ["node_modules"]

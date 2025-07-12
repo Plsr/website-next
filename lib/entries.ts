@@ -1,3 +1,4 @@
+import { allPosts, Post } from 'content-collections'
 import { compareDesc } from 'date-fns'
 import format from 'date-fns/format'
 import fs from 'fs'
@@ -9,8 +10,6 @@ import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
-
-import { allNotes, allPosts, Post } from '.contentlayer/generated'
 
 type MatterData = {
   title: string
@@ -58,11 +57,6 @@ const getEntriesDirectory = (entryType: EntryType) => {
   return path.join(process.cwd(), entryType)
 }
 
-type GetPaginatedNotesParams = {
-  page: number
-  perPage?: number
-}
-
 export const filterByTag = <T extends EntryType>(
   tagName: string,
   entriesData: EntryPostTypesMap[T][],
@@ -92,32 +86,6 @@ export const getSortedAndFilteredEntries = async <T extends EntryType>({
   return shouldFilter
     ? filterFunction(filterString, sortedEntriesData)
     : sortedEntriesData
-}
-
-export const getPaginatedNotes = ({
-  page,
-  perPage = 10,
-}: GetPaginatedNotesParams) => {
-  const allEntries = getAllSortedNotes()
-  const totalPages = Math.ceil(allEntries.length / perPage)
-
-  // We want to hanlde the calculation on a zero-based pages array,
-  // we're not barbarians.
-  const normalizedPage = page - 1
-
-  const start =
-    normalizedPage > totalPages
-      ? totalPages * perPage
-      : normalizedPage * perPage
-  const end = start + perPage
-  const posts = allEntries.slice(start, end)
-
-  return {
-    currentPage: page,
-    totalPostsCount: allEntries.length,
-    totalPages: totalPages,
-    posts,
-  }
 }
 
 export const getPaginatedPosts = ({
@@ -316,11 +284,5 @@ export const getAllSortedPosts = (filter: PostsFilter = { draft: false }) => {
     Object.entries(filter).every(
       ([key, value]) => post[key as keyof PostsFilter] === value,
     ),
-  )
-}
-
-export const getAllSortedNotes = () => {
-  return allNotes.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
   )
 }

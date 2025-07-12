@@ -1,10 +1,9 @@
 import { StyledArticleContent } from 'components/styled-article-content'
+import { allLibraryArticles } from 'content-collections'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-
-import { allLibraryArticles } from '.contentlayer/generated'
 
 type Params = {
   params: Promise<{
@@ -23,7 +22,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   }
 
   const title = `Link: ${libraryArticle.title} - Chris Jarling`
-  const description = libraryArticle.body.raw.slice(0, 150)
+  const description = libraryArticle.content.slice(0, 150)
 
   return {
     title,
@@ -52,7 +51,10 @@ const LibraryArticleDetailPage = async (props: Params) => {
     (article) => article.computedSlug === params.slug,
   )
 
+  console.log(allLibraryArticles)
+
   if (!libraryArticle) {
+    console.log(allLibraryArticles)
     return notFound()
   }
 
@@ -69,7 +71,7 @@ const LibraryArticleDetailPage = async (props: Params) => {
         Link: <a href={libraryArticle.link}>{libraryArticle.link}</a>
       </span>
 
-      <StyledArticleContent contentHtml={libraryArticle.body.html} />
+      <StyledArticleContent contentHtml={libraryArticle.html} />
 
       <span className="text-sm text-base-700 mb-1 block">
         {format(new Date(libraryArticle.createdAt), 'do LLL, yyyy')}
