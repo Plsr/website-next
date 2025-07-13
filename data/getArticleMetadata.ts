@@ -18,20 +18,32 @@ export const getArticleMetadata = async () => {
       }
 
       const url = new URL(article.link)
-      const res = await fetch(article.link)
-      const data = await res.text()
-      const dom = new JSDOM(data)
-      const title = url.host.replace('www.', '')
-      const faviconElement = dom.window.document.querySelectorAll(
-        'link[rel="shortcut icon"],link[rel="icon"]',
-      )[0]
 
-      const faviconHref = (faviconElement as HTMLLinkElement)?.href
+      try {
+        const res = await fetch(article.link)
+        const data = await res.text()
+        const dom = new JSDOM(data)
+        const title = url.host.replace('www.', '')
+        const faviconElement = dom.window.document.querySelectorAll(
+          'link[rel="shortcut icon"],link[rel="icon"]',
+        )[0]
 
-      return {
-        ...article,
-        pageName: title,
-        faviconHref,
+        const faviconHref = (faviconElement as HTMLLinkElement)?.href
+
+        return {
+          ...article,
+          pageName: title,
+          faviconHref,
+        }
+      } catch (e) {
+        console.log('Error fetching favicon for ', article.link)
+        console.log(e)
+
+        return {
+          ...article,
+          pageName: null,
+          faviconHref: null,
+        }
       }
     }),
   )
