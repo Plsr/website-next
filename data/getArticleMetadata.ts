@@ -1,7 +1,6 @@
+import { allLibraryArticles } from 'content-collections'
 import { compareDesc } from 'date-fns'
 import { JSDOM } from 'jsdom'
-
-import { allLibraryArticles } from '.contentlayer/generated'
 
 export const getArticleMetadata = async () => {
   const sortedLibraryArticles = allLibraryArticles.sort((a, b) =>

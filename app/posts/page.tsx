@@ -1,46 +1,18 @@
 import { PostListItem } from 'components/post-list-item'
-import { getYear } from 'date-fns'
+import { getAllPostsByYear } from 'data/posts.dto'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-
-import { getAllSortedPosts } from '../../lib/entries'
-import { Post } from '.contentlayer/generated'
 
 export const metadata: Metadata = {
   title: 'Posts - Chris Jarling',
 }
 
-type PostsByYear = {
-  [key: number]: Post[]
-}
-
-const getPostsByYear = () => {
-  const data = getAllSortedPosts()
-  const postsByYear: PostsByYear = {}
-
-  data.forEach((page) => {
-    const year = getYear(new Date(page.date))
-
-    if (!postsByYear[year]) {
-      postsByYear[year] = [page]
-      return
-    }
-    postsByYear[year].push(page)
-  })
-
-  return postsByYear
-}
-
 export default async function PostsIndex() {
-  const postsByYear = getPostsByYear()
+  const sortedPostsByYears = getAllPostsByYear()
 
-  if (!postsByYear) {
+  if (sortedPostsByYears.length === 0) {
     notFound()
   }
-
-  const sortedPostsByYears = Object.entries(postsByYear)
-    .sort((a, b) => parseInt(b[0]) - parseInt(a[0]))
-    .map((e) => e)
 
   return (
     <>

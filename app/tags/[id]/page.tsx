@@ -1,5 +1,6 @@
 import { PostListItem } from 'components/post-list-item'
-import { getAllSortedPosts, getAllTags } from 'lib/entries'
+import { getPostsForTag } from 'data/posts.dto'
+import { getAllTags } from 'data/tags.dto'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -16,9 +17,7 @@ type PostsIndexProps = {
 export default async function PostsIndex(props: PostsIndexProps) {
   const params = await props.params
   const tag = params.id
-  const posts = getAllSortedPosts().filter(
-    (post) => post.tags && post.tags.split(' ').includes(tag),
-  )
+  const posts = getPostsForTag(tag)
 
   if (posts.length === 0) {
     notFound()
