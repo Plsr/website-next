@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default async function PostsIndex() {
   const sortedPostsByYears = getAllPostsByYear()
 
-  if (!sortedPostsByYears) {
+  if (sortedPostsByYears.length === 0) {
     notFound()
   }
 
