@@ -22,7 +22,7 @@ const posts = defineCollection({
     return {
       ...doc,
       // TODO: Only here to make the migration easier, remove later and use
-      // somehting the is native to content-collections and can be used as an
+      // something that is native to content-collections and can be used as an
       // identifier
       _id: doc._meta.filePath,
       computedSlug,
