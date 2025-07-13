@@ -54,7 +54,6 @@ const LibraryArticleDetailPage = async (props: Params) => {
   console.log(allLibraryArticles)
 
   if (!libraryArticle) {
-    console.log(allLibraryArticles)
     return notFound()
   }
 
