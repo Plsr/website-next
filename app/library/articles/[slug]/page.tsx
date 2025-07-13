@@ -51,10 +51,7 @@ const LibraryArticleDetailPage = async (props: Params) => {
     (article) => article.computedSlug === params.slug,
   )
 
-  console.log(allLibraryArticles)
-
   if (!libraryArticle) {
-    console.log(allLibraryArticles)
     return notFound()
   }
 
