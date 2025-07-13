@@ -5,8 +5,6 @@ on:
     types: [content_update]
 
 jobs:
-  log:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Event received
-        run: echo "Event received"
+  deploy:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
