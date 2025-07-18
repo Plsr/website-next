@@ -9,6 +9,9 @@ jobs:
 
   build_with_external_content:
     runs-on: ubuntu-latest
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: plsr/website-next
 
     steps:
       - name: Checkout website repository
