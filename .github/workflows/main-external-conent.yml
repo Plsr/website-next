@@ -39,8 +39,8 @@ jobs:
       - uses: docker/setup-buildx-action@v3
       - uses: docker/build-push-action@v4
         with:
-          context: .
-          file: Dockerfile
+          context: ./website
+          file: ./website/Dockerfile
           platforms: linux/arm64
           load: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
