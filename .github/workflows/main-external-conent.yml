@@ -1,6 +1,6 @@
-name: main
+name: main-external-content
 on:
-  workflow_call:
+  workflow_dispatch:
 
 jobs:
   ci:
