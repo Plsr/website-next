@@ -14,14 +14,14 @@ jobs:
       - name: Checkout website repository
         uses: actions/checkout@v4
         with:
-          path: ./website 
+          path: ./website
 
       - name: Checkout content repository
         uses: actions/checkout@v4
         with:
-          repository: Plsr/website-content 
-          ref: main 
-          path: ./website/externalcontent 
+          repository: Plsr/website-content
+          ref: main
+          path: ./website/externalcontent
 
       - name: Sync external content into website repo
         run: |
