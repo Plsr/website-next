@@ -1,4 +1,3 @@
-
 name: main-external-content
 on:
   workflow_dispatch:
@@ -22,7 +21,7 @@ jobs:
         with:
           repository: Plsr/website-content
           ref: main
-          path: ./website/externalcontent
+          path: ./website/external-content
 
       - name: Sync external content into website repo
         run: |
