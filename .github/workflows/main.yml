@@ -60,7 +60,7 @@ jobs:
 
   publish-release:
     runs-on: ubuntu-24.04-arm
-    needs: ci
+    needs: [ci, build_with_external_content]
     env:
       REGISTRY: ghcr.io
       IMAGE_NAME: plsr/website-next
