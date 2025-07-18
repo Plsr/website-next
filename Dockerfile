@@ -22,6 +22,7 @@ COPY . .
 
 RUN apk add --no-cache git
 RUN git clone https://github.com/Plsr/website-content.git /tmp/external-content --branch main
+RUN rm -rf ./content/posts/*
 RUN cp -R /tmp/external-content/posts ./content/posts
 
 # Next.js collects completely anonymous telemetry data about general usage.
