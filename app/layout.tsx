@@ -50,7 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={font.variable}>
-      <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-[url('/noise.svg')] bg-repeat">
+      <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-base-950 text-paper">
         <Analytics />
         <Header />
         <ContextMenu />
