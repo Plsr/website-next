@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { PostListItem } from 'components/post-list-item'
 import { SocialLinks } from 'components/social-links'
 import { getLastThreePosts } from 'data/posts.dto'
@@ -68,11 +67,9 @@ export default async function Home() {
         whatever responsibility it takes to make the thing I work on a success.
       </div>
       <div className="mt-4">
-        Previously, I worked at{' '}
-        <strong className="not-prose text-base-300">Cisco</strong> and{' '}
-        <strong className="not-prose text-base-300">Placetel</strong>, where I
-        built web apps for a Could-Based PBX System. I also did some agency
-        work, one of which I co-founded.
+        Previously, I worked at <strong>Cisco</strong> and{' '}
+        <strong>Placetel</strong>, where I built web apps for a Could-Based PBX
+        System. I also did some agency work, one of which I co-founded.
       </div>
       <div className=" mt-4">
         This is my personal website, where I share thoughts about programming,
@@ -132,7 +129,6 @@ export default async function Home() {
           company="Self-Founded Agency"
           startDate="2014"
           endDate="2016"
-          lastItem
         />
       </div>
       <Link
@@ -150,34 +146,17 @@ type TimelineItemProps = {
   company: string
   startDate: string
   endDate?: string
-  lastItem?: boolean
 }
 const TimelineItem = ({
   title,
   company,
   startDate,
   endDate,
-  lastItem = false,
 }: TimelineItemProps) => {
   const current = endDate === undefined
   return (
     <div className="relative py-4">
-      {/* Dot */}
-      <div
-        className={clsx(
-          'z-20 w-2 h-2 rounded-full absolute top-[26px] left-0',
-          current ? 'bg-base-200' : 'bg-base-400',
-        )}
-      />
-      {current && (
-        <div className="z-10 w-2 h-2 bg-accent-400 rounded-full absolute top-[26px] left-0 blur-xs" />
-      )}
-      {/* Line */}
-      {!lastItem && (
-        <div className="absolute top-12 left-[2px] bottom-0 w-[2px] bg-gradient-to-b from-base-600 to-base-800" />
-      )}
-
-      <div className="ml-4 flex flex-col">
+      <div className="flex flex-col">
         <div className="flex flex-row gap-2">
           <span>
             {startDate} {current ? null : ` - ${endDate}`}

@@ -17,8 +17,36 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      accent: colors.orange,
-      base: colors.stone,
+      accent: {
+        50: '#DDF1E4',
+        100: '#BFE8D9',
+        150: '#A2DECE',
+        200: '#87D3C3',
+        300: '#5ABDAC',
+        400: '#3AA99F',
+        500: '#2F968D',
+        600: '#24837B',
+        700: '#1C6C66',
+        800: '#164F4A',
+        850: '#143F3C',
+        900: '#122F2C',
+        950: '#101F1D',
+      },
+      paper: '#FFFCF0',
+      base: {
+        950: '#1C1B1A',
+        900: '#282726',
+        850: '#343331',
+        800: '#403E3C',
+        700: '#575653',
+        600: '#6F6E69',
+        500: '#878580',
+        300: '#B7B5AC',
+        200: '#CECDC3',
+        150: '#DAD8CE',
+        100: '#E6E4D9',
+        50: '#F2F0E5',
+      },
       neutral: {
         50: '#f7f7f8',
         100: '#efeef0',
@@ -44,7 +72,7 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: null,
-            color: theme('colors.base.400'),
+            color: theme('colors.paper'),
             h1: {
               fontSize: em(20, 14),
             },
@@ -52,13 +80,16 @@ module.exports = {
               fontSize: em(18, 14),
             },
             a: {
-              color: theme('colors.base.100'),
+              color: theme('colors.accent.200'),
             },
             code: {
               fontSize: '0.7rem',
             },
             pre: {
               fontSize: '0.7rem',
+            },
+            strong: {
+              color: theme('colors.paper'),
             },
           },
         },
