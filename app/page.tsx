@@ -129,7 +129,6 @@ export default async function Home() {
           company="Self-Founded Agency"
           startDate="2014"
           endDate="2016"
-          lastItem
         />
       </div>
       <Link
