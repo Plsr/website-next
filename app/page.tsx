@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { PostListItem } from 'components/post-list-item'
 import { SocialLinks } from 'components/social-links'
 import { getLastThreePosts } from 'data/posts.dto'
@@ -148,14 +147,12 @@ type TimelineItemProps = {
   company: string
   startDate: string
   endDate?: string
-  lastItem?: boolean
 }
 const TimelineItem = ({
   title,
   company,
   startDate,
   endDate,
-  lastItem = false,
 }: TimelineItemProps) => {
   const current = endDate === undefined
   return (
