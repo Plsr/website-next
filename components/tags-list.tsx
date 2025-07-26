@@ -1,6 +1,6 @@
+import type { Tag } from 'data/tags.dto'
 import type { JSX } from 'react'
 
-import type { Tag } from '../lib/entries'
 import { Tag as TagComponent } from './tag'
 
 type TagsListProps = {

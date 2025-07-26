@@ -39,6 +39,10 @@ export function getAllPostsByYear() {
     .map((e) => e)
 }
 
+export function getAllSortedPosts() {
+  return sortByDateDesc(allPosts)
+}
+
 function sortByDateDesc(posts: Post[]) {
   return [...posts].sort((a, b) => {
     const aDate = new Date(a.date)
