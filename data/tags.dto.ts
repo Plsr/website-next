@@ -1,6 +1,6 @@
 import { allPosts } from 'content-collections'
 
-type Tag = {
+export type Tag = {
   tagName: string
   count: number
 }

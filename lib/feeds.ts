@@ -2,23 +2,19 @@ import { Post } from 'content-collections'
 import { getYear } from 'date-fns'
 import { Feed } from 'feed'
 
-import { EntryType } from './entries'
 import { siteUrl } from './utill/site'
 
 type GenerateFeedParams = {
-  entryType: EntryType
   entries: Post[]
 }
 
-export const generateFeed = ({ entryType, entries }: GenerateFeedParams) => {
+export const generateFeed = ({ entries }: GenerateFeedParams) => {
   const currentYear = getYear(new Date())
   const updatedAt = new Date(entries[0].date)
 
   const feed = new Feed({
-    title: `Chris Jarling - ${
-      entryType.charAt(0).toUpperCase() + entryType.slice(1)
-    }`,
-    description: `All ${entryType} from chrisjarling.com`,
+    title: 'Chris Jarling - Posts',
+    description: `All posts from chrisjarling.com`,
     id: `${siteUrl}`,
     link: `${siteUrl}`,
     language: 'en', // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
