@@ -20,7 +20,9 @@ const posts = defineCollection({
   }),
   transform: async (doc, context) => {
     const html = await compileMarkdown(context, doc, {
+      // @ts-expect-error unified type mismatch across dependency versions
       rehypePlugins: [rehypePrism],
+      // @ts-expect-error unified type mismatch across dependency versions
       remarkPlugins: [remarkGfm],
     })
     const computedSlug = doc.slug || doc._meta.path.replace('/posts/', '')
