@@ -1,5 +1,7 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import { compileMarkdown } from '@content-collections/markdown'
+import rehypePrism from 'rehype-prism-plus'
+import remarkGfm from 'remark-gfm'
 import { z } from 'zod'
 
 const posts = defineCollection({
@@ -17,7 +19,10 @@ const posts = defineCollection({
     excerpt: z.string().optional(),
   }),
   transform: async (doc, context) => {
-    const html = await compileMarkdown(context, doc)
+    const html = await compileMarkdown(context, doc, {
+      rehypePlugins: [rehypePrism],
+      remarkPlugins: [remarkGfm],
+    })
     const computedSlug = doc.slug || doc._meta.path.replace('/posts/', '')
     return {
       ...doc,
