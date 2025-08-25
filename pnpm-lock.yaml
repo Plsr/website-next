@@ -39,9 +39,6 @@ importers:
       date-fns:
         specifier: ^2.29.3
         version: 2.29.3
-      esbuild:
-        specifier: 0.17.x || 0.18.x
-        version: 0.25.6
       feed:
         specifier: ^4.2.2
         version: 4.2.2
