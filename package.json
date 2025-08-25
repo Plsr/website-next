@@ -70,9 +70,6 @@
     "typescript": "5.8.3",
     "zod": "^4.0.5"
   },
-  "peerDependencies": {
-    "esbuild": "0.17.x || 0.18.x"
-  },
   "pnpm": {
     "overrides": {
       "@types/react": "19.0.10",

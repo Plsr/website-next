@@ -2,16 +2,15 @@ import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
 
-import { Analytics } from '@vercel/analytics/react'
 import { ContextMenu } from 'components/context-menu'
+import { Sidebar } from 'components/sidebar'
 import { Metadata } from 'next'
-import { Piazzolla } from 'next/font/google'
+import { Lora } from 'next/font/google'
 
 import Footer from '../components/footer'
-import Header from '../components/header'
 
-const font = Piazzolla({
-  weight: ['300', '400', '700'],
+const font = Lora({
+  weight: ['400', '700'],
   subsets: ['latin'],
   variable: '--font-main',
 })
@@ -51,13 +50,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={font.variable}>
       <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-base-950 text-paper">
-        <Analytics />
-        <Header />
         <ContextMenu />
-        <main className="max-w-3xl w-full mx-auto px-4 mb-12 mt-8">
-          {children}
+        <main className="max-w-3xl w-full mx-auto px-4 mb-12  grid gap-12 md:grid-cols-12">
+          <div className="col-span-3 sticky top-0 h-screen">
+            <Sidebar />
+          </div>
+          <div className="col-span-9 pt-12">
+            <>
+              {children}
+              <Footer />
+            </>
+          </div>
         </main>
-        <Footer />
       </body>
     </html>
   )

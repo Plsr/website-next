@@ -1,38 +1,18 @@
 import { Pagination } from 'components/pagination'
 import { getPaginatedPosts } from 'data/posts.dto'
 import format from 'date-fns/format'
-import { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'Chris Jarling',
-  description:
-    'Senior Frontend Engineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
-  alternates: {
-    types: {
-      'application/rss+xml': '/posts/feed.rss',
-      'application/atom+xml': '/posts/feed.atom',
-    },
-  },
-  openGraph: {
-    title: 'Chris Jarling',
-    description:
-      'Senior Frontend Engineer working with React & Next.js, sharing thoughts on web development, productivity, and team culture.',
-    url: 'https://chrisjarling.com',
-    images: [
-      {
-        url: 'https://www.chrisjarling.com/og.jpg',
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
+type Props = {
+  params: Promise<{
+    page: string
+  }>
 }
 
-export default async function Home() {
-  const { posts, totalPages } = getPaginatedPosts(1)
+export default async function PostsPage(props: Props) {
+  const { page } = await props.params
+  const pageNumber = Number(page) || 1
+  const { posts, totalPages } = getPaginatedPosts(pageNumber)
 
   return (
     <div className="flex flex-col gap-32">
@@ -57,7 +37,11 @@ export default async function Home() {
           </div>
         )
       })}
-      <Pagination currentPage={1} totalPages={totalPages} recordName="posts" />
+      <Pagination
+        currentPage={pageNumber}
+        totalPages={totalPages}
+        recordName="posts"
+      />
     </div>
   )
 }
