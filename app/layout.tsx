@@ -49,13 +49,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={font.variable}>
-      <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-base-950 text-paper">
+      <body className="h-screen flex flex-col font-body overflow-x-hidden bg-base-950 text-paper">
         <ContextMenu />
-        <main className="max-w-3xl w-full mx-auto px-4 mb-12  grid gap-12 md:grid-cols-12">
-          <div className="col-span-3 sticky top-0 h-screen">
+        <main className="max-w-3xl w-full mx-auto px-4 mb-12 md:grid md:gap-12 md:grid-cols-12">
+          <div className="mb-12 md:mb-0 md:col-span-3 static md:sticky top-0 md:h-screen">
             <Sidebar />
           </div>
-          <div className="col-span-9 pt-12">
+          <div className="col-span-12 md:col-span-9 md:pt-12">
             <>
               {children}
               <Footer />
