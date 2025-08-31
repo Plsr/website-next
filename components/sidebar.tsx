@@ -5,7 +5,7 @@ import { Navigation } from './navigation'
 
 export const Sidebar = () => {
   return (
-    <div className="px-4 pt-12">
+    <div className="px-4 pt-12 flex flex-col md:items-start items-center">
       <Link
         href="/"
         className="hover:text-accent-600 text-base-300 transition-all block mb-6"
