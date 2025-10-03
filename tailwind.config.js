@@ -32,7 +32,7 @@ module.exports = {
         900: '#122F2C',
         950: '#101F1D',
       },
-      paper: '#d6d3c7',
+      paper: '#FFFCF0',
       base: {
         950: '#1C1B1A',
         900: '#282726',
@@ -75,17 +75,12 @@ module.exports = {
             color: theme('colors.paper'),
             h1: {
               fontSize: em(20, 14),
-              color: theme('colors.paper'),
             },
             h2: {
               fontSize: em(18, 14),
-              color: theme('colors.paper'),
-            },
-            h3: {
-              color: theme('colors.paper'),
             },
             a: {
-              color: theme('colors.accent.300'),
+              color: theme('colors.accent.200'),
             },
             code: {
               fontSize: '0.7rem',
@@ -94,9 +89,6 @@ module.exports = {
               fontSize: '0.7rem',
             },
             strong: {
-              color: theme('colors.paper'),
-            },
-            blockquote: {
               color: theme('colors.paper'),
             },
           },

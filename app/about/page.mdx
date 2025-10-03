@@ -1,7 +1,4 @@
 import { formatDistanceToNowStrict } from 'date-fns'
-import { ArrowRight, Briefcase } from 'lucide-react'
-import Link from 'next/link'
-import { TimelineItem } from 'components/timeline-item'
 
 export const birthDay = new Date('22 Jul 1991')
 export const yearsOld = formatDistanceToNowStrict(birthDay, {
@@ -45,50 +42,7 @@ This site is built with Next.js and hosted on Vercel. Content is just
 plain markdown files. You can find the source code on [Github](https://github.com/Plsr/website-next). Styling via Tailwind,
 colorscheme heavily inspired by [Flexoki](https://stephango.com/flexoki).
 
-      <div>
-        <h2 className="not-prose mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
-          <Briefcase className="h-4 w-4 text-base-300" />
-          <span>Work History</span>
-        </h2>
-        <TimelineItem
-          title="Engineering Manager"
-          company="Gigs"
-          startDate="2024"
-        />
-        <TimelineItem
-          title="Senior Fullstack Engineer"
-          company="Gigs"
-          startDate="2022"
-          endDate="2024"
-        />
-        <TimelineItem
-          title="Software Engineer"
-          company="Cisco"
-          startDate="2020"
-          endDate="2022"
-        />
-        <TimelineItem
-          title="Fullstack Engineer"
-          company="Railslove"
-          startDate="2016"
-          endDate="2020"
-        />
-        <TimelineItem
-          title="Designer & Developer"
-          company="Self-Founded Agency"
-          startDate="2014"
-          endDate="2016"
-        />
-      </div>
-      <Link
-        href="/cv"
-        className="text-sm inline-flex gap-1 items-center no-underline border-b border-base-600 border-dotted "
-      >
-        Full CV <ArrowRight className="w-4 h-4" />
-      </Link>
-
 export default function MDXPage({ children }) {
-  
   return <div className="prose prose-invert">{children}</div>
 
 }

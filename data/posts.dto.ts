@@ -5,19 +5,6 @@ export function getLastThreePosts() {
   return sortByDateDesc(allPosts).slice(0, 3)
 }
 
-const nonDraftPosts = allPosts.filter((post) => !post.draft)
-
-export function getPaginatedPosts(page: number) {
-  const postsPerPage = 10
-  const lowerEnd = postsPerPage * (page - 1)
-  const upperEnd = page * postsPerPage
-
-  return {
-    posts: sortByDateDesc(nonDraftPosts).slice(lowerEnd, upperEnd),
-    totalPages: allPosts.length / postsPerPage,
-  }
-}
-
 export function getPostsForTag(tag: string) {
   const postsWithTag = allPosts.filter((post) => {
     return post.tags?.split(' ').includes(tag)
@@ -31,7 +18,7 @@ export function getPostForSlug(slug: string) {
 }
 
 export function getAllPostsByYear() {
-  const sortedPosts = sortByDateDesc(nonDraftPosts)
+  const sortedPosts = sortByDateDesc(allPosts)
   const postsByYear: {
     [key: number]: Post[]
   } = {}
