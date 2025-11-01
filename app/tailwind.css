@@ -1,6 +1,83 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
-@config "../tailwind.config.js";
+@source '../../app/**/*.{js,ts,jsx,tsx}';
+@source '../../components/**/*.{js,ts,jsx,tsx}';
+
+@theme {
+  /* Custom color palette */
+  --color-accent-50: #ddf1e4;
+  --color-accent-100: #bfe8d9;
+  --color-accent-150: #a2dece;
+  --color-accent-200: #87d3c3;
+  --color-accent-300: #5abdac;
+  --color-accent-400: #3aa99f;
+  --color-accent-500: #2f968d;
+  --color-accent-600: #24837b;
+  --color-accent-700: #1c6c66;
+  --color-accent-800: #164f4a;
+  --color-accent-850: #143f3c;
+  --color-accent-900: #122f2c;
+  --color-accent-950: #101f1d;
+
+  --color-paper: #fffcf0;
+
+  --color-base-950: #1c1b1a;
+  --color-base-900: #282726;
+  --color-base-850: #343331;
+  --color-base-800: #403e3c;
+  --color-base-700: #575653;
+  --color-base-600: #6f6e69;
+  --color-base-500: #878580;
+  --color-base-300: #b7b5ac;
+  --color-base-200: #cecdc3;
+  --color-base-150: #dad8ce;
+  --color-base-100: #e6e4d9;
+  --color-base-50: #f2f0e5;
+
+  --color-neutral-50: #f7f7f8;
+  --color-neutral-100: #efeef0;
+  --color-neutral-200: #dad9de;
+  --color-neutral-300: #b9b7c2;
+  --color-neutral-400: #9290a0;
+  --color-neutral-500: #716f81;
+  --color-neutral-600: #5f5c6d;
+  --color-neutral-700: #4d4b59;
+  --color-neutral-800: #42414b;
+  --color-neutral-900: #3a3941;
+  --color-neutral-950: #27262b;
+
+  /* Font families */
+  --font-title: var(--font-main);
+  --font-body: var(--font-main);
+  --font-copy: var(--font-main);
+  --font-handwriting: var(--font-main);
+
+  /* Typography plugin customization */
+  --typography-body: var(--color-paper);
+  --typography-headings: var(--color-paper);
+  --typography-links: var(--color-accent-200);
+  --typography-bold: var(--color-paper);
+  --typography-code: var(--color-paper);
+}
+
+@layer base {
+  .prose {
+    max-width: none !important;
+  }
+
+  .prose h2 {
+    font-size: 1.2857em !important; /* em(18, 14) */
+  }
+
+  .prose code {
+    font-size: 0.7rem !important;
+  }
+
+  .prose pre {
+    font-size: 0.7rem !important;
+  }
+}
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
