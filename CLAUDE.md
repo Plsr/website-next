@@ -19,9 +19,16 @@ This project uses **pnpm** (see `pnpm.overrides` in package.json). Always use `p
 - `pnpm lint:fix` - Auto-fix linting issues
 - `pnpm format` - Format code with Prettier
 - `pnpm format:check` - Check formatting without changes
+- `pnpm test` - Run tests with Vitest
+- `pnpm test:watch` - Run tests in watch mode
+- `pnpm typecheck` - Run TypeScript type checking
 
-### No Test Suite
-This project does not have tests configured. Do not attempt to run test commands.
+### Testing
+This project uses **Vitest** with React Testing Library for unit and integration tests.
+- Test configuration: `vitest.config.ts` with JSDOM environment
+- Test setup: `test/setupTests.ts` extends `expect` with `@testing-library/jest-dom` matchers
+- Test files: Place tests in `__tests__` directories or name them `*.{test,spec}.{ts,tsx}`
+- CI: GitHub Actions workflow in `.github/workflows/test.yml` runs tests and typecheck on PRs and main branch
 
 ## Architecture
 
