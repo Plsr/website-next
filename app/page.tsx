@@ -51,26 +51,27 @@ export default async function Home() {
         </ViewTransition>
         <div className="flex flex-col not-prose">
           <h1 className="text-base-100 -mb-1 text-sm">Chris Jarling</h1>
-          <span className='text-base-600'>Engineering Manager @ Gigs</span>
+          <span className="text-base-600">Engineering Manager @ Gigs</span>
         </div>
       </div>
 
       <div className="prose prose-invert">
         <div>
-          I&apos;m an Engineering Manager at <a href="https://gigs.com">Gigs</a>,
-          where we&apos;re shaping the future of telecom. Before becoming an
+          I&apos;m an Engineering Manager at <a href="https://gigs.com">Gigs</a>
+          , where we&apos;re shaping the future of telecom. Before becoming an
           Engineering Manager, I worked as a Senior Fullstack Engineer.
         </div>
         <div className="mt-4">
           I take great joy and pride in building a great product that provides
-          value for users and being part of something bigger than myself. While I
-          enjoy writing code a lot and am pretty good at it, I will take on
-          whatever responsibility it takes to make the thing I work on a success.
+          value for users and being part of something bigger than myself. While
+          I enjoy writing code a lot and am pretty good at it, I will take on
+          whatever responsibility it takes to make the thing I work on a
+          success.
         </div>
         <div className="mt-4">
           Previously, I worked at <strong>Cisco</strong> and{' '}
-          <strong>Placetel</strong>, where I built web apps for a Could-Based PBX
-          System. I also did some agency work, one of which I co-founded.
+          <strong>Placetel</strong>, where I built web apps for a Could-Based
+          PBX System. I also did some agency work, one of which I co-founded.
         </div>
         <div className=" mt-4">
           This is my personal website, where I share thoughts about programming,
