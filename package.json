@@ -9,7 +9,8 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prepare": "node .husky/install.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.12",
@@ -64,6 +65,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
     "postcss": "^8.4.18",
     "prettier": "^3.5.3",
     "tailwindcss": "^4.0.14",
@@ -79,5 +82,17 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mdx}": [
+      "next lint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "bash -c 'tsc --noEmit --pretty --skipLibCheck'"
+    ]
   }
 }
