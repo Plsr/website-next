@@ -5,13 +5,13 @@ import './global.css'
 import { Analytics } from '@vercel/analytics/react'
 import { ContextMenu } from 'components/context-menu'
 import { Metadata } from 'next'
-import { Lato } from 'next/font/google'
+import { Cabin_Condensed } from 'next/font/google'
 
 import Footer from '../components/footer'
 import Header from '../components/header'
 
-const font = Lato({
-  weight: ['300', '400', '700'],
+const font = Cabin_Condensed({
+  weight: ['400', '700'],
   subsets: ['latin'],
   variable: '--font-main',
 })
@@ -54,7 +54,7 @@ export default function RootLayout({
         <Analytics />
         <Header />
         <ContextMenu />
-        <main className="max-w-3xl w-full mx-auto px-4 mb-12 mt-8">
+        <main className="max-w-xl w-full mx-auto px-4 mb-12 mt-8">
           {children}
         </main>
         <Footer />

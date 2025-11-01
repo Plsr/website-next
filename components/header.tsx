@@ -10,7 +10,7 @@ export default function Header() {
   const isRootPage = pathname === '/'
 
   return (
-    <div className="py-4 px-4 mx-auto w-full max-w-3xl text-base-800 dark:text-base-50 flex flex-row justify-between items-center gap-y-4 md:gap-y-0">
+    <div className="py-4 px-4 mx-auto w-full max-w-xl text-base-800 dark:text-base-50 flex flex-row justify-between items-center gap-y-4 md:gap-y-0">
       {!isRootPage && (
         <div className="flex flex-col justify-center">
           <Link

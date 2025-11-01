@@ -51,7 +51,7 @@ export default async function Post(props: Params) {
   }
 
   return (
-    <div className="mx-auto max-w-5xl mb-16">
+    <div className="mx-auto max-w-xl mb-16">
       <div>
         <div className="mb-4">
           <PostMetadata>
