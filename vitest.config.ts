@@ -13,10 +13,13 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'components': resolve(__dirname, './components'),
+      components: resolve(__dirname, './components'),
       '@components': resolve(__dirname, './components'),
-      'lib': resolve(__dirname, './lib'),
-      'content-collections': resolve(__dirname, './.content-collections/generated'),
+      lib: resolve(__dirname, './lib'),
+      'content-collections': resolve(
+        __dirname,
+        './.content-collections/generated',
+      ),
     },
   },
 })

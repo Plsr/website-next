@@ -51,6 +51,7 @@ pnpm typecheck
 Tests should be placed in `__tests__` directories or named with `.test.ts(x)` or `.spec.ts(x)` extensions. The test setup automatically includes `@testing-library/jest-dom` matchers.
 
 Example test structure:
+
 ```tsx
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
