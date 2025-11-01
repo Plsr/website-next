@@ -5,12 +5,12 @@ import './global.css'
 import { Analytics } from '@vercel/analytics/react'
 import { ContextMenu } from 'components/context-menu'
 import { Metadata } from 'next'
-import { Piazzolla } from 'next/font/google'
+import { Lato } from 'next/font/google'
 
 import Footer from '../components/footer'
 import Header from '../components/header'
 
-const font = Piazzolla({
+const font = Lato({
   weight: ['300', '400', '700'],
   subsets: ['latin'],
   variable: '--font-main',

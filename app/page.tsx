@@ -38,49 +38,51 @@ export default async function Home() {
   const posts = getLastThreePosts()
 
   return (
-    <div className="prose dark:prose-invert">
-      <div className="flex flex-row items-center gap-4">
+    <div>
+      <div className="prose dark:prose-invert flex flex-row items-center gap-4 mb-8">
         <ViewTransition name="avatar">
           <Image
             src="/me_notion.jpg"
             alt="Chris Jarling Portrait"
             width={200}
             height={200}
-            className="rounded-full w-16 h-16"
+            className="rounded-full w-16 h-16 mb-0"
           />
         </ViewTransition>
         <div className="flex flex-col not-prose">
-          <h1 className="text-base-200 -mb-1">Chris Jarling</h1>
-          <span>Engineering Manager @ Gigs</span>
+          <h1 className="text-base-100 -mb-1 text-sm">Chris Jarling</h1>
+          <span className="text-base-600">Engineering Manager @ Gigs</span>
         </div>
       </div>
 
-      <div>
-        I&apos;m an Engineering Manager at <a href="https://gigs.com">Gigs</a>,
-        where we&apos;re shaping the future of telecom. Before becoming an
-        Engineering Manager, I worked as a Senior Fullstack Engineer.
+      <div className="prose prose-invert">
+        <div>
+          I&apos;m an Engineering Manager at <a href="https://gigs.com">Gigs</a>
+          , where we&apos;re shaping the future of telecom. Before becoming an
+          Engineering Manager, I worked as a Senior Fullstack Engineer.
+        </div>
+        <div className="mt-4">
+          I take great joy and pride in building a great product that provides
+          value for users and being part of something bigger than myself. While
+          I enjoy writing code a lot and am pretty good at it, I will take on
+          whatever responsibility it takes to make the thing I work on a
+          success.
+        </div>
+        <div className="mt-4">
+          Previously, I worked at <strong>Cisco</strong> and{' '}
+          <strong>Placetel</strong>, where I built web apps for a Could-Based
+          PBX System. I also did some agency work, one of which I co-founded.
+        </div>
+        <div className=" mt-4">
+          This is my personal website, where I share thoughts about programming,
+          web development, management and reflections on my personal journey.
+        </div>
       </div>
-      <div className="mt-4">
-        I take great joy and pride in building a great product that provides
-        value for users and being part of something bigger than myself. While I
-        enjoy writing code a lot and am pretty good at it, I will take on
-        whatever responsibility it takes to make the thing I work on a success.
-      </div>
-      <div className="mt-4">
-        Previously, I worked at <strong>Cisco</strong> and{' '}
-        <strong>Placetel</strong>, where I built web apps for a Could-Based PBX
-        System. I also did some agency work, one of which I co-founded.
-      </div>
-      <div className=" mt-4">
-        This is my personal website, where I share thoughts about programming,
-        web development, management and reflections on my personal journey.
-      </div>
-
       <div className="mt-6">
         <SocialLinks />
       </div>
 
-      <h2 className="not-prose mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
+      <h2 className="text-sm mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
         <FileText className="h-4 w-4 text-base-300" />
         <span>Recent Writing</span>
       </h2>
@@ -97,7 +99,7 @@ export default async function Home() {
       </Link>
 
       <div>
-        <h2 className="not-prose mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
+        <h2 className="text-sm mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
           <Briefcase className="h-4 w-4 text-base-300" />
           <span>Work History</span>
         </h2>
@@ -162,7 +164,7 @@ const TimelineItem = ({
             {startDate} {current ? null : ` - ${endDate}`}
           </span>
           {current && (
-            <div className="inline bg-accent-800/30 px-2 pt-[5px] pb-[0px] border border-accent-800/70 text-accent-400 rounded-full text-xs">
+            <div className="inline bg-accent-800/30 px-2 pt-[3px] pb-[0px] border border-accent-800/70 text-accent-400 rounded-full text-xs">
               Current
             </div>
           )}
