@@ -1,22 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a personal website built with [Next.js 15](https://nextjs.org/) (App Router), featuring a blog, library, and content management system.
 
 ## Getting Started
 
-First, run the development server:
+This project uses **pnpm** as the package manager. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm install
+```
+
+Run the development server:
+
+```bash
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- `pnpm dev` - Start development server with Turbopack
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+- `pnpm lint:fix` - Auto-fix linting issues
+- `pnpm format` - Format code with Prettier
+- `pnpm format:check` - Check formatting without changes
+- `pnpm test` - Run tests with Vitest
+- `pnpm test:watch` - Run tests in watch mode
+- `pnpm typecheck` - Run TypeScript type checking
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Testing
+
+This project uses [Vitest](https://vitest.dev/) with React Testing Library for unit and integration tests.
+
+### Running Tests
+
+```bash
+# Run all tests once
+pnpm test
+
+# Run tests in watch mode
+pnpm test:watch
+
+# Run type checking
+pnpm typecheck
+```
+
+### Writing Tests
+
+Tests should be placed in `__tests__` directories or named with `.test.ts(x)` or `.spec.ts(x)` extensions. The test setup automatically includes `@testing-library/jest-dom` matchers.
+
+Example test structure:
+```tsx
+import { render, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
+
+import { MyComponent } from '../my-component'
+
+describe('MyComponent', () => {
+  it('renders correctly', () => {
+    render(<MyComponent />)
+    expect(screen.getByText('Hello')).toBeInTheDocument()
+  })
+})
+```
 
 ## Learn More
 
