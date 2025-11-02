@@ -39,17 +39,17 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="flex flex-row items-center gap-8 mb-8">
+      <div className="flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-8 mb-8">
         <ViewTransition name="avatar">
           <Image
             src="/dithered.png"
             alt="Chris Jarling Portrait"
             width={200}
             height={200}
-            className="rounded-lg w-56 h-56 mb-0 border border-base-700 rotate-3"
+            className="rounded-lg w-32 h-32 md:w-56 md:h-56 mb-0 border border-base-700 rotate-3"
           />
         </ViewTransition>
-        <div className="flex flex-col not-prose">
+        <div className="flex flex-col not-prose text-center md:text-left items-center md:items-start">
           <h1 className="font-main text-base-100 -mb-1 text-sm">
             Chris Jarling
           </h1>

@@ -2,7 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es2015",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -21,10 +25,18 @@
       }
     ],
     "paths": {
-      "components/*": ["./components/*"],
-      "@components/*": ["./components/*"],
-      "lib/*": ["./lib/*"],
-      "content-collections": ["./.content-collections/generated"]
+      "components/*": [
+        "./components/*"
+      ],
+      "@components/*": [
+        "./components/*"
+      ],
+      "lib/*": [
+        "./lib/*"
+      ],
+      "content-collections": [
+        "./.content-collections/generated"
+      ]
     }
   },
   "include": [
@@ -32,7 +44,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/cv/page.mdx"
+    "app/cv/page.mdx",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
