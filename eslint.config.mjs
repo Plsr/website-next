@@ -1,19 +1,20 @@
-import { FlatCompat } from '@eslint/eslintrc'
+import eslintPluginNext from '@next/eslint-plugin-next'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
-
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-})
+import tseslint from 'typescript-eslint'
 
 const eslintConfig = [
-  ...compat.config({
-    extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
-  }),
+  {
+    ignores: ['.next/**', '.content-collections/**', 'node_modules/**'],
+  },
+  ...tseslint.configs.recommended,
   {
     plugins: {
+      '@next/next': eslintPluginNext,
       'simple-import-sort': simpleImportSort,
     },
     rules: {
+      ...eslintPluginNext.configs.recommended.rules,
+      ...eslintPluginNext.configs['core-web-vitals'].rules,
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
@@ -24,9 +25,6 @@ const eslintConfig = [
           caughtErrors: 'all',
         },
       ],
-      'import/no-duplicates': 'error',
-      'import/first': 'error',
-      'import/newline-after-import': 'warn',
       'simple-import-sort/imports': 'error',
       '@typescript-eslint/ban-ts-comment': 'off',
     },

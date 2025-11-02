@@ -46,7 +46,6 @@
   --color-base-900: #3d3d3d;
   --color-base-950: #000000;
 
-
   --color-neutral-50: #f7f7f8;
   --color-neutral-100: #efeef0;
   --color-neutral-200: #dad9de;
@@ -73,9 +72,12 @@
 }
 
 @utility prose {
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-title);
-  };
+  }
 
   h2 {
     font-size: 1.2857em !important; /* em(18, 14) */
@@ -89,7 +91,12 @@
     font-size: 0.7rem !important;
   }
 
+  strong {
+    color: var(--color-base-100);
+  }
+
   max-width: none !important;
+  color: var(--color-base-200);
 }
 
 /*
