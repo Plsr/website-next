@@ -14,7 +14,7 @@ export const Story = () => {
   return (
     <div className="flex flex-col gap-4 text-base-300 bg-base-800/50 p-4 my-8 rounded-lg border border-base-800">
       <div className="flex flex-row justify-between items-center">
-        <h2 className="text-base-400 text-sm">
+        <h2 className="not-prose text-base-400 text-sm">
           <div className="flex flex-row items-center gap-2">
             <ShipWheelIcon className="w-4 h-4" /> My story
           </div>

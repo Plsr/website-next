@@ -48,7 +48,7 @@
   --color-neutral-950: #27262b;
 
   /* Font families */
-  --font-title: var(--font-main);
+  --font-title: var(--font-headline);
   --font-body: var(--font-main);
   --font-copy: var(--font-main);
   --font-handwriting: var(--font-main);
@@ -61,22 +61,24 @@
   --typography-code: var(--color-paper);
 }
 
-@layer base {
-  .prose {
-    max-width: none !important;
-  }
+@utility prose {
+  h1, h2, h3, h4 {
+    font-family: var(--font-title);
+  };
 
-  .prose h2 {
+  h2 {
     font-size: 1.2857em !important; /* em(18, 14) */
   }
 
-  .prose code {
+  code {
     font-size: 0.7rem !important;
   }
 
-  .prose pre {
+  pre {
     font-size: 0.7rem !important;
   }
+
+  max-width: none !important;
 }
 
 /*

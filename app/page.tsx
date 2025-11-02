@@ -39,7 +39,7 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="prose dark:prose-invert flex flex-row items-center gap-4 mb-8">
+      <div className="flex flex-row items-center gap-4 mb-8">
         <ViewTransition name="avatar">
           <Image
             src="/me_notion.jpg"
@@ -50,7 +50,7 @@ export default async function Home() {
           />
         </ViewTransition>
         <div className="flex flex-col not-prose">
-          <h1 className="text-base-100 -mb-1 text-sm">Chris Jarling</h1>
+          <h1 className="font-main text-base-100 -mb-1 text-sm">Chris Jarling</h1>
           <span className="text-base-600">Engineering Manager @ Gigs</span>
         </div>
       </div>

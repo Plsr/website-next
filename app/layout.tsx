@@ -5,15 +5,22 @@ import './global.css'
 import { Analytics } from '@vercel/analytics/react'
 import { ContextMenu } from 'components/context-menu'
 import { Metadata } from 'next'
-import { Cabin_Condensed } from 'next/font/google'
+import { Instrument_Serif, Schibsted_Grotesk } from 'next/font/google'
 
 import Footer from '../components/footer'
 import Header from '../components/header'
 
-const font = Cabin_Condensed({
+const font = Instrument_Serif({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-headline',
+})
+
+const font2 = Schibsted_Grotesk({
   weight: ['400', '700'],
   subsets: ['latin'],
   variable: '--font-main',
+
 })
 
 export const metadata: Metadata = {
@@ -49,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={font.variable}>
+    <html lang="en" className={`${font.variable} ${font2.variable}`}>
       <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-base-950 text-paper">
         <Analytics />
         <Header />
