@@ -1,6 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1
 
-FROM node:18-alpine AS base
+FROM node:20 AS base
 ARG RELEASE_VERSION=unversioned
 ENV RELEASE_VERSION=$RELEASE_VERSION
 
