@@ -5,7 +5,6 @@ import createMDX from '@next/mdx'
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
-  swcMinify: true,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   experimental: {
     viewTransition: true,

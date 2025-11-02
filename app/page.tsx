@@ -5,7 +5,7 @@ import { ArrowRight, Briefcase, FileText } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 
 export const metadata: Metadata = {
   title: 'Chris Jarling',

@@ -91,7 +91,12 @@
     font-size: 0.7rem !important;
   }
 
+  strong {
+    color: var(--color-base-100);
+  }
+
   max-width: none !important;
+  color: var(--color-base-200);
 }
 
 /*

@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link, { LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 
 export default function Header() {
   const pathname = usePathname()
