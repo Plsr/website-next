@@ -50,15 +50,22 @@ export default async function Home() {
           />
         </ViewTransition>
         <div className="flex flex-col not-prose">
-          <h1 className="font-main text-base-100 -mb-1 text-sm">Chris Jarling</h1>
+          <h1 className="font-main text-base-100 -mb-1 text-sm">
+            Chris Jarling
+          </h1>
           <span className="text-base-600">Engineering Manager @ Gigs</span>
-          <span className="block mt-4 text-base-200">I love <span className="font-title text-lg text-accent-600 italic">building</span> things with people</span>
+          <span className="block mt-4 text-base-200">
+            I love{' '}
+            <span className="font-title text-lg text-accent-600 italic">
+              building
+            </span>{' '}
+            things with people
+          </span>
           <div className="mt-6">
             <SocialLinks />
           </div>
         </div>
       </div>
-
 
       <div className="prose prose-invert">
         <div>

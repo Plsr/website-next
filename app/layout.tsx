@@ -20,7 +20,6 @@ const font2 = Schibsted_Grotesk({
   weight: ['400', '700'],
   subsets: ['latin'],
   variable: '--font-main',
-
 })
 
 export const metadata: Metadata = {
