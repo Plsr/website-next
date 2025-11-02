@@ -57,7 +57,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${font.variable} ${font2.variable}`}>
-      <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-base-950 text-paper">
+      <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-base-950 text-base-100">
         <Analytics />
         <Header />
         <ContextMenu />

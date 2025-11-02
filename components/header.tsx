@@ -20,11 +20,11 @@ export default function Header() {
             <h1 className="-mb-1 font-bold hidden">Chris Jarling</h1>
             <ViewTransition name="avatar">
               <Image
-                src="/me_notion.jpg"
+                src="/dithered.png"
                 alt="Chris Jarling"
                 width={48}
                 height={48}
-                className="rounded-full w-12 h-12 grayscale-50 hover:grayscale-0 transition-all"
+                className="rounded-lg border border-base-900 w-12 h-12 grayscale-50 hover:grayscale-0 transition-all"
               />
             </ViewTransition>
           </Link>

@@ -57,7 +57,7 @@ export default async function Post(props: Params) {
           <PostMetadata>
             {format(new Date(post.date), 'do LLL, yyyy')}
           </PostMetadata>
-          <h2 className="mt-0 font-bold text-2xl">{post.title}</h2>
+          <h2 className="mt-0 font-bold text-3xl font-title">{post.title}</h2>
           {post.draft && (
             <div className="rounded-lg p-4 my-6 bg-rose-bud-700/10 border border-rose-bud-900 text-indigo-bud-200 text-sm">
               This post is a draft. It&apos;s not complete yet and may never be.

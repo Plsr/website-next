@@ -20,20 +20,32 @@
   --color-accent-900: #122f2c;
   --color-accent-950: #101f1d;
 
+  --color-accent-50: #fffaeb;
+  --color-accent-100: #fef0c7;
+  --color-accent-200: #fde08a;
+  --color-accent-300: #fcca4d;
+  --color-accent-400: #fbb424;
+  --color-accent-500: #f5920b;
+  --color-accent-600: #db6d06;
+  --color-accent-700: #b44a09;
+  --color-accent-800: #92390e;
+  --color-accent-900: #78300f;
+  --color-accent-950: #451703;
+
   --color-paper: #fffcf0;
 
-  --color-base-950: #1c1b1a;
-  --color-base-900: #282726;
-  --color-base-850: #343331;
-  --color-base-800: #403e3c;
-  --color-base-700: #575653;
-  --color-base-600: #6f6e69;
-  --color-base-500: #878580;
-  --color-base-300: #b7b5ac;
-  --color-base-200: #cecdc3;
-  --color-base-150: #dad8ce;
-  --color-base-100: #e6e4d9;
-  --color-base-50: #f2f0e5;
+  --color-base-50: #f6f6f6;
+  --color-base-100: #e7e7e7;
+  --color-base-200: #d1d1d1;
+  --color-base-300: #b0b0b0;
+  --color-base-400: #888888;
+  --color-base-500: #6d6d6d;
+  --color-base-600: #5d5d5d;
+  --color-base-700: #4f4f4f;
+  --color-base-800: #454545;
+  --color-base-900: #3d3d3d;
+  --color-base-950: #000000;
+
 
   --color-neutral-50: #f7f7f8;
   --color-neutral-100: #efeef0;
@@ -54,7 +66,6 @@
   --font-handwriting: var(--font-main);
 
   /* Typography plugin customization */
-  --typography-body: var(--color-paper);
   --typography-headings: var(--color-paper);
   --typography-links: var(--color-accent-200);
   --typography-bold: var(--color-paper);

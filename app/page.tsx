@@ -39,21 +39,26 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="flex flex-row items-center gap-4 mb-8">
+      <div className="flex flex-row items-center gap-8 mb-8">
         <ViewTransition name="avatar">
           <Image
-            src="/me_notion.jpg"
+            src="/dithered.png"
             alt="Chris Jarling Portrait"
             width={200}
             height={200}
-            className="rounded-full w-16 h-16 mb-0"
+            className="rounded-lg w-56 h-56 mb-0 border border-base-700 rotate-3"
           />
         </ViewTransition>
         <div className="flex flex-col not-prose">
           <h1 className="font-main text-base-100 -mb-1 text-sm">Chris Jarling</h1>
           <span className="text-base-600">Engineering Manager @ Gigs</span>
+          <span className="block mt-4 text-base-200">I love <span className="font-title text-lg text-accent-600 italic">building</span> things with people</span>
+          <div className="mt-6">
+            <SocialLinks />
+          </div>
         </div>
       </div>
+
 
       <div className="prose prose-invert">
         <div>
@@ -77,9 +82,6 @@ export default async function Home() {
           This is my personal website, where I share thoughts about programming,
           web development, management and reflections on my personal journey.
         </div>
-      </div>
-      <div className="mt-6">
-        <SocialLinks />
       </div>
 
       <h2 className="text-sm mt-24 mb-4 opacity-60 font-normal flex gap-2 items-center">
