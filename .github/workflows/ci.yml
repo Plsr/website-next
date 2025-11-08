@@ -25,18 +25,12 @@ jobs:
           context: .
           file: Dockerfile
           platforms: linux/arm64,linux/amd64
-          load: true
+          push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
           cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
           build-args: |
             RELEASE_VERSION=${{ github.sha }}
-      - run: docker save -o /tmp/docker-image.tar ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-      - uses: actions/upload-artifact@v4
-        with:
-          name: docker-image
-          path: /tmp/docker-image.tar
-          retention-days: 1
 
   lint:
     runs-on: ubuntu-latest
