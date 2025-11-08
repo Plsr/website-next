@@ -34,5 +34,6 @@ jobs:
       - name: publish
         run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       - name: release
+        if: false
         run: |
           curl --request GET '${{ secrets.COOLIFY_WEBHOOK }}' --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}'
