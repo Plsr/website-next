@@ -11,6 +11,9 @@ importers:
       '@heroicons/react':
         specifier: ^2.0.12
         version: 2.0.12(react@19.3.0-canary-561ee24d-20251101)
+      '@loglayer/transport-betterstack':
+        specifier: ^1.0.4
+        version: 1.0.4
       '@loglayer/transport-pino':
         specifier: ^2.2.11
         version: 2.2.11(pino@10.1.0)
@@ -984,6 +987,14 @@ packages:
 
   '@loglayer/shared@2.7.1':
     resolution: {integrity: sha512-1C+ou0fpzm5+2bjULHUnDlejFi7TZKAmF152DK/LbmrHSspw/feffzZO4lZ1UHyWM+fNGF6KVndTIvifMXYz9w==}
+    engines: {node: '>=18'}
+
+  '@loglayer/transport-betterstack@1.0.4':
+    resolution: {integrity: sha512-ZcjfLidNJx3IAwez1izlCCXizYKv/x429D0jryu6AFO1drQjCL8LGgN2W/Frv7Pq5MXS1esCVh4YOU1p8Dh9VQ==}
+    engines: {node: '>=18'}
+
+  '@loglayer/transport-http@1.1.5':
+    resolution: {integrity: sha512-w/L/J54XDa6mNLnoWRaYSLwDR8hF6Nt0q03v3QsSAjxMScYsEbrQCVMtDMbEsfvchnT7mpxJYFfF/4GP3Wniqw==}
     engines: {node: '>=18'}
 
   '@loglayer/transport-pino@2.2.11':
@@ -5758,6 +5769,15 @@ snapshots:
       '@loglayer/shared': 2.7.1
 
   '@loglayer/shared@2.7.1': {}
+
+  '@loglayer/transport-betterstack@1.0.4':
+    dependencies:
+      '@loglayer/transport': 2.3.7
+      '@loglayer/transport-http': 1.1.5
+
+  '@loglayer/transport-http@1.1.5':
+    dependencies:
+      '@loglayer/transport': 2.3.7
 
   '@loglayer/transport-pino@2.2.11(pino@10.1.0)':
     dependencies:

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.12",
+    "@loglayer/transport-betterstack": "^1.0.4",
     "@loglayer/transport-pino": "^2.2.11",
     "@loglayer/transport-simple-pretty-terminal": "^2.2.11",
     "@mdx-js/loader": "^3.0.1",

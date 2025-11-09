@@ -1,3 +1,4 @@
+import { BetterStackTransport } from '@loglayer/transport-betterstack'
 import { PinoTransport } from '@loglayer/transport-pino'
 import { getSimplePrettyTerminal } from '@loglayer/transport-simple-pretty-terminal'
 import { type ILogLayer, LogLayer } from 'loglayer'
@@ -93,6 +94,11 @@ export async function register() {
       new PinoTransport({
         enabled: process.env.NODE_ENV === 'production',
         logger: pino(),
+      }),
+      new BetterStackTransport({
+        enabled: process.env.NODE_ENV === 'production',
+        sourceToken: process.env.BETTER_STACK_SOURCE_TOKEN!,
+        url: `https://${process.env.BETTER_STACK_INGESTING_HOST}`,
       }),
     ],
   })
