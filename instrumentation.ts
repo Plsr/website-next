@@ -99,6 +99,9 @@ export async function register() {
         enabled: process.env.NODE_ENV === 'production',
         sourceToken: process.env.BETTER_STACK_SOURCE_TOKEN!,
         url: `https://${process.env.BETTER_STACK_INGESTING_HOST}`,
+        onError: (err) => {
+          console.error('Failed to send logs to Better Stack:', err)
+        },
       }),
     ],
   })
