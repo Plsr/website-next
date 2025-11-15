@@ -5,7 +5,6 @@
 @source '../../components/**/*.{js,ts,jsx,tsx}';
 
 @theme {
-
   --color-accent-50: #fffaeb;
   --color-accent-100: #fef0c7;
   --color-accent-200: #fde08a;
@@ -68,7 +67,6 @@
   h2 {
     font-size: 1.2857em !important; /* em(18, 14) */
   }
-
 
   pre {
     font-size: 0.7rem !important;

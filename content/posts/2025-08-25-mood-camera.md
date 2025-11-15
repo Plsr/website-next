@@ -1,11 +1,12 @@
 ---
 title: Mood camera
-date: "2025-08-25T08:39:00.000+02:00"
+date: '2025-08-25T08:39:00.000+02:00'
 tags: photography
 draft: false
-metaDescription: "I enjoy using mood camera a lot. "
+metaDescription: 'I enjoy using mood camera a lot. '
 ---
-The other day, I learned about [mood camera](https://www.mood.camera/) [on Jasper's blog](https://jasper.tandy.is/blogging/mood). In the last couple of days, I've been having a lot of fun with it. 
+
+The other day, I learned about [mood camera](https://www.mood.camera/) [on Jasper's blog](https://jasper.tandy.is/blogging/mood). In the last couple of days, I've been having a lot of fun with it.
 
 There are a lot of camera apps the allow you to take photos with a retro filter or apply it afterwards, and I've like this a lot ever since I started using Instagram (back then it was iOS only and none of my real-life friends had ever heard about it). In the last couple of years I used VSCO a lot, but have grown somewhat tired of it recently.
 

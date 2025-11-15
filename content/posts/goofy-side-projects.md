@@ -1,6 +1,6 @@
 ---
 title: The case for goofy side projects
-date: "2024-01-13T13:03:26.271Z"
+date: '2024-01-13T13:03:26.271Z'
 excerpt: On embracing the $0 MRR and still being happy.
 tags: programming side-project
 draft: false

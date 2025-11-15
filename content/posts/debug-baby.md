@@ -1,6 +1,6 @@
 ---
 title: Debugging a baby is hard
-date: "2024-01-05T22:03:26.271Z"
+date: '2024-01-05T22:03:26.271Z'
 excerpt: It would be so much easier if they came with a compiler.
 tags: parenting humor
 draft: false
