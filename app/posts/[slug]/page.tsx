@@ -83,7 +83,6 @@ export default async function Post(props: Params) {
         <div className="prose-invert prose prose-img:rounded-lg">
           {Markdoc.renderers.react(renderable, React)}
         </div>
-        a{/* <StyledArticleContent contentHtml={post.content} /> */}
       </div>
       <div className="space-x-4">
         {post.tags?.split(' ').map((tag) => <Tag name={tag} key={tag} />)}
