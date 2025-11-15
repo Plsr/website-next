@@ -1,4 +1,3 @@
-import { withContentCollections } from '@content-collections/next'
 import createMDX from '@next/mdx'
 
 /** @type {import('next').NextConfig} */
