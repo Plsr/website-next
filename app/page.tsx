@@ -1,6 +1,6 @@
 import { PostListItem } from 'components/post-list-item'
 import { SocialLinks } from 'components/social-links'
-import { getLastThreePosts } from 'data/posts.dto'
+import { getRecentPosts } from 'data/posts.dto'
 import { ArrowRight, Briefcase, FileText } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const posts = getLastThreePosts()
+  const posts = await getRecentPosts()
 
   return (
     <div>
@@ -97,7 +97,7 @@ export default async function Home() {
       </h2>
       <div className="not-prose">
         {posts.map((post) => (
-          <PostListItem key={post._id} post={post} />
+          <PostListItem key={post.slug} post={post.entry} slug={post.slug} />
         ))}
       </div>
       <Link

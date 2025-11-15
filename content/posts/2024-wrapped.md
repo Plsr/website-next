@@ -2,7 +2,6 @@
 title: '2024 Wrapped'
 date: '2024-12-30T06:57:26.271Z'
 tags: life
-slug: 2024-wrapped
 draft: false
 ---
 

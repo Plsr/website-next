@@ -3,7 +3,6 @@ title: 2023 Review
 date: '2023-12-29T18:03:26.271Z'
 excerpt: Reflecting on the passed year. This one has been strange, it felt like just a month and half a decate, both at once.
 tags: life
-slug: 2023-review
 draft: false
 ---
 

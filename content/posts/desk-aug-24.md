@@ -3,7 +3,6 @@ title: Desk - August 2024
 date: '2024-08-01T21:57:26.271Z'
 excerpt: The desk I'm working on as of August 2024
 tags: desk work
-slug: desk-august-2024
 ---
 
 ![](https://ik.imagekit.io/chrisjarling/D05E78AD-072D-4EE0-88E9-ACD3331F4CC8_1_105_c.jpeg?updatedAt=1722486595397)

@@ -13,4 +13,4 @@ const nextConfig = {
 
 const withMDX = createMDX()
 
-export default withContentCollections(withMDX(nextConfig))
+export default withMDX(nextConfig)

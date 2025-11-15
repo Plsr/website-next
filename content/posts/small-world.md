@@ -1,8 +1,8 @@
 ---
 title: The world is small
-date: 2024-01-04T11:03:26.271Z
+date: "2024-01-04T11:03:26.271Z"
 excerpt: I'm basically friends with Barack Obama. Kind of.
-slug: small-world
+tags:
 draft: false
 ---
 
