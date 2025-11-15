@@ -3,6 +3,7 @@ title: Exploring JSON stringify
 date: '2024-03-09T00:03:26.271Z'
 excerpt: The JavaScript JSON stringify function is a widely know function, but it can do a lot more than you might think. Let's explore how to change the indentation and replace JSON content.
 tags: programming javascript json
+slug: json-stringify
 draft: false
 metaDescription: The JavaScript JSON stringify funciton is a widely know function, but it can do a lot more than you might think. An exploration.
 ---

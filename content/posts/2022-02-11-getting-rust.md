@@ -1,6 +1,7 @@
 ---
 title: 'Getting into Rust'
-date: '2022-02-11 23:22:00 +0200'
+headline: 'Getting into Rust'
+date: 2022-02-11 23:22:00 +0200
 tags: programming learning rust
 ---
 

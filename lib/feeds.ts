@@ -1,17 +1,16 @@
-import Markdoc from '@markdoc/markdoc'
-import { Posts } from 'data/cms'
+import { Post } from 'content-collections'
 import { getYear } from 'date-fns'
 import { Feed } from 'feed'
 
 import { siteUrl } from './utill/site'
 
 type GenerateFeedParams = {
-  entries: Posts
+  entries: Post[]
 }
 
-export const generateFeed = async ({ entries }: GenerateFeedParams) => {
+export const generateFeed = ({ entries }: GenerateFeedParams) => {
   const currentYear = getYear(new Date())
-  const updatedAt = new Date(entries[0].entry.date)
+  const updatedAt = new Date(entries[0].date)
 
   const feed = new Feed({
     title: 'Chris Jarling - Posts',
@@ -35,17 +34,13 @@ export const generateFeed = async ({ entries }: GenerateFeedParams) => {
     },
   })
 
-  for (const entry of entries) {
-    const { node } = await entry.entry.content()
-    const ast = Markdoc.transform(node)
-    const html = Markdoc.renderers.html(ast)
-
+  entries.forEach((entry) => {
     feed.addItem({
-      title: entry.entry.title,
-      id: entry.slug,
+      title: createTitle(entry),
+      id: entry._id,
       link: 'https://chrisjarling.com/posts/' + entry.slug,
-      description: html,
-      content: html,
+      description: entry.html,
+      content: entry.html,
       author: [
         {
           name: 'Chris Jarling',
@@ -53,9 +48,13 @@ export const generateFeed = async ({ entries }: GenerateFeedParams) => {
           link: 'https://chrisjarling.com/about',
         },
       ],
-      date: new Date(entry.entry.date),
+      date: new Date(entry.date),
     })
-  }
+  })
 
   return feed
+}
+
+const createTitle = (entry: Post) => {
+  return entry.title.toString()
 }

@@ -1,5 +1,5 @@
 import { PostListItem } from 'components/post-list-item'
-import { groupPublishedPostsByYear } from 'data/posts.dto'
+import { getAllPostsByYear } from 'data/posts.dto'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -8,10 +8,9 @@ export const metadata: Metadata = {
 }
 
 export default async function PostsIndex() {
-  const sortedPostsByYears = await groupPublishedPostsByYear()
+  const sortedPostsByYears = getAllPostsByYear()
 
   if (sortedPostsByYears.length === 0) {
-    // TODO: 404s on an index page are idiotic
     notFound()
   }
 
@@ -25,13 +24,7 @@ export default async function PostsIndex() {
             </h2>
           </div>
           {posts.map((post) => {
-            return (
-              <PostListItem
-                key={post.slug}
-                post={post.entry}
-                slug={post.slug}
-              />
-            )
+            return <PostListItem key={post._id} post={post} />
           })}
         </div>
       ))}

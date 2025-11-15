@@ -2,8 +2,8 @@ import { getAllSortedPosts } from 'data/posts.dto'
 import { generateFeed } from 'lib/feeds'
 
 export async function GET() {
-  const feed = await generateFeed({
-    entries: await getAllSortedPosts(),
+  const feed = generateFeed({
+    entries: getAllSortedPosts(),
   })
 
   return new Response(feed.atom1(), {

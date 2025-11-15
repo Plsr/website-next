@@ -3,6 +3,7 @@ title: Transitioning to the Management Track
 date: '2024-12-25T16:03:26.271Z'
 excerpt: As of November 2024, I transitioned to the management track for the first time in my career. This is what I learned so far
 tags: eng-management
+slug: transition-management
 draft: false
 ---
 

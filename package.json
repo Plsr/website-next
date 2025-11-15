@@ -16,12 +16,9 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.12",
-    "@keystatic/core": "^0.5.48",
-    "@keystatic/next": "^5.0.4",
     "@loglayer/transport-betterstack": "^1.0.4",
     "@loglayer/transport-pino": "^2.2.11",
     "@loglayer/transport-simple-pretty-terminal": "^2.2.11",
-    "@markdoc/markdoc": "^0.5.4",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "16.0.1",

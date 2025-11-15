@@ -1,10 +1,9 @@
-import Markdoc from '@markdoc/markdoc'
-import { cms } from 'data/cms'
+import { StyledArticleContent } from 'components/styled-article-content'
+import { allLibraryArticles } from 'content-collections'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import React from 'react'
 
 type Params = {
   params: Promise<{
@@ -14,20 +13,16 @@ type Params = {
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params
-  const libraryArticle = await cms.readingNotes.get(params.slug)
+  const libraryArticle = allLibraryArticles.find((libraryArticle) => {
+    return libraryArticle.computedSlug === params.slug
+  })
 
   if (!libraryArticle) {
     throw new Error(`Post not found for slug: ${params.slug}`)
   }
 
   const title = `Link: ${libraryArticle.title} - Chris Jarling`
-
-  const { node } = await libraryArticle.content()
-
-  const ast = Markdoc.format(node)
-  const content = Markdoc.renderers.html(ast)
-
-  const description = content.slice(0, 150)
+  const description = libraryArticle.content.slice(0, 150)
 
   return {
     title,
@@ -52,18 +47,13 @@ export const generateStaticParams = () => []
 
 const LibraryArticleDetailPage = async (props: Params) => {
   const params = await props.params
-  const libraryArticle = await cms.readingNotes.get(params.slug)
+  const libraryArticle = allLibraryArticles.find(
+    (article) => article.computedSlug === params.slug,
+  )
 
   if (!libraryArticle) {
     return notFound()
   }
-  const { node } = await libraryArticle.content()
-  const errors = Markdoc.validate(node)
-  if (errors.length) {
-    console.error(errors)
-    throw new Error('Invalid content')
-  }
-  const renderable = Markdoc.transform(node)
 
   return (
     <div className="prose prose-invert">
@@ -78,9 +68,7 @@ const LibraryArticleDetailPage = async (props: Params) => {
         Link: <a href={libraryArticle.link}>{libraryArticle.link}</a>
       </span>
 
-      <div className="prose-invert prose prose-img:rounded-lg">
-        {Markdoc.renderers.react(renderable, React)}
-      </div>
+      <StyledArticleContent contentHtml={libraryArticle.html} />
 
       <span className="text-sm text-base-700 mb-1 block">
         {format(new Date(libraryArticle.createdAt), 'do LLL, yyyy')}

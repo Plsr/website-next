@@ -3,6 +3,7 @@ title: On Solipsism
 date: '2023-12-22T00:19:26.271Z'
 excerpt: On the idea of reality just being an idea
 tags: philosophy life
+slug: solipsism
 draft: false
 ---
 

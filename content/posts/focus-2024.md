@@ -3,6 +3,7 @@ title: What I will focus on in 2024
 date: '2024-01-01T17:03:26.271Z'
 excerpt: A few things I want to focus on in the new year. No goals, because they stress me out. Guidelines.
 tags: life focus-2024
+slug: focus-2024
 draft: false
 ---
 

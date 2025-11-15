@@ -3,6 +3,7 @@ title: Can't steer a parked car
 date: '2024-01-02T21:03:26.271Z'
 excerpt: Thinking will not get you anywhere. You have to move in order to steer into a direction.
 tags: life growth decision-making
+slug: parked-car
 draft: false
 ---
 

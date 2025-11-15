@@ -2,6 +2,7 @@
 title: Escpae liquid tags in jekyll code blocks
 date: '2022-02-13 10:38 +0100'
 tags: web-dev jekyll
+render_with_liquid: false
 ---
 
 In my [last post](https://christianpoplawski.de/blog/2022/simple-jekyll-tagging) I learned that jekyll processes all liquid tags on a page, no matter if they are in a `code` block or somewhere else on the page.

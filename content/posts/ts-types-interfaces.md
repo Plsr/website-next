@@ -3,6 +3,7 @@ title: Differences between Types and Interfaces in TypeScript
 date: '2023-12-08T07:03:26.271Z'
 excerpt: Exploring the differences between Types and Interfaces in TypeScript, and which to use
 tags: programming typescript
+slug: ts-types-interfaces
 draft: false
 ---
 

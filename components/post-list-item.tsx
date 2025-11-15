@@ -1,20 +1,17 @@
-import { Entry } from '@keystatic/core/reader'
+import { Post } from 'content-collections'
 import { format } from 'date-fns'
-import keystaticConfig from 'keystatic.config'
 import Link from 'next/link'
 
-type Post = Entry<(typeof keystaticConfig)['collections']['posts']>
 type Props = {
   post: Post
-  slug: string
 }
 
-export const PostListItem = ({ post, slug }: Props) => {
+export const PostListItem = ({ post }: Props) => {
   return (
     <Link
       className="group flex flex-row justify-between items-center mb-6 text-base-200  hover:bg-base-900/50 hover:shadow-xs transition-all px-2 py-2 -mx-2 rounded-md"
-      key={slug}
-      href={`/posts/${slug}`}
+      key={post._id}
+      href={`/posts/${post.computedSlug}`}
     >
       <span className="group-hover:text-base-50 transition-colors">
         {post.title}

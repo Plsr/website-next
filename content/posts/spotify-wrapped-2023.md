@@ -3,6 +3,7 @@ title: Spotify Wrapped 2023
 date: '2023-12-03T13:57:26.271Z'
 excerpt: What I listened to this year.
 tags: life music
+slug: sportify-wrapped-2023
 draft: false
 ---
 

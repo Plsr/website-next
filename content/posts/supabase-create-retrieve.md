@@ -3,6 +3,7 @@ title: Create and retrieve a record with supabase.js
 date: '2023-12-13T10:03:26.271Z'
 excerpt: Creating a record and then using it right away is a little icky
 tags: programming supabase
+slug: supabase-create-retrieve
 draft: false
 ---
 
