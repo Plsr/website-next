@@ -15,4 +15,22 @@ export const cms = {
       return posts.filter((posts) => posts.entry.draft !== true)
     },
   },
+  readingNotes: {
+    async all() {
+      const readingNotes = await reader.collections.readingNotes.all()
+
+      return readingNotes
+    },
+    async get(slug: string) {
+      const sanitizedSlug = slug.toLowerCase()
+
+      const note = await reader.collections.readingNotes.read(sanitizedSlug)
+
+      if (!note) {
+        return null
+      }
+
+      return note
+    },
+  },
 }

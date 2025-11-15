@@ -48,5 +48,29 @@ export default config({
         content: fields.markdoc({ label: 'Content', extension: 'md' }),
       },
     }),
+    readingNotes: collection({
+      label: 'Reading Notes',
+      slugField: 'title',
+      path: 'content/library/articles/*',
+      format: { contentField: 'content' },
+      schema: {
+        title: fields.slug({
+          name: {
+            label: 'Title',
+          },
+          slug: {
+            label: 'Slug',
+          },
+        }),
+        createdAt: fields.text({ label: 'Date' }),
+        link: fields.text({ label: 'Link' }),
+        tags: fields.text({
+          label: 'Tags',
+          description: 'Comma-separated tags',
+          validation: { isRequired: false },
+        }),
+        content: fields.markdoc({ label: 'Content', extension: 'md' }),
+      },
+    }),
   },
 })
