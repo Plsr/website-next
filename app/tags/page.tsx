@@ -3,7 +3,7 @@ import { getAllTags } from 'data/tags.dto'
 import { TagsList } from '../../components/tags-list'
 
 const TagsIndexPage = async () => {
-  const tags = getAllTags()
+  const tags = await getAllTags()
 
   return (
     <>

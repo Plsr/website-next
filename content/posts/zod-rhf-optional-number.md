@@ -3,7 +3,6 @@ title: Optional number inputs with zod & react-hook-form
 date: '2024-01-07T00:03:26.271Z'
 excerpt: Having optional number inputs in react-hook-form with zod validation can be a little quirky.
 tags: programming typescript zod react-hook-form
-slug: zod-rhf-optional-number
 draft: false
 ---
 

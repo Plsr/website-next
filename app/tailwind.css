@@ -5,21 +5,6 @@
 @source '../../components/**/*.{js,ts,jsx,tsx}';
 
 @theme {
-  /* Custom color palette */
-  --color-accent-50: #ddf1e4;
-  --color-accent-100: #bfe8d9;
-  --color-accent-150: #a2dece;
-  --color-accent-200: #87d3c3;
-  --color-accent-300: #5abdac;
-  --color-accent-400: #3aa99f;
-  --color-accent-500: #2f968d;
-  --color-accent-600: #24837b;
-  --color-accent-700: #1c6c66;
-  --color-accent-800: #164f4a;
-  --color-accent-850: #143f3c;
-  --color-accent-900: #122f2c;
-  --color-accent-950: #101f1d;
-
   --color-accent-50: #fffaeb;
   --color-accent-100: #fef0c7;
   --color-accent-200: #fde08a;
@@ -83,16 +68,21 @@
     font-size: 1.2857em !important; /* em(18, 14) */
   }
 
-  code {
-    font-size: 0.7rem !important;
-  }
-
   pre {
     font-size: 0.7rem !important;
   }
 
   strong {
     color: var(--color-base-100);
+  }
+
+  a {
+    color: var(--color-accent-600);
+  }
+
+  code {
+    color: var(--color-base-300);
+    font-size: 0.8 rem;
   }
 
   max-width: none !important;

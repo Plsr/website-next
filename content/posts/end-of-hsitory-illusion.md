@@ -2,7 +2,6 @@
 title: The End-of-History illusion
 date: '2023-11-27T21:57:26.271Z'
 tags: life
-slug: eoh-illusion
 draft: false
 ---
 

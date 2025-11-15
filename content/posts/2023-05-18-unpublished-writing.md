@@ -3,7 +3,6 @@ title: Unpublished Writing
 date: '2023-05-18T20:57:26.271Z'
 excerpt: I don't write as much as I thought I would.
 tags: writing
-slug: unpublished-writing
 ---
 
 I do write a lot recently, but not much of it gets published on this website. What I publish is still a lot compared to the beginning of the year, yet it’s only a fraction of what I produce.  

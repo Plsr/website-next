@@ -1,15 +1,17 @@
-import { allLibraryArticles } from 'content-collections'
 import { compareDesc } from 'date-fns'
 import { JSDOM } from 'jsdom'
 
+import { cms } from './cms'
+
 export const getArticleMetadata = async () => {
+  const allLibraryArticles = await cms.readingNotes.all()
   const sortedLibraryArticles = allLibraryArticles.sort((a, b) =>
-    compareDesc(new Date(a.createdAt), new Date(b.createdAt)),
+    compareDesc(new Date(a.entry.createdAt), new Date(b.entry.createdAt)),
   )
 
   const articlesWithMetadata = await Promise.all(
     sortedLibraryArticles.map(async (article) => {
-      if (!article.link) {
+      if (!article.entry.link) {
         return {
           ...article,
           pageName: null,
@@ -17,10 +19,10 @@ export const getArticleMetadata = async () => {
         }
       }
 
-      const url = new URL(article.link)
+      const url = new URL(article.entry.link)
 
       try {
-        const res = await fetch(article.link)
+        const res = await fetch(article.entry.link)
         const data = await res.text()
         const dom = new JSDOM(data)
         const title = url.host.replace('www.', '')
@@ -36,7 +38,7 @@ export const getArticleMetadata = async () => {
           faviconHref,
         }
       } catch (e) {
-        console.log('Error fetching favicon for ', article.link)
+        console.log('Error fetching favicon for ', article.entry.link)
         console.log(e)
 
         return {

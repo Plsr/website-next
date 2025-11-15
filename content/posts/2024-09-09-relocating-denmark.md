@@ -3,7 +3,6 @@ title: Relocating to Denmark
 date: '2024-09-09T00:57:26.271Z'
 excerpt: We've successfully moved all our belongings to Denmark. It was very exhausting.
 tags: life
-slug: relocating-denark
 draft: false
 ---
 

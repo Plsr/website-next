@@ -2,7 +2,6 @@
 title: Teaching is always learning
 date: '2023-10-22T08:15:26.271Z'
 tags: learning
-slug: teaching-learning
 draft: false
 ---
 
