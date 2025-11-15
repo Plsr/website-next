@@ -1,16 +1,16 @@
-import { allPosts } from 'content-collections'
+import { cms } from './cms'
 
 export type Tag = {
   tagName: string
   count: number
 }
 
-export function getAllTags() {
-  const posts = allPosts
+export async function getAllTags() {
+  const posts = await cms.posts.allPublished()
   const allTags: { [key: string]: number } = {}
 
   posts.forEach((post) => {
-    const postTags = post.tags?.split(' ')
+    const postTags = post.entry.tags?.split(' ')
 
     if (postTags && postTags.length > 0) {
       postTags.forEach((tag) => {

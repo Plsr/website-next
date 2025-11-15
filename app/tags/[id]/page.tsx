@@ -4,7 +4,8 @@ import { getAllTags } from 'data/tags.dto'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const tags = getAllTags()
+  const tags = await getAllTags()
+
   return tags.map((tag) => ({
     id: tag.tagName,
   }))
@@ -17,7 +18,7 @@ type PostsIndexProps = {
 export default async function PostsIndex(props: PostsIndexProps) {
   const params = await props.params
   const tag = params.id
-  const posts = getPostsForTag(tag)
+  const posts = await getPostsForTag(tag)
 
   if (posts.length === 0) {
     notFound()
@@ -32,7 +33,9 @@ export default async function PostsIndex(props: PostsIndexProps) {
         #{tag}
       </h2>
       {posts.map((post) => {
-        return <PostListItem key={post._id} post={post} />
+        return (
+          <PostListItem key={post.slug} post={post.entry} slug={post.slug} />
+        )
       })}
     </>
   )

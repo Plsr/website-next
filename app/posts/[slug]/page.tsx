@@ -1,6 +1,5 @@
 import Markdoc from '@markdoc/markdoc'
 import { PostMetadata } from 'components/post-metadata'
-import { StyledArticleContent } from 'components/styled-article-content'
 import { Tag } from 'components/tag'
 import { getPostForSlug } from 'data/posts.dto'
 import { format } from 'date-fns'
@@ -23,8 +22,10 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   const title = `${post.title} - Chris Jarling`
+
+  // TODO: Bring back dynamic excerpts
   const description =
-    post.metaDescription || post.excerpt || post.content.slice(0, 150)
+    post.metaDescription || post.excerpt || 'An article by Chris Jarling'
 
   return {
     title,
@@ -51,7 +52,6 @@ export default async function Post(props: Params) {
   if (!post) {
     notFound()
   }
-  const content = await post.content()
   const { node } = await post.content()
   const errors = Markdoc.validate(node)
   if (errors.length) {
