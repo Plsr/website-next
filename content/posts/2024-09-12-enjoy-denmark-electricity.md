@@ -3,7 +3,6 @@ title: 'Things I enjoy about Denmark, Part 1: Electricity'
 date: '2024-09-12T00:57:26.271Z'
 excerpt: Electricity in Denmark is way smarter than I'm used to.
 tags: life
-slug: enjoy-denmark-electricity
 draft: false
 ---
 

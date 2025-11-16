@@ -1,10 +1,11 @@
+import Markdoc from '@markdoc/markdoc'
 import { PostMetadata } from 'components/post-metadata'
-import { StyledArticleContent } from 'components/styled-article-content'
 import { Tag } from 'components/tag'
 import { getPostForSlug } from 'data/posts.dto'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import React from 'react'
 
 type Params = {
   params: Promise<{
@@ -16,13 +17,15 @@ export const generateStaticParams = () => []
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params
-  const post = getPostForSlug(params.slug)
+  const post = await getPostForSlug(params.slug)
 
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   const title = `${post.title} - Chris Jarling`
+
+  // TODO: Bring back dynamic excerpts
   const description =
-    post.metaDescription || post.excerpt || post.content.slice(0, 150)
+    post.metaDescription || post.excerpt || 'An article by Chris Jarling'
 
   return {
     title,
@@ -44,11 +47,18 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
 export default async function Post(props: Params) {
   const params = await props.params
-  const post = getPostForSlug(params.slug)
+  const post = await getPostForSlug(params.slug)
 
   if (!post) {
     notFound()
   }
+  const { node } = await post.content()
+  const errors = Markdoc.validate(node)
+  if (errors.length) {
+    console.error(errors)
+    throw new Error('Invalid content')
+  }
+  const renderable = Markdoc.transform(node)
 
   return (
     <div className="mx-auto max-w-xl mb-16">
@@ -70,7 +80,9 @@ export default async function Post(props: Params) {
             />
           )} */}
         </div>
-        <StyledArticleContent contentHtml={post.html} />
+        <div className="prose-invert prose prose-img:rounded-lg">
+          {Markdoc.renderers.react(renderable, React)}
+        </div>
       </div>
       <div className="space-x-4">
         {post.tags?.split(' ').map((tag) => <Tag name={tag} key={tag} />)}

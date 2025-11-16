@@ -3,7 +3,6 @@ title: Using Contentlayer
 date: '2023-07-02T20:26:26.271Z'
 excerpt: Contentlayer made dealing with markdown on this site a breeze.
 tags: web-dev
-slug: contentlayer
 ---
 
 I recently migrated this website, which is powered by the great Next.js, over from the old pages router (spits on ground in disgust) over to the new app router.\

@@ -3,7 +3,6 @@ title: Electrical Toothbrush
 date: '2023-07-01T21:57:26.271Z'
 excerpt: I should make more chores fun
 tags: life
-slug: elecrtical-toothbrush
 ---
 
 I bought my first electrical toothbrush today. I think I also had one for some time when I was a child, but it’s the first one I bought in my adult life. I’m not sure why it took me so long to buy one. I’ve been thinking about buying one for years but never did it.

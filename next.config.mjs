@@ -1,4 +1,3 @@
-import { withContentCollections } from '@content-collections/next'
 import createMDX from '@next/mdx'
 
 /** @type {import('next').NextConfig} */
@@ -13,4 +12,4 @@ const nextConfig = {
 
 const withMDX = createMDX()
 
-export default withContentCollections(withMDX(nextConfig))
+export default withMDX(nextConfig)

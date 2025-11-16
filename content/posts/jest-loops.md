@@ -3,7 +3,6 @@ title: Jest Loops and when to use them
 date: '2024-08-03T21:57:26.271Z'
 excerpt: Jest Loops are a powerful feature, but we should make sure to use them responsibly
 tags: javascript programming testing
-slug: jest-loops
 ---
 
 [Jest](https://jestjs.io/) is a great JavaScript testing framework and I love to work with it. On a daily basis, I mostly work with `it` and `describe` blocks and it's `matcher`s. I've recently come across one of it's lesser known features. Or, at least it was lesser known for me personally: Loops.

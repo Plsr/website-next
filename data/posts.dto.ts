@@ -1,30 +1,45 @@
-import { allPosts, Post } from 'content-collections'
+import { createReader } from '@keystatic/core/reader'
 import getYear from 'date-fns/getYear'
+import keystaticConfig from 'keystatic.config'
 
-export function getLastThreePosts() {
-  return sortByDateDesc(allPosts).slice(0, 3)
-}
+import { cms, Posts } from './cms'
 
-export function getPostsForTag(tag: string) {
-  const postsWithTag = allPosts.filter((post) => {
-    return post.tags?.split(' ').includes(tag)
+const reader = createReader(process.cwd(), keystaticConfig)
+
+export async function getRecentPosts() {
+  const posts = await cms.posts.allPublished()
+  const sortedPosts = posts.sort((a, b) => {
+    const aDate = new Date(a.entry.date)
+    const bDate = new Date(b.entry.date)
+    return bDate.getTime() - aDate.getTime()
   })
 
-  return sortByDateDesc(postsWithTag)
+  return sortedPosts.slice(0, 3)
 }
 
-export function getPostForSlug(slug: string) {
-  return allPosts.find((post) => post.computedSlug === slug)
+export async function getPostsForTag(tag: string) {
+  const posts = await cms.posts.allPublished()
+
+  const postsWithTag = posts.filter((post) => {
+    return post.entry.tags?.split(' ').includes(tag)
+  })
+
+  return _sortPostsDesc(postsWithTag)
 }
 
-export function getAllPostsByYear() {
-  const sortedPosts = sortByDateDesc(allPosts)
+export async function getPostForSlug(slug: string) {
+  return await reader.collections.posts.read(slug)
+}
+
+export async function groupPublishedPostsByYear() {
+  const posts = await cms.posts.allPublished()
+  const sortedPosts = _sortPostsDesc(posts)
   const postsByYear: {
-    [key: number]: Post[]
+    [key: number]: Posts
   } = {}
 
   sortedPosts.forEach((post) => {
-    const year = getYear(new Date(post.date))
+    const year = getYear(new Date(post.entry.date))
 
     if (!postsByYear[year]) {
       postsByYear[year] = [post]
@@ -39,14 +54,17 @@ export function getAllPostsByYear() {
     .map((e) => e)
 }
 
-export function getAllSortedPosts() {
-  return sortByDateDesc(allPosts)
+export async function getAllSortedPosts() {
+  const posts = await cms.posts.allPublished()
+  return _sortPostsDesc(posts)
 }
 
-function sortByDateDesc(posts: Post[]) {
+// Internal utility functions
+
+function _sortPostsDesc(posts: Posts) {
   return [...posts].sort((a, b) => {
-    const aDate = new Date(a.date)
-    const bDate = new Date(b.date)
+    const aDate = new Date(a.entry.date)
+    const bDate = new Date(b.entry.date)
     return bDate.getTime() - aDate.getTime()
   })
 }
