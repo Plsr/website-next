@@ -45,6 +45,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Copy content directory for Keystatic local storage
+COPY --from=builder --chown=nextjs:nodejs /app/content ./content
+
 USER nextjs
 
 EXPOSE 3000
