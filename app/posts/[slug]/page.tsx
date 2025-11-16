@@ -1,8 +1,8 @@
-import Markdoc from '@markdoc/markdoc'
+import { MarkdocRenderer } from 'components/markdoc-renderer'
 import { PostMetadata } from 'components/post-metadata'
 import { Tag } from 'components/tag'
-import { getPostForSlug } from 'data/posts.dto'
-import { format } from 'date-fns'
+import { getPostData, getPostMetaData } from 'data/posts.dto'
+import { getLogger } from 'lib/logger'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'
@@ -13,19 +13,19 @@ type Params = {
   }>
 }
 
+const log = getLogger()
 export const generateStaticParams = () => []
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
-  const params = await props.params
-  const post = await getPostForSlug(params.slug)
+  const { slug } = await props.params
+  const postData = await getPostMetaData(slug)
 
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  if (!postData) {
+    log.error(`Post not found for slug: ${slug}`)
+    return {}
+  }
 
-  const title = `${post.title} - Chris Jarling`
-
-  // TODO: Bring back dynamic excerpts
-  const description =
-    post.metaDescription || post.excerpt || 'An article by Chris Jarling'
+  const { title, description } = postData
 
   return {
     title,
@@ -46,46 +46,33 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 }
 
 export default async function Post(props: Params) {
-  const params = await props.params
-  const post = await getPostForSlug(params.slug)
+  const { slug } = await props.params
+  const postData = await getPostData(slug)
 
-  if (!post) {
+  if (!postData) {
     notFound()
   }
-  const { node } = await post.content()
-  const errors = Markdoc.validate(node)
-  if (errors.length) {
-    console.error(errors)
-    throw new Error('Invalid content')
-  }
-  const renderable = Markdoc.transform(node)
+
+  const { date, isDraft, title, tags, renderableContent } = postData
 
   return (
     <div className="mx-auto max-w-xl mb-16">
       <div>
         <div className="mb-4">
-          <PostMetadata>
-            {format(new Date(post.date), 'do LLL, yyyy')}
-          </PostMetadata>
-          <h2 className="mt-0 font-bold text-3xl font-title">{post.title}</h2>
-          {post.draft && (
+          <PostMetadata>{date}</PostMetadata>
+          <h2 className="mt-0 font-bold text-3xl font-title">{title}</h2>
+          {isDraft && (
             <div className="rounded-lg p-4 my-6 bg-rose-bud-700/10 border border-rose-bud-900 text-indigo-bud-200 text-sm">
               This post is a draft. It&apos;s not complete yet and may never be.
             </div>
           )}
-          {/* {seriesEntries && (
-            <PostSeriesBlock
-              seriesEntries={seriesEntries}
-              activeEntryId={params.slug}
-            />
-          )} */}
-        </div>
-        <div className="prose-invert prose prose-img:rounded-lg">
-          {Markdoc.renderers.react(renderable, React)}
         </div>
       </div>
+      <MarkdocRenderer renderableContent={renderableContent} />
       <div className="space-x-4">
-        {post.tags?.split(' ').map((tag) => <Tag name={tag} key={tag} />)}
+        {tags.map((tag) => (
+          <Tag name={tag} key={tag} />
+        ))}
       </div>
     </div>
   )

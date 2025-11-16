@@ -1,10 +1,11 @@
-import { createReader } from '@keystatic/core/reader'
+import Markdoc from '@markdoc/markdoc'
+import { format } from 'date-fns'
 import getYear from 'date-fns/getYear'
-import keystaticConfig from 'keystatic.config'
+import { getLogger } from 'lib/logger'
 
-import { cms, Posts } from './cms'
+import { cms, Post, Posts } from './cms'
 
-const reader = createReader(process.cwd(), keystaticConfig)
+const log = getLogger()
 
 export async function getRecentPosts() {
   const posts = await cms.posts.allPublished()
@@ -27,8 +28,47 @@ export async function getPostsForTag(tag: string) {
   return _sortPostsDesc(postsWithTag)
 }
 
-export async function getPostForSlug(slug: string) {
-  return await reader.collections.posts.read(slug)
+export async function getPostMetaData(slug: string) {
+  const post = await cms.posts.get(slug)
+
+  if (!post) {
+    return null
+  }
+
+  const description = await _createMetaDescription(post)
+  const title = `${post.title} - Chris Jarling`
+  return {
+    title,
+    description,
+  }
+}
+
+export async function getPostData(slug: string) {
+  const post = await cms.posts.get(slug)
+
+  if (!post) {
+    return null
+  }
+
+  const date = format(new Date(post.date), 'do LLL, yyyy')
+
+  const { node } = await post.content()
+  const errors = Markdoc.validate(node)
+  if (errors.length) {
+    log.error(errors.join(','))
+    return null
+  }
+
+  const renderableContent = Markdoc.transform(node)
+  const tags = post.tags?.split(' ')
+
+  return {
+    title: post.title,
+    isDraft: !!post.draft,
+    date,
+    tags,
+    renderableContent,
+  }
 }
 
 export async function groupPublishedPostsByYear() {
@@ -67,4 +107,20 @@ function _sortPostsDesc(posts: Posts) {
     const bDate = new Date(b.entry.date)
     return bDate.getTime() - aDate.getTime()
   })
+}
+
+async function _createMetaDescription(post: Post) {
+  if (post.metaDescription) {
+    return post.metaDescription
+  }
+
+  if (post.excerpt) {
+    return post.excerpt
+  }
+
+  const { node } = await post.content()
+  const ast = Markdoc.format(node)
+  const htmlContent = Markdoc.renderers.html(ast)
+
+  return htmlContent.slice(0, 150)
 }
