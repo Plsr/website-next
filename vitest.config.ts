@@ -9,17 +9,13 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./test/setupTests.ts'],
     include: ['**/*.{test,spec}.{ts,tsx}'],
-    exclude: ['node_modules', '.next', '.content-collections'],
+    exclude: ['node_modules', '.next',
   },
   resolve: {
     alias: {
       components: resolve(__dirname, './components'),
       '@components': resolve(__dirname, './components'),
       lib: resolve(__dirname, './lib'),
-      'content-collections': resolve(
-        __dirname,
-        './.content-collections/generated',
-      ),
     },
   },
 })

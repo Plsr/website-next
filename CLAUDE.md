@@ -32,15 +32,16 @@ This project uses **Vitest** with React Testing Library for unit and integration
 
 ## Architecture
 
-### Content Management (Content Collections)
+### Content Management (Keystatic)
 
-The site uses `@content-collections/core` instead of Contentlayer for markdown content processing. Configuration is in `content-collections.ts`:
+The site uses Keystatic (`@keystatic/core`) for content management. Configuration is in `keystatic.config.ts`:
 
-- **Posts**: Located in `content/posts/`, compiled to HTML with frontmatter schema (title, date, slug, tags, draft, series, metaDescription, excerpt)
-- **Library Articles**: Located in `content/library/articles/`, similar structure but with a `link` field
-- Generated types available at `content-collections` import alias (mapped to `.content-collections/generated`)
+- **Posts**: Located in `content/posts/`, uses Markdoc format with schema (title, date, slug, tags, draft, series, metaDescription, excerpt)
+- **Reading Notes**: Located in `content/library/articles/`, with fields (title, createdAt, link, tags)
+- Storage: Local filesystem (`kind: 'local'`)
+- Content access: Through the `cms` reader in `data/cms.ts` which wraps Keystatic's reader API
 
-The collections transform markdown to HTML using `compileMarkdown` and compute slugs from file paths.
+The collections use Markdoc for content formatting and Keystatic's slug field type for generating slugs from titles.
 
 ### App Structure (Next.js App Router)
 
@@ -53,9 +54,10 @@ The collections transform markdown to HTML using `compileMarkdown` and compute s
 ### Data Layer
 
 Data access functions are in `data/`:
+- `cms.ts` - Keystatic reader wrapper with `cms.posts.allPublished()` and `cms.readingNotes` methods
 - `posts.dto.ts` - Post queries (getLastThreePosts, getPostsForTag, getPostForSlug, getAllPostsByYear, getAllSortedPosts)
 - `tags.dto.ts` - Tag-related queries
-- All functions work with the compiled `allPosts` from content-collections
+- All functions work with posts retrieved from the Keystatic reader
 
 ### Components
 
@@ -79,12 +81,11 @@ Organized in `components/` with single-responsibility components:
 components/* → ./components/*
 @components/* → ./components/*
 lib/* → ./lib/*
-content-collections → ./.content-collections/generated
 ```
 
 ### MDX Support
 
-The site supports both markdown (via Content Collections) and MDX files:
+The site supports both markdown (via Keystatic) and MDX files:
 - `@next/mdx` and `@mdx-js/loader` configured in `next.config.mjs`
 - Page extensions: js, jsx, mdx, ts, tsx
 - Example: `app/cv/page.mdx`
@@ -121,9 +122,6 @@ Imports must be sorted alphabetically using `eslint-plugin-simple-import-sort`. 
 ### Static Generation
 `generateStaticParams` in `app/posts/[slug]/page.tsx` returns an empty array, relying on dynamic rendering at request time.
 
-### Content Collections Migration Notes
-TODOs exist in `content-collections.ts` regarding the `_id` field, which is currently set to `doc._meta.filePath` for migration compatibility. This should eventually use native content-collections identifiers.
-
 ### Metadata Pattern
 Pages define `generateMetadata` async functions for SEO. Default OpenGraph image is `/og.jpg`.
 
@@ -138,8 +136,9 @@ Uses Next.js font optimization with `next/font/google` for Piazzolla font, with 
 
 ## Key Dependencies
 
-- Next.js 15.2.1 with React 19
-- Content Collections (not Contentlayer)
+- Next.js 16.0.1 with React 19
+- Keystatic for content management
+- Markdoc for markdown processing
 - Tailwind CSS 4 with Typography plugin
 - date-fns for date formatting
 - Framer Motion for animations

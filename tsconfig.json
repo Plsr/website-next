@@ -24,7 +24,6 @@
       "components/*": ["./components/*"],
       "@components/*": ["./components/*"],
       "lib/*": ["./lib/*"],
-      "content-collections": ["./.content-collections/generated"]
     }
   },
   "include": [
