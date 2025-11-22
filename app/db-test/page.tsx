@@ -3,6 +3,8 @@ import { testTable } from 'data/db/schema'
 
 import { NewRecordButton } from './NewRecordButton'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Page() {
   const testRecords = await db.select().from(testTable)
 
