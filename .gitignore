@@ -46,3 +46,6 @@ node_modules
 # Editors
 .vscode
 .claude
+
+# Postgres
+postgres-data
