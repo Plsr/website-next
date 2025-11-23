@@ -1,0 +1,25 @@
+name: Database Migrations
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  migrate:
+  runs-on: ubuntu-24.04-arm
+  env:
+    DATABASE_URL: ${{ secrets.DATABASE_URL  }}
+  steps:
+    - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v4
+      with: 
+        version: 10.0.0
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: pnpm
+    - name: Install Dependencies
+      run: pnpm install --frozen-lockfile
+    - name: Prepare Database
+      run: pnpm db:generate
+    - name: Run migrations
+      run: pnpm: db:migrate

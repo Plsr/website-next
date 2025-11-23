@@ -8,10 +8,13 @@ jobs:
   ci:
     uses: ./.github/workflows/ci.yml
     secrets: inherit
+  migrate:
+    uses: ./.github/workflows/migrate.yml
+    secrets: inherit
 
   publish-release:
     runs-on: ubuntu-24.04-arm
-    needs: ci
+    needs: [ci, migrate]
     env:
       REGISTRY: ghcr.io
       IMAGE_NAME: plsr/website-next
@@ -34,7 +37,8 @@ jobs:
         with:
           name: docker-image
           path: /tmp
-      - run: docker load -i /tmp/docker-image.tar
+      - name: Download temporary docker image 
+        run: docker load -i /tmp/docker-image.tar
       - name: publish
         run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       - name: release
