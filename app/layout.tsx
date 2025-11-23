@@ -2,7 +2,7 @@ import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
 
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from 'components/analytics'
 import { ContextMenu } from 'components/context-menu'
 import { Metadata } from 'next'
 import { Instrument_Serif, Schibsted_Grotesk } from 'next/font/google'
