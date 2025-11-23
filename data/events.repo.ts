@@ -27,7 +27,7 @@ export class EventsRepository {
   }
 
   static async totalCount() {
-    // @ts-expect-error
+    //@ts-ignore
     const total = await db.select({ value: count() }).from(eventsTable)
 
     return total[0].value as number
