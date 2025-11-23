@@ -10,6 +10,7 @@ jobs:
     secrets: inherit
   migrate:
     uses: ./.github/workflows/migrate.yml
+    needs: ci
     secrets: inherit
 
   publish-release:
@@ -37,7 +38,7 @@ jobs:
         with:
           name: docker-image
           path: /tmp
-      - name: Download temporary docker image 
+      - name: Download temporary docker image
         run: docker load -i /tmp/docker-image.tar
       - name: publish
         run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
