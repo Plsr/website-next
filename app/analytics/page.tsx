@@ -1,4 +1,5 @@
 import { getAnalyticsOverview } from 'data/events.dto'
+import { formatDistanceToNow } from 'date-fns'
 
 export const dynamic = 'force-dynamic'
 export default async function Page() {
@@ -13,7 +14,7 @@ export default async function Page() {
       <ul>
         {pageViews.map((view) => (
           <li key={view.id}>
-            {view.url} - {view.createdAt.toISOString()}
+            {view.url} - {formatDistanceToNow(view.createdAt, { addSuffix: true })}
           </li>
         ))}
       </ul>

@@ -1,4 +1,4 @@
-import { count } from 'drizzle-orm'
+import { count, desc } from 'drizzle-orm'
 import { getLogger } from 'lib/logger'
 
 import { db } from './db/db'
@@ -35,9 +35,16 @@ export class EventsRepository {
 
   static async getAll({ limit }: { limit?: number }) {
     if (limit) {
-      return await db.select().from(eventsTable).limit(limit)
+      return await db
+        .select()
+        .from(eventsTable)
+        .orderBy(desc(eventsTable.createdAt))
+        .limit(limit)
     }
 
-    return await db.select().from(eventsTable)
+    return await db
+      .select()
+      .from(eventsTable)
+      .orderBy(desc(eventsTable.createdAt))
   }
 }
