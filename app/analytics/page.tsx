@@ -14,7 +14,8 @@ export default async function Page() {
       <ul>
         {pageViews.map((view) => (
           <li key={view.id}>
-            {view.url} - {formatDistanceToNow(view.createdAt, { addSuffix: true })}
+            {view.url} -{' '}
+            {formatDistanceToNow(view.createdAt, { addSuffix: true })}
           </li>
         ))}
       </ul>
