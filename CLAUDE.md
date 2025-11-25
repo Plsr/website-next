@@ -117,6 +117,10 @@ Imports must be sorted alphabetically using `eslint-plugin-simple-import-sort`. 
 - Single quotes (`singleQuote: true`)
 - See `.prettierignore` for excluded paths
 
+### After Making Changes
+
+Always run `pnpm format` after making code changes to ensure consistent formatting.
+
 ## Important Implementation Details
 
 ### Static Generation
