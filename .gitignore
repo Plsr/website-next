@@ -49,3 +49,4 @@ node_modules
 
 # Postgres
 postgres-data
+data/GeoLite2-Country.mmdb

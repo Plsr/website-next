@@ -7,6 +7,8 @@ export const eventsTable = pgTable('events', {
   createdAt: timestamp({ precision: 6, withTimezone: true })
     .defaultNow()
     .notNull(),
+  os: varchar({ length: 50 }),
+  country: varchar({ length: 2 }),
 })
 
 export const testTable = pgTable('test', {

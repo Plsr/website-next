@@ -9,13 +9,23 @@ export class EventsRepository {
     throw new Error('Not meant to be instantiated')
   }
 
-  static async add({ url }: { url: string }) {
+  static async add({
+    url,
+    os,
+    country,
+  }: {
+    url: string
+    os?: string | null
+    country?: string | null
+  }) {
     const name = 'pageview'
     const log = getLogger()
 
     const event: typeof eventsTable.$inferInsert = {
       name,
       url,
+      os: os ?? null,
+      country: country ?? null,
     }
 
     try {
