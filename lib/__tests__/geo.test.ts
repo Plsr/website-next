@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { getCountryFromIP } from '../geo'
 
@@ -60,4 +60,3 @@ describe('getCountryFromIP (integration)', () => {
     }
   })
 })
-
