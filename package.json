@@ -44,7 +44,7 @@
     "loglayer": "^7.2.1",
     "lucide-react": "^0.552.0",
     "maxmind": "^5.0.1",
-    "next": "16.0.7",
+    "next": "16.1.0",
     "next-contentlayer": "^0.3.3",
     "next-safe-action": "^8.0.11",
     "octokit": "^2.0.11",
