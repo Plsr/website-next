@@ -14,8 +14,14 @@ export default async function Page() {
       <ul>
         {pageViews.map((view) => (
           <li key={view.id}>
-            {view.url} -{' '}
-            {formatDistanceToNow(view.createdAt, { addSuffix: true })}
+            {view.url}
+            {view.os && <span className="ml-2 text-base-400">[{view.os}]</span>}
+            {view.country && (
+              <span className="ml-2 text-base-400">({view.country})</span>
+            )}
+            <span className="ml-2 text-base-500">
+              {formatDistanceToNow(view.createdAt, { addSuffix: true })}
+            </span>
           </li>
         ))}
       </ul>

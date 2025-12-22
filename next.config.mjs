@@ -8,6 +8,15 @@ const nextConfig = {
   experimental: {
     viewTransition: true,
   },
+  webpack: (config, { _isServer }) => {
+    // Exclude test files from being bundled
+    config.module.rules.push({
+      test: /\.test\.(js|ts|jsx|tsx)$/,
+      loader: 'ignore-loader',
+    })
+
+    return config
+  },
 }
 
 const withMDX = createMDX()

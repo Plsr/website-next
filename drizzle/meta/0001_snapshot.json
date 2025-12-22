@@ -1,5 +1,5 @@
 {
-  "id": "98ea83b8-62e8-4608-b77f-c79ffe876a0a",
+  "id": "6b364c59-322f-46fe-8353-10d8297c595b",
   "prevId": "e57b4c8b-9404-474d-8b9a-e8c8c695d72d",
   "version": "7",
   "dialect": "postgresql",
@@ -37,6 +37,13 @@
           "primaryKey": false,
           "notNull": true
         },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp (6) with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
         "os": {
           "name": "os",
           "type": "varchar(50)",
@@ -48,13 +55,6 @@
           "type": "varchar(2)",
           "primaryKey": false,
           "notNull": false
-        },
-        "createdAt": {
-          "name": "createdAt",
-          "type": "timestamp (6) with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
         }
       },
       "indexes": {},
