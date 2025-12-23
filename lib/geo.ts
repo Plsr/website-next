@@ -2,6 +2,10 @@ import ipaddr from 'ipaddr.js'
 import maxmind, { CountryResponse, Reader } from 'maxmind'
 import path from 'path'
 
+import { getLogger } from './logger'
+
+const log = getLogger()
+
 let reader: Reader<CountryResponse> | null = null
 let readerError: boolean = false // Track if we've already failed to load
 
@@ -11,18 +15,21 @@ async function getReader(): Promise<Reader<CountryResponse> | null> {
 
   if (!reader) {
     try {
+      // Use MAXMIND_DB_PATH if set, otherwise /tmp in production (writable in containers)
+      // or data/ in development
       const dbPath =
         process.env.MAXMIND_DB_PATH ||
-        path.join(process.cwd(), 'data', 'GeoLite2-Country.mmdb')
+        (process.env.NODE_ENV === 'production'
+          ? '/tmp/GeoLite2-Country.mmdb'
+          : path.join(process.cwd(), 'data', 'GeoLite2-Country.mmdb'))
 
       reader = await maxmind.open<CountryResponse>(dbPath)
-      console.log(`MaxMind database loaded from: ${dbPath}`)
+      log.info(`MaxMind database loaded from: ${dbPath}`)
     } catch (error) {
       readerError = true
-      console.warn(
-        'MaxMind database not found. Country detection will be disabled.',
-        error instanceof Error ? error.message : error,
-      )
+      log
+        .withError(error as Error)
+        .warn('MaxMind database not found. Country detection will be disabled.')
       return null
     }
   }

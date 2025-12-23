@@ -170,7 +170,8 @@ export async function downloadMaxMindDatabase(): Promise<void> {
     return
   }
 
-  const dbPath = path.join(process.cwd(), 'data', 'GeoLite2-Country.mmdb')
+  // Use MAXMIND_DB_PATH if set, otherwise /tmp in production (writable in containers)
+  const dbPath = process.env.MAXMIND_DB_PATH || '/tmp/GeoLite2-Country.mmdb'
 
   // 1. Check if local file exists
   if (fs.existsSync(dbPath)) {
