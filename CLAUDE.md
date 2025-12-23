@@ -117,6 +117,10 @@ Imports must be sorted alphabetically using `eslint-plugin-simple-import-sort`. 
 - Single quotes (`singleQuote: true`)
 - See `.prettierignore` for excluded paths
 
+### Logging
+
+Use the logger from `lib/logger.ts` instead of `console.log`/`console.error`. 
+
 ### After Making Changes
 
 Always run `pnpm format` after making code changes to ensure consistent formatting.
