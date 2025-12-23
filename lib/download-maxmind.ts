@@ -20,6 +20,7 @@ function hasBucketConfig(): boolean {
 
 function createS3Client(): S3Client {
   return new S3Client({
+    region: 'auto',
     endpoint: process.env.AWS_ENDPOINT_URL,
     credentials: {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
