@@ -1,4 +1,8 @@
 import createMDX from '@next/mdx'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,6 +12,7 @@ const nextConfig = {
   experimental: {
     viewTransition: true,
   },
+  outputFileTracingRoot: path.join(__dirname, '../../'),
   webpack: (config, { _isServer }) => {
     // Exclude test files from being bundled
     config.module.rules.push({

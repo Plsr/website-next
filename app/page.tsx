@@ -1,6 +1,8 @@
+import 'data/kernel'
+
 import { PostListItem } from 'components/post-list-item'
 import { SocialLinks } from 'components/social-links'
-import { getRecentPosts } from 'data/posts.dto'
+import { ShowLandingPagePostsAction } from 'data/cmsModule'
 import { ArrowRight, Briefcase, FileText } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const posts = await getRecentPosts()
+  const posts = await ShowLandingPagePostsAction.invoke()
 
   return (
     <div>
