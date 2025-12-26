@@ -5,8 +5,6 @@ import { type ILogLayer, LogLayer } from 'loglayer'
 import pino from 'pino'
 import { serializeError } from 'serialize-error'
 
-import { downloadMaxMindDatabase } from './lib/download-maxmind'
-
 // TODO: Move logging logic out of here and into /lib
 
 /**
@@ -116,6 +114,7 @@ export async function register() {
     console.debug = createConsoleMethod(logger, 'debug')
 
     // Download MaxMind database from Railway Bucket on startup
+    const { downloadMaxMindDatabase } = await import('./lib/download-maxmind')
     await downloadMaxMindDatabase()
   }
 }
