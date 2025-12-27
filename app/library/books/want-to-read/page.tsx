@@ -37,10 +37,7 @@ export default async function WantToReadPage() {
       {/* Book List */}
       <div className="space-y-2">
         {books.map((book) => (
-          <div
-            key={book.slug}
-            className="-ml-4 -mr-4 rounded-md px-4 py-2 transition-all hover:bg-base-900/50"
-          >
+          <div key={book.slug} className="-ml-4 -mr-4 rounded-md px-4 py-2">
             <h2 className="font-medium text-base-300">{book.entry.title}</h2>
             <p className="text-sm text-base-500">{book.entry.author}</p>
           </div>

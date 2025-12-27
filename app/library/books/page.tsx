@@ -50,8 +50,9 @@ export default async function BooksPage() {
       {/* Book List */}
       <div className="space-y-4">
         {books.map((book) => (
-          <div
+          <Link
             key={book.slug}
+            href={`/library/books/${book.slug}`}
             className="-ml-4 -mr-4 flex gap-4 rounded-md px-4 py-3 transition-all hover:bg-base-900/50"
           >
             {/* Cover */}
@@ -82,7 +83,7 @@ export default async function BooksPage() {
                 )}
               </div>
             </div>
-          </div>
+          </Link>
         ))}
 
         {books.length === 0 && <p className="text-base-500">No books yet.</p>}
