@@ -1,5 +1,5 @@
-import Markdoc from '@markdoc/markdoc'
 import { StarRating } from '@components/star-rating'
+import Markdoc from '@markdoc/markdoc'
 import { cms } from 'data/cms'
 import { Metadata } from 'next'
 import Image from 'next/image'
