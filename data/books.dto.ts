@@ -1,9 +1,13 @@
 import { cms } from './cms'
 
-export async function getReadBooks() {
+export async function getBooksForReadPage() {
   const books = await cms.books.all()
 
-  return books
+  const currentlyReading = books
+    .filter((book) => book.entry.status === 'currently-reading')
+    .sort((a, b) => a.entry.title.localeCompare(b.entry.title))
+
+  const read = books
     .filter((book) => book.entry.status === 'read')
     .sort((a, b) => {
       // Sort by dateRead descending (newest first)
@@ -15,6 +19,8 @@ export async function getReadBooks() {
         new Date(a.entry.dateRead).getTime()
       )
     })
+
+  return { currentlyReading, read }
 }
 
 export async function getWantToReadBooks() {

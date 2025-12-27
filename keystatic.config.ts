@@ -99,6 +99,7 @@ export default config({
         status: fields.select({
           label: 'Status',
           options: [
+            { label: 'Currently Reading', value: 'currently-reading' },
             { label: 'Read', value: 'read' },
             { label: 'Want to Read', value: 'want-to-read' },
           ],
