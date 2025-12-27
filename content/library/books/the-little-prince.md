@@ -13,5 +13,5 @@ While this was a very quick read, it was also one I enjoyed a lot. I haven't had
 what the book wanted to tell me, but it touched me. I teared up twice and it still is amazing to me that someone wrote some symbols
 on a piece of paper ages ago which makes me feel things today.
 
-I think the core part of the book is the prince visiting his neighboring planets. I could see myself in the business man a bit, 
+I think the core part of the book is the prince visiting his neighboring planets. I could see myself in the business man a bit,
 which might be the learning I'm taking from this book.

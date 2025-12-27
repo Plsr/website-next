@@ -1,4 +1,5 @@
 import Markdoc from '@markdoc/markdoc'
+import { StarRating } from '@components/star-rating'
 import { cms } from 'data/cms'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -10,18 +11,6 @@ type Params = {
   params: Promise<{
     slug: string
   }>
-}
-
-function StarRating({ rating }: { rating: number | null }) {
-  if (!rating) return null
-  const filled = '★'.repeat(rating)
-  const empty = '☆'.repeat(5 - rating)
-  return (
-    <span className="text-accent-500">
-      {filled}
-      {empty}
-    </span>
-  )
 }
 
 export async function generateMetadata(props: Params): Promise<Metadata> {

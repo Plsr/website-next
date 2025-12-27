@@ -1,3 +1,4 @@
+import { StarRating } from '@components/star-rating'
 import { getReadBooks } from 'data/books.dto'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -6,18 +7,6 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Library: Books - Chris Jarling',
   description: 'Books I have read.',
-}
-
-function StarRating({ rating }: { rating: number | null }) {
-  if (!rating) return null
-  const filled = '★'.repeat(rating)
-  const empty = '☆'.repeat(5 - rating)
-  return (
-    <span className="text-accent-500">
-      {filled}
-      {empty}
-    </span>
-  )
 }
 
 export default async function BooksPage() {
