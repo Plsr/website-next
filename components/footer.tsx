@@ -31,9 +31,8 @@ export default function Footer() {
                 <FooterRow.Item key="tags" href="/tags" text="Tags" />,
                 <FooterRow.Item
                   key="books"
-                  href="/books"
+                  href="/library/books"
                   text="Books"
-                  hidden
                 />,
                 <FooterRow.Item
                   key="articleNotes"

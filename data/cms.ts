@@ -43,4 +43,22 @@ export const cms = {
       return note
     },
   },
+  books: {
+    async all() {
+      const books = await reader.collections.books.all()
+
+      return books
+    },
+    async get(slug: string) {
+      const sanitizedSlug = slug.toLowerCase()
+
+      const book = await reader.collections.books.read(sanitizedSlug)
+
+      if (!book) {
+        return null
+      }
+
+      return book
+    },
+  },
 }
