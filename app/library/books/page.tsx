@@ -1,5 +1,5 @@
 import { StarRating } from '@components/star-rating'
-import { getCurrentlyReadingBooks, getReadBooks } from 'data/books.dto'
+import { getBooksForReadPage } from 'data/books.dto'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default async function BooksPage() {
-  const [currentlyReading, books] = await Promise.all([
-    getCurrentlyReadingBooks(),
-    getReadBooks(),
-  ])
+  const { currentlyReading, read: books } = await getBooksForReadPage()
 
   return (
     <>
