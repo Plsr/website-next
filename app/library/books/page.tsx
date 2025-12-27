@@ -1,5 +1,5 @@
 import { StarRating } from '@components/star-rating'
-import { getReadBooks } from 'data/books.dto'
+import { getCurrentlyReadingBooks, getReadBooks } from 'data/books.dto'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,7 +10,10 @@ export const metadata: Metadata = {
 }
 
 export default async function BooksPage() {
-  const books = await getReadBooks()
+  const [currentlyReading, books] = await Promise.all([
+    getCurrentlyReadingBooks(),
+    getReadBooks(),
+  ])
 
   return (
     <>
@@ -35,6 +38,58 @@ export default async function BooksPage() {
           </Link>
         </div>
       </div>
+
+      {/* Currently Reading Section */}
+      {currentlyReading.length > 0 && (
+        <div className="mb-10">
+          <h2 className="mb-4 text-sm font-medium uppercase tracking-wide text-base-400">
+            Currently Reading
+          </h2>
+          <div className="rounded-lg border border-base-800/50 bg-base-900/30 p-2">
+            <div className="space-y-2">
+              {currentlyReading.map((book) => (
+                <Link
+                  key={book.slug}
+                  href={`/library/books/${book.slug}`}
+                  className="flex gap-4 rounded-md p-2 transition-all hover:bg-base-700/50"
+                >
+                  {/* Cover */}
+                  <div className="h-24 w-16 flex-shrink-0 overflow-hidden rounded bg-base-800">
+                    {book.entry.cover ? (
+                      <Image
+                        src={book.entry.cover}
+                        alt={book.entry.title}
+                        width={64}
+                        height={96}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center p-1 text-center text-xs text-base-600">
+                        No cover
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex flex-col justify-center">
+                    <h3 className="font-medium text-base-300">
+                      {book.entry.title}
+                    </h3>
+                    <p className="text-sm text-base-500">{book.entry.author}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Read Books Section */}
+      {books.length > 0 && currentlyReading.length > 0 && (
+        <h2 className="mb-4 text-sm font-medium uppercase tracking-wide text-base-500">
+          Finished
+        </h2>
+      )}
 
       {/* Book List */}
       <div className="space-y-4">
@@ -75,7 +130,9 @@ export default async function BooksPage() {
           </Link>
         ))}
 
-        {books.length === 0 && <p className="text-base-500">No books yet.</p>}
+        {books.length === 0 && currentlyReading.length === 0 && (
+          <p className="text-base-500">No books yet.</p>
+        )}
       </div>
     </>
   )

@@ -1,5 +1,13 @@
 import { cms } from './cms'
 
+export async function getCurrentlyReadingBooks() {
+  const books = await cms.books.all()
+
+  return books
+    .filter((book) => book.entry.status === 'currently-reading')
+    .sort((a, b) => a.entry.title.localeCompare(b.entry.title))
+}
+
 export async function getReadBooks() {
   const books = await cms.books.all()
 
