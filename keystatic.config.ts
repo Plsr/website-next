@@ -72,5 +72,45 @@ export default config({
         content: fields.markdoc({ label: 'Content', extension: 'md' }),
       },
     }),
+    books: collection({
+      label: 'Books',
+      slugField: 'title',
+      path: 'content/library/books/*',
+      format: { contentField: 'content' },
+      schema: {
+        title: fields.slug({
+          name: { label: 'Title' },
+          slug: { label: 'Slug' },
+        }),
+        author: fields.text({
+          label: 'Author',
+          validation: { isRequired: true },
+        }),
+        dateRead: fields.text({
+          label: 'Date Read',
+          description: 'Month and year, e.g. "January 2024"',
+          validation: { isRequired: false },
+        }),
+        rating: fields.integer({
+          label: 'Rating',
+          description: '1-5 stars',
+          validation: { isRequired: false, min: 1, max: 5 },
+        }),
+        status: fields.select({
+          label: 'Status',
+          options: [
+            { label: 'Read', value: 'read' },
+            { label: 'Want to Read', value: 'want-to-read' },
+          ],
+          defaultValue: 'read',
+        }),
+        cover: fields.image({
+          label: 'Cover Image',
+          directory: 'public/book-covers',
+          publicPath: '/book-covers/',
+        }),
+        content: fields.markdoc({ label: 'Notes', extension: 'md' }),
+      },
+    }),
   },
 })

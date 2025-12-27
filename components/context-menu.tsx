@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import {
+  BookOpen,
   BookOpenCheck,
   FileUser,
   House,
@@ -22,6 +23,7 @@ const menuItems = [
   { label: 'About', href: '/about', id: 'about' },
   { label: 'CV', href: '/cv', id: 'cv' },
   { label: 'Tags', href: '/tags', id: 'tags' },
+  { label: 'Books', href: '/library/books', id: 'books' },
   { label: 'Reading Notes', href: '/library/articles', id: 'reading-notes' },
 ]
 
@@ -155,6 +157,8 @@ const RenderIcon = ({ icon }: { icon: string }) => {
       return <FileUser className={className} />
     case 'tags':
       return <Tag className={className} />
+    case 'books':
+      return <BookOpen className={className} />
     case 'reading-notes':
       return <BookOpenCheck className={className} />
     default:
