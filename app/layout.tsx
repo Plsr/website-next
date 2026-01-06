@@ -1,6 +1,7 @@
 import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
+import '../data/kernel'
 
 import { Analytics } from 'components/analytics'
 import { ContextMenu } from 'components/context-menu'
