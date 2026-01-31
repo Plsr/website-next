@@ -71,7 +71,7 @@
       "Ensure keyboard accessibility (tab navigation, enter/space to activate)",
       "Ensure responsive layout for mobile"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "integration",

@@ -2,3 +2,4 @@
 ✓ Added getPageViewsByDay method to EventsRepository with SQL aggregation by date
 ✓ Added getPageViewsOverTime DTO function in events.dto.ts with error handling
 ✓ Created AnalyticsChart component with Recharts line chart, responsive design, and dark theme styling
+✓ Created TimeRangeSelector component with 7/30/90 day buttons, keyboard accessibility, and dark mode support
