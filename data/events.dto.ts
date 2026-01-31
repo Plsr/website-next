@@ -1,8 +1,11 @@
 import { getCountryFromIP } from 'lib/geo'
+import { getLogger } from 'lib/logger'
 import { parseOS } from 'lib/user-agent'
 import { headers } from 'next/headers'
 
 import { EventsRepository } from './events.repo'
+
+const log = getLogger()
 
 export async function addPageView({ pathname }: { pathname: string }) {
   const headersList = await headers()
@@ -32,7 +35,7 @@ export async function getPageViewsOverTime(days: number) {
     const data = await EventsRepository.getPageViewsByDay(days)
     return data
   } catch (error) {
-    console.error('Error fetching pageviews over time:', error)
+    log.error('Error fetching pageviews over time:', error)
     return []
   }
 }

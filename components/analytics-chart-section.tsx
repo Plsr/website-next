@@ -2,8 +2,12 @@
 
 import { useEffect, useState } from 'react'
 
+import { getLogger } from 'lib/logger'
+
 import { AnalyticsChart } from './analytics-chart'
 import { TimeRangeSelector } from './time-range-selector'
+
+const log = getLogger()
 
 type ChartData = {
   date: string
@@ -35,7 +39,7 @@ export function AnalyticsChartSection({
         const data = await response.json()
         setChartData(data)
       } catch (error) {
-        console.error('Error fetching chart data:', error)
+        log.error('Error fetching chart data:', error)
       } finally {
         setIsLoading(false)
       }

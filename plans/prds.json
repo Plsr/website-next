@@ -163,6 +163,6 @@
       "Ensure all new components follow single-responsibility principle",
       "Verify proper use of path aliases (@components, lib, etc.)"
     ],
-    "passes": false
+    "passes": true
   }
 ]

@@ -32,7 +32,7 @@ export class EventsRepository {
       log.info('Attempting to write to DB')
       await db.insert(eventsTable).values(event)
     } catch (error) {
-      console.error('Error writing to DB', error)
+      log.error('Error writing to DB', error)
     }
   }
 
