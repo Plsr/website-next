@@ -35,7 +35,7 @@ export async function getPageViewsOverTime(days: number) {
     const data = await EventsRepository.getPageViewsByDay(days)
     return data
   } catch (error) {
-    log.error('Error fetching pageviews over time:', String(error))
+    log.withError(error as Error).error('Error fetching pageviews over time')
     return []
   }
 }
