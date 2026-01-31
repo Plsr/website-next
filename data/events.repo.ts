@@ -1,4 +1,4 @@
-import { count, desc } from 'drizzle-orm'
+import { count, desc, gte, sql } from 'drizzle-orm'
 import { getLogger } from 'lib/logger'
 
 import { db } from './db/db'
@@ -32,7 +32,7 @@ export class EventsRepository {
       log.info('Attempting to write to DB')
       await db.insert(eventsTable).values(event)
     } catch (error) {
-      console.error('Error writing to DB', error)
+      log.withError(error as Error).error('Error writing to DB')
     }
   }
 
@@ -56,5 +56,29 @@ export class EventsRepository {
       .select()
       .from(eventsTable)
       .orderBy(desc(eventsTable.createdAt))
+  }
+
+  static async getPageViewsByDay(days: number) {
+    if (!days || days <= 0) {
+      throw new Error('Days parameter must be a positive number')
+    }
+
+    const cutoffDate = new Date()
+    cutoffDate.setDate(cutoffDate.getDate() - days)
+
+    const results = await db
+      .select({
+        date: sql<string>`DATE(${eventsTable.createdAt})`,
+        views: count(),
+      })
+      .from(eventsTable)
+      .where(gte(eventsTable.createdAt, cutoffDate))
+      .groupBy(sql`DATE(${eventsTable.createdAt})`)
+      .orderBy(sql`DATE(${eventsTable.createdAt}) ASC`)
+
+    return results.map((row) => ({
+      date: row.date,
+      views: Number(row.views),
+    }))
   }
 }

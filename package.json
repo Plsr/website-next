@@ -55,6 +55,7 @@
     "react-dom": "19.3.0-canary-561ee24d-20251101",
     "react-remove-scroll": "^2.7.0",
     "react-responsive": "^9.0.2",
+    "recharts": "^3.7.0",
     "rehype-figure": "^1.0.1",
     "rehype-prism-plus": "^1.5.0",
     "rehype-stringify": "^9.0.3",
