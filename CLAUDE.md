@@ -59,6 +59,8 @@ Data access functions are in `data/`:
 - `tags.dto.ts` - Tag-related queries
 - All functions work with posts retrieved from the Keystatic reader
 
+**Important**: For internal data access, call DTO functions directly in server components. Do NOT create API routes (`app/api/*/route.ts`) to wrap DTO calls. API routes are public endpoints and should only be used for explicitly public APIs (e.g., RSS feeds, webhooks).
+
 ### Components
 
 Organized in `components/` with single-responsibility components:
