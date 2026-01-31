@@ -15,6 +15,13 @@
       "when": 1766384479219,
       "tag": "0001_material_lilith",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1769843720090,
+      "tag": "0002_furry_hardball",
+      "breakpoints": true
     }
   ]
 }
