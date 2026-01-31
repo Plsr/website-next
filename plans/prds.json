@@ -54,7 +54,7 @@
       "Add Line component with stroke color and dataKey='views'",
       "Ensure responsive design works on mobile"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "ui-component",
