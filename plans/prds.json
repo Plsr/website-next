@@ -88,7 +88,7 @@
       "Ensure page maintains force-dynamic rendering",
       "Verify chart appears below existing analytics content as specified"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
