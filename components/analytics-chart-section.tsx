@@ -39,7 +39,7 @@ export function AnalyticsChartSection({
         const data = await response.json()
         setChartData(data)
       } catch (error) {
-        log.error('Error fetching chart data:', error)
+        log.error('Error fetching chart data:', String(error))
       } finally {
         setIsLoading(false)
       }
