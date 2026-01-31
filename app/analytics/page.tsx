@@ -1,9 +1,11 @@
-import { getAnalyticsOverview } from 'data/events.dto'
+import { AnalyticsChartSection } from 'components/analytics-chart-section'
+import { getAnalyticsOverview, getPageViewsOverTime } from 'data/events.dto'
 import { formatDistanceToNow } from 'date-fns'
 
 export const dynamic = 'force-dynamic'
 export default async function Page() {
   const { pageViews, totalCount } = await getAnalyticsOverview()
+  const chartData = await getPageViewsOverTime(30)
 
   return (
     <div className="prose prose-invert">
@@ -25,6 +27,8 @@ export default async function Page() {
           </li>
         ))}
       </ul>
+
+      <AnalyticsChartSection initialData={chartData} initialRange={30} />
     </div>
   )
 }
