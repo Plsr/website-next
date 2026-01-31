@@ -1,0 +1,3 @@
+✓ Installed Recharts 3.7.0 - TypeScript types included, verified in node_modules
+✓ Added getPageViewsByDay method to EventsRepository with SQL aggregation by date
+✓ Added getPageViewsOverTime DTO function in events.dto.ts with error handling

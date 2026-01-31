@@ -26,3 +26,13 @@ export async function getAnalyticsOverview() {
     pageViews: recentPageViews,
   }
 }
+
+export async function getPageViewsOverTime(days: number) {
+  try {
+    const data = await EventsRepository.getPageViewsByDay(days)
+    return data
+  } catch (error) {
+    console.error('Error fetching pageviews over time:', error)
+    return []
+  }
+}
