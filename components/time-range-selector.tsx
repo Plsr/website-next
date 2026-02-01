@@ -10,15 +10,20 @@ export function TimeRangeSelector({ selectedRange }: TimeRangeSelectorProps) {
   const ranges: TimeRange[] = [7, 30, 90]
 
   return (
-    <div className="flex gap-2" role="group" aria-label="Time range selection">
+    <div
+      className="not-prose flex gap-2"
+      role="group"
+      aria-label="Time range selection"
+    >
       {ranges.map((range) => (
         <Link
           key={range}
           href={`?days=${range}`}
-          className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+          scroll={false}
+          className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors no-underline ${
             selectedRange === range
-              ? 'bg-accent-600 text-white hover:bg-accent-700 dark:bg-accent-500 dark:hover:bg-accent-600'
-              : 'bg-base-200 text-base-900 hover:bg-base-300 dark:bg-base-800 dark:text-base-100 dark:hover:bg-base-700'
+              ? 'bg-base-400 !text-white hover:bg-base-300 hover:!text-white hover:!no-underline'
+              : 'bg-base-900 !text-white hover:bg-base-800 hover:!text-white hover:!no-underline'
           }`}
           aria-current={selectedRange === range ? 'true' : undefined}
         >
