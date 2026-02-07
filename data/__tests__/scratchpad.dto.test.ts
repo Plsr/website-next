@@ -24,7 +24,11 @@ vi.mock('@markdoc/markdoc', () => ({
 }))
 
 import { cms } from '../cms'
-import { getPaginatedScratchpad, getScratchpadEntry } from '../scratchpad.dto'
+import {
+  getPaginatedScratchpad,
+  getScratchpadEntry,
+  ScratchpadEntries,
+} from '../scratchpad.dto'
 
 describe('getScratchpadEntry', () => {
   it('returns null when entry does not exist', async () => {
@@ -71,7 +75,9 @@ describe('getPaginatedScratchpad', () => {
       },
     }))
 
-    vi.mocked(cms.scratchpad.all).mockResolvedValue(mockEntries as any)
+    vi.mocked(cms.scratchpad.all).mockResolvedValue(
+      mockEntries as ScratchpadEntries,
+    )
 
     const result = await getPaginatedScratchpad(1)
 
@@ -91,7 +97,9 @@ describe('getPaginatedScratchpad', () => {
       },
     }))
 
-    vi.mocked(cms.scratchpad.all).mockResolvedValue(mockEntries as any)
+    vi.mocked(cms.scratchpad.all).mockResolvedValue(
+      mockEntries as ScratchpadEntries,
+    )
 
     const result = await getPaginatedScratchpad(2)
 
@@ -129,7 +137,9 @@ describe('getPaginatedScratchpad', () => {
       },
     ]
 
-    vi.mocked(cms.scratchpad.all).mockResolvedValue(mockEntries as any)
+    vi.mocked(cms.scratchpad.all).mockResolvedValue(
+      mockEntries as ScratchpadEntries,
+    )
 
     const result = await getPaginatedScratchpad(1)
 
@@ -148,7 +158,9 @@ describe('getPaginatedScratchpad', () => {
       },
     }))
 
-    vi.mocked(cms.scratchpad.all).mockResolvedValue(mockEntries as any)
+    vi.mocked(cms.scratchpad.all).mockResolvedValue(
+      mockEntries as ScratchpadEntries,
+    )
 
     const result = await getPaginatedScratchpad(5)
 

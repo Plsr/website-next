@@ -1,4 +1,4 @@
-import Markdoc from '@markdoc/markdoc'
+import Markdoc, { Node } from '@markdoc/markdoc'
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
 
@@ -7,7 +7,7 @@ import { MarkdocRenderer } from './markdoc-renderer'
 type ScratchpadFeedItemProps = {
   slug: string
   timestamp: string
-  content: () => Promise<{ node: any }>
+  content: () => Promise<{ node: Node }>
 }
 
 export async function ScratchpadFeedItem({
