@@ -1,11 +1,12 @@
 import { PostListItem } from 'components/post-list-item'
 import { SocialLinks } from 'components/social-links'
-import { getRecentPosts } from 'data/posts.dto'
 import { ArrowRight, Briefcase, FileText } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ViewTransition } from 'react'
+
+import { GetRecentPosts } from './homepage.service'
 
 export const metadata: Metadata = {
   title: 'Chris Jarling',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const posts = await getRecentPosts()
+  const posts = await GetRecentPosts.invoke()
 
   return (
     <div>

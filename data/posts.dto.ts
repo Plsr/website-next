@@ -7,17 +7,6 @@ import { cms, Post, Posts } from './cms'
 
 const log = getLogger()
 
-export async function getRecentPosts() {
-  const posts = await cms.posts.allPublished()
-  const sortedPosts = posts.sort((a, b) => {
-    const aDate = new Date(a.entry.date)
-    const bDate = new Date(b.entry.date)
-    return bDate.getTime() - aDate.getTime()
-  })
-
-  return sortedPosts.slice(0, 3)
-}
-
 export async function getPostsForTag(tag: string) {
   const posts = await cms.posts.allPublished()
 
