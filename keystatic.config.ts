@@ -113,5 +113,22 @@ export default config({
         content: fields.markdoc({ label: 'Notes', extension: 'md' }),
       },
     }),
+    scratchpad: collection({
+      label: 'Scratchpad',
+      slugField: 'id',
+      path: 'content/scratchpad/*',
+      format: { contentField: 'content' },
+      schema: {
+        id: fields.slug({
+          name: { label: 'ID' },
+          slug: { label: 'Slug' },
+        }),
+        timestamp: fields.text({
+          label: 'Timestamp',
+          validation: { isRequired: true },
+        }),
+        content: fields.markdoc({ label: 'Content', extension: 'md' }),
+      },
+    }),
   },
 })
