@@ -20,7 +20,11 @@ export async function getBooksForReadPage() {
       )
     })
 
-  return { currentlyReading, read }
+  const aborted = books
+    .filter((book) => book.entry.status === 'aborted')
+    .sort((a, b) => a.entry.title.localeCompare(b.entry.title))
+
+  return { currentlyReading, read, aborted }
 }
 
 export async function getWantToReadBooks() {

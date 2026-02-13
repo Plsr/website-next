@@ -102,8 +102,13 @@ export default config({
             { label: 'Currently Reading', value: 'currently-reading' },
             { label: 'Read', value: 'read' },
             { label: 'Want to Read', value: 'want-to-read' },
+            { label: 'Aborted', value: 'aborted' },
           ],
           defaultValue: 'read',
+        }),
+        audiobook: fields.checkbox({
+          label: 'Audiobook',
+          defaultValue: false,
         }),
         cover: fields.image({
           label: 'Cover Image',

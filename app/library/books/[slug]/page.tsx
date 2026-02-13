@@ -92,6 +92,11 @@ const BookDetailPage = async (props: Params) => {
           {book.dateRead && (
             <p className="mt-1 text-sm text-base-600">{book.dateRead}</p>
           )}
+          {book.audiobook && (
+            <span className="mt-2 inline-block rounded bg-accent-950/50 px-1.5 py-0.5 text-xs text-accent-500">
+              Audiobook
+            </span>
+          )}
         </div>
       </div>
 
