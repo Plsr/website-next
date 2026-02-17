@@ -12,9 +12,10 @@ const gigsAchievementsIC = [
 ]
 
 const gigsAchievementsEM = [
-  'Led a team of 5 engineers through the transition phase from my predecessor to myself.',
-  "Conducted more than 50 interviews for senior-level engineering positions. Was actively involved in improving our hiring process to raise the bar for talent and make sure we're moving fast at the same time.",
-  'Started an inventory for tech debt, worked with the team to prioritize and explored ways to reduce this debt without slowing down the pace of development.',
+  'Owned and continuously evolved the fullstack hiring pipeline (including take-home and live-coding formats), enabling ambitious hiring goals without lowering quality.',
+  'Led a team of 5 through leadership transition and post-restructuring restaffing, rebuilding a high-performing team and maintaining delivery momentum.',
+  'Expanded scope by taking over a second team in a key vertical while driving cross-team frontend reliability work (dependency upgrades, security fixes, platform health).',
+  'Drove product and technical direction hands-on by steering major product/design changes, advancing AI adoption through practical tooling, and staying deep in architecture and implementation details.',
 ]
 
 const ciscoAchievements = [
