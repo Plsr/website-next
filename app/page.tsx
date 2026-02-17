@@ -34,6 +34,92 @@ export const metadata: Metadata = {
   },
 }
 
+type TimelineItemProps = {
+  title: string
+  company: string
+  timeframe?: string
+  highlights?: string[]
+  isCurrent?: boolean
+  isLast?: boolean
+}
+
+const TimelineItem = ({
+  title,
+  company,
+  timeframe,
+  highlights,
+  isCurrent = false,
+  isLast = false,
+}: TimelineItemProps) => {
+  const expanded = highlights !== undefined && highlights.length > 0
+
+  return (
+    <div className="grid grid-cols-[20px_1fr] gap-4">
+      <div className="relative flex justify-center">
+        <span
+          className={`mt-2 h-2.5 w-2.5 rounded-full ${isCurrent ? 'bg-accent-500 shadow-[0_0_18px_4px_rgba(245,146,11,0.55)]' : 'bg-base-500/40'}`}
+        />
+        {!isLast && (
+          <span
+            className={`absolute top-6 bottom-0 w-px ${isCurrent ? 'bg-base-300/70' : 'bg-base-500/35'}`}
+          />
+        )}
+      </div>
+
+      <div className={expanded ? 'pb-10' : 'pb-6'}>
+        <h3 className="text-lg font-title leading-none">
+          <span className="text-base-200">{title}</span>{' '}
+          <span className="text-base-500">{company}</span>
+        </h3>
+        {timeframe && (
+          <p className="mt-1.5 text-sm text-base-400">{timeframe}</p>
+        )}
+        {highlights && (
+          <ul className="mt-4 space-y-1.5 text-sm text-base-300">
+            {highlights.map((highlight) => (
+              <li key={highlight}>- {highlight}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  )
+}
+
+const workHistory = [
+  {
+    title: 'Engineering Manager',
+    company: 'Gigs',
+    timeframe: '2024 - present',
+    highlights: [
+      'Owned and continuously evolved the fullstack hiring pipeline (including take-home and live-coding formats), enabling ambitious hiring goals without lowering quality.',
+      'Led a team of 5 through leadership transition and post-restructuring restaffing, rebuilding a high-performing team and maintaining delivery momentum.',
+      'Expanded scope by taking over a second team in a key vertical while driving cross-team frontend reliability work (dependency upgrades, security fixes, platform health).',
+      'Drove product and technical direction hands-on by steering major product/design changes, advancing AI adoption through practical tooling, and staying deep in architecture and implementation details.',
+    ],
+  },
+  {
+    title: 'Senior Fullstack Engineer',
+    company: 'Gigs',
+    timeframe: '2022 - 2024',
+  },
+  {
+    title: 'Software Engineer',
+    company: 'Cisco',
+    timeframe: '2020 - 2022',
+  },
+  {
+    title: 'Fullstack Engineer',
+    company: 'Railslove',
+    timeframe: '2016 - 2020',
+  },
+  {
+    title: 'Designer & Developer',
+    company: 'Self-Founded Agency',
+    timeframe: '2014 - 2016',
+  },
+]
+
 export default async function Home() {
   const posts = await getRecentPosts()
 
@@ -112,75 +198,26 @@ export default async function Home() {
           <Briefcase className="h-4 w-4 text-base-300" />
           <span>Work History</span>
         </h2>
-        <TimelineItem
-          title="Engineering Manager"
-          company="Gigs"
-          startDate="2024"
-        />
-        <TimelineItem
-          title="Senior Fullstack Engineer"
-          company="Gigs"
-          startDate="2022"
-          endDate="2024"
-        />
-        <TimelineItem
-          title="Software Engineer"
-          company="Cisco"
-          startDate="2020"
-          endDate="2022"
-        />
-        <TimelineItem
-          title="Fullstack Engineer"
-          company="Railslove"
-          startDate="2016"
-          endDate="2020"
-        />
-        <TimelineItem
-          title="Designer & Developer"
-          company="Self-Founded Agency"
-          startDate="2014"
-          endDate="2016"
-        />
+        <div className="not-prose">
+          {workHistory.map((item, index) => (
+            <TimelineItem
+              key={`${item.title}-${item.company}`}
+              title={item.title}
+              company={item.company}
+              timeframe={item.timeframe}
+              highlights={item.highlights}
+              isCurrent={index === 0}
+              isLast={index === workHistory.length - 1}
+            />
+          ))}
+        </div>
       </div>
       <Link
         href="/cv"
-        className="text-sm inline-flex gap-1 items-center no-underline border-b border-base-600 border-dotted "
+        className="not-prose mt-2 text-sm inline-flex gap-1 items-center no-underline border-b border-base-600 border-dotted "
       >
         Full CV <ArrowRight className="w-4 h-4" />
       </Link>
-    </div>
-  )
-}
-
-type TimelineItemProps = {
-  title: string
-  company: string
-  startDate: string
-  endDate?: string
-}
-const TimelineItem = ({
-  title,
-  company,
-  startDate,
-  endDate,
-}: TimelineItemProps) => {
-  const current = endDate === undefined
-  return (
-    <div className="relative py-4">
-      <div className="flex flex-col">
-        <div className="flex flex-row gap-2">
-          <span>
-            {startDate} {current ? null : ` - ${endDate}`}
-          </span>
-          {current && (
-            <div className="inline bg-accent-800/30 px-2 pt-[3px] pb-[0px] border border-accent-800/70 text-accent-400 rounded-full text-xs">
-              Current
-            </div>
-          )}
-        </div>
-        <span className="text-base-200">{title}</span>
-        <span className="text-sm">{company}</span>
-      </div>
     </div>
   )
 }
