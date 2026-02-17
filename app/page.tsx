@@ -71,7 +71,9 @@ const TimelineItem = ({
           <span className="text-base-200">{title}</span>{' '}
           <span className="text-base-500">{company}</span>
         </h3>
-        {timeframe && <p className="mt-1.5 text-sm text-base-400">{timeframe}</p>}
+        {timeframe && (
+          <p className="mt-1.5 text-sm text-base-400">{timeframe}</p>
+        )}
         {highlights && (
           <ul className="mt-4 space-y-1.5 text-sm text-base-300">
             {highlights.map((highlight) => (
