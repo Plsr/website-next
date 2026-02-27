@@ -13,6 +13,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
+    "fetch-og-images": "npx tsx scripts/fetch-og-images.ts",
+    "migrate-images": "npx tsx scripts/migrate-images-to-db.ts",
     "db:generate": "npx drizzle-kit generate",
     "db:migrate": "npx drizzle-kit migrate",
     "db:studio": "npx drizzle-kit studio"
@@ -67,6 +69,7 @@
     "remark-rehype": "^10.1.0",
     "remark-wiki-link": "^1.0.4",
     "serialize-error": "^12.0.0",
+    "sharp": "^0.34.5",
     "tar": "^7.5.2",
     "ua-parser-js": "^2.0.7",
     "unified": "^10.1.2"
@@ -78,6 +81,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
+    "@types/js-yaml": "^4.0.9",
     "@types/jsdom": "^21.1.7",
     "@types/node": "18.11.6",
     "@types/react": "19.2.2",
@@ -91,6 +95,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "ignore-loader": "^0.1.2",
+    "js-yaml": "^4.1.1",
     "jsdom": "^26.0.0",
     "postcss": "^8.4.18",
     "prettier": "^3.5.3",

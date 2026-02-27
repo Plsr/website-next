@@ -61,4 +61,11 @@ export const cms = {
       return book
     },
   },
+  websites: {
+    async all() {
+      const websites = await reader.collections.websites.all()
+
+      return websites
+    },
+  },
 }

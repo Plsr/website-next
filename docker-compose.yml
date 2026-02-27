@@ -7,13 +7,13 @@ services:
         - RELEASE_VERSION=dev-build
     ports:
       - 3000:3000
-  db:
+  website-next-db:
     image: postgres:latest
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=chrisjarling-com-dev
+      - POSTGRES_DB=website-next-dev
     volumes:
-      - ./postgres-data:/var/lib/postgresql
+      - ./website-next-postgres-data:/var/lib/postgresql
     ports:
       - 5433:5432

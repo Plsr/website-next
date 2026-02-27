@@ -118,5 +118,20 @@ export default config({
         content: fields.markdoc({ label: 'Notes', extension: 'md' }),
       },
     }),
+    websites: collection({
+      label: 'Websites I Like',
+      slugField: 'title',
+      path: 'content/websites/*',
+      schema: {
+        title: fields.slug({
+          name: { label: 'Title' },
+          slug: { label: 'Slug' },
+        }),
+        url: fields.text({
+          label: 'URL',
+          validation: { isRequired: true },
+        }),
+      },
+    }),
   },
 })
