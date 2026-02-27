@@ -49,4 +49,8 @@ node_modules
 
 # Postgres
 postgres-data
+website-next-postgres-data
 data/GeoLite2-Country.mmdb
+
+# Website OG images (stored in DB)
+public/website-og-images/
