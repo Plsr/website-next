@@ -56,14 +56,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${font.variable} ${font2.variable}`}>
-      <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-base-950 text-base-100">
+      <body className="min-h-screen font-body overflow-x-hidden bg-base-950 text-base-100">
         <Analytics />
-        <Header />
         <ContextMenu />
-        <main className="max-w-xl w-full mx-auto px-4 mb-12 mt-8">
-          {children}
-        </main>
-        <Footer />
+        <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col md:flex-row md:items-start">
+          <Header />
+          <div className="flex min-h-screen flex-1 flex-col">
+            <main className="mt-8 mb-12 w-full max-w-xl px-4 md:mt-12 md:px-6">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </div>
       </body>
     </html>
   )
