@@ -16,6 +16,7 @@ export default defineConfig({
       components: resolve(__dirname, './components'),
       '@components': resolve(__dirname, './components'),
       lib: resolve(__dirname, './lib'),
+      'keystatic.config': resolve(__dirname, './keystatic.config.ts'),
     },
   },
 })

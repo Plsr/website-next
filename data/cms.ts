@@ -61,4 +61,20 @@ export const cms = {
       return book
     },
   },
+  scratchpad: {
+    async all() {
+      const entries = await reader.collections.scratchpad.all()
+
+      return entries
+    },
+    async get(slug: string) {
+      const entry = await reader.collections.scratchpad.read(slug)
+
+      if (!entry) {
+        return null
+      }
+
+      return entry
+    },
+  },
 }
