@@ -26,7 +26,7 @@ export default async function PostsIndex(props: PostsIndexProps) {
 
   return (
     <>
-      <h2 className="prose dark:prose-invert flex items-center mb-8">
+      <h2 className="prose flex items-center mb-8">
         <span className="text-xl font-bold block mr-2">
           All {posts.length} Posts tagged
         </span>

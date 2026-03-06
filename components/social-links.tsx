@@ -43,7 +43,7 @@ export const SocialLinks = () => {
           alt="Linkedin Account"
           width="20"
           height="20"
-          className="invert opacity-60 group-hover:opacity-100 transition-opacity duration-200"
+          className="opacity-60 group-hover:opacity-100 transition-opacity duration-200"
         />
       </a>
       <a
@@ -54,7 +54,7 @@ export const SocialLinks = () => {
       >
         <SendIcon
           aria-label="Email"
-          className="w-5 h-5 text-white opacity-60 group-hover:opacity-100 transition-opacity duration-200"
+          className="w-5 h-5 text-base-100 opacity-60 group-hover:opacity-100 transition-opacity duration-200"
         />
       </a>
     </div>

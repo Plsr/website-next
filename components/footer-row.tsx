@@ -9,7 +9,7 @@ type FooterRowProps = {
 export function FooterRow({ listItems, title }: FooterRowProps) {
   return (
     <div className="mb-8 md:mb-0">
-      <h4 className="font-title font-bold mb-2 dark:text-base-100 text-base-700">
+      <h4 className="font-title font-bold mb-2 text-base-100">
         {title}
       </h4>
       <div>

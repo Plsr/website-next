@@ -22,7 +22,7 @@ export default async function Page({ searchParams }: PageProps) {
   const chartData = await getPageViewsOverTime(selectedRange)
 
   return (
-    <div className="prose prose-invert">
+    <div className="prose">
       <h1>Analytics Page</h1>
       <p>Total Page Views: {totalCount}</p>
 

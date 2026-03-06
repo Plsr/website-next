@@ -12,7 +12,7 @@ export default async function WantToReadPage() {
 
   return (
     <>
-      <div className="prose prose-invert mb-8">
+      <div className="prose mb-8">
         <h1>Books</h1>
       </div>
 

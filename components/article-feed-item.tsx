@@ -36,7 +36,7 @@ export const ArticleFeedItem = async ({ article }: Props) => {
         {format(new Date(article.entry.createdAt), 'do LLL, yyyy')}
       </time>
 
-      <div className="prose prose-invert prose-img:rounded-lg mb-4">
+      <div className="prose prose-img:rounded-lg mb-4">
         {Markdoc.renderers.react(renderable, React)}
       </div>
 

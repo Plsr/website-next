@@ -66,7 +66,7 @@ const LibraryArticleDetailPage = async (props: Params) => {
   const renderable = Markdoc.transform(node)
 
   return (
-    <div className="prose prose-invert">
+    <div className="prose">
       <Link
         href="/library/articles"
         className="text-sm text-base-700 mb-1 block"
@@ -78,7 +78,7 @@ const LibraryArticleDetailPage = async (props: Params) => {
         Link: <a href={libraryArticle.link}>{libraryArticle.link}</a>
       </span>
 
-      <div className="prose-invert prose prose-img:rounded-lg">
+      <div className="prose prose-img:rounded-lg">
         {Markdoc.renderers.react(renderable, React)}
       </div>
 

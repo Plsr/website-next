@@ -101,7 +101,7 @@ const BookDetailPage = async (props: Params) => {
       </div>
 
       {hasContent && (
-        <div className="prose prose-invert mt-8 prose-img:rounded-lg">
+        <div className="prose mt-8 prose-img:rounded-lg">
           {Markdoc.renderers.react(renderable, React)}
         </div>
       )}

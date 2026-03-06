@@ -2,7 +2,7 @@ import { PageTitleWithSubline } from '../../components/page-title-with-subline'
 
 const PrivacyPage = () => {
   return (
-    <div className="prose prose-invert">
+    <div className="prose">
       <PageTitleWithSubline
         title="Privacy Policy"
         subline={

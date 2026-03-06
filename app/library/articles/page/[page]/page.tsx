@@ -42,7 +42,7 @@ const ArticlesPaginatedPage = async (props: Params) => {
 
   return (
     <>
-      <div className="prose prose-invert mb-12">
+      <div className="prose mb-12">
         <h1>Article reading notes</h1>
         <p>Notes on articles I read and found interesting.</p>
       </div>
