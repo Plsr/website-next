@@ -1,7 +1,5 @@
 import Link from 'next/link'
 
-import { SocialLinks } from './social-links'
-
 const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
 
 export default function Footer() {
