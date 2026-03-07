@@ -25,40 +25,4 @@ export const cms = {
       return post
     },
   },
-  readingNotes: {
-    async all() {
-      const readingNotes = await reader.collections.readingNotes.all()
-
-      return readingNotes
-    },
-    async get(slug: string) {
-      const sanitizedSlug = slug.toLowerCase()
-
-      const note = await reader.collections.readingNotes.read(sanitizedSlug)
-
-      if (!note) {
-        return null
-      }
-
-      return note
-    },
-  },
-  books: {
-    async all() {
-      const books = await reader.collections.books.all()
-
-      return books
-    },
-    async get(slug: string) {
-      const sanitizedSlug = slug.toLowerCase()
-
-      const book = await reader.collections.books.read(sanitizedSlug)
-
-      if (!book) {
-        return null
-      }
-
-      return book
-    },
-  },
 }

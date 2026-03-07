@@ -19,7 +19,7 @@ export const PostListItem = ({ post, slug }: Props) => {
       <span className="group-hover:text-base-50 transition-colors">
         {post.title}
       </span>
-      <span className="text-sm dark:text-base-600 text-base-400 group-hover:text-base-500 transition-colors">
+      <span className="text-sm text-base-400 group-hover:text-base-500 transition-colors">
         {format(new Date(post.date), 'do LLL, yyyy')}
       </span>
     </Link>

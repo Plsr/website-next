@@ -10,7 +10,7 @@ export const StyledArticleContent = ({
 }: StyledArticleContentProps) => {
   return (
     <div
-      className="prose-invert prose prose-img:rounded-lg"
+      className="prose prose-img:rounded-lg"
       dangerouslySetInnerHTML={{ __html: contentHtml }}
       {...rest}
     />

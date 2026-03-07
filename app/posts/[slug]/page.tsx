@@ -56,11 +56,11 @@ export default async function Post(props: Params) {
   const { date, isDraft, title, tags, renderableContent } = postData
 
   return (
-    <div className="mx-auto max-w-xl mb-16">
+    <div className="mx-auto max-w-[760px] mb-16">
       <div>
         <div className="mb-4">
           <PostMetadata>{date}</PostMetadata>
-          <h2 className="mt-0 font-bold text-3xl font-title">{title}</h2>
+          <h2 className="mt-0 font-bold text-3xl">{title}</h2>
           {isDraft && (
             <div className="rounded-lg p-4 my-6 bg-rose-bud-700/10 border border-rose-bud-900 text-indigo-bud-200 text-sm">
               This post is a draft. It&apos;s not complete yet and may never be.

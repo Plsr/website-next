@@ -2,25 +2,10 @@ import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
 
-import { Analytics } from 'components/analytics'
-import { ContextMenu } from 'components/context-menu'
 import { Metadata } from 'next'
-import { Instrument_Serif, Schibsted_Grotesk } from 'next/font/google'
 
 import Footer from '../components/footer'
 import Header from '../components/header'
-
-const font = Instrument_Serif({
-  weight: ['400'],
-  subsets: ['latin'],
-  variable: '--font-headline',
-})
-
-const font2 = Schibsted_Grotesk({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  variable: '--font-main',
-})
 
 export const metadata: Metadata = {
   title: 'Chris Jarling',
@@ -55,12 +40,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${font.variable} ${font2.variable}`}>
-      <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-base-950 text-base-100">
-        <Analytics />
+    <html lang="en">
+      <body className="h-screen flex flex-col overflow-x-hidden bg-base-950 text-base-100">
         <Header />
-        <ContextMenu />
-        <main className="max-w-xl w-full mx-auto px-4 mb-12 mt-8">
+        <main className="max-w-[760px] w-full mx-auto px-4 mb-12 mt-8">
           {children}
         </main>
         <Footer />

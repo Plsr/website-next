@@ -7,7 +7,7 @@ type Props = {
 }
 export const MarkdocRenderer = ({ renderableContent }: Props) => {
   return (
-    <div className="prose-invert prose prose-img:rounded-lg">
+    <div className="prose prose-img:rounded-lg">
       {Markdoc.renderers.react(renderableContent, React)}
     </div>
   )
