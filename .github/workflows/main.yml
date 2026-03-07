@@ -8,14 +8,10 @@ jobs:
   ci:
     uses: ./.github/workflows/ci.yml
     secrets: inherit
-  migrate:
-    uses: ./.github/workflows/migrate.yml
-    needs: ci
-    secrets: inherit
 
   publish-release:
     runs-on: ubuntu-24.04-arm
-    needs: [ci, migrate]
+    needs: [ci]
     env:
       REGISTRY: ghcr.io
       IMAGE_NAME: plsr/website-next
