@@ -112,9 +112,5 @@ export async function register() {
     console.info = createConsoleMethod(logger, 'info')
     console.warn = createConsoleMethod(logger, 'warn')
     console.debug = createConsoleMethod(logger, 'debug')
-
-    // Download MaxMind database from Railway Bucket on startup
-    const { downloadMaxMindDatabase } = await import('./lib/download-maxmind')
-    await downloadMaxMindDatabase()
   }
 }

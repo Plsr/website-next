@@ -1,4 +1,5 @@
-import { FooterRow } from './footer-row'
+import Link from 'next/link'
+
 import { SocialLinks } from './social-links'
 
 const copyrightString = `© ${new Date().getFullYear()} Chris Jarling`
@@ -8,57 +9,13 @@ export default function Footer() {
     <div className="mt-auto">
       <div className="px-8 py-12">
         <div className="max-w-[760px] mx-auto text-gray-100">
-          <div className="flex flex-col md:flex-row justify-between">
-            <FooterRow
-              title="Pages"
-              listItems={[
-                <FooterRow.Item key="me" href="/about" text="About" />,
-                <FooterRow.Item
-                  key="site"
-                  href="/colophon"
-                  text="This site"
-                  hidden
-                />,
-                <FooterRow.Item key="now" href="/now" text="Now" />,
-                <FooterRow.Item key="uses" href="/uses" text="Uses" hidden />,
-                <FooterRow.Item key="cv" href="/cv" text="CV" hidden />,
-              ]}
-            />
-            <FooterRow
-              title="Collections"
-              listItems={[
-                <FooterRow.Item key="blog" href="/posts" text="Blog" />,
-                <FooterRow.Item key="tags" href="/tags" text="Tags" />,
-                <FooterRow.Item
-                  key="books"
-                  href="/library/books"
-                  text="Books"
-                />,
-                <FooterRow.Item
-                  key="articleNotes"
-                  href="/library/articles"
-                  text="Reading Notes"
-                />,
-                <FooterRow.Item
-                  key="tools"
-                  href="https://tools.chrisjarling.com"
-                  text="Tools"
-                />,
-              ]}
-            />
-            <FooterRow
-              title="Legal"
-              listItems={[
-                <FooterRow.Item
-                  key="privacy"
-                  href="/privacy"
-                  text="Privacy Policy"
-                />,
-              ]}
-            />
-          </div>
-          <div className="mt-6 opacity-60 flex justify-center items-center">
-            <SocialLinks />
+          <div className="flex justify-center">
+            <Link
+              href="/tags"
+              className="underline-offset-4 hover:underline text-base-500"
+            >
+              Tags
+            </Link>
           </div>
           <div className="mt-12 flex justify-center items-center text-base-500">
             <small>

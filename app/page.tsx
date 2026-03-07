@@ -50,7 +50,7 @@ export default async function Home({
                 {format(new Date(post.entry.date), 'do LLL, yyyy')}
               </PostMetadata>
               <Link href={`/posts/${post.slug}`}>
-                <h2 className="mt-0 font-bold text-3xl font-title hover:text-accent-600 transition-colors">
+                <h2 className="mt-0 font-bold text-3xl hover:text-accent-600 transition-colors">
                   {post.entry.title}
                 </h2>
               </Link>

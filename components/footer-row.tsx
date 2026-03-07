@@ -9,9 +9,7 @@ type FooterRowProps = {
 export function FooterRow({ listItems, title }: FooterRowProps) {
   return (
     <div className="mb-8 md:mb-0">
-      <h4 className="font-title font-bold mb-2 text-base-100">
-        {title}
-      </h4>
+      <h4 className="font-bold mb-2 text-base-100">{title}</h4>
       <div>
         {listItems.map((item, index) =>
           cloneElement(item, {
@@ -26,19 +24,9 @@ export function FooterRow({ listItems, title }: FooterRowProps) {
 type FooterRowItemProps = {
   href: string
   text: string
-  hidden?: boolean
 }
 
-function FooterRowItem({
-  href,
-  text,
-  hidden = false,
-  ...rest
-}: FooterRowItemProps) {
-  if (hidden) {
-    return null
-  }
-
+function FooterRowItem({ href, text, ...rest }: FooterRowItemProps) {
   return (
     <div {...rest}>
       <Link

@@ -2,8 +2,6 @@ import './prism-atom-dark.css'
 import './tailwind.css'
 import './global.css'
 
-import { Analytics } from 'components/analytics'
-import { ContextMenu } from 'components/context-menu'
 import { Metadata } from 'next'
 
 import Footer from '../components/footer'
@@ -43,10 +41,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen flex flex-col font-body  overflow-x-hidden bg-base-950 text-base-100">
-        <Analytics />
+      <body className="h-screen flex flex-col overflow-x-hidden bg-base-950 text-base-100">
         <Header />
-        <ContextMenu />
         <main className="max-w-[760px] w-full mx-auto px-4 mb-12 mt-8">
           {children}
         </main>
