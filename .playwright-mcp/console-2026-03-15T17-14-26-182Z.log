@@ -54,3 +54,19 @@
 [   24244ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/toolbar-JH43WFCD.js?v=f32089db:0
 [   24244ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/ui-library-CVJJS54O.js?v=f32089db:0
 [   24249ms] Failed to fetch dynamically imported module: http://localhost:4321/node_modules/.vite/deps/astro-SR4G3V2M.js?v=f32089db
+[   57424ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/astro-SR4G3V2M.js?v=f32089db:0
+[   57424ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/audit-FLQTXLDU.js?v=f32089db:0
+[   57424ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/xray-CF6V4ZL5.js?v=f32089db:0
+[   57424ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/settings-PXE2HJFE.js?v=f32089db:0
+[   57424ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/toolbar-JH43WFCD.js?v=f32089db:0
+[   57424ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/ui-library-CVJJS54O.js?v=f32089db:0
+[   57428ms] Failed to fetch dynamically imported module: http://localhost:4321/node_modules/.vite/deps/astro-SR4G3V2M.js?v=f32089db
+[   65905ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/astro-SR4G3V2M.js?v=f32089db:0
+[   65917ms] Failed to fetch dynamically imported module: http://localhost:4321/node_modules/.vite/deps/astro-SR4G3V2M.js?v=f32089db
+[   65905ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/audit-FLQTXLDU.js?v=f32089db:0
+[   65905ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/xray-CF6V4ZL5.js?v=f32089db:0
+[   65909ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/settings-PXE2HJFE.js?v=f32089db:0
+[   65911ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/toolbar-JH43WFCD.js?v=f32089db:0
+[   65912ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep) @ http://localhost:4321/node_modules/.vite/deps/ui-library-CVJJS54O.js?v=f32089db:0
+[ 1360458ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/favicon.ico:0
+[ 1360461ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/favicon.svg:0
