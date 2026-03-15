@@ -9,9 +9,54 @@ import '../styles/global.css'
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet" />
 		<title>Hello World</title>
+		<script is:inline>
+			const theme = localStorage.getItem('theme') ??
+				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			document.documentElement.classList.toggle('dark', theme === 'dark');
+		</script>
 	</head>
-	<body class="flex items-center justify-center min-h-screen bg-gray-950 text-white">
-		<h1 class="text-4xl font-bold">Hello World</h1>
+	<body class="min-h-screen bg-white text-gray-950 dark:bg-gray-950 dark:text-white transition-colors">
+		<main class="max-w-2xl mx-auto px-6 py-16">
+			<h1 class="text-5xl font-bold mb-4">The Quick Brown Fox</h1>
+			<h2 class="text-3xl font-semibold mb-2 text-gray-700 dark:text-gray-300">A Subtitle in Signika</h2>
+			<h3 class="text-xl font-medium mb-8 text-gray-500 dark:text-gray-400">Exploring weights and sizes</h3>
+
+			<p class="text-lg leading-relaxed mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+			<p class="text-base leading-relaxed mb-6">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.</p>
+
+			<p class="text-sm leading-relaxed mb-8 text-gray-600 dark:text-gray-400">Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula ut dictum pharetra, nisi nunc fringilla magna, in commodo elit erat nec turpis.</p>
+
+			<div class="space-y-2 mb-8">
+				<p class="font-light">Light (300): The quick brown fox jumps over the lazy dog.</p>
+				<p class="font-normal">Regular (400): The quick brown fox jumps over the lazy dog.</p>
+				<p class="font-medium">Medium (500): The quick brown fox jumps over the lazy dog.</p>
+				<p class="font-semibold">Semibold (600): The quick brown fox jumps over the lazy dog.</p>
+				<p class="font-bold">Bold (700): The quick brown fox jumps over the lazy dog.</p>
+			</div>
+		</main>
+		<button
+			id="theme-toggle"
+			class="fixed top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+			aria-label="Toggle dark mode"
+		>
+			<svg class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<circle cx="12" cy="12" r="5" />
+				<path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+			</svg>
+			<svg class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+			</svg>
+		</button>
+		<script is:inline>
+			document.getElementById('theme-toggle').addEventListener('click', () => {
+				const isDark = document.documentElement.classList.toggle('dark');
+				localStorage.setItem('theme', isDark ? 'dark' : 'light');
+			});
+		</script>
 	</body>
 </html>
