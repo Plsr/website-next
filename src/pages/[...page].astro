@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
-import '../styles/global.css';
+import Base from '../layouts/Base.astro';
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = (await getCollection('posts'))
@@ -13,60 +13,55 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 const { page } = Astro.props;
 
-const rendered = await Promise.all(page.data.map(async (post) => ({
-  post,
-  Content: (await render(post)).Content,
-})));
+const rendered = await Promise.all(page.data.map(async (post) => {
+  const paragraphs = post.body.split(/\n\n+/).filter((p: string) => p.trim());
+  return {
+    post,
+    Content: (await render(post)).Content,
+    needsTruncation: paragraphs.length > 3,
+  };
+}));
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet" />
-		<title>{page.currentPage > 1 ? `Blog - Page ${page.currentPage}` : 'Blog'}</title>
-		<script is:inline>
-			const theme = localStorage.getItem('theme') ??
-				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-			document.documentElement.classList.toggle('dark', theme === 'dark');
-		</script>
-	</head>
-	<body class="min-h-screen bg-white text-gray-950 dark:bg-gray-950 dark:text-white transition-colors">
-		<main class="max-w-xl mx-auto px-6 py-16">
-			<h1 class="sr-only">Chris Jarling</h1>
-			<div class="space-y-16">
-				{rendered.map(({ post, Content }) => (
-					<article>
-						<a href={`/posts/${post.id}`}><h2 class="text-3xl font-bold mb-1">{post.data.title}</h2></a>
-						<time class="text-sm text-gray-500 dark:text-gray-400 mb-4 block">
-							{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-						</time>
-						<div class="prose dark:prose-invert max-w-none">
-							<Content />
-						</div>
-					</article>
-				))}
-			</div>
+<Base title={page.currentPage > 1 ? `Page ${page.currentPage} - Chris Jarling` : 'Chris Jarling'}>
+	<style is:global>
+		.truncated > :nth-child(n + 4) {
+			display: none;
+		}
+	</style>
+	<h1 class="sr-only">Chris Jarling</h1>
+	<div class="space-y-24">
+		{rendered.map(({ post, Content, needsTruncation }) => (
+			<article>
+				<a href={`/posts/${post.id}`}><h2 class="text-3xl font-bold mb-1">{post.data.title}</h2></a>
+				<time class="text-sm text-gray-500 dark:text-gray-400 mb-4 block">
+					{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+				</time>
+				<div class:list={["prose dark:prose-invert max-w-none", { truncated: needsTruncation }]}>
+					<Content />
+				</div>
+				{needsTruncation && (
+					<a href={`/posts/${post.id}`} class="inline-block mt-4 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
+						Read more &rarr;
+					</a>
+				)}
+			</article>
+		))}
+	</div>
 
-			<nav class="flex items-center justify-between mt-16 text-sm">
-				{page.url.prev ? (
-					<a href={page.url.prev} class="text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
-						&larr; Newer posts
-					</a>
-				) : <span />}
-				<span class="text-gray-400 dark:text-gray-500">
-					{page.currentPage} / {page.lastPage}
-				</span>
-				{page.url.next ? (
-					<a href={page.url.next} class="text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
-						Older posts &rarr;
-					</a>
-				) : <span />}
-			</nav>
-		</main>
-	</body>
-</html>
+	<nav class="flex items-center justify-between mt-16 text-sm">
+		{page.url.prev ? (
+			<a href={page.url.prev} class="text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
+				&larr; Newer posts
+			</a>
+		) : <span />}
+		<span class="text-gray-400 dark:text-gray-500">
+			{page.currentPage} / {page.lastPage}
+		</span>
+		{page.url.next ? (
+			<a href={page.url.next} class="text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
+				Older posts &rarr;
+			</a>
+		) : <span />}
+	</nav>
+</Base>

@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
-import '../../styles/global.css';
+import Base from '../../layouts/Base.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -14,32 +14,13 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet" />
-		<title>{post.data.title}</title>
-		<script is:inline>
-			const theme = localStorage.getItem('theme') ??
-				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-			document.documentElement.classList.toggle('dark', theme === 'dark');
-		</script>
-	</head>
-	<body class="min-h-screen bg-white text-gray-950 dark:bg-gray-950 dark:text-white transition-colors">
-		<main class="max-w-xl mx-auto px-6 py-16">
-			<a href="/" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 mb-8 inline-block">&larr; Back</a>
-			<h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>
-			<time class="text-sm text-gray-500 dark:text-gray-400 mb-8 block">
-				{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-			</time>
-			<article class="prose dark:prose-invert max-w-none">
-				<Content />
-			</article>
-		</main>
-	</body>
-</html>
+<Base title={`${post.data.title} - Chris Jarling`}>
+	<a href="/" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 mb-8 inline-block">&larr; Back</a>
+	<h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>
+	<time class="text-sm text-gray-500 dark:text-gray-400 mb-8 block">
+		{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+	</time>
+	<article class="prose dark:prose-invert max-w-none">
+		<Content />
+	</article>
+</Base>
