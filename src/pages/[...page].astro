@@ -1,12 +1,19 @@
 ---
+import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
 import '../styles/global.css';
 
-const posts = (await getCollection('posts'))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = (await getCollection('posts'))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
-const rendered = await Promise.all(posts.map(async (post) => ({
+  return paginate(posts, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+
+const rendered = await Promise.all(page.data.map(async (post) => ({
   post,
   Content: (await render(post)).Content,
 })));
@@ -21,7 +28,7 @@ const rendered = await Promise.all(posts.map(async (post) => ({
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet" />
-		<title>Blog</title>
+		<title>{page.currentPage > 1 ? `Blog - Page ${page.currentPage}` : 'Blog'}</title>
 		<script is:inline>
 			const theme = localStorage.getItem('theme') ??
 				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -44,6 +51,22 @@ const rendered = await Promise.all(posts.map(async (post) => ({
 					</article>
 				))}
 			</div>
+
+			<nav class="flex items-center justify-between mt-16 text-sm">
+				{page.url.prev ? (
+					<a href={page.url.prev} class="text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
+						&larr; Newer posts
+					</a>
+				) : <span />}
+				<span class="text-gray-400 dark:text-gray-500">
+					{page.currentPage} / {page.lastPage}
+				</span>
+				{page.url.next ? (
+					<a href={page.url.next} class="text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
+						Older posts &rarr;
+					</a>
+				) : <span />}
+			</nav>
 		</main>
 	</body>
 </html>
