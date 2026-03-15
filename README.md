@@ -1,82 +1,43 @@
-This is a personal website built with [Next.js 15](https://nextjs.org/) (App Router), featuring a blog, library, and content management system.
+# Astro Starter Kit: Minimal
 
-## Getting Started
-
-This project uses **pnpm** as the package manager. Install dependencies:
-
-```bash
-pnpm install
+```sh
+pnpm create astro@latest -- --template minimal
 ```
 
-Run the development server:
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```bash
-pnpm dev
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## Available Scripts
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-- `pnpm dev` - Start development server with Turbopack
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint
-- `pnpm lint:fix` - Auto-fix linting issues
-- `pnpm format` - Format code with Prettier
-- `pnpm format:check` - Check formatting without changes
-- `pnpm test` - Run tests with Vitest
-- `pnpm test:watch` - Run tests in watch mode
-- `pnpm typecheck` - Run TypeScript type checking
+Any static assets, like images, can be placed in the `public/` directory.
 
-## Testing
+## 🧞 Commands
 
-This project uses [Vitest](https://vitest.dev/) with React Testing Library for unit and integration tests.
+All commands are run from the root of the project, from a terminal:
 
-### Running Tests
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-```bash
-# Run all tests once
-pnpm test
+## 👀 Want to learn more?
 
-# Run tests in watch mode
-pnpm test:watch
-
-# Run type checking
-pnpm typecheck
-```
-
-### Writing Tests
-
-Tests should be placed in `__tests__` directories or named with `.test.ts(x)` or `.spec.ts(x)` extensions. The test setup automatically includes `@testing-library/jest-dom` matchers.
-
-Example test structure:
-
-```tsx
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
-
-import { MyComponent } from '../my-component'
-
-describe('MyComponent', () => {
-  it('renders correctly', () => {
-    render(<MyComponent />)
-    expect(screen.getByText('Hello')).toBeInTheDocument()
-  })
-})
-```
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
