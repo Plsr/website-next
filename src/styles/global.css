@@ -1,7 +1,24 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
 	--font-sans: "Signika", sans-serif;
+}
+
+.prose img {
+	margin-left: -2rem;
+	margin-right: -2rem;
+	max-width: calc(100% + 4rem);
+	width: calc(100% + 4rem);
+	border-radius: 0.5rem;
+}
+
+.prose pre {
+	margin-left: -2rem;
+	margin-right: -2rem;
+	max-width: calc(100% + 4rem);
+	width: calc(100% + 4rem);
+	border-radius: 0.5rem;
 }
