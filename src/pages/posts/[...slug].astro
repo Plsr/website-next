@@ -15,7 +15,6 @@ const { Content } = await render(post);
 ---
 
 <Base title={`${post.data.title} - Chris Jarling`}>
-	<a href="/" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 mb-8 inline-block">&larr; Back</a>
 	<h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>
 	<time class="text-sm text-gray-500 dark:text-gray-400 mb-8 block">
 		{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
