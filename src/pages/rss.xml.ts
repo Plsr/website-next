@@ -12,10 +12,10 @@ export async function GET(context: APIContext) {
     description: 'Personal blog of Chris Jarling',
     site: context.site!,
     items: posts.map((post) => ({
-      title: post.data.title,
+      title: post.data.link ? `${post.data.title} →` : post.data.title,
       pubDate: new Date(post.data.date),
       description: post.data.excerpt,
-      link: `/posts/${post.id}/`,
+      link: post.data.link ?? `/posts/${post.id}/`,
     })),
   });
 }

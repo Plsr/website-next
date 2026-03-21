@@ -18,7 +18,7 @@ const rendered = await Promise.all(page.data.map(async (post) => {
   return {
     post,
     Content: (await render(post)).Content,
-    needsTruncation: paragraphs.length > 3,
+    needsTruncation: !post.data.link && paragraphs.length > 3,
   };
 }));
 ---
@@ -33,18 +33,31 @@ const rendered = await Promise.all(page.data.map(async (post) => {
 	<div class="space-y-24">
 		{rendered.map(({ post, Content, needsTruncation }) => (
 			<article>
-				<a href={`/posts/${post.id}`}><h2 class="text-3xl font-bold mb-1">{post.data.title}</h2></a>
-				<time class="text-sm text-gray-500 dark:text-gray-400 mb-4 block">
-					{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-				</time>
+				{post.data.link ? (
+					<a href={post.data.link} target="_blank" rel="noopener"><h2 class="text-3xl font-bold mb-1 text-blue-400 dark:text-blue-300">{post.data.title} &rarr;</h2></a>
+				) : (
+					<a href={`/posts/${post.id}`}><h2 class="text-3xl font-bold mb-1">{post.data.title}</h2></a>
+				)}
+				<a href={`/posts/${post.id}`} class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
+					<time class="mb-4 block">
+						{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+					</time>
+				</a>
 				<div class:list={["prose prose-lg md:prose-base dark:prose-invert max-w-none", { truncated: needsTruncation }]}>
 					<Content />
 				</div>
-				{needsTruncation && (
+				{post.data.link ? (
+					<a href={`/posts/${post.id}`} class="inline-flex items-center gap-1 mt-4 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+						</svg>
+						Permalink
+					</a>
+				) : needsTruncation ? (
 					<a href={`/posts/${post.id}`} class="inline-block mt-4 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white transition-colors">
 						Read more &rarr;
 					</a>
-				)}
+				) : null}
 			</article>
 		))}
 	</div>
