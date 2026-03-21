@@ -1,0 +1,19 @@
+---
+interface Props {
+  src1: string;
+  alt1: string;
+  src2: string;
+  alt2: string;
+  caption?: string;
+}
+
+const { src1, alt1, src2, alt2, caption } = Astro.props;
+---
+
+<figure class="image-pair">
+  <div class="image-pair-grid">
+    <img src={src1} alt={alt1} />
+    <img src={src2} alt={alt2} />
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

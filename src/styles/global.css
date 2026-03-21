@@ -15,6 +15,55 @@
 	border-radius: 0.5rem;
 }
 
+.prose figure {
+	margin-left: -2rem;
+	margin-right: -2rem;
+	max-width: calc(100% + 4rem);
+	width: calc(100% + 4rem);
+}
+
+.prose figure img {
+	margin-left: 0;
+	margin-right: 0;
+	max-width: 100%;
+	width: 100%;
+	border-radius: 0.5rem;
+}
+
+.prose figure figcaption {
+	text-align: center;
+	font-size: 0.875rem;
+	color: var(--color-gray-500);
+	margin-top: 0.5rem;
+}
+
+.prose .image-pair {
+	margin-left: -2rem;
+	margin-right: -2rem;
+	max-width: calc(100% + 4rem);
+	width: calc(100% + 4rem);
+}
+
+.prose .image-pair .image-pair-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+	.prose .image-pair .image-pair-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.prose .image-pair img {
+	margin-left: 0;
+	margin-right: 0;
+	max-width: 100%;
+	width: 100%;
+	border-radius: 0.5rem;
+}
+
 .prose pre {
 	margin-left: -2rem;
 	margin-right: -2rem;

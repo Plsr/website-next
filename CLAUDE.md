@@ -25,3 +25,7 @@ Personal website built with Astro 6, Tailwind CSS 4, and TypeScript. Currently i
 - `src/styles/global.css` — global Tailwind entry point (`@import "tailwindcss"`)
 - `public/` — static assets served at root (favicons)
 - `astro.config.mjs` — Astro + Vite/Tailwind configuration
+
+## Documentation
+
+- `docs/images.md` — how to use captioned images and image pairs in posts
