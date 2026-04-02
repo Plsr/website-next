@@ -1,10 +1,18 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+html {
+	font-size: 18px;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-	--font-sans: "Signika", sans-serif;
+	--font-sans: "Gentium Plus", serif;
+	--color-paper: #f7f3eb;
+	--color-ink: #2c2318;
+	--color-accent: #9b1c1c;
+	--color-accent-muted: #f87171;
 }
 
 .prose img {

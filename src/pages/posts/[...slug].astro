@@ -17,7 +17,7 @@ const { Content } = await render(post);
 <Base title={`${post.data.title} - Chris Jarling`}>
 	{post.data.link ? (
 		<a href={post.data.link} target="_blank" rel="noopener">
-			<h1 class="text-4xl font-bold mb-2 text-blue-400 dark:text-blue-300">{post.data.title} &rarr;</h1>
+			<h1 class="text-4xl font-bold mb-2 text-accent dark:text-accent-muted">{post.data.title} &rarr;</h1>
 		</a>
 	) : (
 		<h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>

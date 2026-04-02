@@ -30,11 +30,11 @@ const rendered = await Promise.all(page.data.map(async (post) => {
 		}
 	</style>
 	<h1 class="sr-only">Chris Jarling</h1>
-	<div class="space-y-24">
+	<div class="space-y-32">
 		{rendered.map(({ post, Content, needsTruncation }) => (
 			<article>
 				{post.data.link ? (
-					<a href={post.data.link} target="_blank" rel="noopener"><h2 class="text-3xl font-bold mb-1 text-blue-400 dark:text-blue-300">{post.data.title} &rarr;</h2></a>
+					<a href={post.data.link} target="_blank" rel="noopener"><h2 class="text-3xl font-bold mb-1 text-accent dark:text-accent-muted">{post.data.title} &rarr;</h2></a>
 				) : (
 					<a href={`/posts/${post.id}`}><h2 class="text-3xl font-bold mb-1">{post.data.title}</h2></a>
 				)}
